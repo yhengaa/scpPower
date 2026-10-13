@@ -1,3 +1,12 @@
+# scpPower 0.1.0
+
+* Frozen addendum v1.1.2: TMT missingness is fitted from raw reporter-ion
+  PSM assays while preserving the accepted ratio-based variance components.
+  Brunner's one-cell-per-run variance is reported as total within-line cell
+  variance after cell median shifts, with batch variance absorbed into it.
+* Closes M1 with five dataset/instrument calibrations and registers the
+  M2 simulator and its fidelity gate, without changing the M4 criterion.
+
 # scpPower 0.0.1
 
 * Introduces `scp_calibrate()` for processed matrices and explicitly selected

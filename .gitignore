@@ -9,3 +9,4 @@ renv/staging/
 renv/cache/
 reports/M1/*install.log
 reports/M1/bootstrap.log
+.renv-cache/

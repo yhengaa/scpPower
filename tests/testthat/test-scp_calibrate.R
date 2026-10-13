@@ -217,3 +217,30 @@ test_that("QFeatures requires an explicit eligible assay and preserves metadata"
     expect_equal(r$proteins$mean_log2[1],2)
     expect_equal(r$manifest$cells,1)
  })
+
+ test_that("amendment E separates the missingness assay from retained variance", {
+    f <- fixture()
+    set.seed(219)
+    raw <- matrix(rnorm(12*80,sd=.1),12,80)+seq(5,16,length.out=12)
+    raw[matrix(runif(length(raw)),12,80)>plogis(-8+.7*rowMeans(raw))] <- NA_real_
+    dimnames(raw) <- dimnames(f$x)
+    old <- scp_calibrate(f$x,f$meta,sample_col='sample')
+    new <- scp_calibrate(f$x,f$meta,sample_col='sample',missingness_input=raw)
+    expect_identical(old$proteins,new$proteins)
+    expect_gt(new$missingness$slope,0)
+    expect_identical(new$manifest$separate_missingness_assay,TRUE)
+    expect_equal(new$missingness_proteins$mean_log2,unname(rowMeans(raw,na.rm=TRUE)))
+ })
+
+ test_that("amendment F identifies the combined cell and run variance", {
+    z <- matrix(c(0,1,2,3, 5,4,3,2),2,4,byrow=TRUE,
+        dimnames=list(c('P1','P2'),paste0('C',1:4)))
+    md <- data.frame(line='HeLa',run=colnames(z),row.names=colnames(z))
+    r <- scp_calibrate(z,md,sample_col='line',batch_col='run',biological_unit='culture',normalize_cells=TRUE,absorb_cell_batches=TRUE)
+    normalized <- sweep(z,2,apply(z,2,median)-median(apply(z,2,median)),'-')
+    expect_equal(r$proteins$sigma2_e,unname(apply(normalized,1,var)))
+    expect_equal(r$proteins$sigma2_b,c(0,0))
+    expect_equal(r$proteins$sigma2_b_reason,rep('absorbed into sigma2_e: one cell per run',2))
+    expect_equal(r$line_components$sigma2_b,c(0,0))
+    expect_true(all(is.finite(r$proteins$sigma2_e)))
+ })

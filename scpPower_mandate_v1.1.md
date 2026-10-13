@@ -105,3 +105,67 @@ Cheung et al. 2021, Nature Methods, PMID 33288958 reports instrument- and ion-sa
 Keep PXD058573. Establish whether it contains proteomics of sorted immune subsets in addition to whole PBMC. If present, report whole-PBMC donor variance and variance of the subset closest to each SCP line's lineage: monocyte-like for U-937 and THP-1 style lines; lymphoid for other lines. State that whole-PBMC variance includes between-donor composition differences. Do not substitute another cohort or invent sorted subsets.
 
 Return together: (1) repository with green CI at the resumed commit; (2) calibration table for every dataset and abundance tier, with both Derks instruments separate; (3) variance-by-tier and fitted missingness panels; (4) a one-page note comparing missing fraction, proteins per cell, and cell CV with source papers, flagging disagreements without adjustment; (5) seeds, input hashes, versions, and wall-time manifest. Preserve the earlier stop evidence. No scp_simulate(), scp_power(), or M4 work is authorised.
+
+## Frozen addendum v1.1.2 — M1 closure and M2, approved 13 October 2026
+
+**Status: FROZEN.** The principal investigator accepts the resumed M1 evidence and approves amendments E and F and the M2 gate below. This addendum replaces only the specified TMT missingness and one-cell-per-run variance clauses. M4 registration in Decision 5 is unchanged. The approved directive is reproduced verbatim below.
+
+# Directive: M1 closure and M2 simulator
+
+13 October 2026
+
+The resumed M1 bundle is accepted. Derks timsTOF, Derks Q Exactive and Brunner are calibrated. The CI run, the 77 tests and the plausibility comparisons are accepted as delivered. Two amendments close the remaining rows; they are decisions, approved now. Add them to the frozen mandate as addendum v1.1.2, record the diff in NEWS.md, then proceed to M2 in the same directive.
+
+## Amendment E: abundance predictor for TMT datasets (Specht, Leduc)
+
+The scpdata peptide assays for both TMT datasets are reference-channel ratios or row-normalised values, so they carry no abundance scale and the missingness curve cannot be fitted from them. The raw scale exists in the per-run PSM assays (the 177 Specht and 134 Leduc run assays), whose columns are the raw reporter-ion intensities of each channel.
+
+- Missingness indicator per protein per single-cell channel: quantified if the raw reporter-ion intensity is finite and above zero in at least one PSM of that protein in that run; otherwise missing. Carrier, reference, empty and blank channels are excluded by `SampleType`.
+- Abundance predictor per protein: the mean over single-cell channels of the log2 raw reporter-ion intensity, aggregated from PSMs to protein by median, computed only where quantified. No normalisation before this step.
+- Fit the registered logistic curve on these two quantities. Report the curve and the slope interval as for the other datasets.
+- Variance components for Specht and Leduc stay as delivered (from the ratio-based peptide assays, which is the scale labs test on). Mark both datasets CALIBRATED once the curve is fitted, with a note that the missingness predictor and the variance scale come from different assays.
+
+## Amendment F: batch term in one-cell-per-run data (Brunner)
+
+When every cell is its own acquisition run, batch and cell noise are the same unit. For such datasets report sigma2_e as the total within-line variance of a cell's log2 value after the per-cell median shift, set sigma2_b to 0 with the reason "absorbed into sigma2_e: one cell per run", and record that this is the per-cell variance a label-free design will actually see. This is not an imputation; it is the identifiable quantity.
+
+## M1 closure
+
+With E and F applied, M1 closes with five calibrated rows (Specht, Leduc, Derks timsTOF, Derks Q Exactive, Brunner). Regenerate the table, the two plots, the plausibility note and the manifest; tag the repository v0.1.0 and publish a GitHub release with the M1 evidence attached.
+
+## M2: scp_simulate()
+
+Implement `scp_simulate(calibration, n_per_condition, m_cells_per_sample, beta, preset, layout, k = 1, seed)` returning a protein-by-cell log2 matrix with NA for missing values and a cell metadata table (sample, condition, batch).
+
+Generation, per protein g in tier t:
+1. mu_g drawn from the calibrated mean log2 of tier t.
+2. Sample effect u_gs ~ N(0, sigma2_s,t) from the Walzik tier estimate, one per biological sample.
+3. Condition effect k * beta_g added to one condition for the proteins flagged as changed (10% by default; argument).
+4. Batch effect v_gb ~ N(0, sigma2_b,t), one per batch, with batches assigned by `layout`: `balanced` (each plex or run holds equal cells from both conditions), `confounded` (each batch holds one condition), or a user matrix. Label-free presets use one batch per cell and sigma2_b = 0 by amendment F.
+5. Cell residual e_gi ~ N(0, sigma2_e,t).
+6. Missingness: each value is set to NA with probability from the dataset's logistic curve evaluated at the expected log2 intensity mu_g + u_gs + v_gb + condition effect (not the realised value).
+
+Presets are YAML files in `inst/presets/`, one per calibrated dataset row, holding the tier table, the curve, the carrier ratio and k. A user can supply their own.
+
+## M2 gate, registered now
+
+For each calibrated dataset, simulate the dataset's own design (its cell lines as samples, its real batch sizes, beta = 0) with the same cell count, 20 replicates, and compare with the observed data:
+
+| Quantity | Tolerance |
+| --- | --- |
+| Missing fraction per tier | within 5 percentage points |
+| Mean proteins per cell | within 10% relative |
+| Median within-line cell SD per tier (log2) | within 20% relative |
+| Between-batch SD per tier, where identified | within 25% relative |
+
+A dataset passes when all four hold. Report every dataset, pass or fail, with the numbers. Do not change the calibration or the simulator to pass; a failure is reported with the suspected cause and the next directive decides.
+
+## Deliverables
+
+1. Repository link at the tagged v0.1.0 release and at the M2 commit, CI green.
+2. Final M1 table, plots, plausibility note and manifest.
+3. `scp_simulate()` documented and tested (at least: reproducibility under a seed, correct dimensions, missing fraction responds to the curve, batch effect responds to layout).
+4. M2 fidelity report: the table above per dataset, with plots of simulated versus observed missingness by intensity and cell SD by tier.
+5. Run manifest with seeds, hashes, versions and wall times.
+
+No work on scp_power() or M4. Stop rules remain per dataset.

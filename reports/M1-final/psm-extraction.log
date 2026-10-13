@@ -1,0 +1,8 @@
+Extracting raw PSMs specht2019v3
+see ?scpdata and browseVignettes('scpdata') for documentation
+loading from cache
+specht2019v3 raw SC 1700 paired 1490 matched proteins 3042 missing 0.7027783
+Extracting raw PSMs leduc2022_pSCoPE
+see ?scpdata and browseVignettes('scpdata') for documentation
+loading from cache
+leduc2022_pSCoPE raw SC 1755 paired 1556 matched proteins 3372 missing 0.6365698

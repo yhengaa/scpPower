@@ -9,3 +9,4 @@
 ^\.Rprofile$
 ^README\.md$
 ^scpPower_.*\.zip$
+^\.renv-cache$

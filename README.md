@@ -7,7 +7,12 @@ The governing [mandate is frozen](scpPower_mandate_v1.1.md). This release covers
 the package skeleton and `scp_calibrate()`; calibration status and limitations
 are recorded in [the M1 evidence](reports/M1).
 
-M1 has resumed under the [frozen addendum v1.1.1](scpPower_mandate_v1.1.md#frozen-addendum-v111--m1-resumption-approved-13-october-2026). All registered datasets and both Derks instruments have been evaluated. The [resumed evidence](reports/M1-resumed) contains the calibration table, plots, one-page plausibility note and manifest. Dataset-specific failures and unidentifiable components are explicitly flagged. The [previous stopped run](reports/M1) is preserved.
+M1 closes under [frozen addendum v1.1.2](scpPower_mandate_v1.1.md).
+The [final M1 evidence](reports/M1-final) calibrates every registered dataset and
+both Derks instruments. TMT missingness uses raw reporter-ion PSMs; its accepted
+ratio-based variance is retained. Brunner combines cell and acquisition-run
+noise as the identified within-line variance. The earlier stopped and resumed
+runs remain in [reports/M1](reports/M1) and [reports/M1-resumed](reports/M1-resumed).
 
 `scp_calibrate()` accepts a protein-by-cell matrix with cell metadata or an
 explicit protein assay from a `QFeatures` object. It returns variance components,
@@ -46,9 +51,7 @@ hashes, preserve seeds and wall time, and regenerate reported results. Use
 fetch and inspect the four registered datasets. Raw data and local libraries
 are excluded from Git. The committed `renv.lock` records the environment.
 
-To regenerate the resumed deliverables from public inputs, run from the package root
-after restoring the committed environment (or preparing the cluster library with
-`bootstrap.R`):
+To reproduce final M1 from public data after restoring the committed environment:
 
 ```sh
 python inst/scripts/fetch_resumed_sources.py
@@ -56,20 +59,18 @@ python inst/scripts/fetch_bulk_metadata.py
 Rscript inst/scripts/inspect_resumed.R
 Rscript inst/scripts/calibrate_resumed.R
 python inst/scripts/extract_paper_benchmarks.py
-Rscript inst/scripts/report_resumed.R
-python inst/scripts/hash_hub_inputs.py M1-resumed
-python inst/scripts/finalize_resumed_manifest.py
+Rscript inst/scripts/extract_tmt_psms.R
+Rscript inst/scripts/close_m1.R
+python inst/scripts/extract_paper_benchmarks.py M1-final
+Rscript inst/scripts/report_final_m1.R
+python inst/scripts/package_m1_evidence.py
 ```
 
-The resumed calibration uses the specified quantitative assays, aggregates measured
-log2 features by protein median, preserves missingness, and applies cell median
-shifts only for variance estimation. Specht's supplied peptide input is already
-normalised and logged; its abundance calibration is flagged and stopped.
-Leduc also retains a significantly negative quantification slope on its
-reference-channel ratios and is stopped separately.
-Derks metadata are matched by physical file and label after detecting permuted row
-names. Brunner has one cell per run, leaving separate cell and run variance
-unidentifiable. No dataset is replaced and no fit is adjusted to match a paper.
+The raw TMT source and variance inputs are paired by their protein and cell
+identifiers, retaining the accepted population without new QC thresholds.
+The two measurement scales are named in the manifest. Derks metadata are
+matched by physical file and label; its accepted estimates are unchanged.
+No estimate is adjusted to match a paper.
 
 Compression is a registered user assumption, never an estimate from these datasets.
 The manifest records the default and sensitivity assumptions and the ratio-standard

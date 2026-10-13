@@ -14,8 +14,13 @@ jobs:
       RENV_CONFIG_AUTOLOADER_ENABLED: 'FALSE'
       RENV_CONFIG_REPOS_OVERRIDE: https://cloud.r-project.org
       _R_CHECK_FORCE_SUGGESTS_: 'true'
+      RENV_PATHS_CACHE: ${{ github.workspace }}/.renv-cache
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/cache@v4
+        with:
+          path: .renv-cache
+          key: bioc-3.23-renv-${{ hashFiles('renv.lock') }}
       - name: Restore registered dependencies
         run: |
           Rscript -e 'options(repos=c(CRAN="https://cloud.r-project.org")); if (!requireNamespace("renv",quietly=TRUE)) install.packages("renv"); renv::restore(prompt=FALSE)'

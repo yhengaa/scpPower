@@ -23,7 +23,10 @@ scp_calibrate(
   biological_unit = c("sample", "culture"),
   normalize_cells = FALSE,
   feature_protein_col = NULL,
-  compression_k = 1
+  compression_k = 1,
+  missingness_input = NULL,
+  missingness_log2_input = TRUE,
+  absorb_cell_batches = FALSE
 )
 }
 \arguments{
@@ -84,9 +87,21 @@ Features are log2 transformed first and aggregated by per-cell median.}
 
 \item{compression_k}{Registered compression assumption, default 1. It is
 not estimated; future sensitivity assumptions are 0.75 and 0.5.}
+
+\item{missingness_input}{Optional protein-by-cell quantitative matrix for
+missingness, separate from the variance matrix. TMT calibration under
+amendment E uses raw reporter-ion protein medians here and ratios in x.}
+
+\item{missingness_log2_input}{Whether missingness_input is already logged.}
+
+\item{absorb_cell_batches}{Apply amendment F when every cell has its own
+run: residual variance becomes total within-line cell variance and batch
+variance is zero because it is absorbed into the cell component. FALSE
+retains the earlier unavailable-component behaviour for compatibility.}
 }
 \value{
-A list containing `proteins`, `tiers`, `missingness`, `curve`,
+A list containing `proteins`, `tiers`, `missingness_proteins`,
+  `missingness`, `curve`,
   `compression`, `bulk_proteins`, and `manifest`. The manifest records versions
   of R, scp, limma, edgeR, and the scplainer workflow, input hashes, seed,
   and elapsed wall time. Every unavailable variance has a reason column.

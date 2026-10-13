@@ -34,6 +34,14 @@
 #' @param feature_protein_col Optional rowData column mapping quantitative
 #'   peptide or precursor rows to protein identifiers for QFeatures input.
 #'   Features are log2 transformed first and aggregated by per-cell median.
+#' @param missingness_input Optional protein-by-cell quantitative matrix for
+#'   missingness, separate from the variance matrix. TMT calibration under
+#'   amendment E uses raw reporter-ion protein medians here and ratios in x.
+#' @param missingness_log2_input Whether missingness_input is already logged.
+#' @param absorb_cell_batches Apply amendment F when every cell has its own
+#'   run: residual variance becomes total within-line cell variance and batch
+#'   variance is zero because it is absorbed into the cell component. FALSE
+#'   retains the earlier unavailable-component behaviour for compatibility.
 #' @param compression_k Registered compression assumption, default 1. It is
 #'   not estimated; future sensitivity assumptions are 0.75 and 0.5.
 #' @param compression_presets Legacy optional data frame with `carrier_ratio`, `k`, and `source`
@@ -75,7 +83,8 @@
 #'   transfer is an assumption requiring a matching cell type and a lab pilot;
 #'   the semi-synthetic M4 protocol cannot validate that assumption.
 #'
-#' @return A list containing `proteins`, `tiers`, `missingness`, `curve`,
+#' @return A list containing `proteins`, `tiers`, `missingness_proteins`,
+#'   `missingness`, `curve`,
 #'   `compression`, `bulk_proteins`, and `manifest`. The manifest records versions
 #'   of R, scp, limma, edgeR, and the scplainer workflow, input hashes, seed,
 #'   and elapsed wall time. Every unavailable variance has a reason column.
@@ -100,7 +109,8 @@ scp_calibrate <- function(x, cell_metadata = NULL, assay = NULL,
                           seed = 20261013L, reference_versions = NULL,
                           biological_unit = c("sample", "culture"),
                           normalize_cells = FALSE, feature_protein_col = NULL,
-                          compression_k = 1) {
+                          compression_k = 1, missingness_input = NULL,
+                          missingness_log2_input = TRUE, absorb_cell_batches = FALSE) {
     biological_unit <- match.arg(biological_unit)
     feature_ids <- NULL
     started <- proc.time()[["elapsed"]]
@@ -151,7 +161,16 @@ scp_calibrate <- function(x, cell_metadata = NULL, assay = NULL,
     tier <- .scp_tiers(means)
     conditions <- if (is.null(condition_col)) rep("all", ncol(x)) else
         as.character(cell_metadata[[condition_col]])
-    curve <- .scp_missingness(x, conditions)
+    missingness_x <- if (is.null(missingness_input)) x else
+        .scp_matrix(missingness_input, missingness_log2_input, "missingness_input")
+    if (is.null(rownames(missingness_x)) || anyDuplicated(rownames(missingness_x)))
+        stop("Missingness proteins require unique identifiers.")
+    curve <- .scp_missingness(missingness_x, rep("all", ncol(missingness_x)))
+    missingness_proteins <- data.frame(protein = rownames(missingness_x),
+        mean_log2 = rowMeans(missingness_x, na.rm = TRUE),
+        quantified_cells = rowSums(!is.na(missingness_x)),
+        missing_fraction = rowMeans(is.na(missingness_x)))
+    missingness_proteins$mean_log2[!is.finite(missingness_proteins$mean_log2)] <- NA_real_
     variance_x <- x
     shifts <- rep(0, ncol(x))
     if (isTRUE(normalize_cells)) {
@@ -162,7 +181,7 @@ scp_calibrate <- function(x, cell_metadata = NULL, assay = NULL,
     }
     fit <- lapply(seq_len(nrow(x)), function(g) {
         if (biological_unit == "culture")
-            .scp_culture_variance(variance_x[g, ], cell_metadata, sample_col, batch_col)
+            .scp_culture_variance(variance_x[g, ], cell_metadata, sample_col, batch_col, absorb_cell_batches)
         else .scp_variance(variance_x[g, ], cell_metadata, sample_col, condition_col, batch_col)
     })
     variances <- do.call(rbind, fit)
@@ -249,6 +268,10 @@ scp_calibrate <- function(x, cell_metadata = NULL, assay = NULL,
         cell_median_shifts = shifts, feature_input_hash = feature_hash,
         variance_input_hash = digest::digest(variance_x, algo = "sha256"),
         compression = compression,
+        separate_missingness_assay = !is.null(missingness_input),
+        missingness_input_hash = digest::digest(missingness_x, algo = "sha256"),
+        missingness_cells = ncol(missingness_x),
+        absorb_cell_batches = absorb_cell_batches,
         missingness_excluded_trials = curve$parameters$excluded_trials,
         sample_col = sample_col, condition_col = condition_col, batch_col = batch_col)
     line_components <- data.frame()
@@ -262,15 +285,19 @@ scp_calibrate <- function(x, cell_metadata = NULL, assay = NULL,
             identifiable <- sum(cells & mixed) > 1L
             data.frame(protein = protein_ids, cell_line = line,
                 sigma2_e = proteins$sigma2_e,
-                sigma2_b = if (identifiable) proteins$sigma2_b else NA_real_,
-                sigma2_b_reason = if (identifiable) proteins$sigma2_b_reason else
+                sigma2_b = if (identifiable || absorb_cell_batches) proteins$sigma2_b else NA_real_,
+                sigma2_b_reason = if (identifiable || absorb_cell_batches) proteins$sigma2_b_reason else
                     "Batch holds one cell line only; batch and line aliased for this line",
                 quantified_cells = rowSums(!is.na(x[,cells,drop=FALSE])),
                 component_scope = "Shared culture-model residual and mixed-batch variance; not donor variance")
         }))
     }
-    list(proteins = proteins, tiers = tiers, missingness = curve$parameters,
+    list(proteins = proteins, tiers = tiers, missingness_proteins = missingness_proteins, missingness = curve$parameters,
          curve = curve$curve, compression = compression,
+        separate_missingness_assay = !is.null(missingness_input),
+        missingness_input_hash = digest::digest(missingness_x, algo = "sha256"),
+        missingness_cells = ncol(missingness_x),
+        absorb_cell_batches = absorb_cell_batches,
          bulk_proteins = bulk_proteins, line_components = line_components, manifest = manifest)
 }
 
@@ -472,7 +499,7 @@ scp_calibrate <- function(x, cell_metadata = NULL, assay = NULL,
     z
 }
 
-.scp_culture_variance <- function(y, meta, line_col, batch_col) {
+.scp_culture_variance <- function(y, meta, line_col, batch_col, absorb_cell_batches = FALSE) {
     out <- data.frame(sigma2_e = NA_real_, sigma2_b = NA_real_,
         sigma2_e_reason = "Culture line IDs unavailable",
         sigma2_b_reason = "Batch IDs unavailable", fit_status = "not fit")
@@ -489,6 +516,17 @@ scp_calibrate <- function(x, cell_metadata = NULL, assay = NULL,
         return(out)
     }
     d$batch <- factor(meta[[batch_col]][ok])
+    if (isTRUE(absorb_cell_batches) && all(table(meta[[batch_col]]) == 1L)) {
+        out$sigma2_b <- 0
+        out$sigma2_b_reason <- "absorbed into sigma2_e: one cell per run"
+        if (nrow(d) > nlevels(d$line)) {
+            form <- if (nlevels(d$line) > 1L) y ~ line else y ~ 1
+            out$sigma2_e <- stats::sigma(stats::lm(form, d))^2
+            out$sigma2_e_reason <- "Total within-line cell variance after median shift; includes acquisition-run noise"
+            out$fit_status <- "converged; cell/run variance combined under amendment F"
+        } else out$sigma2_e_reason <- "Fewer than two quantified cells within lines"
+        return(out)
+    }
     counts <- tapply(as.character(meta[[line_col]]), meta[[batch_col]], function(z) length(unique(z)))
     mixed <- counts[as.character(d$batch)] > 1L
     dm <- droplevels(d[mixed, , drop = FALSE])

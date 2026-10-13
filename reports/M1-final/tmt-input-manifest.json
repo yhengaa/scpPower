@@ -1,0 +1,1882 @@
+{
+  "specht2019v3": {
+    "dataset": "specht2019v3",
+    "seed": 20261013,
+    "versions": {
+      "R": "4.6.1",
+      "scp": "1.22.0",
+      "limma": "3.68.5",
+      "edgeR": "4.10.5",
+      "scplainer": "workflow in scp 1.22.0; no separate package"
+    },
+    "scpdata_version": "1.20.0",
+    "psm_assays": 177,
+    "raw_single_cell_channels": 1700,
+    "paired_accepted_cells": 1490,
+    "accepted_protein_groups": 3042,
+    "raw_target_protein_ids": 17539,
+    "exact_protein_overlap": 3042,
+    "never_quantified_proteins": 0,
+    "processing": ["SampleType excludes carrier, reference, blank, negative and unused channels", "Pair exact cell/protein IDs to the accepted variance population; no new QC threshold", "Quantified if any PSM is finite and >0; log2 positive raw intensities; per-run protein median; no normalisation", "Reverse/contaminant PSM annotations excluded as non-target identities; ambiguous group IDs never invented"],
+    "matched_population_hash": "7b2aa857812fc2ecff5f3f9b03145a1ef094250063d25f613e2a0c840ba2c47f",
+    "serialized_sha256": "a15a39aa5c073ce73188fad22d45b8d8c36b5713fab0881987c8ee7b9390a2af",
+    "runs": {
+      "190222S_LCA9_X_FP94AA": {
+        "quantitative_sha256": "2380ba70339a2e6fe4bf911d2a897c4d6aeb02fd0f486f9d4510b521b2189ba3",
+        "proteins": 1280,
+        "matched_proteins": 601,
+        "matched_cells": 4
+      },
+      "190222S_LCA9_X_FP94AB": {
+        "quantitative_sha256": "706b97c78b955b97051d5de61b7c068e0ff9f3e43d483000028380836e6b920b",
+        "proteins": 1897,
+        "matched_proteins": 1044,
+        "matched_cells": 5
+      },
+      "190222S_LCA9_X_FP94AC": {
+        "quantitative_sha256": "66e0f228a628eea0554e4e8686611c72562b8f7a0d17e2bf2c2824b3ddaa7adc",
+        "proteins": 2147,
+        "matched_proteins": 1161,
+        "matched_cells": 6
+      },
+      "190222S_LCA9_X_FP94AD": {
+        "quantitative_sha256": "7192cb529e6f8df5250e95d3012de4657c362e66c2d84fdfa9d8ddb555e74d2b",
+        "proteins": 2180,
+        "matched_proteins": 1189,
+        "matched_cells": 5
+      },
+      "190222S_LCA9_X_FP94AE": {
+        "quantitative_sha256": "0902f00a30464a210dfc99685c02ff39d519a984f038fe2618711ef8c3a8d8d5",
+        "proteins": 1594,
+        "matched_proteins": 901,
+        "matched_cells": 5
+      },
+      "190222S_LCA9_X_FP94AF": {
+        "quantitative_sha256": "9d3dc8096b2e901c6a0c0021f8dd5573ce13db1a4c7289f16993b6e7a67546b9",
+        "proteins": 1458,
+        "matched_proteins": 807,
+        "matched_cells": 8
+      },
+      "190222S_LCA9_X_FP94AG": {
+        "quantitative_sha256": "b5a002db4a673248e15fadc3f443b8a2864a142c8d6de4d2308b93b6216b48fe",
+        "proteins": 1893,
+        "matched_proteins": 1064,
+        "matched_cells": 6
+      },
+      "190222S_LCA9_X_FP94AH": {
+        "quantitative_sha256": "359b8b4c2bd9f03ac6836900de5452374504ddae969448257dbe1af8b8a8653a",
+        "proteins": 1942,
+        "matched_proteins": 1055,
+        "matched_cells": 7
+      },
+      "190222S_LCA9_X_FP94AI": {
+        "quantitative_sha256": "2f0792cd6ce7c595d41c940deed08f8896d96f841c01bd2a1bd0918385aafa9b",
+        "proteins": 2019,
+        "matched_proteins": 1108,
+        "matched_cells": 6
+      },
+      "190222S_LCA9_X_FP94AJ": {
+        "quantitative_sha256": "ea3c05ecefcbe55ff10bf6485c9c722b1b15b7dd21e85017add28c35a0703b92",
+        "proteins": 1593,
+        "matched_proteins": 891,
+        "matched_cells": 2
+      },
+      "190222S_LCA9_X_FP94AK": {
+        "quantitative_sha256": "368af199e4dab6b552b9d5e390e76d59fb1759bc2f37b771a8e0fb70d3b7a88d",
+        "proteins": 2007,
+        "matched_proteins": 933,
+        "matched_cells": 4
+      },
+      "190222S_LCA9_X_FP94AL": {
+        "quantitative_sha256": "1074ea6e68897ce6fbf2ac50c2792c7422fd0331929a46845f84844a0e7f938f",
+        "proteins": 1414,
+        "matched_proteins": 793,
+        "matched_cells": 7
+      },
+      "190222S_LCA9_X_FP94AM": {
+        "quantitative_sha256": "2eab9b4b81d8c81684b64c7fc6f60b3737011b9c0bd0c627cd46d645edf3ff97",
+        "proteins": 1313,
+        "matched_proteins": 718,
+        "matched_cells": 4
+      },
+      "190222S_LCA9_X_FP94AN": {
+        "quantitative_sha256": "26478886fe8bade15e6f096111343cd9bdcd8733445fcc7b4f06a51678326afa",
+        "proteins": 1545,
+        "matched_proteins": 853,
+        "matched_cells": 5
+      },
+      "190222S_LCA9_X_FP94AO": {
+        "quantitative_sha256": "f7b82c94bd9f4ac8bd17b679189b45f1a341ade82d772bf9070d5a312baafc3c",
+        "proteins": 668,
+        "matched_proteins": 340,
+        "matched_cells": 7
+      },
+      "190222S_LCA9_X_FP94AP": {
+        "quantitative_sha256": "64c4563d5930af9883b6cd2acaa6d24dc1593685096ba2b147e332be60810126",
+        "proteins": 1845,
+        "matched_proteins": 928,
+        "matched_cells": 6
+      },
+      "190222S_LCA9_X_FP94BA": {
+        "quantitative_sha256": "dda0b36282828957fa45696bb89e48203277413b95432bee36da28ecf5f77f1a",
+        "proteins": 1906,
+        "matched_proteins": 1035,
+        "matched_cells": 6
+      },
+      "190222S_LCA9_X_FP94BB": {
+        "quantitative_sha256": "427941ea31c92bcd4adc220269bcf9c6f2f0af1c738bccbb04cc992ce6ffe549",
+        "proteins": 1902,
+        "matched_proteins": 1092,
+        "matched_cells": 6
+      },
+      "190222S_LCA9_X_FP94BC": {
+        "quantitative_sha256": "30ccf036d52a6cfb0e1f17c4587c08584b80c9904c9c81f656af5266222c3c30",
+        "proteins": 2162,
+        "matched_proteins": 1117,
+        "matched_cells": 4
+      },
+      "190222S_LCA9_X_FP94BF": {
+        "quantitative_sha256": "2d0af68e8f5a4fbfa38a65ac1e915a60a0109840c08727142966f2f431480df1",
+        "proteins": 2109,
+        "matched_proteins": 1188,
+        "matched_cells": 4
+      },
+      "190222S_LCA9_X_FP94BG": {
+        "quantitative_sha256": "e6cc73d002eec0dfa04a8f821723d74b4fafd4658861a492fd124be554df4b79",
+        "proteins": 1624,
+        "matched_proteins": 918,
+        "matched_cells": 6
+      },
+      "190222S_LCA9_X_FP94BH": {
+        "quantitative_sha256": "04254c5263d8200da9c4233639697eafd5827c18b173f3db2ef5e0f5c1954c68",
+        "proteins": 2178,
+        "matched_proteins": 1187,
+        "matched_cells": 5
+      },
+      "190222S_LCA9_X_FP94BI": {
+        "quantitative_sha256": "f734bc7328e1b5ced2818e1293f30fba56aaf3a403a7d81ef8541e7f9eec176d",
+        "proteins": 1039,
+        "matched_proteins": 593,
+        "matched_cells": 6
+      },
+      "190222S_LCA9_X_FP94BJ": {
+        "quantitative_sha256": "edfa2eb678a053394604f24d36752546d95d59e8a1caa589ca189b6b51e0d070",
+        "proteins": 1950,
+        "matched_proteins": 1086,
+        "matched_cells": 6
+      },
+      "190222S_LCA9_X_FP94BK": {
+        "quantitative_sha256": "a95fa79a68373ce2b66ab4e90100f674a18484393f95e530848ec778e5c10cdf",
+        "proteins": 1804,
+        "matched_proteins": 1007,
+        "matched_cells": 6
+      },
+      "190222S_LCA9_X_FP94BL": {
+        "quantitative_sha256": "f337a34d5947c46b265f84c447c55f6bc96589ed9597ca2dbddb2b99700026d9",
+        "proteins": 2003,
+        "matched_proteins": 1145,
+        "matched_cells": 4
+      },
+      "190222S_LCA9_X_FP94BM": {
+        "quantitative_sha256": "e335bf4f2d620c2bb8782397bec936a2cc2f0af9247e68b42f4a3409f1c08ca8",
+        "proteins": 1472,
+        "matched_proteins": 834,
+        "matched_cells": 6
+      },
+      "190222S_LCA9_X_FP94BN": {
+        "quantitative_sha256": "231f8923bd51fed0c64c5ee5efe09a0ae64c69c17f97630539b95d718b5e09b3",
+        "proteins": 1497,
+        "matched_proteins": 854,
+        "matched_cells": 6
+      },
+      "190222S_LCA9_X_FP94BO": {
+        "quantitative_sha256": "f3d6112569adc4b43f98215a8efda52b6c1a2d95a1f6731d8ca484239c2dd526",
+        "proteins": 2092,
+        "matched_proteins": 1056,
+        "matched_cells": 5
+      },
+      "190222S_LCA9_X_FP94BP": {
+        "quantitative_sha256": "3cbe03fb9dc464c98f57cebc22d1436a940fbeaf5753f6df797c606bd836d9b4",
+        "proteins": 2252,
+        "matched_proteins": 1190,
+        "matched_cells": 6
+      },
+      "190321S_LCA10_X_FP97AA": {
+        "quantitative_sha256": "51d171f87c5eb09d442860cea1a5cc9215831136c2917c343d563af5efd8e6c9",
+        "proteins": 2042,
+        "matched_proteins": 1129,
+        "matched_cells": 5
+      },
+      "190321S_LCA10_X_FP97AB": {
+        "quantitative_sha256": "af8a7229e8c6f1af87ef2ae1976b7a06866ce6d1cd848a663e45d0b4950d262a",
+        "proteins": 1747,
+        "matched_proteins": 1014,
+        "matched_cells": 5
+      },
+      "190321S_LCA10_X_FP97AC": {
+        "quantitative_sha256": "df5ee8e6466d6035d0e59dc89f12ef7d9a70d785163cf32274a1d444c71e52e1",
+        "proteins": 1976,
+        "matched_proteins": 1102,
+        "matched_cells": 6
+      },
+      "190321S_LCA10_X_FP97AD": {
+        "quantitative_sha256": "b346b695d5bd0ab679c684921c614d233ceffffaa3a7751974df5da61e1f581e",
+        "proteins": 2024,
+        "matched_proteins": 1107,
+        "matched_cells": 7
+      },
+      "190321S_LCA10_X_FP97AE": {
+        "quantitative_sha256": "1b9135f98495d226c26a14ef968692ba7637822cbc04a493b3bebe736d0249d7",
+        "proteins": 2091,
+        "matched_proteins": 1116,
+        "matched_cells": 6
+      },
+      "190321S_LCA10_X_FP97AF": {
+        "quantitative_sha256": "27377aeb00b0f5ae659fbe230712b065bcea1348b6abab83ad048f0a2c4c2a2a",
+        "proteins": 2093,
+        "matched_proteins": 1086,
+        "matched_cells": 8
+      },
+      "190321S_LCA10_X_FP97AG": {
+        "quantitative_sha256": "b67e3b2cef7a3fd836f695a76a9aee486b2022619c981c0c6b869f987b4c0995",
+        "proteins": 2150,
+        "matched_proteins": 1105,
+        "matched_cells": 6
+      },
+      "190321S_LCA10_X_FP97AH": {
+        "quantitative_sha256": "0c9c21e3a3bc9eed5d4806ecd944b9882d2f2f607707adcf40f9c4dca416db84",
+        "proteins": 1994,
+        "matched_proteins": 1072,
+        "matched_cells": 7
+      },
+      "190321S_LCA10_X_FP97AI": {
+        "quantitative_sha256": "d5bd3434169d7c83e2bc7243cb71c83000779217b1bb7373689b45f144a11033",
+        "proteins": 2041,
+        "matched_proteins": 1056,
+        "matched_cells": 5
+      },
+      "190321S_LCA10_X_FP97AJ": {
+        "quantitative_sha256": "57ca1319cb684d9660135a0217388861d5645aee9f8ab414761c12261c9ea3a1",
+        "proteins": 2073,
+        "matched_proteins": 1001,
+        "matched_cells": 4
+      },
+      "190321S_LCA10_X_FP97AK": {
+        "quantitative_sha256": "ea1d0562c15f8228e7d1e81505c750c38bf6f2fa32e7b75f37c75171627d4412",
+        "proteins": 1944,
+        "matched_proteins": 1042,
+        "matched_cells": 3
+      },
+      "190321S_LCA10_X_FP97AL": {
+        "quantitative_sha256": "fcb1b81ef79175f62c59e21eea4c143a058a0ee415138e300703fe1ff4f90ad0",
+        "proteins": 2048,
+        "matched_proteins": 1129,
+        "matched_cells": 3
+      },
+      "190321S_LCA10_X_FP97AM": {
+        "quantitative_sha256": "53de097f83296ec7c31424b64c3227d62be958deb51db2d5ca5161466505a8a9",
+        "proteins": 1915,
+        "matched_proteins": 1078,
+        "matched_cells": 3
+      },
+      "190321S_LCA10_X_FP97AN": {
+        "quantitative_sha256": "96c1b5103e0744864f8875ed57f2be9f95e7a8b3ce38cbbfea5fe5b6ceb0a98d",
+        "proteins": 1982,
+        "matched_proteins": 1114,
+        "matched_cells": 5
+      },
+      "190321S_LCA10_X_FP97AO": {
+        "quantitative_sha256": "0e8037c54958d1fdce670dd45dfa57da3854234fffdb8d128c9aa110a0970a78",
+        "proteins": 1800,
+        "matched_proteins": 985,
+        "matched_cells": 5
+      },
+      "190321S_LCA10_X_FP97AP": {
+        "quantitative_sha256": "885436b24a63b14005cd93d9eee19f166486c20f440d432a3daf6edbb4d4358f",
+        "proteins": 1762,
+        "matched_proteins": 1010,
+        "matched_cells": 4
+      },
+      "190321S_LCA10_X_FP97BB": {
+        "quantitative_sha256": "00560759d5dcfbe3dccd9a107674dee11762532824e922349f8f9df52abacaa4",
+        "proteins": 2023,
+        "matched_proteins": 1056,
+        "matched_cells": 5
+      },
+      "190321S_LCA10_X_FP97BC": {
+        "quantitative_sha256": "47f2779d87ab9a2db4316c4c0b22d814e13b769d5c42da0091355fafbe250d8c",
+        "proteins": 1708,
+        "matched_proteins": 1009,
+        "matched_cells": 5
+      },
+      "190321S_LCA10_X_FP97BD": {
+        "quantitative_sha256": "e5dcac700a708072378fb7c89e5206aed8c43e0ef05291a06dd1e1a2d65aa9aa",
+        "proteins": 1688,
+        "matched_proteins": 1019,
+        "matched_cells": 5
+      },
+      "190321S_LCA10_X_FP97BE": {
+        "quantitative_sha256": "3fa026cd360e11bf4c654f4c3ccb9698254ea0a4005d1ed526a1bcdd9ec90754",
+        "proteins": 1627,
+        "matched_proteins": 942,
+        "matched_cells": 7
+      },
+      "190321S_LCA10_X_FP97BF": {
+        "quantitative_sha256": "1f5252bb442e2fc253b9ec2e6ee7f63561278bbde7850a79def2e4563eea09e5",
+        "proteins": 2023,
+        "matched_proteins": 873,
+        "matched_cells": 4
+      },
+      "190321S_LCA10_X_FP97BG": {
+        "quantitative_sha256": "d9ec79e3b65edf6e26d4d102e6e49f387b1c44d65f65a02c90af3aa6d38c9917",
+        "proteins": 1790,
+        "matched_proteins": 987,
+        "matched_cells": 4
+      },
+      "190321S_LCA10_X_FP97BH": {
+        "quantitative_sha256": "eb35d9f2b7bf979b7e0c67766fec0cad66eb7485b0f1f7d689e31845dd6a2927",
+        "proteins": 1535,
+        "matched_proteins": 891,
+        "matched_cells": 5
+      },
+      "190321S_LCA10_X_FP97BI": {
+        "quantitative_sha256": "c12074e2f3d6ba86aa91cb791cd63f49c457e458be83d9945a88c9631a7e23b6",
+        "proteins": 1437,
+        "matched_proteins": 869,
+        "matched_cells": 7
+      },
+      "190321S_LCA10_X_FP97BJ": {
+        "quantitative_sha256": "a9fa2fcc34c74be676965afacb4c93b906ee4094ef65691dfaba4c06594a14a9",
+        "proteins": 1490,
+        "matched_proteins": 903,
+        "matched_cells": 6
+      },
+      "190321S_LCA10_X_FP97BK": {
+        "quantitative_sha256": "32ab66d77a86b4c92ba3201800694357128404d025e13935454a239eeb7a75f1",
+        "proteins": 1632,
+        "matched_proteins": 948,
+        "matched_cells": 6
+      },
+      "190321S_LCA10_X_FP97BL": {
+        "quantitative_sha256": "7ca58c0e43d5c57cfb042ad8b87333318f5c3cb39f601be12842865530424420",
+        "proteins": 1456,
+        "matched_proteins": 866,
+        "matched_cells": 5
+      },
+      "190321S_LCA10_X_FP97BM": {
+        "quantitative_sha256": "6ea551b62e5bdd45564c22ad8528ffedcc80126a4f6933685dbfa02b20d8ed72",
+        "proteins": 1320,
+        "matched_proteins": 781,
+        "matched_cells": 3
+      },
+      "190321S_LCA10_X_FP97BN": {
+        "quantitative_sha256": "5bbcc02f7444bfbe370bbdc090403a19dc2ae76d49ead85c8e93d44b19a78247",
+        "proteins": 1732,
+        "matched_proteins": 894,
+        "matched_cells": 4
+      },
+      "190321S_LCA10_X_FP97BO": {
+        "quantitative_sha256": "14679ccb70e109d801f513a68525f1e09467565c069cfcfa2b8e1eae9d7bf2d1",
+        "proteins": 1440,
+        "matched_proteins": 870,
+        "matched_cells": 3
+      },
+      "190321S_LCA10_X_FP97BP": {
+        "quantitative_sha256": "830a461b77043a1ffb9d0386a37aed252471a7f6885ea2bd90ba72442eb4fa3a",
+        "proteins": 1719,
+        "matched_proteins": 961,
+        "matched_cells": 4
+      },
+      "190913S_LCB3_X_16plex_Set_12": {
+        "quantitative_sha256": "6237c939076fe4ca328a39891767b7bda57d410ad2213467a3a06f9017311dc6",
+        "proteins": 1982,
+        "matched_proteins": 975,
+        "matched_cells": 12
+      },
+      "190913S_LCB3_X_16plex_Set_17_reinject2": {
+        "quantitative_sha256": "597efb24dac63f0003a5823d63be6113a97e4f43e41a071170b36f545cc1abc1",
+        "proteins": 2007,
+        "matched_proteins": 997,
+        "matched_cells": 10
+      },
+      "190914S_LCB3_X_16plex_Set_1": {
+        "quantitative_sha256": "9d9506b280c6f358ce3ed53bcef7108d62cd024a8310c5a7a5ec306acae3c543",
+        "proteins": 1946,
+        "matched_proteins": 973,
+        "matched_cells": 11
+      },
+      "190914S_LCB3_X_16plex_Set_10": {
+        "quantitative_sha256": "a7c549b500ece3fcf4e9f1dde49bb47fe73ff77ac2a1aab76d390769f6457e46",
+        "proteins": 1943,
+        "matched_proteins": 950,
+        "matched_cells": 12
+      },
+      "190914S_LCB3_X_16plex_Set_11": {
+        "quantitative_sha256": "2a5a16db1043db9da7e4dace133d35643bb8a8e958338d75351ade1f38347af8",
+        "proteins": 1899,
+        "matched_proteins": 956,
+        "matched_cells": 10
+      },
+      "190914S_LCB3_X_16plex_Set_13": {
+        "quantitative_sha256": "59f564610ae7ce235b80999c57f9dbd5f1db9c5d4e369069e2c61419d945f453",
+        "proteins": 1809,
+        "matched_proteins": 905,
+        "matched_cells": 12
+      },
+      "190914S_LCB3_X_16plex_Set_14": {
+        "quantitative_sha256": "545513367d4f0a81d4f4b53f5f277ea4f53d750791d1ac4b5ebdd4457a7eb957",
+        "proteins": 1895,
+        "matched_proteins": 977,
+        "matched_cells": 12
+      },
+      "190914S_LCB3_X_16plex_Set_15": {
+        "quantitative_sha256": "5d845c9be6a4dbe7c41677e2c99042d2e379b04527ef10c09d7be47acd90c88f",
+        "proteins": 1880,
+        "matched_proteins": 947,
+        "matched_cells": 8
+      },
+      "190914S_LCB3_X_16plex_Set_16": {
+        "quantitative_sha256": "787370a5aca0c99c20076ffe872dc8c6cca111410419de1126b15606a86c12bb",
+        "proteins": 1887,
+        "matched_proteins": 947,
+        "matched_cells": 10
+      },
+      "190914S_LCB3_X_16plex_Set_18": {
+        "quantitative_sha256": "6c6ee3ae8b986f1cfa0561e18d1c262b208f3b19652077c37696f5823eb25b7f",
+        "proteins": 1892,
+        "matched_proteins": 915,
+        "matched_cells": 11
+      },
+      "190914S_LCB3_X_16plex_Set_19": {
+        "quantitative_sha256": "c6ac1dc7aa1784700bfe81d8ad8411ffd9f3882f5002b2a9b3091d9bab269e68",
+        "proteins": 1926,
+        "matched_proteins": 944,
+        "matched_cells": 11
+      },
+      "190914S_LCB3_X_16plex_Set_2": {
+        "quantitative_sha256": "cd65f508a3f98990e0cd261093bd0c83c021dad76efd815866e985aa47060328",
+        "proteins": 1871,
+        "matched_proteins": 928,
+        "matched_cells": 11
+      },
+      "190914S_LCB3_X_16plex_Set_20": {
+        "quantitative_sha256": "2b692f885fface29c9a686f45394f3bb3662844e01c2896aab31e0a5c2a3ead4",
+        "proteins": 1644,
+        "matched_proteins": 770,
+        "matched_cells": 11
+      },
+      "190914S_LCB3_X_16plex_Set_21": {
+        "quantitative_sha256": "39cc68bc20ff0a1182891414f3dbba0237d9efbaa7c5b8b7d61944869f064660",
+        "proteins": 1890,
+        "matched_proteins": 933,
+        "matched_cells": 10
+      },
+      "190914S_LCB3_X_16plex_Set_22": {
+        "quantitative_sha256": "5d68e023a2556b7a2d4909be3ff500a2e7b5956e56900cc792a0db03cab133aa",
+        "proteins": 1867,
+        "matched_proteins": 908,
+        "matched_cells": 12
+      },
+      "190914S_LCB3_X_16plex_Set_23": {
+        "quantitative_sha256": "fc847aba7c1d6e79d5f3c5e14ccf39853674249a2a724ab2b09f61eb94fcc361",
+        "proteins": 1865,
+        "matched_proteins": 905,
+        "matched_cells": 12
+      },
+      "190914S_LCB3_X_16plex_Set_24": {
+        "quantitative_sha256": "029f25b0f7e960c61a55f8bace5948351e4571107ebde64665284d417bb1e79a",
+        "proteins": 1871,
+        "matched_proteins": 906,
+        "matched_cells": 12
+      },
+      "190914S_LCB3_X_16plex_Set_3": {
+        "quantitative_sha256": "bae226f79f25d5a9597c2e91d29a3436ecd15a8872eb6b4e2f0fef182fbff068",
+        "proteins": 1870,
+        "matched_proteins": 936,
+        "matched_cells": 11
+      },
+      "190914S_LCB3_X_16plex_Set_4": {
+        "quantitative_sha256": "faea7552b949b9cae9842d66d23162a0adc47b82fdbfca4eb7e1ca42178ac61c",
+        "proteins": 2049,
+        "matched_proteins": 1097,
+        "matched_cells": 11
+      },
+      "190914S_LCB3_X_16plex_Set_5": {
+        "quantitative_sha256": "de53a255c02c0e8c8204e3a59a7a35fa01dd9191218eeccf41fd6eb642815775",
+        "proteins": 1881,
+        "matched_proteins": 938,
+        "matched_cells": 11
+      },
+      "190914S_LCB3_X_16plex_Set_6": {
+        "quantitative_sha256": "640f4be50f3f3187641e384574c5895f8adaa04c047b29bf9d44e8a9e9dfd913",
+        "proteins": 1838,
+        "matched_proteins": 920,
+        "matched_cells": 11
+      },
+      "190914S_LCB3_X_16plex_Set_7": {
+        "quantitative_sha256": "65e6d36a5b0e2ddd935734e01818b51373684fa73ecbcf9e569e3277cc35b2bd",
+        "proteins": 1969,
+        "matched_proteins": 1046,
+        "matched_cells": 12
+      },
+      "190914S_LCB3_X_16plex_Set_8": {
+        "quantitative_sha256": "5be961b3a7ad3d500b0ffcfe5ec6c05e76f19db39e642221adf9ec0d1c5c7227",
+        "proteins": 1873,
+        "matched_proteins": 914,
+        "matched_cells": 11
+      },
+      "190914S_LCB3_X_16plex_Set_9": {
+        "quantitative_sha256": "148a8b3dcf65d9208a46703aa22bea9521336437476b33ae79a97292c773e04c",
+        "proteins": 2042,
+        "matched_proteins": 1114,
+        "matched_cells": 11
+      },
+      "191025S_LCB7_X_AP16plex_Set_1": {
+        "quantitative_sha256": "314d05083521c3c4762a0ea2e10a29cd00dadb80d2e01ad04ac00210cd6df06b",
+        "proteins": 2267,
+        "matched_proteins": 1034,
+        "matched_cells": 11
+      },
+      "191025S_LCB7_X_AP16plex_Set_2": {
+        "quantitative_sha256": "67dc7bbe9456ab92c5ac507a1af5bb878c48ef915605e852ebe19a28093d1796",
+        "proteins": 2199,
+        "matched_proteins": 990,
+        "matched_cells": 7
+      },
+      "191025S_LCB7_X_AP16plex_Set_22_reinject": {
+        "quantitative_sha256": "fce8afe88490ee5f8722b3986051cf21fc8b9ef06143fe09563223a1eb788321",
+        "proteins": 1902,
+        "matched_proteins": 1021,
+        "matched_cells": 9
+      },
+      "191025S_LCB7_X_AP16plex_Set_23": {
+        "quantitative_sha256": "73431e1788636e9b2c9e665330f213050b342211ef068575ff3bb03eefe9c6a8",
+        "proteins": 1829,
+        "matched_proteins": 993,
+        "matched_cells": 11
+      },
+      "191025S_LCB7_X_AP16plex_Set_24": {
+        "quantitative_sha256": "cb6235dcb911a3c81d3f5f956a77b17b14ce43f5aa4c25e537a7bfcb685123ac",
+        "proteins": 1910,
+        "matched_proteins": 1056,
+        "matched_cells": 10
+      },
+      "191025S_LCB7_X_AP16plex_Set_25": {
+        "quantitative_sha256": "aff9ea8acb5865deaab92f3ab74187bee14fdbdf0506008b9cffd03e8ca11463",
+        "proteins": 1900,
+        "matched_proteins": 1006,
+        "matched_cells": 12
+      },
+      "191025S_LCB7_X_AP16plex_Set_3": {
+        "quantitative_sha256": "a78de1c8bf952a4899a685806a9b763794b6ddcdf58cd21bbeb1a7f9f6267831",
+        "proteins": 2200,
+        "matched_proteins": 1018,
+        "matched_cells": 10
+      },
+      "191025S_LCB7_X_AP16plex_Set_4": {
+        "quantitative_sha256": "4cf55b846d32b0abcb65200b6a0519624ef6583fe6ff0833a986133c74d332c3",
+        "proteins": 2252,
+        "matched_proteins": 1047,
+        "matched_cells": 11
+      },
+      "191025S_LCB7_X_AP16plex_Set_5": {
+        "quantitative_sha256": "d93e7d2267813536563b28f5bf8fa715b6754c017c39be122060147f1519890f",
+        "proteins": 2352,
+        "matched_proteins": 1131,
+        "matched_cells": 10
+      },
+      "191026S_LCB7_X_AP16plex_Set_10": {
+        "quantitative_sha256": "66488ac09aff33578562535f797b8d57ec07a986ae5261df1826453946d3dd56",
+        "proteins": 2166,
+        "matched_proteins": 1003,
+        "matched_cells": 12
+      },
+      "191026S_LCB7_X_AP16plex_Set_11": {
+        "quantitative_sha256": "c7d33c9e0909d01893f5f0de164ab47f59ad35703db92b845e54cd93073f6274",
+        "proteins": 1035,
+        "matched_proteins": 419,
+        "matched_cells": 10
+      },
+      "191026S_LCB7_X_AP16plex_Set_12": {
+        "quantitative_sha256": "bb2f4b3bd3f4717019bba6bbbc899d152c051f652f7a3e0a50cf53acf680cc46",
+        "proteins": 2136,
+        "matched_proteins": 968,
+        "matched_cells": 11
+      },
+      "191026S_LCB7_X_AP16plex_Set_13": {
+        "quantitative_sha256": "bbec50e1121bef47613b830bfe8ba470ae857f479a3a8a30174facb2a5c53bac",
+        "proteins": 2199,
+        "matched_proteins": 986,
+        "matched_cells": 12
+      },
+      "191026S_LCB7_X_AP16plex_Set_14": {
+        "quantitative_sha256": "daa0e1df68adfd08925c4f9944798634dd796a2537d1bff6a1f7e0537ef00eb9",
+        "proteins": 2090,
+        "matched_proteins": 896,
+        "matched_cells": 11
+      },
+      "191026S_LCB7_X_AP16plex_Set_16": {
+        "quantitative_sha256": "d7c0dc5ccb744d82399b1ae7dfc6a5377311fef2dc730a677c4b6d9952db7766",
+        "proteins": 2265,
+        "matched_proteins": 1007,
+        "matched_cells": 11
+      },
+      "191026S_LCB7_X_AP16plex_Set_17": {
+        "quantitative_sha256": "3508ac4e8fa15a093a9a45116116bac1f693395115835c0170373a94af4df334",
+        "proteins": 2122,
+        "matched_proteins": 941,
+        "matched_cells": 12
+      },
+      "191026S_LCB7_X_AP16plex_Set_18": {
+        "quantitative_sha256": "ca314e16ca624cb368e369879022e839640222f9a28af243ed8acc03f50c6c95",
+        "proteins": 2134,
+        "matched_proteins": 975,
+        "matched_cells": 8
+      },
+      "191026S_LCB7_X_AP16plex_Set_6": {
+        "quantitative_sha256": "2d0c570c9592b77f200ee6817bd9278048754c0d58a93d33b4d10fd0eec6afcc",
+        "proteins": 2121,
+        "matched_proteins": 963,
+        "matched_cells": 11
+      },
+      "191026S_LCB7_X_AP16plex_Set_7": {
+        "quantitative_sha256": "904a359095055c297556fb16972af5acfb0d939bde264673212bc240fd3c082f",
+        "proteins": 2053,
+        "matched_proteins": 893,
+        "matched_cells": 10
+      },
+      "191026S_LCB7_X_AP16plex_Set_8": {
+        "quantitative_sha256": "bd4d66e79d3c6241a53e370e87527cc3fd163ff98162d662c8d6eea4cc2cdbf0",
+        "proteins": 2110,
+        "matched_proteins": 928,
+        "matched_cells": 11
+      },
+      "191026S_LCB7_X_AP16plex_Set_9": {
+        "quantitative_sha256": "1f0a9f7e4f15cb5aaad66ce8d366aa7901e147f8bd43c702f5dde412654177d6",
+        "proteins": 2231,
+        "matched_proteins": 1122,
+        "matched_cells": 11
+      },
+      "191104S_LCB7_X_AP_NOV16plex_Set_1": {
+        "quantitative_sha256": "547e88a3416548acd9e99df2dc595673302386099413e7d8a3a111a855654100",
+        "proteins": 1916,
+        "matched_proteins": 1055,
+        "matched_cells": 9
+      },
+      "191104S_LCB7_X_APNOV16plex_Set_2": {
+        "quantitative_sha256": "951e3b16fa2b13c380d18fb8c787bc6f1bb0ac90e930ffa198c3b246e27bd267",
+        "proteins": 2096,
+        "matched_proteins": 1114,
+        "matched_cells": 10
+      },
+      "191104S_LCB7_X_APNOV16plex_Set_3": {
+        "quantitative_sha256": "9465cc08a2903084e76ba91858bb9585f8bec155558016b7a8acbaf19b550b4e",
+        "proteins": 2025,
+        "matched_proteins": 1056,
+        "matched_cells": 8
+      },
+      "191104S_LCB7_X_APNOV16plex_Set_4": {
+        "quantitative_sha256": "032193188220dc79f31d05d6f497472fcd968283d669efc0ed5d7ac38f02504b",
+        "proteins": 2108,
+        "matched_proteins": 1069,
+        "matched_cells": 7
+      },
+      "191104S_LCB7_X_APNOV16plex_Set_6_noaddcarr": {
+        "quantitative_sha256": "2028ecfaf45607380c3231df16faf94b791444b514271e4cf128c955999dc704",
+        "proteins": 2109,
+        "matched_proteins": 1083,
+        "matched_cells": 10
+      },
+      "191106S_LCB7_X_APNOV16plex_Set_20_fullcarr": {
+        "quantitative_sha256": "99c3ce68bb31d4f02b25ea8b4e15da4550ca0a0aa3614dffd2b4e2c59b828945",
+        "proteins": 1990,
+        "matched_proteins": 1054,
+        "matched_cells": 10
+      },
+      "191107S_LCB7_X_APNOV16plex_Set_11": {
+        "quantitative_sha256": "2277982e7ba64ecbc6242f9139a177f54890a12cb458d13b2d4ae0cc4e850405",
+        "proteins": 2016,
+        "matched_proteins": 1117,
+        "matched_cells": 11
+      },
+      "191107S_LCB7_X_APNOV16plex_Set_12": {
+        "quantitative_sha256": "61864afe89c81ad1766cced3cd14c11e17d604faac13f3df87cceefad4b449ec",
+        "proteins": 2028,
+        "matched_proteins": 1093,
+        "matched_cells": 11
+      },
+      "191107S_LCB7_X_APNOV16plex_Set_13": {
+        "quantitative_sha256": "b7040d67e393499d8e829882817d207ae022b14e07e4b5b219e5a1d277da0055",
+        "proteins": 1999,
+        "matched_proteins": 1099,
+        "matched_cells": 12
+      },
+      "191107S_LCB7_X_APNOV16plex_Set_15": {
+        "quantitative_sha256": "ae44ea88d4a5b42aaa888074423951e53caa467164ec271c09aa748bc9fdbeab",
+        "proteins": 1966,
+        "matched_proteins": 1037,
+        "matched_cells": 12
+      },
+      "191107S_LCB7_X_APNOV16plex_Set_16": {
+        "quantitative_sha256": "f4287fac65020ed77f45f5d5062c6b40f761545e8f9400cae381d990a6b8c1e3",
+        "proteins": 1934,
+        "matched_proteins": 1066,
+        "matched_cells": 12
+      },
+      "191107S_LCB7_X_APNOV16plex_Set_17": {
+        "quantitative_sha256": "c26fa6aa6b5017863eb8a3e404144856e975da6ab289436c2dc55c5ddb0199ef",
+        "proteins": 1987,
+        "matched_proteins": 1059,
+        "matched_cells": 12
+      },
+      "191107S_LCB7_X_APNOV16plex_Set_21": {
+        "quantitative_sha256": "0f3c49a7b1eb6abc2b4920955d91343bb55f8f8e64cce4c416a93c5c42781e55",
+        "proteins": 1943,
+        "matched_proteins": 1041,
+        "matched_cells": 11
+      },
+      "191107S_LCB7_X_APNOV16plex_Set_22": {
+        "quantitative_sha256": "4f56a8300784bf2c4151f1cc3a354018b1a01c96e07a1093f90413ed8ec76510",
+        "proteins": 1926,
+        "matched_proteins": 1031,
+        "matched_cells": 11
+      },
+      "191107S_LCB7_X_APNOV16plex_Set_7": {
+        "quantitative_sha256": "2ade90b790eb25a5166c888270479c85abebd88476de3c58a728f331e676e86d",
+        "proteins": 2034,
+        "matched_proteins": 1127,
+        "matched_cells": 10
+      },
+      "191107S_LCB7_X_APNOV16plex_Set_8": {
+        "quantitative_sha256": "edb94286f77a886819c0da9761d10c2cea3d0d125a34f081dea07b026429a2ab",
+        "proteins": 2082,
+        "matched_proteins": 1157,
+        "matched_cells": 11
+      },
+      "191107S_LCB7_X_APNOV16plex_Set_9": {
+        "quantitative_sha256": "bc5473c58bbb5e043011751ba1097af84cad4a74c4ef196c9bac8ceced97040b",
+        "proteins": 1967,
+        "matched_proteins": 1070,
+        "matched_cells": 10
+      },
+      "191107S_LCB7_X_APOCT16plex_Set_19": {
+        "quantitative_sha256": "cc88ec00c33ef73bd9798f78e48581f0d7f115735f259ca02ab6c5e3055b0182",
+        "proteins": 1959,
+        "matched_proteins": 1072,
+        "matched_cells": 10
+      },
+      "191107S_LCB7_X_APOCT16plex_Set_20": {
+        "quantitative_sha256": "d49cfff75262abae9eb247f7a2be12f95618cf8675358c6214ec219cb350ae09",
+        "proteins": 1945,
+        "matched_proteins": 1123,
+        "matched_cells": 9
+      },
+      "191107S_LCB7_X_APOCT16plex_Set_21": {
+        "quantitative_sha256": "2c57198ba097d1256cdb80e6bb62350221378f83cb463f7e27cde1e9087642d9",
+        "proteins": 1937,
+        "matched_proteins": 1075,
+        "matched_cells": 8
+      },
+      "191108S_LCB7_X_APNOV16plex_Set_23": {
+        "quantitative_sha256": "5bf2ea187f8c1c185afba6bfcadde2e755508eb54e60d33e431aa6da81f6579b",
+        "proteins": 2077,
+        "matched_proteins": 1096,
+        "matched_cells": 11
+      },
+      "191108S_LCB7_X_APNOV16plex_Set_25": {
+        "quantitative_sha256": "e599ffcbd38aff7475539973eb27aeb140f3d167b25ead9b6a755850fe005670",
+        "proteins": 1916,
+        "matched_proteins": 1042,
+        "matched_cells": 11
+      },
+      "191108S_LCB7_X_APNOV16plex_Set_26": {
+        "quantitative_sha256": "d7cb11078eca6b392c5b025eb624f75525c8ccfe48afecdef3eb539122bb7f28",
+        "proteins": 1945,
+        "matched_proteins": 1047,
+        "matched_cells": 11
+      },
+      "191108S_LCB7_X_APNOV16plex_Set_27": {
+        "quantitative_sha256": "b7297e6824e27f5f0907b6c6be56010bfe4930df037ac696f0eec4b85c18b824",
+        "proteins": 1935,
+        "matched_proteins": 1066,
+        "matched_cells": 10
+      },
+      "191108S_LCB7_X_APNOV16plex_Set_28": {
+        "quantitative_sha256": "4a952b9068141c18026a32a77d20f0af94bf70da5e9b78792cb6d451830f91cb",
+        "proteins": 1982,
+        "matched_proteins": 1089,
+        "matched_cells": 11
+      },
+      "191108S_LCB7_X_APNOV16plex_Set_30": {
+        "quantitative_sha256": "6b2c56252274273082602c1f06c69cc6207bb3ec01f0b5e1ad40cfb7f8ea18f5",
+        "proteins": 1969,
+        "matched_proteins": 1055,
+        "matched_cells": 10
+      },
+      "191108S_LCB7_X_APNOV16plex_Set_31": {
+        "quantitative_sha256": "694b25f0d0c2b60363c3cfe3e82aeecda6377887ed70f94b9ac921fa4f4e70ee",
+        "proteins": 1541,
+        "matched_proteins": 732,
+        "matched_cells": 11
+      },
+      "191108S_LCB7_X_APNOV16plex_Set_32": {
+        "quantitative_sha256": "1f4a204f28e9ee07203fb37c076793ce33049964c614261fabbfc701cda8dfc7",
+        "proteins": 1957,
+        "matched_proteins": 1055,
+        "matched_cells": 8
+      },
+      "191108S_LCB7_X_APOCT16plex_Set_26": {
+        "quantitative_sha256": "4cb123a2fb427f092d443a5f4c00df688ceaa2b301ce8f94806fee1356f87841",
+        "proteins": 2031,
+        "matched_proteins": 1087,
+        "matched_cells": 11
+      },
+      "191108S_LCB7_X_APOCT16plex_Set_27": {
+        "quantitative_sha256": "f65ce3f025be459c6a5147de33ad0b2c8ae7978ec2d8ebcfb476342dff34fab7",
+        "proteins": 1967,
+        "matched_proteins": 1089,
+        "matched_cells": 12
+      },
+      "191108S_LCB7_X_APOCT16plex_Set_28": {
+        "quantitative_sha256": "753b4a61dd964d15edbb17411b0245f33d68dd254d5ea5bc4c645e724147fd10",
+        "proteins": 2028,
+        "matched_proteins": 1075,
+        "matched_cells": 11
+      },
+      "191108S_LCB7_X_APOCT16plex_Set_29": {
+        "quantitative_sha256": "8eb754d843ef6cfd120bc057565de204f5642bd8143869d6a3cc6b41e0c3c1cf",
+        "proteins": 1971,
+        "matched_proteins": 1086,
+        "matched_cells": 11
+      },
+      "191108S_LCB7_X_APOCT16plex_Set_30": {
+        "quantitative_sha256": "b0a6fd654937b036788babc32ef9c677d6f6b37be2a125f7601a3cb8b399dd9f",
+        "proteins": 2009,
+        "matched_proteins": 1123,
+        "matched_cells": 9
+      },
+      "191108S_LCB7_X_APOCT16plex_Set_31": {
+        "quantitative_sha256": "899bc64f9568dc97700ef67d00cc678677fa00f751058d04389eb66622978f85",
+        "proteins": 1986,
+        "matched_proteins": 1082,
+        "matched_cells": 11
+      },
+      "191108S_LCB7_X_APOCT16plex_Set_32": {
+        "quantitative_sha256": "d40e3622b9a8c327d169ceb44f6260c888f83693579063f88a3995555c5de477",
+        "proteins": 1977,
+        "matched_proteins": 1106,
+        "matched_cells": 10
+      },
+      "191110S_LCB7_X_APNOV16plex2_Set_1": {
+        "quantitative_sha256": "90b98045485f904bbafb97ff8d89208c4b30d9341cd379a7af59e0252c9101ee",
+        "proteins": 2090,
+        "matched_proteins": 1163,
+        "matched_cells": 9
+      },
+      "191110S_LCB7_X_APNOV16plex2_Set_10": {
+        "quantitative_sha256": "f78d690a9ca93e25e1a36941ef39188fc2b5515fe459139d56fde059615c565b",
+        "proteins": 1909,
+        "matched_proteins": 1072,
+        "matched_cells": 12
+      },
+      "191110S_LCB7_X_APNOV16plex2_Set_11": {
+        "quantitative_sha256": "aabd4848c36a0c783e191e1d7d70d17b519ad65b29c52994a98c1aa8c30237ab",
+        "proteins": 1992,
+        "matched_proteins": 1106,
+        "matched_cells": 11
+      },
+      "191110S_LCB7_X_APNOV16plex2_Set_12": {
+        "quantitative_sha256": "30fbe687a3dca577d45a65194344799ac95bf8d0db812bc453bb1b46f1b070ba",
+        "proteins": 1661,
+        "matched_proteins": 922,
+        "matched_cells": 11
+      },
+      "191110S_LCB7_X_APNOV16plex2_Set_13": {
+        "quantitative_sha256": "1603baa90dda903c9a5a63d5fbc43ff9127ccc7b91a7e0c6c96b181d5fd4ebdb",
+        "proteins": 2009,
+        "matched_proteins": 1143,
+        "matched_cells": 11
+      },
+      "191110S_LCB7_X_APNOV16plex2_Set_14": {
+        "quantitative_sha256": "ec4486576c072a678471a3260a6eb3d80e95735c15acd7ec79eae82058eeb28d",
+        "proteins": 1898,
+        "matched_proteins": 1104,
+        "matched_cells": 11
+      },
+      "191110S_LCB7_X_APNOV16plex2_Set_15": {
+        "quantitative_sha256": "9d73e8a9c05573951bb4cac427a489dbce996a429c6b1862baba9960ebc4a5be",
+        "proteins": 2162,
+        "matched_proteins": 1193,
+        "matched_cells": 12
+      },
+      "191110S_LCB7_X_APNOV16plex2_Set_16": {
+        "quantitative_sha256": "641735a011d91b245f20d9c3ee3e9f02f3bf449bc24578b49ca3c608d1370d8d",
+        "proteins": 2063,
+        "matched_proteins": 1148,
+        "matched_cells": 12
+      },
+      "191110S_LCB7_X_APNOV16plex2_Set_17": {
+        "quantitative_sha256": "5dae37a47b81ff33ea352e17cafba57c62d342fb0776b8631695ef6ea6ca50cd",
+        "proteins": 1946,
+        "matched_proteins": 1087,
+        "matched_cells": 11
+      },
+      "191110S_LCB7_X_APNOV16plex2_Set_18": {
+        "quantitative_sha256": "05dba02d8bf664eff150ee34dd812bfb0d65cdf4ba4f47d14b851c02c7c81ade",
+        "proteins": 1996,
+        "matched_proteins": 1095,
+        "matched_cells": 8
+      },
+      "191110S_LCB7_X_APNOV16plex2_Set_19": {
+        "quantitative_sha256": "1552475ae576a8b90faf01a0a45161ea886d85407a3d4f54d6bf5cd220904144",
+        "proteins": 1963,
+        "matched_proteins": 1109,
+        "matched_cells": 10
+      },
+      "191110S_LCB7_X_APNOV16plex2_Set_2": {
+        "quantitative_sha256": "0f95c2379a6dccd6b56d898e104b93fec1f5b0a95ca54c18a039d6009c870343",
+        "proteins": 2053,
+        "matched_proteins": 1127,
+        "matched_cells": 10
+      },
+      "191110S_LCB7_X_APNOV16plex2_Set_20": {
+        "quantitative_sha256": "2b3852ae97edd4cd300b24b93a682c4d75f670c4f3bdbfc248284988bb0f6b15",
+        "proteins": 1967,
+        "matched_proteins": 1099,
+        "matched_cells": 10
+      },
+      "191110S_LCB7_X_APNOV16plex2_Set_21": {
+        "quantitative_sha256": "9d0baf0ac8b3218c6c7d5ee06fc24e648d28c6d3915f7eb8d5e4f2539f21ad42",
+        "proteins": 1918,
+        "matched_proteins": 1072,
+        "matched_cells": 11
+      },
+      "191110S_LCB7_X_APNOV16plex2_Set_22": {
+        "quantitative_sha256": "a31d8018a39232e53b08aa4be4cbf27da59f7c97196530b727de91626502ee28",
+        "proteins": 1940,
+        "matched_proteins": 1087,
+        "matched_cells": 11
+      },
+      "191110S_LCB7_X_APNOV16plex2_Set_23": {
+        "quantitative_sha256": "a642995bd7ef588b84c445f0c23d7d916b4a21b41ecd41bb084f62ad13148e97",
+        "proteins": 1840,
+        "matched_proteins": 1059,
+        "matched_cells": 10
+      },
+      "191110S_LCB7_X_APNOV16plex2_Set_24": {
+        "quantitative_sha256": "f00db245df92506dfbdf7e571b507412b2fb1147646cf31797aa9d547996d47f",
+        "proteins": 1959,
+        "matched_proteins": 1109,
+        "matched_cells": 10
+      },
+      "191110S_LCB7_X_APNOV16plex2_Set_25": {
+        "quantitative_sha256": "08f34aebe0bcd77cb2b6181f824f124fedec66656d01459e6be973c5499daa88",
+        "proteins": 2015,
+        "matched_proteins": 1145,
+        "matched_cells": 11
+      },
+      "191110S_LCB7_X_APNOV16plex2_Set_26": {
+        "quantitative_sha256": "0950a726a6d9639e82517fb618b1b3cfb916c0dc5c454b1f54211d24e526093c",
+        "proteins": 2003,
+        "matched_proteins": 1106,
+        "matched_cells": 11
+      },
+      "191110S_LCB7_X_APNOV16plex2_Set_27": {
+        "quantitative_sha256": "8de8c621b1d646cb483879c8c1696535323f03f510920ba6a289e188cd08c10c",
+        "proteins": 2053,
+        "matched_proteins": 1228,
+        "matched_cells": 10
+      },
+      "191110S_LCB7_X_APNOV16plex2_Set_28": {
+        "quantitative_sha256": "cd0b7e533d3df4ed3c999f7a62491a6f3672a78f18c99d63400b3958b9afd509",
+        "proteins": 1972,
+        "matched_proteins": 1136,
+        "matched_cells": 11
+      },
+      "191110S_LCB7_X_APNOV16plex2_Set_29": {
+        "quantitative_sha256": "6b49b1cabff0cd876d1ed4516f27c6ac2ff856876d0c7002f0935dc3c018a30e",
+        "proteins": 2003,
+        "matched_proteins": 1126,
+        "matched_cells": 10
+      },
+      "191110S_LCB7_X_APNOV16plex2_Set_3": {
+        "quantitative_sha256": "4353e7cead9131b3b6de4e26e5d6000fb9ac5bbc09aa4967d0873d30dbcb6567",
+        "proteins": 2118,
+        "matched_proteins": 1167,
+        "matched_cells": 9
+      },
+      "191110S_LCB7_X_APNOV16plex2_Set_30": {
+        "quantitative_sha256": "342ad0c1f604ed389bc52806d3603f4b73731a436f0ab5d176c73db507dd01a8",
+        "proteins": 2152,
+        "matched_proteins": 1256,
+        "matched_cells": 9
+      },
+      "191110S_LCB7_X_APNOV16plex2_Set_31": {
+        "quantitative_sha256": "67a4a6a2f329ba9fe9c90468298a30f346d638801dd1aa9b487806ea7fd20c97",
+        "proteins": 1906,
+        "matched_proteins": 1092,
+        "matched_cells": 9
+      },
+      "191110S_LCB7_X_APNOV16plex2_Set_4": {
+        "quantitative_sha256": "703be20a262c34fadee7366348963b76a39d18685fb7283e7189abd6d5c3f382",
+        "proteins": 2061,
+        "matched_proteins": 1173,
+        "matched_cells": 11
+      },
+      "191110S_LCB7_X_APNOV16plex2_Set_5": {
+        "quantitative_sha256": "3662b220ae5f4f74389c97b3aaf494c09e7106e7f13213067960da764df37907",
+        "proteins": 2008,
+        "matched_proteins": 1102,
+        "matched_cells": 10
+      },
+      "191110S_LCB7_X_APNOV16plex2_Set_6": {
+        "quantitative_sha256": "453f2e5aca7c490aac91a48bd1921de501ba0abdf2d1790dc405993a4aa81cab",
+        "proteins": 1904,
+        "matched_proteins": 1055,
+        "matched_cells": 10
+      },
+      "191110S_LCB7_X_APNOV16plex2_Set_7": {
+        "quantitative_sha256": "c07611cf37fbf431f06caf2c3a055b601cf45210307baca6810aa4cb48cfac97",
+        "proteins": 2043,
+        "matched_proteins": 1125,
+        "matched_cells": 11
+      },
+      "191110S_LCB7_X_APNOV16plex2_Set_8": {
+        "quantitative_sha256": "0ae8aaad5344ee1ab1f51c92ac4bf2171312a59a46b40ef6e1daab315c5e1085",
+        "proteins": 2030,
+        "matched_proteins": 1149,
+        "matched_cells": 11
+      },
+      "191110S_LCB7_X_APNOV16plex2_Set_9": {
+        "quantitative_sha256": "4a21a7b35fb1fb429c4fd50c48f8c6ec2ddeb9417d195f9f3774edd371c3b43b",
+        "proteins": 2135,
+        "matched_proteins": 1160,
+        "matched_cells": 11
+      }
+    },
+    "wall_seconds": 162.505
+  },
+  "leduc2022_pSCoPE": {
+    "dataset": "leduc2022_pSCoPE",
+    "seed": 20261013,
+    "versions": {
+      "R": "4.6.1",
+      "scp": "1.22.0",
+      "limma": "3.68.5",
+      "edgeR": "4.10.5",
+      "scplainer": "workflow in scp 1.22.0; no separate package"
+    },
+    "scpdata_version": "1.20.0",
+    "psm_assays": 134,
+    "raw_single_cell_channels": 1755,
+    "paired_accepted_cells": 1556,
+    "accepted_protein_groups": 3438,
+    "raw_target_protein_ids": 3518,
+    "exact_protein_overlap": 3372,
+    "never_quantified_proteins": 68,
+    "processing": ["SampleType excludes carrier, reference, blank, negative and unused channels", "Pair exact cell/protein IDs to the accepted variance population; no new QC threshold", "Quantified if any PSM is finite and >0; log2 positive raw intensities; per-run protein median; no normalisation", "Reverse/contaminant PSM annotations excluded as non-target identities; ambiguous group IDs never invented"],
+    "matched_population_hash": "bab6af23f03b90e7f9f5acb5cfd354fdfda167a0c3c13ebe3ef4bd9f9c26195b",
+    "serialized_sha256": "e0a2d9a2a419275bd12d5c26d40a30ce9ca83feba3d15983399588b081245f8c",
+    "runs": {
+      "eAL00219": {
+        "quantitative_sha256": "a2419020e0fa52d82b42408193d08af917bb9eab1a7e48f5c75c1d22c668dc5b",
+        "proteins": 1783,
+        "matched_proteins": 1765,
+        "matched_cells": 13
+      },
+      "eAL00220": {
+        "quantitative_sha256": "df28561014d5c2a24ef478460287a3a0e5134f2f1f9d84951c793fa90885ab97",
+        "proteins": 1872,
+        "matched_proteins": 1851,
+        "matched_cells": 12
+      },
+      "eAL00221": {
+        "quantitative_sha256": "140e842bf68a70f01c4aa893d2ce5106cdb4b8c6b1d72ec7a4e0b9ea3c6f0912",
+        "proteins": 1852,
+        "matched_proteins": 1829,
+        "matched_cells": 12
+      },
+      "eAL00222": {
+        "quantitative_sha256": "f1e6df9db5af8cccc9e42653106a4fc391edfa43537af90ee1ef61fa6c7524e7",
+        "proteins": 1845,
+        "matched_proteins": 1821,
+        "matched_cells": 11
+      },
+      "eAL00223": {
+        "quantitative_sha256": "cc8d3fe9935d78b501940211165e1982af82609c1c58c46a64ad1087b005d9b5",
+        "proteins": 1864,
+        "matched_proteins": 1841,
+        "matched_cells": 11
+      },
+      "eAL00224": {
+        "quantitative_sha256": "2d85aac24243e8e0ebc68be8280e8712fc33eb64f06773390b15bbd5ac41e8f5",
+        "proteins": 1816,
+        "matched_proteins": 1791,
+        "matched_cells": 13
+      },
+      "eAL00225": {
+        "quantitative_sha256": "dd301f07445ab7e0a498082f9f264c613b9e15345216915a3afa0611c3210da5",
+        "proteins": 1820,
+        "matched_proteins": 1799,
+        "matched_cells": 11
+      },
+      "eAL00226": {
+        "quantitative_sha256": "d18893eadaf54af2774e0828e5233bbf7fb364b833fb32d6b041f78db1a0bde6",
+        "proteins": 1816,
+        "matched_proteins": 1797,
+        "matched_cells": 13
+      },
+      "eAL00227": {
+        "quantitative_sha256": "2cf6d6acd1ead830e284b286a91c8afbc05712c196cd9f104b610b47cc4c498d",
+        "proteins": 1814,
+        "matched_proteins": 1793,
+        "matched_cells": 12
+      },
+      "eAL00228": {
+        "quantitative_sha256": "ab18f3c8dac59b3b8d0082bfa32f943d43cb9f0c540659a3b029acc4f8aac84d",
+        "proteins": 1819,
+        "matched_proteins": 1799,
+        "matched_cells": 12
+      },
+      "eAL00229": {
+        "quantitative_sha256": "8e7768cbbf7c0e43037de9ce48e82fc286289ff7954ca98971133ffba6861eaf",
+        "proteins": 1838,
+        "matched_proteins": 1818,
+        "matched_cells": 12
+      },
+      "eAL00230": {
+        "quantitative_sha256": "51be321b29ab8230806c1fc7788c72531d08000f02444b6a19787b45eaff2c96",
+        "proteins": 1830,
+        "matched_proteins": 1803,
+        "matched_cells": 13
+      },
+      "eAL00231": {
+        "quantitative_sha256": "caeed7710b6503a6a3af182553ee8a1683feb31ec9954c69821e4f9dc81c4543",
+        "proteins": 1825,
+        "matched_proteins": 1805,
+        "matched_cells": 11
+      },
+      "eAL00232": {
+        "quantitative_sha256": "09e84ef8d059f2d8b1756159afc85149612ec4df68d02cee2a8d48eb032d20f2",
+        "proteins": 1819,
+        "matched_proteins": 1802,
+        "matched_cells": 12
+      },
+      "eAL00233": {
+        "quantitative_sha256": "9e4143aea3cfc71faae8713a5dfab92636ad9621f6d34e08e35085b3868de254",
+        "proteins": 1784,
+        "matched_proteins": 1764,
+        "matched_cells": 13
+      },
+      "eAL00234": {
+        "quantitative_sha256": "0c823887ed7e57db713af25180462ef7cfed32a8b8362153805be90f3288875b",
+        "proteins": 1834,
+        "matched_proteins": 1815,
+        "matched_cells": 13
+      },
+      "eAL00235": {
+        "quantitative_sha256": "89afa77576c6273a31d9a3fa5060e7af7cec98aa28d0700771f48d0cfd67b701",
+        "proteins": 1805,
+        "matched_proteins": 1783,
+        "matched_cells": 13
+      },
+      "eAL00236": {
+        "quantitative_sha256": "ca701747c4fb5941197ef0f08518f9b72a5a57c11c5facbab178b8bfc63d02e3",
+        "proteins": 1800,
+        "matched_proteins": 1778,
+        "matched_cells": 12
+      },
+      "eAL00237": {
+        "quantitative_sha256": "02f4f9933e38c99d7dc9b49c5b3c8803563a036c2d7204d64e2be1cf2064015f",
+        "proteins": 1806,
+        "matched_proteins": 1786,
+        "matched_cells": 11
+      },
+      "eAL00238": {
+        "quantitative_sha256": "b3d857c5fac68ee00e4db3b0a7cff11fe71f2a6c1e679df184c0c691113b150e",
+        "proteins": 1780,
+        "matched_proteins": 1765,
+        "matched_cells": 12
+      },
+      "eAL00239": {
+        "quantitative_sha256": "e9be7e545e184ac7dc99e8de52ae6f69fa0fb2dad58d57e5275a9513344682e8",
+        "proteins": 1815,
+        "matched_proteins": 1792,
+        "matched_cells": 12
+      },
+      "eAL00240": {
+        "quantitative_sha256": "e152f2922f1e4f7f0ec837f27f67c5cb3e93bc4e0dc05dc73f7cc5c15b6d1202",
+        "proteins": 1794,
+        "matched_proteins": 1774,
+        "matched_cells": 12
+      },
+      "eAL00241": {
+        "quantitative_sha256": "685a786286a4956f76a81e1974962d19cb6d327703a1831224899ad61298b5bf",
+        "proteins": 1764,
+        "matched_proteins": 1748,
+        "matched_cells": 12
+      },
+      "eAL00242": {
+        "quantitative_sha256": "c52be541535691d7d978cb61f66741211c86d60ebaa5d5b42bc59f6ee43d1ee8",
+        "proteins": 1792,
+        "matched_proteins": 1770,
+        "matched_cells": 12
+      },
+      "eAL00243": {
+        "quantitative_sha256": "3a546a552c3a8f3eb1d0edfc9f67d5ae82d938cfe651fedd033d8a81e5b60a0c",
+        "proteins": 1831,
+        "matched_proteins": 1816,
+        "matched_cells": 10
+      },
+      "eAL00244": {
+        "quantitative_sha256": "8c94daa995ac26f30710c4a24efafb74c82128954d27b3ecdac7e535b646ea9b",
+        "proteins": 1770,
+        "matched_proteins": 1745,
+        "matched_cells": 14
+      },
+      "eAL00245": {
+        "quantitative_sha256": "93ef0905b10761c090bb31f33e2d5629c6720985bd6f58396b4df8f0355fcf4a",
+        "proteins": 1760,
+        "matched_proteins": 1742,
+        "matched_cells": 12
+      },
+      "eAL00246": {
+        "quantitative_sha256": "73f590ba0fb830c550e521054cb741cf3b9130ed362bbaaef26faa5b3e7b05f3",
+        "proteins": 1812,
+        "matched_proteins": 1795,
+        "matched_cells": 10
+      },
+      "eAL00247": {
+        "quantitative_sha256": "d58b08fbe5e8b3f1f0cbb7d089d3d4b2c4dd109d23ba23bae2b2ff495dbe2c1b",
+        "proteins": 1780,
+        "matched_proteins": 1762,
+        "matched_cells": 13
+      },
+      "eAL00248": {
+        "quantitative_sha256": "8730dbc5e6786ff5daf9a6200ba8f2508b50049dd84d5fd6503a078b882aaa67",
+        "proteins": 1799,
+        "matched_proteins": 1784,
+        "matched_cells": 12
+      },
+      "eAL00249": {
+        "quantitative_sha256": "cb76eeae26939f4df39b4f61fe7481e9794d86660d2302b7ffbda1cc738afa66",
+        "proteins": 1799,
+        "matched_proteins": 1783,
+        "matched_cells": 10
+      },
+      "eAL00250": {
+        "quantitative_sha256": "b253295ca65ceb05c4e33ed8722afb330629dd40d00b359f2702b0a6dff6c27a",
+        "proteins": 1826,
+        "matched_proteins": 1804,
+        "matched_cells": 11
+      },
+      "eAL00251": {
+        "quantitative_sha256": "54b6e0a4de412284a71d19cb4389cd75fe57f41da88414e66216e324c47e638f",
+        "proteins": 1797,
+        "matched_proteins": 1780,
+        "matched_cells": 12
+      },
+      "eAL00252": {
+        "quantitative_sha256": "f4345d30d1c1b1ca77a35ca62d3d3e9217cda11d4718ecf8a66962e006b343f7",
+        "proteins": 1792,
+        "matched_proteins": 1770,
+        "matched_cells": 11
+      },
+      "eAL00253": {
+        "quantitative_sha256": "5d2e1e8b112909651b852bad4bfb99c3fe0cbb3ebd70e79b11264c3452924e64",
+        "proteins": 1811,
+        "matched_proteins": 1791,
+        "matched_cells": 13
+      },
+      "eAL00254": {
+        "quantitative_sha256": "f705392bf184cdf13ffc9fcc14b99c470356bb3ba63405a10366ab73f4399efd",
+        "proteins": 1795,
+        "matched_proteins": 1775,
+        "matched_cells": 12
+      },
+      "eAL00255": {
+        "quantitative_sha256": "840fb3982b1cc310dd8469a5272e5a97e30689310ba586fb680c49c7551a4835",
+        "proteins": 1812,
+        "matched_proteins": 1784,
+        "matched_cells": 12
+      },
+      "eAL00256": {
+        "quantitative_sha256": "044296ac93f0adb3f108d9d911e1e4b173e8f78b710c61d0cf594d284c01a87b",
+        "proteins": 1790,
+        "matched_proteins": 1765,
+        "matched_cells": 12
+      },
+      "eAL00257": {
+        "quantitative_sha256": "58160859f7bea1774d0c1de6228f9b9d19fbe9d5ea5b1310622d9b882d9ad244",
+        "proteins": 1779,
+        "matched_proteins": 1759,
+        "matched_cells": 13
+      },
+      "eAL00258": {
+        "quantitative_sha256": "9d5ec9c34443a37831e4615fa462db46bde053883ab1975c9c23a8a1de15a354",
+        "proteins": 1784,
+        "matched_proteins": 1769,
+        "matched_cells": 12
+      },
+      "eAL00259": {
+        "quantitative_sha256": "37b144bdd3e68c6c6363f31e54e92af2fb397f78dce9528bccf32feaf4ab023d",
+        "proteins": 1746,
+        "matched_proteins": 1732,
+        "matched_cells": 13
+      },
+      "eAL00260": {
+        "quantitative_sha256": "fbd3dbc8bd13017024dccb812e916b0109a35861ac25e868975b6d97b1e12786",
+        "proteins": 1766,
+        "matched_proteins": 1744,
+        "matched_cells": 12
+      },
+      "eAL00261": {
+        "quantitative_sha256": "fabd04afc6ee37cd129e7de1802867aeccce7577234d9022b475d112b9089acb",
+        "proteins": 1807,
+        "matched_proteins": 1788,
+        "matched_cells": 13
+      },
+      "eAL00262": {
+        "quantitative_sha256": "38ac44a5b3177dfdea4bace8ce59a9f94d6a0f1719211a2257feb715e587acf8",
+        "proteins": 1820,
+        "matched_proteins": 1802,
+        "matched_cells": 13
+      },
+      "eAL00264": {
+        "quantitative_sha256": "df3c57fda6db296f705c439d5b54c77d146c5faf930994d2e87099281f463957",
+        "proteins": 1609,
+        "matched_proteins": 1584,
+        "matched_cells": 10
+      },
+      "eAL00265": {
+        "quantitative_sha256": "5ebaa5f56928ffcf9e6638002368c937468b0c71c784f85f99d6f7e0d56a1b82",
+        "proteins": 1445,
+        "matched_proteins": 1417,
+        "matched_cells": 4
+      },
+      "eAL00266": {
+        "quantitative_sha256": "7440d16fb519a029d1556586665b0ceb2498d80eec3c71a9d3a5274713736923",
+        "proteins": 1797,
+        "matched_proteins": 1774,
+        "matched_cells": 13
+      },
+      "wAL00200": {
+        "quantitative_sha256": "8734a0c354061c581736acc896f6a99845661a76fb5ced2587b923d5b7e898cd",
+        "proteins": 1368,
+        "matched_proteins": 1347,
+        "matched_cells": 12
+      },
+      "wAL00201": {
+        "quantitative_sha256": "c26504fbddc985fb53eb8a17f8f4c65e788e1d69276a24eb20f4fc81252796b0",
+        "proteins": 1814,
+        "matched_proteins": 1798,
+        "matched_cells": 11
+      },
+      "wAL00202": {
+        "quantitative_sha256": "3c10e2eae93bcf37a61b82f77e3b6f4646069f36089ef3ed51de28f67d332027",
+        "proteins": 1810,
+        "matched_proteins": 1793,
+        "matched_cells": 10
+      },
+      "wAL00203": {
+        "quantitative_sha256": "68727ef85bda67d955f8cedc4b23b05a3e0611b5f3b681afe42b6c468e50f242",
+        "proteins": 1802,
+        "matched_proteins": 1787,
+        "matched_cells": 12
+      },
+      "wAL00204": {
+        "quantitative_sha256": "207dc06c7a1e15623ae178dcef3938a3cf4d0b07c87cac8b05eed0dbea89c87c",
+        "proteins": 1804,
+        "matched_proteins": 1784,
+        "matched_cells": 13
+      },
+      "wAL00205": {
+        "quantitative_sha256": "0e914e543b0e7ba0e3b54cb87eed1f3e66e00bb6698990ce0960f709bbf9dd7b",
+        "proteins": 1580,
+        "matched_proteins": 1557,
+        "matched_cells": 11
+      },
+      "wAL00206": {
+        "quantitative_sha256": "e7e4da3e168684c90c0690956d92c86a4858897d5bdd648aa4ba16edfc213d47",
+        "proteins": 1633,
+        "matched_proteins": 1616,
+        "matched_cells": 11
+      },
+      "wAL00207": {
+        "quantitative_sha256": "47f91efc69143f642c84b5eea079c0a200db533691b58e5c8d4f658f5631de14",
+        "proteins": 1724,
+        "matched_proteins": 1702,
+        "matched_cells": 9
+      },
+      "wAL00208": {
+        "quantitative_sha256": "1f28394c5893d74eb93aab303f54d9746a8522c5378c401fe9a597b5a8acd116",
+        "proteins": 1769,
+        "matched_proteins": 1755,
+        "matched_cells": 12
+      },
+      "wAL00209": {
+        "quantitative_sha256": "f85bee378984e3487234219e6257ce5411dd8fb50a0519fcacff090b459ed8e4",
+        "proteins": 1797,
+        "matched_proteins": 1779,
+        "matched_cells": 12
+      },
+      "wAL00210": {
+        "quantitative_sha256": "ef725deb5c11fa0930d5e47d05f529ea70dcad2fbd189e3e9493e402ae36a600",
+        "proteins": 1761,
+        "matched_proteins": 1743,
+        "matched_cells": 11
+      },
+      "wAL00211": {
+        "quantitative_sha256": "b1bb406f663965d7532d8f0b82727700669d7d46f82bb2a639fd1fd5e136a530",
+        "proteins": 1825,
+        "matched_proteins": 1803,
+        "matched_cells": 12
+      },
+      "wAL00212": {
+        "quantitative_sha256": "ef9cd4f6d3a63dc34440d4c01bca5c45119058ce26f0f16fd8dbc824ce6dad1b",
+        "proteins": 1754,
+        "matched_proteins": 1735,
+        "matched_cells": 10
+      },
+      "wAL00213": {
+        "quantitative_sha256": "cb755354126f5b1200e22f4a0d8261bcfca94e050f23dcbe5375b26e3a78d45b",
+        "proteins": 1772,
+        "matched_proteins": 1760,
+        "matched_cells": 12
+      },
+      "wAL00214": {
+        "quantitative_sha256": "38e513877c367c8f2680c77cc102c59bb1e4e9e921cdb249fb3e9026311cd5ae",
+        "proteins": 1714,
+        "matched_proteins": 1698,
+        "matched_cells": 12
+      },
+      "wAL00215": {
+        "quantitative_sha256": "847834c7aeb9fab61401b13cfe735f98b25de2ac49596119da38d370fdd28d74",
+        "proteins": 1749,
+        "matched_proteins": 1734,
+        "matched_cells": 14
+      },
+      "wAL00216": {
+        "quantitative_sha256": "d2f23d2ec586da466d6756afcf9f76714dac2dfdd962c023ed603f8199032122",
+        "proteins": 1772,
+        "matched_proteins": 1756,
+        "matched_cells": 12
+      },
+      "wAL00217": {
+        "quantitative_sha256": "a6dba438c949f6abe5ad62095810a59267817b3dffb6f179f97a3f70dc193e00",
+        "proteins": 1615,
+        "matched_proteins": 1598,
+        "matched_cells": 12
+      },
+      "wAL00218": {
+        "quantitative_sha256": "e046f8776bdcefa3101ac3b3506dcff0031ae115719e7ff9430732d450aa05d3",
+        "proteins": 1633,
+        "matched_proteins": 1614,
+        "matched_cells": 12
+      },
+      "wAL00219": {
+        "quantitative_sha256": "4e2a78732f527aee7a66594804cd4e62bf0516a50347d1e2b26700accef7aaf2",
+        "proteins": 1796,
+        "matched_proteins": 1780,
+        "matched_cells": 11
+      },
+      "wAL00220": {
+        "quantitative_sha256": "b5da1474e4f0462bc9068bd18249d36eca63af2d050a1e688b0842602c1b31f4",
+        "proteins": 1826,
+        "matched_proteins": 1809,
+        "matched_cells": 12
+      },
+      "wAL00221": {
+        "quantitative_sha256": "2de8ca863fda1d03aa2e0fffb7ea8bda7afbcf4597d55167bec9459436e400e5",
+        "proteins": 1788,
+        "matched_proteins": 1769,
+        "matched_cells": 13
+      },
+      "wAL00222": {
+        "quantitative_sha256": "87d93d24b24f718b27d96fda3b07e7266ac71f2e4dacf7ddf7bae0bafef81628",
+        "proteins": 1793,
+        "matched_proteins": 1775,
+        "matched_cells": 12
+      },
+      "wAL00223": {
+        "quantitative_sha256": "ce408bc0caa6b859f03d252c20c92cdb763ebc83bd0d92f290eb7809c9078d62",
+        "proteins": 1688,
+        "matched_proteins": 1672,
+        "matched_cells": 11
+      },
+      "wAL00224": {
+        "quantitative_sha256": "dc435f148384b65e6cc428f1b76930418255d4a1e28b235cbcfb631d91281003",
+        "proteins": 1804,
+        "matched_proteins": 1791,
+        "matched_cells": 13
+      },
+      "wAL00225": {
+        "quantitative_sha256": "4bccc0c067bb958cdabc28b1c64bda3e53ad84199d92153fce5149ee10545556",
+        "proteins": 1750,
+        "matched_proteins": 1730,
+        "matched_cells": 11
+      },
+      "wAL00226": {
+        "quantitative_sha256": "18de124396ba9406fa58c3d81fea344aa8d38102d4457badde92fdddd59e891c",
+        "proteins": 1805,
+        "matched_proteins": 1787,
+        "matched_cells": 12
+      },
+      "wAL00227": {
+        "quantitative_sha256": "f1a78af4df44cc351d3ecf9daa54224b53bf81ce09571a4c17f5ec726166e13a",
+        "proteins": 1720,
+        "matched_proteins": 1702,
+        "matched_cells": 11
+      },
+      "wAL00228": {
+        "quantitative_sha256": "21ffd910652c96f17a46163cab2ccf55a749569a147e90649081bd711fed3915",
+        "proteins": 1803,
+        "matched_proteins": 1789,
+        "matched_cells": 12
+      },
+      "wAL00229": {
+        "quantitative_sha256": "fbece60e441ab372d14fb44310753d74cc407a23218af91fffd8fc21f710a639",
+        "proteins": 1814,
+        "matched_proteins": 1793,
+        "matched_cells": 13
+      },
+      "wAL00230": {
+        "quantitative_sha256": "fba748f4cae5d78a38cba6d6522e9bb233052d94b085b18863a6a8d92a1610d1",
+        "proteins": 1260,
+        "matched_proteins": 1241,
+        "matched_cells": 12
+      },
+      "wAL00231": {
+        "quantitative_sha256": "c5f9db0d637927787c337ab33f7cfe76f82d16528869faea3e3ec872e8450422",
+        "proteins": 1707,
+        "matched_proteins": 1696,
+        "matched_cells": 11
+      },
+      "wAL00232": {
+        "quantitative_sha256": "0278cce686e10722300394b0d0d579b0d730d25e0ac681b147b51185783a5510",
+        "proteins": 1809,
+        "matched_proteins": 1792,
+        "matched_cells": 12
+      },
+      "wAL00233": {
+        "quantitative_sha256": "9fcc7f222aaec692362dfb94ff8c7b190b9ae2afeee68873d26953d678662136",
+        "proteins": 1339,
+        "matched_proteins": 1325,
+        "matched_cells": 12
+      },
+      "wAL00234": {
+        "quantitative_sha256": "a701186c3a73764daa73c03865e54bdb86a2ce2c485430c6a32074e69b977476",
+        "proteins": 1726,
+        "matched_proteins": 1710,
+        "matched_cells": 9
+      },
+      "wAL00235": {
+        "quantitative_sha256": "29c7bf333f6b28cae5995b03994c799c187107da99ff709f8c47c0a00932a13c",
+        "proteins": 1650,
+        "matched_proteins": 1637,
+        "matched_cells": 11
+      },
+      "wAL00236": {
+        "quantitative_sha256": "36fcf3af1fdda7baec98cdd05d672436007f260a9e37f615ed46ad6b3b3f3d37",
+        "proteins": 1807,
+        "matched_proteins": 1787,
+        "matched_cells": 12
+      },
+      "wAL00237": {
+        "quantitative_sha256": "f3c3f841d924e4eb50a1b8921b150129516c70c8fafbeb3eeebce95ad8e73a1e",
+        "proteins": 1819,
+        "matched_proteins": 1800,
+        "matched_cells": 11
+      },
+      "wAL00238": {
+        "quantitative_sha256": "930734e444a477920b682cd93799c45d7f619d857c205e6642c20fdeaacb0ab5",
+        "proteins": 1820,
+        "matched_proteins": 1799,
+        "matched_cells": 9
+      },
+      "wAL00239": {
+        "quantitative_sha256": "2038f794b87ddb660ac3cf5e0d8d26283cb7a7aa2dd914805d8975a93d538fc9",
+        "proteins": 1788,
+        "matched_proteins": 1770,
+        "matched_cells": 12
+      },
+      "wAL00240": {
+        "quantitative_sha256": "6a53e240d819769685a2b4dda808425991069e4f4e7cd649ccc0e9d671fd31ea",
+        "proteins": 1788,
+        "matched_proteins": 1767,
+        "matched_cells": 11
+      },
+      "wAL00241": {
+        "quantitative_sha256": "5676464c9243ccb5c9a6deb9c71b16b3598e0968c8ad1b36358dce045eb91e29",
+        "proteins": 1842,
+        "matched_proteins": 1822,
+        "matched_cells": 10
+      },
+      "wAL00242": {
+        "quantitative_sha256": "46cfadb64f4325972ed897e65f18835c505e25d66043dca1700516d9403bdd3c",
+        "proteins": 1827,
+        "matched_proteins": 1808,
+        "matched_cells": 12
+      },
+      "wAL00243": {
+        "quantitative_sha256": "049e0ec33592e5eb891d5365365c6778acbeea3780461c2697b1388bde936c63",
+        "proteins": 1812,
+        "matched_proteins": 1796,
+        "matched_cells": 12
+      },
+      "wAL00244": {
+        "quantitative_sha256": "2a4587f1637ba96f7f4f6dcbd568665ac3d7855fe740858c6e64b777dfc85c93",
+        "proteins": 1823,
+        "matched_proteins": 1808,
+        "matched_cells": 11
+      },
+      "wAL00245": {
+        "quantitative_sha256": "e32e8affb4e2bfb70e8c2f479408db93b11552ce1391021001ef8d0d16b6c321",
+        "proteins": 1827,
+        "matched_proteins": 1806,
+        "matched_cells": 12
+      },
+      "wAL00246": {
+        "quantitative_sha256": "7a61a2404760fa78af4b70d53e388f017794671d2be6b4ecfaa10a641de4c18e",
+        "proteins": 1807,
+        "matched_proteins": 1787,
+        "matched_cells": 11
+      },
+      "wAL00247": {
+        "quantitative_sha256": "bcc2909db2cd68c557011ae209ca49b6193536752b3d5e0eaf6480876cde2986",
+        "proteins": 1825,
+        "matched_proteins": 1800,
+        "matched_cells": 12
+      },
+      "wAL00248": {
+        "quantitative_sha256": "dbaafdcbf1696a12746d67b8c754fcf3e09d81a7ce10736417bdfa8cf9348602",
+        "proteins": 1841,
+        "matched_proteins": 1819,
+        "matched_cells": 12
+      },
+      "wAL00249": {
+        "quantitative_sha256": "9c236811b0891c2aeae8d23595ced5b0e9aa93015686e4e99fd58a4805be2daf",
+        "proteins": 1818,
+        "matched_proteins": 1794,
+        "matched_cells": 12
+      },
+      "wAL00250": {
+        "quantitative_sha256": "88df0169c380b292a913d9082d72c48dd4f96c218d8a2d2bbcc220e626b3e0b7",
+        "proteins": 1807,
+        "matched_proteins": 1784,
+        "matched_cells": 9
+      },
+      "wAL00251": {
+        "quantitative_sha256": "f76192f975ecc69f833d511d2d1886b4fd1ab4a96b3e94bc5b06e444d11ae461",
+        "proteins": 1813,
+        "matched_proteins": 1793,
+        "matched_cells": 13
+      },
+      "wAL00252": {
+        "quantitative_sha256": "a28453a5276e8bf0279a4feef59fc820a4190021efacfc108b4c39c64943a085",
+        "proteins": 1793,
+        "matched_proteins": 1776,
+        "matched_cells": 11
+      },
+      "wAL00254": {
+        "quantitative_sha256": "faae1115f76bab988db22f97f513581a5f50fbf9841a7615ab2f54c60a951dab",
+        "proteins": 1814,
+        "matched_proteins": 1796,
+        "matched_cells": 13
+      },
+      "wAL00255": {
+        "quantitative_sha256": "41349d11278a21fe1f4c89ba4bfcfe61c10d99cb673828c2722e630afd5e58a5",
+        "proteins": 1843,
+        "matched_proteins": 1824,
+        "matched_cells": 12
+      },
+      "wAL00256": {
+        "quantitative_sha256": "6ffe129a3facc73932ec46f8b70393487c48db17d405cb69dadacc97c9971a23",
+        "proteins": 1793,
+        "matched_proteins": 1778,
+        "matched_cells": 13
+      },
+      "wAL00257": {
+        "quantitative_sha256": "22a1ad9a0b2b82a8083641e7f9687d2331fa6cc15ac0b3d00cfa30b9e1247407",
+        "proteins": 1812,
+        "matched_proteins": 1789,
+        "matched_cells": 10
+      },
+      "wAL00258": {
+        "quantitative_sha256": "253be4b479fae7f802370e2072d8e19bba13c1a8940948bb5fd67e19471b1a5c",
+        "proteins": 1644,
+        "matched_proteins": 1630,
+        "matched_cells": 12
+      },
+      "wAL00259": {
+        "quantitative_sha256": "b5f47f232f7dc27cc7159c82cd1f44ad7c91f0657a639174600fcde027de15f1",
+        "proteins": 1807,
+        "matched_proteins": 1789,
+        "matched_cells": 12
+      },
+      "wAL00260": {
+        "quantitative_sha256": "ede806845ea20459c168780bfcb00af0c54e1bc5130f1fcacd2a30e7953960b9",
+        "proteins": 1594,
+        "matched_proteins": 1575,
+        "matched_cells": 14
+      },
+      "wAL00261": {
+        "quantitative_sha256": "3edea2599c566a9c3f3ab2cbb4b30eaba75e318937bc251e939aa46b6ea6982b",
+        "proteins": 1823,
+        "matched_proteins": 1802,
+        "matched_cells": 12
+      },
+      "wAL00262": {
+        "quantitative_sha256": "fbb8c0b56fae00aa31de28a3241dc5c92ab33eead7d908603673848821f55510",
+        "proteins": 1658,
+        "matched_proteins": 1643,
+        "matched_cells": 12
+      },
+      "wAL00263": {
+        "quantitative_sha256": "678951c54de0a34975f8e05987745b559c81f596fdd9b753e2b386f36b435311",
+        "proteins": 1817,
+        "matched_proteins": 1800,
+        "matched_cells": 12
+      },
+      "wAL00264": {
+        "quantitative_sha256": "0ba1daf5f27601a9379a2de8747a070806a9595f68ee6dbb3fa7819e4918a739",
+        "proteins": 1713,
+        "matched_proteins": 1692,
+        "matched_cells": 12
+      },
+      "wAL00265": {
+        "quantitative_sha256": "7ebba3f703b35b1726fbde294495033042f3e728c71c7ae3070a9034479db763",
+        "proteins": 1796,
+        "matched_proteins": 1778,
+        "matched_cells": 12
+      },
+      "wAL00266": {
+        "quantitative_sha256": "6efb174ca64c44931f5b293052536f5b60cd740afedcbc9b35bba7dd5347e1d3",
+        "proteins": 1777,
+        "matched_proteins": 1754,
+        "matched_cells": 13
+      },
+      "wAL00267": {
+        "quantitative_sha256": "de4a97003092a2f7c88a2843b5f19772066409fc87f9959742ad46569f6c9bec",
+        "proteins": 1800,
+        "matched_proteins": 1782,
+        "matched_cells": 12
+      },
+      "wAL00268": {
+        "quantitative_sha256": "309fdf1211a19f2d427ecdc337ad1026afda5fe906859b1f3b3b98bc19a65f6d",
+        "proteins": 1819,
+        "matched_proteins": 1801,
+        "matched_cells": 9
+      },
+      "wAL00269": {
+        "quantitative_sha256": "d3e923d31eeb07529abbf9d9414807f50339237728bdbefd342baab66fe944fd",
+        "proteins": 1786,
+        "matched_proteins": 1770,
+        "matched_cells": 12
+      },
+      "wAL00270": {
+        "quantitative_sha256": "d08fc9d873afae4733b2f9bf1b7da2028bccbd282a923c4b40d3ec9e0a0f0d43",
+        "proteins": 1796,
+        "matched_proteins": 1776,
+        "matched_cells": 13
+      },
+      "wAL00271": {
+        "quantitative_sha256": "b43aab4b066d517270a0156e9b8e3706d9519168bd6b342775237fc84bcff317",
+        "proteins": 1782,
+        "matched_proteins": 1764,
+        "matched_cells": 12
+      },
+      "wAL00272": {
+        "quantitative_sha256": "cdb6c301d423b8ac36f483d0c152c0a490dc93bb30129ca14a91a72d5d44264e",
+        "proteins": 1796,
+        "matched_proteins": 1775,
+        "matched_cells": 12
+      },
+      "wAL00273": {
+        "quantitative_sha256": "71ec70938354904f991b1cec8595f2979f7c5426f50f0d3918b2022d351c7002",
+        "proteins": 1826,
+        "matched_proteins": 1806,
+        "matched_cells": 12
+      },
+      "wAL00274": {
+        "quantitative_sha256": "037e12cd7a8734be14ba0b427cb2d25e87186aed131b2e980ee4eec602b41724",
+        "proteins": 1797,
+        "matched_proteins": 1777,
+        "matched_cells": 13
+      },
+      "wAL00275": {
+        "quantitative_sha256": "d118047c24cb7b2030519b95ef6dd66243d67ad64517a4efaa9e3f0b0e061f63",
+        "proteins": 1777,
+        "matched_proteins": 1757,
+        "matched_cells": 11
+      },
+      "wAL00276": {
+        "quantitative_sha256": "243e2b60c11e3a4c6e65805a66f9f353648c46d566813633b0cd33b827b0648c",
+        "proteins": 1800,
+        "matched_proteins": 1778,
+        "matched_cells": 10
+      },
+      "wAL00277": {
+        "quantitative_sha256": "467429c921cd0609abb0a3b8baba02c0f26794e9091e994ab7904daf3c581fd2",
+        "proteins": 1807,
+        "matched_proteins": 1791,
+        "matched_cells": 12
+      },
+      "wAL00278": {
+        "quantitative_sha256": "dcdeeb7d2544d93b67956347a195e1fb533ccda3f7029a7408871d4f4572503f",
+        "proteins": 1822,
+        "matched_proteins": 1804,
+        "matched_cells": 14
+      },
+      "wAL00279": {
+        "quantitative_sha256": "f3c5fe7ab1a4c526cd1199fb06c1b952eeb39196fcec1c6e95b6e8edf59da193",
+        "proteins": 1800,
+        "matched_proteins": 1780,
+        "matched_cells": 13
+      },
+      "wAL00280": {
+        "quantitative_sha256": "12938e61bd17d9585d90eb8572a2c25828be632e9e26f3f776e78b1c2e4c35a4",
+        "proteins": 1800,
+        "matched_proteins": 1781,
+        "matched_cells": 11
+      },
+      "wAL00281": {
+        "quantitative_sha256": "7ffc9694f4d428dfd17f29358e96b96122fa36871bd552472d610198d8781f1b",
+        "proteins": 1811,
+        "matched_proteins": 1794,
+        "matched_cells": 9
+      },
+      "wAL00282": {
+        "quantitative_sha256": "726195997635932480a4a660111059d1538aa1de09991669ddc425faa55a9153",
+        "proteins": 1792,
+        "matched_proteins": 1768,
+        "matched_cells": 10
+      },
+      "wAL00283": {
+        "quantitative_sha256": "e90a241eda6c8b29375042376339eacdf168a842fe4ddadda92dad391abf68fb",
+        "proteins": 1768,
+        "matched_proteins": 1746,
+        "matched_cells": 10
+      },
+      "wAL00284": {
+        "quantitative_sha256": "4fb843ddca278a2dead8914b7d71614e659496cda128a5e1fae192c3c7e9d5ef",
+        "proteins": 1811,
+        "matched_proteins": 1792,
+        "matched_cells": 12
+      },
+      "wAL00285": {
+        "quantitative_sha256": "890aa6d28b8e34ff89d9b9ee606f0ba3d4960dd9f3bdbe74bf021ff8dc55ea94",
+        "proteins": 1794,
+        "matched_proteins": 1775,
+        "matched_cells": 11
+      },
+      "wAL00286": {
+        "quantitative_sha256": "35878bd7e1ac51ed7cf3585fafedafba123d046005faac5fca371d6ba9c8fed4",
+        "proteins": 1826,
+        "matched_proteins": 1804,
+        "matched_cells": 12
+      }
+    },
+    "wall_seconds": 132.724
+  }
+}
