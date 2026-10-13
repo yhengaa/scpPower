@@ -1,0 +1,36 @@
+{
+  "accession": "PXD058573",
+  "title": "Acute exercise rewires the proteomic landscape of human immune cells",
+  "publication": "Walzik et al. 2026, Nature Communications, doi:10.1038/s41467-025-68101-9",
+  "primary_cell_population": "PBMC",
+  "healthy_donors": 23,
+  "baseline_observations": 46,
+  "input_hashes": ["e36e6df6ba102c276ae5d4c2678377fb1838ed457b762bf8a3b018a8990cf496", "7efc820d4e4562dd810e76fbdca27c1d82108269f9914be9d140b1f7193f7786"],
+  "donor_map_exclusions": "Author supplement includes a participant with N/A proteomics files; only donors with real proteomics files belong to the selected MS cohort",
+  "processing": "Unimputed Spectronaut PG.Quantity; baseline visits only; log2; average within donor; unbiased variance across measured donor means; minimum four quantified donors per protein",
+  "alternatives": [
+    {
+      "cohort": "Rieckmann et al. PXD004352",
+      "donors": 4,
+      "status": "PI default; fewer donors"
+    },
+    {
+      "cohort": "In-Depth Proteomic Characterization of Classical and Non-Classical Monocyte Subsets, 2018",
+      "donors": 12,
+      "status": "Fewer donors; spectral-count protein quantities"
+    },
+    {
+      "cohort": "Shchukina et al. healthy aging",
+      "status": "Excluded: proteomic assay is plasma, not primary monocytes"
+    },
+    {
+      "cohort": "Regulatory T-cell PXD022095 and MAIT PXD052574",
+      "donors": 3,
+      "status": "Excluded: below four donors"
+    }
+  ],
+  "selection_scope": "Most donors among qualifying cohorts found in the documented bounded public search; not a claim of an exhaustive global maximum",
+  "transfer_assumption": "Bulk PBMC variance transfers to SCP only for the same PBMC population; matching IDs alone do not establish biological transfer to cell lines. Lab pilot required; not tested by semi-synthetic M4.",
+  "seed": 20261013,
+  "versions": ["4.6.1", "1.22.0", "3.68.5", "4.10.5", "workflow in scp 1.22.0; no separate package"]
+}

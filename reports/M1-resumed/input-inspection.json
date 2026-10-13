@@ -1,0 +1,62 @@
+{
+  "specht2019v3": {
+    "seed": 20261013,
+    "versions": {
+      "R": "4.6.1",
+      "scp": "1.22.0",
+      "limma": "3.68.5",
+      "edgeR": "4.10.5",
+      "scplainer": "workflow in scp 1.22.0; no separate package"
+    },
+    "scpdata_version": "1.20.0",
+    "object_hash": "398783447666930b1d4031465ae5c011a38ac0fa617d1804983d67266abf3f91",
+    "extracted_file_hash": "78d990a29f35bbd2b00522e1cc8231b4c9b50ac9993596bc75e6c9d14edec898",
+    "assays": "peptides",
+    "wall_seconds": 71.781
+  },
+  "leduc2022_pSCoPE": {
+    "seed": 20261013,
+    "versions": {
+      "R": "4.6.1",
+      "scp": "1.22.0",
+      "limma": "3.68.5",
+      "edgeR": "4.10.5",
+      "scplainer": "workflow in scp 1.22.0; no separate package"
+    },
+    "scpdata_version": "1.20.0",
+    "object_hash": "8d5aed7a8f084ee27cd9fb36c182b9c4ef85a21799c7857818123b815b422c15",
+    "extracted_file_hash": "f3b3577e861b25a836cc3a7ffd32e88f7441613a69cfc8b12ba980bfbd6dbe6c",
+    "assays": "peptides",
+    "wall_seconds": 56.461
+  },
+  "derks2022": {
+    "seed": 20261013,
+    "versions": {
+      "R": "4.6.1",
+      "scp": "1.22.0",
+      "limma": "3.68.5",
+      "edgeR": "4.10.5",
+      "scplainer": "workflow in scp 1.22.0; no separate package"
+    },
+    "scpdata_version": "1.20.0",
+    "object_hash": "e6810f66c7e692e53623f99d1dc01fc5ed6ae441488b7dc70ab69f96e563d30f",
+    "extracted_file_hash": "7a451f8bd1c959f36b0e0a3f252be01d19caa43c5303f180a768945ab9ff0c68",
+    "assays": ["tims_prec_extracted", "qe_prec_extracted"],
+    "wall_seconds": 12.434
+  },
+  "brunner2022": {
+    "seed": 20261013,
+    "versions": {
+      "R": "4.6.1",
+      "scp": "1.22.0",
+      "limma": "3.68.5",
+      "edgeR": "4.10.5",
+      "scplainer": "workflow in scp 1.22.0; no separate package"
+    },
+    "scpdata_version": "1.20.0",
+    "object_hash": "be61214e53498954481a0d3c707547b233351e9f8a4ea8c4d575fd48ca1900dd",
+    "extracted_file_hash": "94201f8e5418fcac7dad46f88cc6bee1bc7b4fee7902dc2cee49114631bc9562",
+    "assays": "proteins",
+    "wall_seconds": 64.467
+  }
+}

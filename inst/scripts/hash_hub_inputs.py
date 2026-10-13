@@ -6,9 +6,13 @@ records the input file hash, public URL, and software versions in the manifest.
 import hashlib
 import json
 import sqlite3
+import sys
+import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+started = time.monotonic()
+report_dir = sys.argv[1] if len(sys.argv) > 1 else "M1"
 CACHE = Path.home()/".cache"/"R"/"ExperimentHub"
 connection = sqlite3.connect("file:"+str(CACHE/"BiocFileCache.sqlite")+"?mode=ro", uri=True)
 connection.row_factory = sqlite3.Row
@@ -16,7 +20,7 @@ rows = connection.execute("SELECT rname, rpath, fpath, last_modified_time, etag 
 # These resource IDs are returned by the four registered scpdata loaders.
 datasets = {"3943": "specht2019v3", "7762": "leduc2022_pSCoPE",
             "7763": "derks2022", "8360": "brunner2022"}
-manifest_path = ROOT/"reports"/"M1"/"run-manifest.json"
+manifest_path = ROOT/"reports"/report_dir/"run-manifest.json"
 manifest = json.loads(manifest_path.read_text())
 sources = []
 for row in rows:
@@ -37,10 +41,10 @@ for row in rows:
         fetch_resource=identifier,
         public_url=item["fpath"], sha256=hasher.hexdigest(), bytes=path.stat().st_size,
         etag=item["etag"], last_modified=item["last_modified_time"],
-        seed=20261013, versions=manifest["versions"]))
+        seed=20261013, versions=manifest["versions"], wall_seconds=time.monotonic()-started))
 if len(sources) != 4:
     raise RuntimeError("Could not identify all four downloaded public hub inputs")
 manifest["downloaded_hub_inputs"] = sources
 manifest_path.write_text(json.dumps(manifest, indent=2)+"\n")
-(ROOT/"reports"/"M1"/"public-input-hashes.json").write_text(json.dumps(sources, indent=2)+"\n")
+(ROOT/"reports"/report_dir/"public-input-hashes.json").write_text(json.dumps(sources, indent=2)+"\n")
 print("Hashed all four downloaded ExperimentHub inputs.")

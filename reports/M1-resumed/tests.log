@@ -1,0 +1,23 @@
+ℹ Loading scpPower
+✔ | F W  S  OK | Context
+
+⠏ |          0 | scp_calibrate
+⠋ |          1 | scp_calibrate
+⠙ |         12 | scp_calibrate
+⠋ |         21 | scp_calibrate
+⠸ |         24 | scp_calibrate
+⠋ |         31 | scp_calibrate
+⠇ |         39 | scp_calibrate
+⠦ |         47 | scp_calibrate
+⠹ |         53 | scp_calibrate
+⠸ |         54 | scp_calibrate
+⠴ |         56 | scp_calibrate
+⠼ |         65 | scp_calibrate
+⠋ |         71 | scp_calibrate
+⠼ |         75 | scp_calibrate
+✔ |         77 | scp_calibrate [8.7s]
+
+══ Results ═════════════════════════════════════════════════════════════════════
+Duration: 8.7 s
+
+[ FAIL 0 | WARN 0 | SKIP 0 | PASS 77 ]

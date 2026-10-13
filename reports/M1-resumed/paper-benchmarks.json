@@ -1,0 +1,47 @@
+{
+  "benchmarks": {
+    "specht": {
+      "proteins": 3042.0,
+      "cells": 1490.0,
+      "mean_cells_per_protein": 305.0,
+      "within_identified_peptide_missing": 10.0,
+      "source": "https://doi.org/10.1186/s13059-021-02267-5",
+      "global_missing_fraction": 0.7953020134228188,
+      "implied_mean_proteins_per_cell": 622.6912751677852
+    },
+    "leduc": {
+      "mean_proteins_per_cell": 997.0,
+      "proteins": 2844.0,
+      "cells": 1556.0,
+      "cv_threshold": 0.41,
+      "source": "https://doi.org/10.1186/s13059-022-02817-5",
+      "implied_missing_fraction": 0.6494374120956399
+    },
+    "derks": {
+      "within_plex_completeness": 98.0,
+      "proteins_per_cell": 1000.0,
+      "source": "https://doi.org/10.1038/s41587-022-01389-w"
+    },
+    "brunner": {
+      "min_proteins_per_cell": 600.0,
+      "median_cv": 0.3,
+      "starting_cells": 434.0,
+      "source": "https://doi.org/10.15252/msb.202110798"
+    }
+  },
+  "seed": 20261013,
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "input_hashes": {
+    "specht": "f720059197adc97ca23640275601b47a078a3798fe0dd7e59bf4952bfc28fa77",
+    "leduc": "a0709a5b88595b09680edf54572fe4244c56a082a2bc9c2ec6be8efe839fea14",
+    "derks": "a690bddea9231ac9a4712ba81918ad6588c9299e30d518f2bdf1639c46a27bb0",
+    "brunner": "effbc61abddf2f72850726963204baa96cb68bcf1cb49af93aad1794f3440f0d"
+  },
+  "wall_seconds": 0.06714786402881145
+}

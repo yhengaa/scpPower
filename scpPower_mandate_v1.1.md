@@ -68,3 +68,40 @@ Do not implement `scp_simulate()`, `scp_power()`, or execute M4 under this direc
 ## Authority and source record
 
 The governing instructions are the build directive 1 supplied in this chat and the [M0 closure directive](</home/poggar/.codex/attachments/8379d4ea-34fd-4f5b-9153-e9eedc518a0e/Pasted text.txt>). The closure directive resolves the previously absent scientific decisions. Its approved specification takes precedence over provisional suggestions in the [earlier audit](https://chatgpt.com/s/t_6acdcb163018819182788927c5f808ee) and the original concept plan. Factual calibration blockers are reported after this freeze and do not reopen the approved decisions.
+
+## Frozen addendum v1.1.1 — M1 resumption, approved 13 October 2026
+
+**Status: FROZEN.** The principal investigator accepted the original mandate, repository, Walzik PXD058573 selection, prior stop, and Cheung citation correction to Nature Methods. This addendum implements the approved resumption directive. The original text above and the recorded stop are preserved. Only the clauses explicitly replaced or clarified below change. Decision 5, including the registered M4 criterion, is unchanged.
+
+### A. Quantitative calibration inputs (replaces Decision 3 assay clause)
+
+Use the earliest unimputed, uncorrected quantitative assay and aggregate to proteins:
+
+| Dataset | Input | Protein aggregation |
+| --- | --- | --- |
+| specht2019v3 | peptides | Log2 positive quantities, then per-cell median across peptides mapped to a protein; NA only when every peptide is missing |
+| leduc2022_pSCoPE | peptides | Same; document why peptides_log is or is not identical to these values logged |
+| derks2022 | tims_prec_extracted and qe_prec_extracted | Single-cell columns only; log2 precursor quantities, then per-cell protein median; calibrate and report instruments separately |
+| brunner2022 | proteins | Raw linear intensities; log2 only |
+
+The missingness predictor is each protein's mean observed log2 intensity across all quantified cells in the unnormalised input. Do not centre proteins before fitting. Per-cell median shifts may be used only for variance estimation and must be named in the manifest.
+
+### B. Culture biological units (clarifies Decision 1)
+
+These cell-line datasets have no donors. Their biological sample is the cell line: SampleType for Specht and Leduc; Celltype for Derks; HeLa for Brunner. There is one culture sample per line, not an independent donor. The table's samples count is the number of cell lines. SCP sigma2_s remains unavailable; the mapped donor component comes from Walzik.
+
+Sigma2_e is residual cell-level log2 variance around the cell line's mean within its batch. Sigma2_b is variance of batch means after removing the cell line mean where batch contains cells of the same line. Use Set for Specht/Leduc and run for Derks/Brunner. Where a batch holds only one cell line, batch and line are aliased for that line: report NA with that reason per line. Identification failures caused by insufficient replication must also be stated explicitly.
+
+### C. Dataset-specific stop (replaces implausibility run stop)
+
+An implausible estimate stops that dataset's row, not other datasets. Calibrate every registered dataset; flag every implausible estimate in the plausibility note without smoothing, capping, adjusting, or changing the model. Stop the entire run only when no dataset calibrates. The unusable-bulk-cohort stop remains.
+
+### D. Compression assumption (replaces Decision 1 compression clause)
+
+Cheung et al. 2021, Nature Methods, PMID 33288958 reports instrument- and ion-sampling-dependent carrier effects; no published per-ratio compression table is retrievable. k is a registered user assumption, not a calibrated quantity: default k=1 (no compression). Future power reporting must include the sensitivity assumptions k in {0.75, 0.5}. This directive does not implement that power function. Record that k was not estimated and recommend a two-proteome ratio standard in the lab pilot. The compression plot is dropped from M1.
+
+### Walzik clarification and resumed deliverables
+
+Keep PXD058573. Establish whether it contains proteomics of sorted immune subsets in addition to whole PBMC. If present, report whole-PBMC donor variance and variance of the subset closest to each SCP line's lineage: monocyte-like for U-937 and THP-1 style lines; lymphoid for other lines. State that whole-PBMC variance includes between-donor composition differences. Do not substitute another cohort or invent sorted subsets.
+
+Return together: (1) repository with green CI at the resumed commit; (2) calibration table for every dataset and abundance tier, with both Derks instruments separate; (3) variance-by-tier and fitted missingness panels; (4) a one-page note comparing missing fraction, proteins per cell, and cell CV with source papers, flagging disagreements without adjustment; (5) seeds, input hashes, versions, and wall-time manifest. Preserve the earlier stop evidence. No scp_simulate(), scp_power(), or M4 work is authorised.

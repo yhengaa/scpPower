@@ -160,3 +160,60 @@ test_that("QFeatures requires an explicit eligible assay and preserves metadata"
     expect_identical(r$proteins, m$proteins)
     expect_identical(r$manifest$assay, "proteins_raw")
 })
+
+ test_that("culture components identify noise without substituting donors", {
+    f <- fixture()
+    f$meta$line <- rep(c('A','B'), 40)
+    r <- scp_calibrate(f$x, f$meta, sample_col='line', batch_col='batch', biological_unit='culture')
+    expect_true(all(is.finite(r$proteins$sigma2_e)))
+    expect_true(all(is.finite(r$proteins$sigma2_b)))
+    expect_equal(r$tiers$samples, rep(2,5))
+    expect_true(all(is.na(r$proteins$sigma2_s)))
+    f$meta$batch <- f$meta$line
+    r <- scp_calibrate(f$x, f$meta, sample_col='line', batch_col='batch', biological_unit='culture')
+    expect_true(all(is.finite(r$proteins$sigma2_e)))
+    expect_true(all(is.na(r$proteins$sigma2_b)))
+    expect_match(r$line_components$sigma2_b_reason[1], 'aliased')
+    f$meta$batch <- rownames(f$meta)
+    r <- scp_calibrate(f$x, f$meta, sample_col='line', batch_col='batch', biological_unit='culture')
+    expect_true(all(is.na(r$proteins$sigma2_e)))
+    expect_match(r$proteins$sigma2_e_reason[1], 'zero residual')
+ })
+
+ test_that("variance normalisation never changes raw missingness predictors", {
+    f <- fixture()
+    a <- scp_calibrate(f$x, f$meta)
+    b <- scp_calibrate(f$x, f$meta, normalize_cells=TRUE)
+    expect_identical(a$missingness,b$missingness)
+    expect_identical(a$proteins$mean_log2,b$proteins$mean_log2)
+    expect_match(b$manifest$normalization,'variance only')
+    c <- scp_calibrate(f$x,f$meta,condition_col='condition')
+    expect_identical(a$missingness,c$missingness)
+    expect_equal(a$compression$k,1)
+    expect_match(a$compression$status,'assumption; not estimated')
+ })
+
+ test_that("quantitative features aggregate on log scale without filling missing entries", {
+    z <- matrix(c(1,16,NA,4,NA,NA),3,2,dimnames=list(c('f1','f2','f3'),c('c1','c2')))
+    se <- SummarizedExperiment::SummarizedExperiment(assays=list(intensity=z),
+        rowData=data.frame(protein=c('P1','P1','P2')),
+        colData=data.frame(row.names=colnames(z)))
+    qf <- QFeatures::QFeatures(list(peptides=se))
+    a <- scp_calibrate(qf,assay='peptides',log2_input=FALSE,feature_protein_col='protein')
+    expect_equal(a$proteins$mean_log2[1],2)
+    expect_equal(a$proteins$quantified_cells,c(2,0))
+    expect_true(is.na(a$proteins$mean_log2[2]))
+    expect_equal(a$manifest$never_quantified_proteins,1)
+ })
+
+ test_that("feature aggregation retains orientation for a single cell", {
+    z <- matrix(c(1,16,NA),3,1,dimnames=list(c('f1','f2','f3'),'c1'))
+    se <- SummarizedExperiment::SummarizedExperiment(assays=list(intensity=z),
+        rowData=data.frame(protein=c('P1','P1','P2')),
+        colData=data.frame(row.names='c1'))
+    r <- scp_calibrate(QFeatures::QFeatures(list(peptides=se)),
+        assay='peptides', log2_input=FALSE,feature_protein_col='protein')
+    expect_equal(r$proteins$quantified_cells,c(1,0))
+    expect_equal(r$proteins$mean_log2[1],2)
+    expect_equal(r$manifest$cells,1)
+ })

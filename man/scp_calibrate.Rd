@@ -19,7 +19,11 @@ scp_calibrate(
   carrier_ratio = NULL,
   compression_presets = NULL,
   seed = 20261013L,
-  reference_versions = NULL
+  reference_versions = NULL,
+  biological_unit = c("sample", "culture"),
+  normalize_cells = FALSE,
+  feature_protein_col = NULL,
+  compression_k = 1
 )
 }
 \arguments{
@@ -29,15 +33,14 @@ scp_calibrate(
 matrix columns. Required for matrix input; defaults to assay colData for
 QFeatures input.}
 
-\item{assay}{Protein assay name for QFeatures input. Selection is explicit;
+\item{assay}{Quantitative assay name for QFeatures input. Selection is explicit;
 the caller must verify no imputation or batch correction was applied.}
 
 \item{log2_input}{Whether values are already on the log2 scale. For linear
 input, zeros are recorded as missing and positive values are log2 transformed.}
 
-\item{sample_col}{Column containing genuine biological sample IDs. NULL
-records within-sample variance as unavailable, rather than substituting
-cell types or technical preparations for independent samples.}
+\item{sample_col}{Column containing biological sample IDs. With
+biological_unit='culture', these are cell lines, not donors.}
 
 \item{condition_col}{Column specifying condition or known cell population.
 NULL uses an intercept-only abundance model.}
@@ -59,7 +62,7 @@ Only exact one-to-one identifiers are mapped; ambiguous groups receive NA.}
 \item{carrier_ratio}{Carrier-to-single-cell amount ratio for TMT, or NULL
 for a dataset without a carrier.}
 
-\item{compression_presets}{Data frame with `carrier_ratio`, `k`, and `source`
+\item{compression_presets}{Legacy optional data frame with `carrier_ratio`, `k`, and `source`
 columns. Values must have an explicit external source. No coefficient is
 estimated from a single-carrier SCP matrix or invented for an absent ratio.}
 
@@ -68,6 +71,19 @@ and does not change the caller's random-number state.}
 
 \item{reference_versions}{Named character vector of reference software
 versions. Differences produce warnings and never prevent execution.}
+
+\item{biological_unit}{Either 'sample' for independent biological sample
+random effects, or 'culture' for the registered cell-line fixed effects.}
+
+\item{normalize_cells}{Apply a per-cell median shift only for variance
+estimation. Missingness and tiers always use the unnormalised protein input.}
+
+\item{feature_protein_col}{Optional rowData column mapping quantitative
+peptide or precursor rows to protein identifiers for QFeatures input.
+Features are log2 transformed first and aggregated by per-cell median.}
+
+\item{compression_k}{Registered compression assumption, default 1. It is
+not estimated; future sensitivity assumptions are 0.75 and 0.5.}
 }
 \value{
 A list containing `proteins`, `tiers`, `missingness`, `curve`,
@@ -76,30 +92,35 @@ A list containing `proteins`, `tiers`, `missingness`, `curve`,
   and elapsed wall time. Every unavailable variance has a reason column.
 }
 \description{
-Fits the calibration stage of frozen mandate version 1.1. No values are
+Fits the calibration stage of frozen mandate version 1.1 with addendum 1.1.1. No values are
 imputed. Variances use log2 units and abundance tiers are quintiles of each
 protein's mean measured log2 intensity; ties remain in the same tier.
 }
 \details{
-Expected cell intensity is the measured protein mean in the cell's
-  condition, a plug-in estimate of the fixed-effect expectation. Protein by
-  condition counts are fit by grouped binomial maximum likelihood, equivalent
-  to cell-level Bernoulli likelihood without protein random intercepts.
-  Conditions with no quantified value for a protein have no identifiable
-  expected intensity and are excluded from this fit with the excluded trial
-  count recorded. Intensities are centered at the trial-weighted mean; both
-  this center and the uncentered intercept are returned. When the slope's
-  Wald 95 percent interval includes zero, the fitted centered intercept is
-  retained and the effective curve has zero slope (MCAR).
+The missingness predictor is the protein's mean observed log2
+  intensity across all quantified cells in the unnormalised input. Grouped
+  binomial maximum likelihood fits quantified versus missing counts per
+  protein, without protein random intercepts. A common predictor offset
+  improves numerical conditioning; it does not centre individual proteins.
+  Both the offset and raw-intensity intercept are returned. If the slope's
+  Wald 95 percent interval includes zero, the fitted offset intercept is
+  retained as an MCAR rate. Never-quantified proteins are excluded and counted.
 
-  Cell and batch variances use restricted maximum likelihood with the
-  registered sample and batch random effects and a fixed condition term.
-  Missing biological IDs prevent identification of within-sample variance.
-  A run with one cell cannot separate run variance from cell noise. A batch
-  design nested entirely within condition is flagged as aliased with condition.
-  A one-to-one sample and batch design is flagged as aliased with sample.
-  These components receive NA with a reason. Boundary and convergence
-  results are preserved, never capped or altered to match a source paper.
+  Culture calibration fits cell line as a fixed effect and shared batch
+  intercepts by REML, preserving the registered hierarchical model. The
+  cell component is the residual variance conditional on line and batch;
+  the batch component is the variance of latent batch means after line
+  adjustment. Batches containing only one line are excluded from batch
+  fitting under the explicit aliasing rule. If no mixed batches identify
+  the component, within-line/batch residual sums of squares identify cell
+  variance only when positive residual degrees of freedom exist. One cell
+  per run has no such degrees of freedom and cannot separate the components.
+  Per-line component status is returned separately. Culture samples are
+  not independent donors and do not identify between-donor variance.
+
+  Independent-sample calibration retains sample and batch random effects,
+  a fixed condition, and explicit checks for aliasing. Boundary and
+  convergence results are preserved without adjustment to source papers.
 
   Bulk variance is the unbiased variance of measured log2 donor means,
   requiring at least four quantified donors per protein. It is mapped by
