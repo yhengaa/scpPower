@@ -1,0 +1,72 @@
+{
+  "mandate_addendum": "1.1.4",
+  "registered_UTC": "2026-10-13 22:02:15 UTC",
+  "seed": 20261013,
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "criterion": {
+    "replicates": 200,
+    "absolute_power_gap": 0.1,
+    "dataset_pass_fraction": 0.8,
+    "overall_minimum_passing_datasets": 2,
+    "count_only_m_ge_3": true
+  },
+  "prediction_order": "All counted-point prediction receipts frozen and hashed before the first observed endpoint is evaluated",
+  "calibration_population": "Calibration protein half across native accepted SCP calibration cells; H1 source restriction applied to validation cells",
+  "truth": "Validation protein half; native quantitative mask and batches retained; cell shifts from calibration proteins; log2 condition effect in 10% of validation proteins; external Walzik per-protein donor injection with half-tier fallback",
+  "k": 1,
+  "validation_tiers": "Frozen M1 labels for selecting training-half donor fallback only",
+  "input_hashes": {
+    "datasets": {
+      "specht2019v3": {
+        "released_preset": "71cf8a4719537fe2d08e6f89eea4097b4bcc3d2020c07bb245c39e861d6b3bfd",
+        "quantitative_input": "06b36dad95119843ae07fa31bef897c5b92d106b48600034c75c253dd171d149",
+        "split": "1d52dc99992bf27f179467badca00212358ea76278406f56b3558416a78737d0",
+        "source_cells": "1113f10aa54db6865b215e644bf135bca659a38cf662f11609a64547d842b046"
+      },
+      "leduc2022_pSCoPE": {
+        "released_preset": "20579dbd3e27376cfe694c0dae22e6f06da24fce0dccf5688d189917f431e56b",
+        "quantitative_input": "ed3a9b44a78ddee2a0cc731770d70c7a661213b851b23e2c28f5ff4d3451d4c2",
+        "split": "3e7156f29b346a70424d88b23b5593981489b8eacccfe13908e4a3785cec5cbd",
+        "source_cells": "7816c6f174629ef26eeb2ce11ade5f8fba98cec1c62ea7801fb3f52037f3295b"
+      },
+      "derks2022_timsTOF": {
+        "released_preset": "339cdbee6020dcf5f149f68b8b6beb4fa8dc7869a53bdbd49d68c4544228105d",
+        "quantitative_input": "6f37fb89d9e8b8fefa97204974519030e03ba27c1f2e5be0a0601764d360ba43",
+        "split": "a764cf9b18fe2f8b90823f7586895b4777c5fe5f58b38955fa3b920ab8e0620b",
+        "source_cells": "99cc10bad49122ce36837f88423167de5669173dc30bb4bf0878aa21c01442e9"
+      },
+      "derks2022_QExactive": {
+        "released_preset": "88e599c213009bbe64d9cd90e818758b66fafc2cb86bc057415cf7b6b42f766c",
+        "quantitative_input": "18890e7654b0f47395631c182a496948664a1ab2515f205837479a10d6aa6b35",
+        "split": "77a1615558dc71e6bceb18ccb4faeb6fcce745519c9c872821b82062323a3b60",
+        "source_cells": "e3dbe1874db7f77cfa570be60f76b3ad3cbbaad94613e98e15724870273f32bd"
+      },
+      "brunner2022": {
+        "released_preset": "f85599315e096340a3f88395222b2a65968ba41dc1ae47fcd17c8773d357ac34",
+        "quantitative_input": "9620592398fb0557a3aca9d30797f13bde721ca4358bdbe637e21538fea78bae",
+        "split": "0f438967ef128ebd9c02cd306caf5ecea6ab264079900340af25e0bc8c0ecf20",
+        "source_cells": "c8198ee8004e7f276fef9a7671d02384c2b10e5c50cb4410aaf12e4832e75b2d"
+      }
+    },
+    "bulk_calibration": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+    "grid": "d63dedc4b6d94ca8bad710ccd68345f40769ef2b57bf69c30bf0ec03dda2f005",
+    "mandate": "3857377f9bb2223794158a2465103fc74b264fee6ca1c93836baf034238281ca",
+    "renv_lock": "9847523045fd7c40703e5b45ac5a867479b5181ffbc917a35346e389635f889f",
+    "code": {
+      "R/scp_calibrate.R": "2ac1e20d38d1af2ca339ef929450c8715c62718d8ddf312123f017eeca6de033",
+      "R/scp_simulate.R": "9d2800a8f9d985a0dfbdf92beeb16ae0769191f465df190304024d28d7d83235",
+      "R/scp_power.R": "9851d28b88a99a04b9f18a025acae4ed2609d927d8630909462a0af9bc34df52",
+      "inst/scripts/m4_helpers.R": "e54d7e0ae2639a79fd491b3418c00ff2398093c1d9daedad3ffaf8046beaf24c",
+      "inst/scripts/prepare_m4.R": "dc665b7d4808f99de42baecd5556f83fe04085f065f20d44bfa410f243001561",
+      "inst/scripts/run_m4_point.R": "3461b450b922f4185c40fb3e576d143fb69b175cd73e77ec570447143ace071e",
+      "inst/scripts/run_m4_cluster.R": "c0fec3f8e3ca3fbe87a397c9837a21065057c8f2e11e9c8cc6fef2b1b3682f10"
+    }
+  },
+  "wall_seconds": 20.185
+}

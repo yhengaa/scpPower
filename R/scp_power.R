@@ -24,11 +24,16 @@
 #'   below 0.05 and the estimated fold change has the injected sign. Power
 #'   includes untestable changed proteins in its denominator. Testability is
 #'   the proportion of all proteins satisfying the cell minimum in every sample.
+#'   Conditional power uses testable changed proteins as its denominator and
+#'   is NA when that denominator is zero. It is reported beside unconditional
+#'   power. The summary averages defined replicate conditional powers.
 #'
 #'   Realised FDR is the mean replicate false-discovery proportion among all
 #'   BH rejections: truly unchanged proteins divided by all rejected proteins,
 #'   with zero when nothing is rejected. Sign agreement affects power, not the
 #'   null-protein definition; wrong-sign changed rejections are also reported.
+#'   Mean rejections and the fraction of replicates with no rejections are
+#'   reported beside FDR so sparse rejection counts remain visible.
 #'   Simulation standard errors are replicate standard deviations divided by
 #'   sqrt(replicates), and are NA with only one replicate. Power is NA when
 #'   beta=0 because there are no truly changed proteins.
@@ -114,6 +119,8 @@ scp_power <- function(preset, n_per_condition, m_cells_per_sample, beta,
             rr[[j]] <- data.frame(grid_index=i, replicate=j, seed=simseed,
                 n_per_condition=g$n_per_condition, m_cells_per_sample=g$m_cells_per_sample,
                 beta=g$beta, k=g$k, power=endpoint$power,
+                conditional_power=endpoint$conditional_power,
+                testable_changed=endpoint$testable_changed,
                 testability=endpoint$testability, realised_fdr=endpoint$realised_fdr,
                 changed=endpoint$changed, detected=endpoint$detected,
                 testable=endpoint$testable, rejected=endpoint$rejected,
@@ -130,7 +137,12 @@ scp_power <- function(preset, n_per_condition, m_cells_per_sample, beta,
         se <- function(x) if (sum(is.finite(x))>1L)
             stats::sd(x,na.rm=TRUE)/sqrt(sum(is.finite(x))) else NA_real_
         summaries[[i]] <- data.frame(g, power=avg(r$power),
+            conditional_power=avg(r$conditional_power),
+            conditional_power_se=se(r$conditional_power),
+            conditional_power_defined_replicates=sum(is.finite(r$conditional_power)),
             testability=avg(r$testability), realised_fdr=avg(r$realised_fdr),
+            mean_rejections=mean(r$rejected),
+            zero_rejection_fraction=mean(r$rejected==0L),
             simulation_se=se(r$power), testability_se=se(r$testability),
             realised_fdr_se=se(r$realised_fdr), replicates=replicates,
             cells=2*g$n_per_condition*g$m_cells_per_sample,
@@ -166,6 +178,8 @@ scp_power <- function(preset, n_per_condition, m_cells_per_sample, beta,
             testability="minimum satisfied in every sample",design="~ condition",
             inference="limma-trend, eBayes(trend=TRUE)",BH_threshold=.05,
             power="all truly changed proteins; BH rejection plus sign agreement",
+            conditional_power="detected changed / testable changed; NA when none are testable; mean of defined replicates",
+            rejection_reporting="mean BH rejections and fraction of replicates with zero BH rejections",
             realised_FDR="mean FDP among BH rejections, null proteins/rejections; zero for no rejections",
             simulation_se="SD of replicate estimate / sqrt(replicates)"),
         instrument_time_source=config$minutes_per_run_source,
@@ -183,6 +197,7 @@ scp_power <- function(preset, n_per_condition, m_cells_per_sample, beta,
     testable <- rowSums(counts >= 3L) == length(samples)
     changed <- sim$protein_metadata$changed
     nchanged <- sum(changed); ntestable <- sum(testable)
+    ntestable_changed <- sum(changed & testable)
     rejected <- rep(FALSE,nrow(y)); estimated <- rep(NA_real_,nrow(y))
     if (ntestable) {
         means <- vapply(columns,function(j)rowMeans(y[testable,j,drop=FALSE],na.rm=TRUE),
@@ -200,6 +215,8 @@ scp_power <- function(preset, n_per_condition, m_cells_per_sample, beta,
     detected <- sum(rejected & changed & correct_sign)
     nr <- sum(rejected); nf <- sum(rejected & !changed)
     list(power=if(nchanged)detected/nchanged else NA_real_,
+        conditional_power=if(ntestable_changed)detected/ntestable_changed else NA_real_,
+        testable_changed=ntestable_changed,
         testability=ntestable/nrow(y),realised_fdr=if(nr)nf/nr else 0,
         changed=nchanged,detected=detected,testable=ntestable,rejected=nr,
         false_discoveries=nf,wrong_sign_changed=sum(rejected & changed & !correct_sign))

@@ -1,0 +1,21 @@
+{
+  "seed": 20261013,
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "job": "5496071",
+  "host": "nc20419",
+  "cores": 16,
+  "input_hashes": {
+    "registration": "4c27d36a4859f643319a42ff370cf9e23965bc43d1132307f9063131b92be06e",
+    "predictions_frozen": "316d638aa27184441455235515c334046d1a0147cc6f930c48106bace00549dd"
+  },
+  "counted_points": 204,
+  "successful_predictions": 204,
+  "successful_observations": 204,
+  "wall_seconds": 516.169
+}

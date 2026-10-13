@@ -1,0 +1,18 @@
+{
+  "seed": 20261013,
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "input_hashes": {
+    "failed_check_log": "47aa5a14a631eb67174d46d11ac8a6ee6c4d7c394add1a026b7ca4366ba35a4b",
+    "renv_lock": "9847523045fd7c40703e5b45ac5a867479b5181ffbc917a35346e389635f889f"
+  },
+  "cause": "R CMD check did not inherit the .local/R-library path used by the successful test run; it aborted before testing.",
+  "correction": "Set R_LIBS_USER to the existing registered library and rerun the complete check. No dependency, test, scientific code, calibration or result was changed.",
+  "wall_seconds": 32.0,
+  "wall_time_definition": "Failed check log birth-to-modification time from filesystem metadata."
+}

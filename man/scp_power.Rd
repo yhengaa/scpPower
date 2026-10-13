@@ -56,11 +56,16 @@ A protein is testable only when it has at least three quantified
   below 0.05 and the estimated fold change has the injected sign. Power
   includes untestable changed proteins in its denominator. Testability is
   the proportion of all proteins satisfying the cell minimum in every sample.
+  Conditional power uses testable changed proteins as its denominator and
+  is NA when that denominator is zero. It is reported beside unconditional
+  power. The summary averages defined replicate conditional powers.
 
   Realised FDR is the mean replicate false-discovery proportion among all
   BH rejections: truly unchanged proteins divided by all rejected proteins,
   with zero when nothing is rejected. Sign agreement affects power, not the
   null-protein definition; wrong-sign changed rejections are also reported.
+  Mean rejections and the fraction of replicates with no rejections are
+  reported beside FDR so sparse rejection counts remain visible.
   Simulation standard errors are replicate standard deviations divided by
   sqrt(replicates), and are NA with only one replicate. Power is NA when
   beta=0 because there are no truly changed proteins.

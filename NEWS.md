@@ -1,3 +1,21 @@
+# scpPower 0.3.0
+
+* Registered M4 passes overall: Specht 67/72, Leduc 66/69, Q Exactive 6/6
+  and Brunner 57/57 counted points within 10 percentage points. TimsTOF is
+  not evaluable. Retains all eight discrepant points without adjustment.
+  M4 does not validate bulk donor variance transfer or compression k.
+
+* Frozen addendum v1.1.4 records H1–H4: single-line validation source cells,
+  m >= 3 in the pass fraction, prediction using the first assignment's native
+  batch layout, mapped per-protein donor injection and separate half-presets.
+  The 200 replicates, 10 percentage point tolerance, 80% dataset pass fraction
+  and requirement for two passing datasets remain unchanged.
+* Adds conditional power beside unconditional power, mean rejections and the
+  zero-rejection replicate fraction beside realised FDR. Existing endpoint,
+  simulation and M3 results are unchanged; the added columns have tests.
+* Adds the requested interpretation of the frozen M3 grid to its report.
+  M4 cannot validate donor variance transfer or compression. No M5 work.
+
 # scpPower 0.2.0
 
 * All five calibrated series pass the unchanged M2 fidelity gate under

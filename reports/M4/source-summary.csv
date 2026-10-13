@@ -1,0 +1,6 @@
+"dataset","source_line","cells","calibration_proteins","validation_proteins","split_seed","eligible_points","counted_points","status","software_versions"
+"specht2019v3","Macrophage",1096,1521,1521,23261113,102,72,"EVALUABLE","R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"
+"leduc2022_pSCoPE","Monocyte",783,1716,1717,23261213,99,69,"EVALUABLE","R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"
+"derks2022_timsTOF","Melanoma_t",10,673,673,23261313,6,0,"NOT EVALUABLE","R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"
+"derks2022_QExactive","PDAC",45,546,547,23261413,33,6,"EVALUABLE","R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"
+"brunner2022","HeLa",434,1238,1238,23261513,87,57,"EVALUABLE","R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"

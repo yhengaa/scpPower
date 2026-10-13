@@ -1,0 +1,35 @@
+* using log directory ‘/home/poggar/Proteomic package/scpPower.Rcheck’
+* using R version 4.6.1 (2026-06-24)
+* using platform: x86_64-pc-linux-gnu
+* R was compiled by
+    gcc (Gentoo 12.3.1_p20230526 p2) 12.3.1 20230526
+    GNU Fortran (Gentoo 12.3.1_p20230526 p2) 12.3.1 20230526
+* running under: AlmaLinux 9.8 (Olive Jaguar)
+* using session charset: UTF-8
+* current time: 2026-10-13 22:12:44 UTC
+* using option ‘--no-manual’
+* checking for file ‘scpPower/DESCRIPTION’ ... OK
+* this is package ‘scpPower’ version ‘0.3.0’
+* package encoding: UTF-8
+* checking package namespace information ... OK
+* checking package dependencies ... ERROR
+Packages required but not available: 'digest', 'limma', 'lme4', 'yaml'
+
+Packages suggested but not available:
+  'BiocManager', 'edgeR', 'ExperimentHub', 'jsonlite', 'QFeatures',
+  'readxl', 'renv', 'roxygen2', 'scp', 'scpdata',
+  'SummarizedExperiment', 'testthat'
+
+The suggested packages are required for a complete check.
+Checking can be attempted without them by setting the environment
+variable _R_CHECK_FORCE_SUGGESTS_ to a false value.
+
+See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+manual.
+* DONE
+
+Status: 1 ERROR
+See
+  ‘/home/poggar/Proteomic package/scpPower.Rcheck/00check.log’
+for details.
+

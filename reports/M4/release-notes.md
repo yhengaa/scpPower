@@ -1,0 +1,5 @@
+# Registered M4 semi-synthetic validation
+M4 passes overall under the unchanged registered criterion, with H2 excluding constructional zero-power designs. Four datasets pass: Specht 67/72, Leduc 66/69, Derks Q Exactive 6/6 and Brunner 57/57 counted points within 10 percentage points. TimsTOF is not evaluable. Every counted point has 200 predictions and 200 held-out observations; all predictions were frozen before observed endpoints.
+The evidence retains all eight discrepant TMT points, FDR exceedances, seeds, hashes, versions, timings and cluster accounting. Q Exactive passes at observed power below 2%, so its agreement provides limited evidence about high-power designs. M4 tests cell-level noise, missingness and the primary test; it cannot validate whole-PBMC donor variance transfer or compression k. Released presets and M3 numerical results remain unchanged.
+Adds documented, tested conditional power, mean rejection counts and zero-rejection fractions beside the existing measures. Includes the one-page Reading the grid section. No M5 work.
+Software: R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package

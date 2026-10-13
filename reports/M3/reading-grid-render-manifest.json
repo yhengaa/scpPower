@@ -1,0 +1,18 @@
+{
+  "seed": 20261013,
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "input_hashes": {
+    "report": "3c4843f1aac46583569868ba49178a369cebe851630c24057c5ae98fe9e651ed",
+    "renderer": "aa51cec38260f23500bd76b6c3909e62d7f0421a05ece58aa319c3fb93f40b7f"
+  },
+  "output_sha256": "4095c1678911cdadc542905aa2a7d4e98a4eca67991c9c872973e889f3424efb",
+  "pages": 1,
+  "pandoc_version": "pandoc 2.18",
+  "wall_seconds": 1.74515023001004
+}

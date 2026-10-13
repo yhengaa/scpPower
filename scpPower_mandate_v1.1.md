@@ -215,3 +215,47 @@ Run the grid on the cluster. Deliver power curves (power against m for each n, o
 4. Run manifest.
 
 No M4 work. Stop rules remain per dataset.
+
+## Frozen addendum v1.1.4 — M4 validation, approved 13 October 2026
+
+**Status: FROZEN.** The principal investigator accepts v0.2.0, the five M2
+passes and the completed M3 grid. Decision 5 is now authorised. Its criterion
+is unchanged: 200 replicates per grid point; absolute predicted–observed power
+gap at most 10 percentage points on at least 80% of counted points per dataset;
+at least two datasets must pass overall. No tuning after validation outcomes.
+
+**H1. Source cells.** Use the largest single cell line: Specht macrophage,
+Leduc monocyte, Brunner HeLa, and the largest Derks Q Exactive line. Derks
+timsTOF has ten cells per line and no eligible grid point with three cells per
+sample; report it as not evaluable and do not run degenerate points.
+
+**H2. Pass fraction.** List eligible m < 3 points with their constructional
+zero predicted and observed power, but exclude them from the 80% pass fraction.
+Only eligible points with m >= 3 count. This tightens the registered gate.
+
+**H3. Prediction layout.** Record the pseudo-sample-by-native-batch count
+matrix from the first replicate's source-cell assignment for every point.
+Pass that matrix as the custom layout to scp_power(). For Brunner there is one
+cell per batch. Finish predicted power before observing observed power.
+
+**H4. Donor effect and halves.** Split proteins into calibration and validation
+halves with a recorded seed. Fit the half-preset from calibration proteins only
+and store it under inst/presets/m4/. Released presets stay untouched. Inject
+mapped per-protein sigma2_s under G1 into validation pseudo-samples, using the
+tier value where unmapped. Between-donor variance is injected, not observed.
+
+**R1 and R2. Reporting only.** Add conditional power (detected changed proteins
+divided by testable changed proteins) beside registered unconditional power.
+Add mean rejections and the fraction of replicates with no rejections beside
+realised FDR. Existing definitions and M3 numerical results do not change.
+
+Report eligible points, predicted and observed power, gap, within-10-pp flag,
+observed testability and FDR, simulation SE and one comparison plot per dataset.
+Report each verdict and the overall verdict; on failure stop after the report
+with suspected causes and no tag. The validation report's first paragraph
+states that M4 validates cell-level noise, missingness and the test and cannot
+validate bulk donor variance transfer or k. Add a one-page Reading the grid
+section to the M3 report on testability, 1.25-fold changes and k sensitivity.
+Record split and replicate seeds, hashes, versions, wall times and cluster
+accounting. On overall pass, tag v0.3.0 and create a GitHub release with M4
+evidence. No M5 vignette, README design examples or Zenodo work is authorised.

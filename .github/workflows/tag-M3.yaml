@@ -13,7 +13,14 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.workflow_run.head_sha }}
+      - name: Identify M3 completion commit
+        id: version
+        run: |
+          if test "$(sed -n 's/^Version: //p' DESCRIPTION)" = '0.2.0'; then
+            echo 'publish=true' >> "$GITHUB_OUTPUT"
+          fi
       - name: Verify completed registered work
+        if: steps.version.outputs.publish == 'true'
         run: |
           python - <<'PY'
           import csv,json
@@ -27,6 +34,7 @@ jobs:
           assert len(list(csv.DictReader(open('reports/M3/power-grid.csv'))))==945
           PY
       - uses: actions/github-script@v8
+        if: steps.version.outputs.publish == 'true'
         with:
           script: |
             const {owner, repo} = context.repo;

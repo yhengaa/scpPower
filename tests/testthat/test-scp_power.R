@@ -87,3 +87,33 @@ test_that('target design selection reports unavailable targets and software mism
  expect_error(scp_power(p,3,4,1),'minutes_per_run')
  expect_error(scp_power(power_fixture(),1,4,1),'valid integers')
 })
+
+test_that('conditional power keeps the unconditional denominator and undefined cases',{
+ p<-power_fixture()
+ p$protein_parameters$r_g[1:50]<-0
+ r<-scp_power(p,3,c(1,8),beta=3,replicates=5,seed=1401)
+ expect_equal(r$results$power[1],0)
+ expect_true(is.na(r$results$conditional_power[1]))
+ expect_equal(r$results$conditional_power_defined_replicates[1],0)
+ d<-r$replicate_metrics[r$replicate_metrics$m_cells_per_sample==8,]
+ expect_equal(d$power,d$detected/d$changed)
+ expect_equal(d$conditional_power,d$detected/d$testable_changed)
+ expect_equal(r$results$conditional_power[2],mean(d$conditional_power,na.rm=TRUE))
+ expect_equal(r$results$conditional_power_se[2],sd(d$conditional_power)/sqrt(5))
+ expect_gt(r$results$conditional_power[2],r$results$power[2])
+})
+
+test_that('FDR is accompanied by rejection counts without changing its definition',{
+ p<-power_fixture()
+ r<-scp_power(p,3,c(1,4),beta=3,replicates=5,seed=1402)
+ expect_equal(r$results$mean_rejections[1],0)
+ expect_equal(r$results$zero_rejection_fraction[1],1)
+ expect_equal(r$results$realised_fdr[1],0)
+ for(i in seq_len(nrow(r$results))) {
+  d<-r$replicate_metrics[r$replicate_metrics$grid_index==i,]
+  expect_equal(r$results$mean_rejections[i],mean(d$rejected))
+  expect_equal(r$results$zero_rejection_fraction[i],mean(d$rejected==0))
+  expect_equal(r$results$realised_fdr[i],mean(d$realised_fdr))
+ }
+ expect_match(r$manifest$endpoint$conditional_power,'testable changed')
+})

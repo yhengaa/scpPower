@@ -167,7 +167,10 @@ estimates, point runtimes and seeds/hashes. A target that no registered
 design reaches is reported as unavailable. Instrument hours use cited
 method/gradient durations and actual occupied batches; unreported overhead
 is excluded. Passing M2 does not establish power validity or bulk-donor
-transfer. No M4 evaluation has been performed.
+transfer. The [registered M4 validation](reports/M4/validation-report.md)
+evaluates cell-level noise, missingness and the test using held-out proteins.
+It cannot validate between-donor variance transfer or compression k. The
+original M3 numeric tables and plots remain unchanged.
 
 Reproduce M3 after the revised M2 gate passes:
 
