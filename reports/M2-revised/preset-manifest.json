@@ -1,0 +1,118 @@
+{
+  "seed": 20261013,
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "input_hashes": {
+    "final_calibration": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+    "paper_benchmarks": "5772b3cf3d2f8f4bd71c3f889a4499f48f6f19693d0d07930bac8e72a200a7c8",
+    "generator": "84db52e004eb2cd99ff328bdc0f903c5fcbbab2aa680552c0aee058131d3f9e4"
+  },
+  "presets": {
+    "specht2019v3": {
+      "path": "inst/presets/specht2019v3.yaml",
+      "sha256": "a9f445d406930ac4e669fcdf2ff349f4266ddeaa696443506d0160bc93449a78",
+      "mask_sha256": "f3bdad969820306af47881296ab57075f87e1f51ff33409dc7befbc970c71d3a",
+      "metadata_sha256": "912b5413466e789ffbed4bad62decde3bbb2e82e12b617023ead40e4fc59a81b",
+      "seed": 20261013,
+      "versions": {
+        "R": "4.6.1",
+        "scp": "1.22.0",
+        "limma": "3.68.5",
+        "edgeR": "4.10.5",
+        "scplainer": "workflow in scp 1.22.0; no separate package"
+      },
+      "mean_fallback_count": 0,
+      "component_fallback_counts": {
+        "sigma2_s_tier_fallback": 1222,
+        "sigma2_b_tier_fallback": 14,
+        "sigma2_e_tier_fallback": 0
+      }
+    },
+    "leduc2022_pSCoPE": {
+      "path": "inst/presets/leduc2022_pSCoPE.yaml",
+      "sha256": "3346a40f524fe25afeaf85e789f8d6253d363562db8fd167d3bd01f6d04d124a",
+      "mask_sha256": "5a554d2de4426bb0ba13fd6dcd922c16f85650198100d125d2fd3d008223c07e",
+      "metadata_sha256": "66e28d3d9c36cb4955f4d4fe432ca052fb35f3028ddea657dfa88255e468347d",
+      "seed": 20261013,
+      "versions": {
+        "R": "4.6.1",
+        "scp": "1.22.0",
+        "limma": "3.68.5",
+        "edgeR": "4.10.5",
+        "scplainer": "workflow in scp 1.22.0; no separate package"
+      },
+      "mean_fallback_count": 66,
+      "component_fallback_counts": {
+        "sigma2_s_tier_fallback": 893,
+        "sigma2_b_tier_fallback": 209,
+        "sigma2_e_tier_fallback": 17
+      }
+    },
+    "derks2022_timsTOF": {
+      "path": "inst/presets/derks2022_timsTOF.yaml",
+      "sha256": "ec81f2490175dbbf7076a9f58e46dbc58ff3822a739d7074f39f84fc46c01bef",
+      "mask_sha256": "f1eb2000831f83b7ce9a35571ade2ce71e9f065bc21dea001512d13cf3cf0697",
+      "metadata_sha256": "aebb5e5bed13384a3e135c745b9d0435dda719fe3ffd290000f767cd8eec5d46",
+      "seed": 20261013,
+      "versions": {
+        "R": "4.6.1",
+        "scp": "1.22.0",
+        "limma": "3.68.5",
+        "edgeR": "4.10.5",
+        "scplainer": "workflow in scp 1.22.0; no separate package"
+      },
+      "mean_fallback_count": 0,
+      "component_fallback_counts": {
+        "sigma2_s_tier_fallback": 657,
+        "sigma2_b_tier_fallback": 92,
+        "sigma2_e_tier_fallback": 92
+      }
+    },
+    "derks2022_QExactive": {
+      "path": "inst/presets/derks2022_QExactive.yaml",
+      "sha256": "230b979a39ab975ad9b687188d68f35a23560aff84bb570fe3cf8547ea87a32c",
+      "mask_sha256": "a8ef524b16b90053600dcdaca6ec1091db492e43793e9afccea67527d99dcfa9",
+      "metadata_sha256": "41f057939fa9a428a7da4d93bc14366ba46105661ba3cc105a53016c7b72f3b1",
+      "seed": 20261013,
+      "versions": {
+        "R": "4.6.1",
+        "scp": "1.22.0",
+        "limma": "3.68.5",
+        "edgeR": "4.10.5",
+        "scplainer": "workflow in scp 1.22.0; no separate package"
+      },
+      "mean_fallback_count": 0,
+      "component_fallback_counts": {
+        "sigma2_s_tier_fallback": 527,
+        "sigma2_b_tier_fallback": 112,
+        "sigma2_e_tier_fallback": 112
+      }
+    },
+    "brunner2022": {
+      "path": "inst/presets/brunner2022.yaml",
+      "sha256": "8568d88909f3c49e0558f3be6c0491952237fb2ff1e05ceed634086c3f847227",
+      "mask_sha256": "d54f21aaa00348aa6945d566daa7edf2a4559a2f12e980bb64aa6964d28bca5b",
+      "metadata_sha256": "30e1e8ecebfed61436dde041de842163a14819ea126ed7770e53892b28f5f0da",
+      "seed": 20261013,
+      "versions": {
+        "R": "4.6.1",
+        "scp": "1.22.0",
+        "limma": "3.68.5",
+        "edgeR": "4.10.5",
+        "scplainer": "workflow in scp 1.22.0; no separate package"
+      },
+      "mean_fallback_count": 0,
+      "component_fallback_counts": {
+        "sigma2_s_tier_fallback": 937,
+        "sigma2_b_tier_fallback": 0,
+        "sigma2_e_tier_fallback": 0
+      }
+    }
+  },
+  "wall_seconds": 5.556
+}

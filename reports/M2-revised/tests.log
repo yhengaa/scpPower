@@ -1,0 +1,36 @@
+ℹ Loading scpPower
+✔ | F W  S  OK | Context
+
+⠏ |          0 | scp_calibrate                                                  
+⠋ |          1 | scp_calibrate                                                  
+⠙ |         12 | scp_calibrate                                                  
+⠋ |         21 | scp_calibrate                                                  
+⠸ |         24 | scp_calibrate                                                  
+⠦ |         27 | scp_calibrate                                                  
+⠏ |         40 | scp_calibrate                                                  
+⠴ |         46 | scp_calibrate                                                  
+⠋ |         51 | scp_calibrate                                                  
+⠹ |         53 | scp_calibrate                                                  
+⠸ |         54 | scp_calibrate                                                  
+⠴ |         56 | scp_calibrate                                                  
+⠹ |         63 | scp_calibrate                                                  
+⠋ |         71 | scp_calibrate                                                  
+⠼ |         75 | scp_calibrate                                                  
+⠧ |         78 | scp_calibrate                                                  
+✔ |         86 | scp_calibrate [11.4s]
+
+⠏ |          0 | scp_simulate                                                   
+⠋ |          1 | scp_simulate                                                   
+⠇ |         19 | scp_simulate                                                   
+⠸ |         34 | scp_simulate                                                   
+⠦ |         37 | scp_simulate                                                   
+⠴ |         46 | scp_simulate                                                   
+⠇ |         59 | scp_simulate                                                   
+⠹ |         93 | scp_simulate                                                   
+⠏ |        110 | scp_simulate                                                   
+✔ |        124 | scp_simulate [1.9s]
+
+══ Results ═════════════════════════════════════════════════════════════════════
+Duration: 13.3 s
+
+[ FAIL 0 | WARN 0 | SKIP 0 | PASS 210 ]

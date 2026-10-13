@@ -1,0 +1,28 @@
+JobId=5491088 ArrayJobId=5491088 ArrayTaskId=1-945%96 ArrayTaskThrottle=96 JobName=scpPower-M3
+   UserId=poggar(3163411) GroupId=poggar(3163411) MCS_label=N/A
+   Priority=929101 Nice=0 Account=def-xcc_cpu QOS=normal
+   JobState=PENDING Reason=Priority Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:00:00 TimeLimit=00:10:00 TimeMin=N/A
+   SubmitTime=2026-10-13T16:30:26 EligibleTime=2026-10-13T16:30:26
+   AccrueTime=2026-10-13T16:30:26
+   StartTime=Unknown EndTime=Unknown Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-13T16:35:42 Scheduler=Main
+   Partition=cpubase_bycore_b1,cpubackfill AllocNode:Sid=narval3:315294
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=
+   NumNodes=1-1 NumCPUs=1 NumTasks=1 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=1,mem=2G,node=1,billing=1000
+   AllocTRES=(null)
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=2G MinTmpDiskNode=0
+   Features=[rome|milan|genoa] DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) LicensesAlloc=(null) Network=(null)
+   Command=/home/poggar/Proteomic package/inst/scripts/run_m3_grid.sbatch
+   SubmitLine=sbatch --array=1-945%96 inst/scripts/run_m3_grid.sbatch
+   WorkDir=/home/poggar/Proteomic package
+   StdErr=
+   StdIn=/dev/null
+   StdOut=/home/poggar/Proteomic package/reports/M3/cluster-logs/5491088_4294967294.log
+   TresPerTask=cpu=1
+

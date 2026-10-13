@@ -1,3 +1,26 @@
+# scpPower 0.2.0
+
+* All five calibrated series pass the unchanged M2 fidelity gate under
+  amendment G, authorising M3. Preserves both earlier M2 reports.
+* Introduces documented and tested `scp_power()` for the registered per-sample
+  means endpoint, limma-trend, BH 0.05 and injected-sign agreement. Reports
+  power, testability, realised FDR, Monte Carlo standard errors and actual
+  layout-dependent run counts and cited instrument-hour estimates.
+* M3 evaluates the registered grid and TMT compression sensitivity assumptions.
+  No M4 evaluation is performed and its criterion remains unchanged.
+
+# scpPower 0.1.2
+
+* Frozen addendum v1.1.3 implements approved amendment G: jointly resample
+  per-protein intensity and variance parameters within tiers; model TMT plex
+  identification followed by conditional channel detection; preserve each DIA
+  protein's baseline detection rate with the registered intensity slope.
+* Retains the M2 gate definitions, tolerances, seeds and replicate count.
+  Adds the fraction quantified in at least half the cells as a descriptive
+  quantity outside the gate. Preserves the original M2 report.
+* M3 and tagging v0.2.0 are conditional on all five series passing the rerun.
+  The registered M4 criterion is unchanged.
+
 # scpPower 0.1.1
 
 * Introduces documented and tested `scp_simulate()` with biological-sample,

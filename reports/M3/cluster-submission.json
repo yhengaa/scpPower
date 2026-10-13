@@ -1,0 +1,21 @@
+{
+  "job_id": "5491088",
+  "seed": 20261013,
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "input_hashes": {
+    "grid": "005543c22cd36a7fbbf0a79f6a66cb4e93a075a4c5d014f1d4aabddc4a38b41e",
+    "sbatch": "8833e9d921545c9d1a573c5b2528f0611fd5eb68e8e9e0f6b7072f2e9328ab0a"
+  },
+  "requested_array": "1-945%96",
+  "account": "def-xcc_cpu",
+  "requested_memory_mb": 2048,
+  "requested_minutes": 10,
+  "wall_seconds": null,
+  "wall_seconds_definition": "Queue and per-task elapsed times are recovered from Slurm accounting after completion."
+}

@@ -1,8 +1,9 @@
 #' Simulate hierarchical single-cell proteomics measurements
 #'
-#' Generates log2 measurements under frozen mandate addendum 1.1.2. Independent
+#' Generates log2 measurements under frozen mandate addendum 1.1.3. Independent
 #' biological-sample effects use the mapped bulk donor variance. Missingness is
-#' evaluated at expected intensity, before cell residual noise is added.
+#' drawn before observing cell residual noise. Registered presets jointly
+#' resample calibrated protein parameters under amendment G.
 #'
 #' @param calibration A single scp_calibrate result, a list of dataset results
 #'   selected by preset, or NULL when a complete preset is supplied.
@@ -14,7 +15,8 @@
 #' @param beta Scalar log2 condition effect or one effect per simulated protein.
 #'   Named vectors must match the returned protein identifiers.
 #' @param preset Dataset preset name, YAML path, or a complete preset list with
-#'   tiers, curve and optional intensity_pool, label_free, plex_size and k.
+#'   tiers, curve and optional protein_parameters, detection_mode,
+#'   intensity_pool, label_free, plex_size and k.
 #'   A preset overrides calibration parameters. YAML expressions are disabled.
 #' @param layout balanced, confounded, or an integer sample-by-batch count
 #'   matrix. Matrix row sums must equal m_cells_per_sample. Optional row and
@@ -27,18 +29,29 @@
 #' @param changed_fraction Fraction of proteins selected for an injected effect,
 #'   default 0.1. The selected count is round(fraction * number of proteins).
 #'
-#' @details Protein baseline means are sampled with replacement from calibrated
-#'   observed protein means within each retained tier. A tier with only its mean
-#'   supplied uses a point mass at that mean. TMT presets use raw reporter means
-#'   for baseline and missingness and retain ratio-based log2 variance; the two
-#'   scales are recorded in preset provenance rather than interchanged.
+#' @details Under amendment G, a simulated protein jointly resamples one row
+#'   of protein_parameters within its calibrated tier: mean_log2, sigma2_s,
+#'   sigma2_b, sigma2_e and detection parameters. Returned source_protein
+#'   identifies the draw. Missing protein variance estimates use the tier
+#'   component; separately unidentified batch variance is zero. Unmapped donor
+#'   variance uses the tier proxy. A never-quantified protein has no empirical
+#'   intensity; its tier mean is recorded as a fallback and its detection rate
+#'   remains zero. No proteins are removed for these fallbacks.
 #'
-#'   For each protein, sample and batch effects are independent normal draws
-#'   with the tier variances. The selected condition effect is k times beta.
-#'   Independent cell residuals have the tier cell variance. Quantification
-#'   probability is plogis(intercept + effective_slope * (expected - center));
-#'   the missingness draw is independent of the realized residual conditional
-#'   on expected intensity. The registered MCAR slope rule is retained.
+#'   TMT detection_mode="tmt_two_level" draws plex identification with p_g,
+#'   then channel detection with q_g conditional on identification. Neither
+#'   responds to the condition effect: pooled carrier identification makes
+#'   testability depend on plex count and barely on effect size. DIA and
+#'   label-free detection_mode="protein_rate" use logit(r_g) plus the registered
+#'   curve slope times (expected intensity minus the resampled protein mean).
+#'   Baseline rates zero and one remain exact; no clipping is applied.
+#'
+#'   Sample, batch and cell effects are independent normal draws with the
+#'   resampled variances. The selected condition effect is k times beta.
+#'   TMT baseline and detection use raw PSM intensities, while variance retains
+#'   the accepted ratio scale. Custom tier-only presets remain supported for
+#'   compatibility and use the earlier tier-normal and global-curve model;
+#'   all registered presets use per-protein parameters.
 #'
 #'   Label-free presets use one acquisition batch per cell and a zero separate
 #'   batch component under amendment F. Their cell variance already includes
@@ -52,7 +65,8 @@
 #'
 #' @return List with matrix (protein by cell log2 values, NA when missing),
 #'   cell_metadata (sample, condition, batch), protein_metadata (tier, mu,
-#'   changed, beta_true, beta_observed), expected_log2, truth effects and manifest.
+#'   source_protein, resampled components and detection parameters, changed,
+#'   beta_true, beta_observed), expected_log2, truth effects and manifest.
 #'   The manifest records seed, RNG kind, software versions, hashes and wall time.
 #' @examples
 #' preset <- list(tiers = data.frame(tier = 1, proteins = 10,
@@ -126,6 +140,32 @@ scp_simulate <- function(calibration, n_per_condition, m_cells_per_sample,
         if (counts[i] > 0 && !length(pool)) stop("Tier lacks calibrated log2 means: ", d$tier[i])
         pool
     })
+    parameters <- config$protein_parameters
+    mode <- if (is.null(config$detection_mode)) "global_curve" else config$detection_mode
+    if (!mode %in% c("global_curve", "protein_rate", "tmt_two_level"))
+        stop("Unknown protein detection mode.")
+    if (!is.null(parameters)) {
+        fields <- c("protein", "tier", "mean_log2", "sigma2_s", "sigma2_b", "sigma2_e")
+        if (!all(fields %in% names(parameters)) || anyNA(parameters$protein) ||
+            anyDuplicated(parameters$protein)) stop("Invalid per-protein parameter identifiers or fields.")
+        for (field in c("mean_log2", "sigma2_s", "sigma2_b", "sigma2_e")) {
+            if (!is.numeric(parameters[[field]]) || any(!is.finite(parameters[[field]])) ||
+                (field != "mean_log2" && any(parameters[[field]] < 0)))
+                stop("Invalid per-protein component: ", field)
+        }
+        for (tier in d$tier[use]) {
+            if (!any(parameters$tier == tier)) stop("Tier lacks calibrated proteins: ", tier)
+        }
+        detection_fields <- if (mode == "tmt_two_level") c("p_g", "q_g") else
+            if (mode == "protein_rate") "r_g" else character()
+        for (field in detection_fields) {
+            x <- parameters[[field]]
+            if (is.null(x) || !is.numeric(x) || any(!is.finite(x)) || any(x < 0 | x > 1))
+                stop("Invalid protein detection probability: ", field)
+        }
+        if (isTRUE(config$label_free) && any(parameters$sigma2_b != 0))
+            stop("Label-free per-protein sigma2_b must be zero.")
+    } else if (mode != "global_curve") stop("Per-protein detection requires protein_parameters.")
     rows <- rep(seq_len(nrow(d)), counts)
     np <- length(rows)
     protein_ids <- config$protein_ids
@@ -158,32 +198,59 @@ scp_simulate <- function(calibration, n_per_condition, m_cells_per_sample,
     sample_ids <- unique(metadata$sample)
     batch_ids <- unique(metadata$batch)
     nc <- nrow(metadata)
-    mu <- unlist(lapply(seq_len(nrow(d)), function(i) {
-        if (!counts[i]) return(numeric())
-        # sample.int avoids R's scalar-numeric sample shortcut.
-        pools[[i]][sample.int(length(pools[[i]]), counts[i], replace = TRUE)]
-    }), use.names = FALSE)
+    if (!is.null(parameters)) {
+        source_rows <- unlist(lapply(seq_len(nrow(d)), function(i) {
+            if (!counts[i]) return(integer())
+            pool <- which(parameters$tier == d$tier[i])
+            pool[sample.int(length(pool), counts[i], replace = TRUE)]
+        }), use.names = FALSE)
+        drawn <- parameters[source_rows, , drop = FALSE]
+        mu <- drawn$mean_log2
+        sigma_s <- drawn$sigma2_s; sigma_b <- drawn$sigma2_b; sigma_e <- drawn$sigma2_e
+    } else {
+        mu <- unlist(lapply(seq_len(nrow(d)), function(i) {
+            if (!counts[i]) return(numeric())
+            pools[[i]][sample.int(length(pools[[i]]), counts[i], replace = TRUE)]
+        }), use.names = FALSE)
+        sigma_s <- d$sigma2_s[rows]; sigma_b <- d$sigma2_b[rows]; sigma_e <- d$sigma2_e[rows]
+    }
     changed <- rep(FALSE, np)
     number_changed <- as.integer(round(changed_fraction * np))
     if (number_changed) changed[sample.int(np, number_changed)] <- TRUE
     effect <- beta * changed
     sample_effects <- matrix(stats::rnorm(np * length(sample_ids)), np) *
-        sqrt(d$sigma2_s[rows])
+        sqrt(sigma_s)
     batch_effects <- matrix(stats::rnorm(np * length(batch_ids)), np) *
-        sqrt(d$sigma2_b[rows])
+        sqrt(sigma_b)
     dimnames(sample_effects) <- list(protein_ids, sample_ids)
     dimnames(batch_effects) <- list(protein_ids, batch_ids)
     expected <- matrix(mu, np, nc) +
         sample_effects[, match(metadata$sample, sample_ids), drop = FALSE] +
         batch_effects[, match(metadata$batch, batch_ids), drop = FALSE] +
         outer(k * effect, as.integer(metadata$condition == "B"))
-    value <- expected + matrix(stats::rnorm(np * nc), np) * sqrt(d$sigma2_e[rows])
-    probability <- stats::plogis(-(curve$intercept + slope * (expected - center)))
-    missing_values <- matrix(stats::runif(np * nc), np) < probability
-    value[missing_values] <- NA_real_
+    value <- expected + matrix(stats::rnorm(np * nc), np) * sqrt(sigma_e)
+    identified <- NULL
+    if (mode == "tmt_two_level") {
+        identified <- matrix(stats::runif(np * length(batch_ids)), np) < drawn$p_g
+        dimnames(identified) <- list(protein_ids, batch_ids)
+        detected <- matrix(stats::runif(np * nc), np) < drawn$q_g
+        detected <- detected & identified[, match(metadata$batch, batch_ids), drop = FALSE]
+    } else if (mode == "protein_rate") {
+        probability <- stats::plogis(stats::qlogis(drawn$r_g) + slope * (expected - mu))
+        detected <- matrix(stats::runif(np * nc), np) < probability
+    } else {
+        probability <- stats::plogis(curve$intercept + slope * (expected - center))
+        detected <- matrix(stats::runif(np * nc), np) >= (1 - probability)
+    }
+    value[!detected] <- NA_real_
     dimnames(value) <- dimnames(expected) <- list(protein_ids, rownames(metadata))
     protein_metadata <- data.frame(protein = protein_ids, tier = d$tier[rows],
         mu = mu, targeted = changed, changed = effect != 0, beta_true = effect, beta_observed = k * effect)
+    if (!is.null(parameters)) {
+        protein_metadata$source_protein <- drawn$protein
+        for (field in intersect(c("sigma2_s", "sigma2_b", "sigma2_e", "p_g", "q_g", "r_g"), names(drawn)))
+            protein_metadata[[field]] <- drawn[[field]]
+    }
     hashes <- c(calibration = digest::digest(calibration, algo = "sha256"),
         preset = digest::digest(config, algo = "sha256"),
         layout = digest::digest(layout, algo = "sha256"),
@@ -198,13 +265,17 @@ scp_simulate <- function(calibration, n_per_condition, m_cells_per_sample,
         dataset = config$dataset, carrier_ratio = config$carrier_ratio,
         layout = if (is.matrix(layout)) "custom sample-by-batch counts" else layout,
         label_free = isTRUE(config$label_free),
-        baseline = "Empirical tier mean resampling; point mass when only tier mean supplied",
-        missingness = "Curve evaluated at mu + sample + batch + condition effect, before cell residual",
+        baseline = if (is.null(parameters)) "Legacy tier parameters" else "Joint calibrated-protein row resampling within tier",
+        missingness = mode,
+        modelling_consequence = if (mode == "tmt_two_level")
+            "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count" else
+            "Detection changes with expected intensity before residual noise",
+        mandate_addendum = "1.1.3",
         provenance = config$provenance,
         wall_seconds = proc.time()[["elapsed"]] - started)
     list(matrix = value, cell_metadata = metadata, protein_metadata = protein_metadata,
         expected_log2 = expected, truth = list(sample_effects = sample_effects,
-        batch_effects = batch_effects), manifest = manifest)
+        batch_effects = batch_effects, plex_identified = identified), manifest = manifest)
 }
 
 .scp_simulation_config <- function(calibration, preset) {
@@ -235,6 +306,30 @@ scp_simulate <- function(calibration, n_per_condition, m_cells_per_sample,
             available <- is.finite(calibration$missingness_proteins$mean_log2[matched])
             raw_mean[available] <- calibration$missingness_proteins$mean_log2[matched][available]
         }
+        tidx <- match(p$tier, selected$tiers$tier)
+        table <- data.frame(protein = p$protein, tier = p$tier, mean_log2 = raw_mean,
+            sigma2_s = p$sigma2_s, sigma2_b = p$sigma2_b, sigma2_e = p$sigma2_e)
+        table$mean_fallback <- !is.finite(table$mean_log2)
+        table$mean_log2[table$mean_fallback] <- selected$tiers$mean_log2[tidx[table$mean_fallback]]
+        for (field in c("sigma2_s", "sigma2_b", "sigma2_e")) {
+            missing_component <- !is.finite(table[[field]])
+            table[[paste0(field, "_tier_fallback")]] <- missing_component
+            table[[field]][missing_component] <- selected$tiers[[field]][tidx[missing_component]]
+        }
+        if (isTRUE(selected$label_free)) table$sigma2_b <- 0
+        # A structurally unidentified batch effect is zero; an otherwise
+        # unavailable protein estimate uses the tier estimate under G1.
+        unidentified <- grepl("alias|unidentified|absorbed|one cell per", p$sigma2_b_reason, ignore.case = TRUE)
+        unidentified[is.na(unidentified)] <- FALSE
+        table$sigma2_b[unidentified] <- 0
+        table$sigma2_b_unidentified <- unidentified
+        table$r_g <- 1 - p$missing_fraction
+        if (!is.null(calibration$missingness_proteins)) {
+            matched <- match(p$protein, calibration$missingness_proteins$protein)
+            table$r_g <- 1 - calibration$missingness_proteins$missing_fraction[matched]
+        }
+        selected$protein_parameters <- table[!is.na(table$tier), , drop = FALSE]
+        selected$detection_mode <- "protein_rate"
         selected$intensity_pool <- stats::setNames(lapply(selected$tiers$tier,
             function(t) raw_mean[!is.na(p$tier) & p$tier == t & is.finite(raw_mean)]),
             as.character(selected$tiers$tier))
@@ -246,6 +341,13 @@ scp_simulate <- function(calibration, n_per_condition, m_cells_per_sample,
             selected$tiers <- as.data.frame(selected$tiers, stringsAsFactors = FALSE)
         else selected$tiers <- do.call(rbind,
             lapply(selected$tiers, function(row) as.data.frame(row, stringsAsFactors = FALSE)))
+    }
+    if (!is.null(selected$protein_parameters) && !is.data.frame(selected$protein_parameters)) {
+        pp <- selected$protein_parameters
+        if (all(c("protein", "tier", "mean_log2") %in% names(pp)))
+            selected$protein_parameters <- as.data.frame(pp, stringsAsFactors = FALSE)
+        else selected$protein_parameters <- do.call(rbind,
+            lapply(pp, function(row) as.data.frame(row, stringsAsFactors = FALSE)))
     }
     if (is.null(selected$intensity_pool)) selected$intensity_pool <- list()
     if (is.null(selected$k)) selected$k <- 1

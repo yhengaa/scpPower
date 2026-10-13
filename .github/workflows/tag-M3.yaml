@@ -1,0 +1,40 @@
+name: Tag completed M3
+on:
+  workflow_run:
+    workflows: [R-CMD-check]
+    types: [completed]
+permissions:
+  contents: write
+jobs:
+  tag:
+    if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.event == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+      - name: Verify completed registered work
+        run: |
+          python - <<'PY'
+          import csv,json
+          from pathlib import Path
+          assert 'Version: 0.2.0' in Path('DESCRIPTION').read_text()
+          s=list(csv.DictReader(open('reports/M2-revised/fidelity-summary.csv')))
+          assert len(s)==5 and all(x['status']=='PASS' for x in s)
+          m=json.loads(Path('reports/M3/run-manifest.json').read_text())
+          assert m['decision']['M3_registered_grid_complete']
+          assert m['grid_points']==945 and m['total_replicates']==189000
+          assert len(list(csv.DictReader(open('reports/M3/power-grid.csv'))))==945
+          PY
+      - uses: actions/github-script@v8
+        with:
+          script: |
+            const {owner, repo} = context.repo;
+            const sha = context.payload.workflow_run.head_sha;
+            try {
+              const prior = await github.rest.git.getRef({owner, repo, ref: 'tags/v0.2.0'});
+              if (prior.data.object.sha !== sha) throw new Error('v0.2.0 exists at a different commit; refusing to move it.');
+            } catch (error) {
+              if (error.status !== 404) throw error;
+              await github.rest.git.createRef({owner, repo, ref: 'refs/tags/v0.2.0', sha});
+            }

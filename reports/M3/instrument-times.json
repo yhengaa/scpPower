@@ -1,0 +1,61 @@
+{
+  "seed": 20261013,
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "sources": {
+    "specht": {
+      "minutes_per_run": 95,
+      "source": "https://doi.org/10.1186/s13059-021-02267-5",
+      "definition": "Reported total loading and separation method, not active gradient alone",
+      "paper_sha256": "f720059197adc97ca23640275601b47a078a3798fe0dd7e59bf4952bfc28fa77",
+      "section_anchor": "SCoPE2 samples were separated",
+      "section_sha256": "ab3d2c5841de59ffd2301811876bcf0c2c8776e678e9ec2df9331b5476cc9474"
+    },
+    "leduc": {
+      "minutes_per_run": 95,
+      "source": "https://doi.org/10.1186/s13059-022-02817-5",
+      "definition": "Reported total TMT method, not the plexDIA method in the same paper",
+      "paper_sha256": "a0709a5b88595b09680edf54572fe4244c56a082a2bc9c2ec6be8efe839fea14",
+      "section_anchor": "All samples except for plexDIA single cells",
+      "section_sha256": "77d71e036d1890fcbf6eb7840174a0851746b25ff0ec9e499d1d2da2fcd543ee"
+    },
+    "derks_qe": {
+      "minutes_per_run": 53,
+      "source": "https://doi.org/10.1038/s41587-022-01389-w",
+      "definition": "Q Exactive single-cell full reported gradient, including re-equilibration",
+      "paper_sha256": "a690bddea9231ac9a4712ba81918ad6588c9299e30d518f2bdf1639c46a27bb0",
+      "section_anchor": "plexDIA single-cell sets and 100-cell standards were injected",
+      "section_sha256": "ebcd11c04d7fcfc5223636c0535a9373ed9501fefec97a8842456e5065cc20b3"
+    },
+    "derks_tims": {
+      "minutes_per_run": 30,
+      "source": "https://doi.org/10.1038/s41587-022-01389-w",
+      "definition": "timsTOF single-cell reported full gradient",
+      "paper_sha256": "a690bddea9231ac9a4712ba81918ad6588c9299e30d518f2bdf1639c46a27bb0",
+      "section_anchor": "The single-cell plexDIA sets were separated",
+      "section_sha256": "45f21d9f32d886cd8dfca7332edc4fdbbb04081247a59d500b3408f14197c81d"
+    },
+    "brunner": {
+      "minutes_per_run": 35,
+      "source": "https://doi.org/10.15252/msb.202110798",
+      "definition": "Reported single-cell EvoSep gradient; unreported loading/turnover overhead excluded",
+      "paper_sha256": "effbc61abddf2f72850726963204baa96cb68bcf1cb49af93aad1794f3440f0d",
+      "section_anchor": "For all other proteome analyses",
+      "section_sha256": "1116078cf42751c5ca8edf668fa021f8fc49a857bcc5e0d1239b4eeb2b2e8ecf"
+    }
+  },
+  "wall_seconds": 0.047333706985227764,
+  "input_hashes": {
+    "specht": "f720059197adc97ca23640275601b47a078a3798fe0dd7e59bf4952bfc28fa77",
+    "leduc": "a0709a5b88595b09680edf54572fe4244c56a082a2bc9c2ec6be8efe839fea14",
+    "derks_qe": "a690bddea9231ac9a4712ba81918ad6588c9299e30d518f2bdf1639c46a27bb0",
+    "derks_tims": "a690bddea9231ac9a4712ba81918ad6588c9299e30d518f2bdf1639c46a27bb0",
+    "brunner": "effbc61abddf2f72850726963204baa96cb68bcf1cb49af93aad1794f3440f0d"
+  },
+  "reproduction": "Run fetch_resumed_sources.py before this parser; source URLs and hashes are preserved."
+}

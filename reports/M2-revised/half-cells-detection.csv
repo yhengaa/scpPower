@@ -1,0 +1,6 @@
+"dataset","observed","simulated_mean","simulated_sd","gate","software_versions"
+"specht2019v3",0.224852071005917,0.215877712031558,0.00629541396943632,FALSE,"R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"
+"leduc2022_pSCoPE",0.31500872600349,0.314287794931547,0.00677390738739871,FALSE,"R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"
+"derks2022_timsTOF",0.693931398416887,0.778751857355126,0.00739650171670636,FALSE,"R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"
+"derks2022_QExactive",0.367972742759796,0.397712717291857,0.0131083031497687,FALSE,"R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"
+"brunner2022",0.486672051696284,0.49517366720517,0.00531213505652838,FALSE,"R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"

@@ -3,9 +3,9 @@
 [![R CMD check](https://github.com/yhengaa/scpPower/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/yhengaa/scpPower/actions/workflows/R-CMD-check.yaml)
 
 Calibration for mass-spectrometry single-cell proteomics experimental design.
-The governing [mandate is frozen](scpPower_mandate_v1.1.md). This release covers
-the package skeleton and `scp_calibrate()`; calibration status and limitations
-are recorded in [the M1 evidence](reports/M1).
+The governing [mandate is frozen](scpPower_mandate_v1.1.md). The package provides
+`scp_calibrate()` and `scp_simulate()`; calibration status and limitations
+are recorded in [the final M1 evidence](reports/M1-final).
 
 M1 closes under [frozen addendum v1.1.2](scpPower_mandate_v1.1.md).
 The [final M1 evidence](reports/M1-final) calibrates every registered dataset and
@@ -99,7 +99,10 @@ and simulation were not tuned to obtain a pass. Brunner's separate run variance
 is absorbed into its cell term. TMT baseline and missingness use raw intensities
 while variance retains the accepted ratio scale.
 
-After final M1 is regenerated, reproduce M2 with:
+To reproduce the original M2 evidence, use source at
+[b34d9d4](https://github.com/yhengaa/scpPower/commit/b34d9d4bd89a4cfb17f8fb1af5e8c37bba6c5f6a)
+after regenerating final M1. The revised commands below use the current source.
+Original M2 commands:
 
 ```sh
 Rscript inst/scripts/generate_presets.R
@@ -115,3 +118,71 @@ The carrier reference identified by PMID 33288958 is Cheung et al.,
 [*Nature Methods*](https://doi.org/10.1038/s41592-020-01002-5).
 The frozen mandate retains the PI's text verbatim; the bibliographic correction
 is recorded here and in calibration documentation.
+
+The approved [addendum v1.1.3](scpPower_mandate_v1.1.md) revises the simulator
+under amendment G. Registered presets jointly resample calibrated protein rows
+within tiers, retaining each protein's mean, variance components and detection
+parameters. Tier summaries remain for reporting. TMT uses a protein's plex
+identification probability followed by conditional channel detection; both
+probabilities are independent of the effect because the carrier pools both
+conditions. DIA and label-free presets keep protein-specific baseline
+detection and use the fitted intensity slope for expected-intensity shifts.
+
+The [revised M2 evidence](reports/M2-revised/fidelity-report.md) preserves the
+registered tolerances, native designs, replicate count and metric definitions.
+It also reports the fraction quantified in at least half the cells, outside
+the gate. The [original M2 evidence](reports/M2/fidelity-report.md) remains
+available. M3 and the v0.2.0 tag require all series to pass the revised gate.
+The M4 registration is unchanged.
+
+After reproducing final M1, regenerate amendment G and its evidence with:
+
+```sh
+Rscript inst/scripts/generate_presets_revised.R
+Rscript inst/scripts/fidelity_m2_revised.R
+Rscript inst/scripts/report_m2_revised.R
+```
+
+All registered series pass the revised M2 gate. `scp_power()` now evaluates
+the approved M3 endpoint: per-sample log2 means with a minimum of three
+quantified cells in every sample, limma-trend, BH and injected-sign agreement.
+It reports power, testability, realised FDR, Monte Carlo standard errors,
+actual acquisition runs, nominal instrument hours and the cheapest tested
+design meeting the requested power target.
+
+```r
+power <- scp_power(
+    "specht2019v3", n_per_condition = c(3, 4, 6, 8, 12),
+    m_cells_per_sample = c(1, 2, 4, 8, 16, 32, 64),
+    beta = log2(c(1.25, 1.5, 2)), layout = "balanced",
+    k = c(1, 0.75, 0.5), replicates = 200, seed = 20261013
+)
+power$results
+power$cheapest
+```
+
+The [M3 report](reports/M3/power-report.md) includes power and testability
+curves, the TMT sensitivity assumptions, realised FDR, instrument-hour
+estimates, point runtimes and seeds/hashes. A target that no registered
+design reaches is reported as unavailable. Instrument hours use cited
+method/gradient durations and actual occupied batches; unreported overhead
+is excluded. Passing M2 does not establish power validity or bulk-donor
+transfer. No M4 evaluation has been performed.
+
+Reproduce M3 after the revised M2 gate passes:
+
+```sh
+python inst/scripts/extract_instrument_times.py
+Rscript inst/scripts/add_instrument_times.R
+Rscript inst/scripts/verify_revised_replay.R
+Rscript inst/scripts/register_m3_grid.R
+# Choose your cluster account in the submitted file.
+sbatch --array=1-27%27 inst/scripts/run_m3_chunk.sbatch
+# Once all registered points complete:
+Rscript inst/scripts/report_m3.R
+```
+
+For an interactive compute allocation, the same registered points can run
+with `srun Rscript inst/scripts/run_m3_parallel.R`; the launcher uses the
+allocated CPU count and retains already-completed points. This changes only
+scheduling, with the grid and replicate seeds preserved.

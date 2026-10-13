@@ -1,0 +1,23 @@
+{
+  "reason": "Implementation review before any dataset gate result: match the calibration reason batch-line aliasing as structurally unidentified under G1. The earlier matcher handled aliased but not aliasing. Apply zero, as mandated, instead of tier fallback. Abort incomplete startup and restart all twenty replicates with identical registered seeds. No outcomes or tolerances were used to select this change.",
+  "completed_dataset_results": 0,
+  "previous_simulator_sha256": "ff2a31325cf329e9a142aa463101cebfb831acacaf8be628b3094e8e75c557f1",
+  "previous_preset_hashes": {
+    "specht2019v3": "05ca3e9f1eefc556287918623d00d23de132769b20c8b1e9473ca3b6d421c463",
+    "leduc2022_pSCoPE": "11956c860ccfe50fd8d5ac943bcee033ac582d2511e2d30885c8fe56d88b39e5",
+    "derks2022_timsTOF": "c62022631b306aec8b7de438aaa054eba91831294412706ee1560ede7fe541b5",
+    "derks2022_QExactive": "7066acfbfe5359b0a4f97fa80e67906da780ec2e96270fe546a8038ddb84e9e9",
+    "brunner2022": "8568d88909f3c49e0558f3be6c0491952237fb2ff1e05ceed634086c3f847227"
+  },
+  "log_sha256": "44acf7943d64c73b3b5ed1c2fb87bdc9ac80256b3d068459ab89844a6fa833b8",
+  "seed": 20261013,
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "wall_seconds": 82,
+  "wall_seconds_reason": "Measured from original fidelity-log file birth to correction-audit file birth (one-second filesystem resolution); includes startup and interruption audit overhead. Completed replicates have instrumented proc.time wall times."
+}

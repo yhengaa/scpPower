@@ -105,3 +105,110 @@ simulation_fixture <- function() list(
     p$tiers$sigma2_s[1]<-NA_real_
     expect_error(scp_simulate(NULL,1,3,0,preset=p),'Unidentified')
  })
+
+protein_simulation_fixture <- function(mode = 'protein_rate') {
+    p <- simulation_fixture()
+    p$protein_parameters <- data.frame(
+        protein=c('lowA','lowB','highA','highB'),tier=c(1,1,2,2),
+        mean_log2=c(7,9,11,13),sigma2_s=c(.01,.02,.03,.04),
+        sigma2_b=c(.1,.2,.3,.4),sigma2_e=c(.5,.6,.7,.8),
+        r_g=c(.2,.4,.6,.8),p_g=c(.25,.5,.75,1),q_g=c(.8,.6,.4,.2))
+    p$detection_mode <- mode
+    p
+}
+
+test_that('G1 jointly resamples complete calibrated protein rows within tiers', {
+    p <- protein_simulation_fixture()
+    a <- scp_simulate(NULL,2,20,0,preset=p,seed=107)
+    b <- scp_simulate(NULL,2,20,0,preset=p,seed=107)
+    idx <- match(a$protein_metadata$source_protein,p$protein_parameters$protein)
+    expect_false(anyNA(idx))
+    expect_equal(a$protein_metadata$tier,p$protein_parameters$tier[idx])
+    expect_equal(a$protein_metadata$mu,p$protein_parameters$mean_log2[idx])
+    for(field in c('sigma2_s','sigma2_b','sigma2_e','r_g'))
+        expect_equal(a$protein_metadata[[field]],p$protein_parameters[[field]][idx])
+    expect_true(anyDuplicated(a$protein_metadata$source_protein)>0)
+    expect_identical(a$matrix,b$matrix)
+    expect_identical(a$truth,b$truth)
+    expect_equal(a$manifest$missingness,'protein_rate')
+    expect_equal(a$manifest$mandate_addendum,'1.1.3')
+    # The tier summaries are reporting values rather than generating variances.
+    altered <- p;altered$tiers$sigma2_s<-altered$tiers$sigma2_b<-altered$tiers$sigma2_e<-50
+    z <- scp_simulate(NULL,2,20,0,preset=altered,seed=107)
+    expect_identical(a$matrix,z$matrix)
+    path <- tempfile(fileext='.yaml');yaml::write_yaml(p,path,precision=17)
+    y <- scp_simulate(NULL,2,20,0,preset=path,seed=107)
+    expect_identical(a$matrix,y$matrix)
+})
+
+test_that('G2 TMT identification removes entire plexes and is effect-independent', {
+    p <- protein_simulation_fixture('tmt_two_level')
+    p$protein_parameters$q_g <- 1
+    a <- scp_simulate(NULL,2,100,0,preset=p,seed=109)
+    b <- scp_simulate(NULL,2,100,3,preset=p,seed=109,changed_fraction=.1)
+    expect_identical(is.na(a$matrix),is.na(b$matrix))
+    expect_identical(a$truth$plex_identified,b$truth$plex_identified)
+    for(batch in colnames(a$truth$plex_identified)) {
+        j <- a$cell_metadata$batch==batch
+        expect_equal(unname(rowSums(!is.na(a$matrix[,j,drop=FALSE]))),
+            as.numeric(a$truth$plex_identified[,batch])*sum(j))
+    }
+    expect_match(a$manifest$modelling_consequence,'p_g and q_g do not respond')
+    p$protein_parameters$p_g <- 1;p$protein_parameters$q_g <- .4
+    c <- scp_simulate(NULL,1,1000,0,preset=p,seed=111)
+    expect_true(all(c$truth$plex_identified))
+    expect_equal(mean(!is.na(c$matrix)),.4,tolerance=.01)
+    p$protein_parameters$p_g <- 0
+    z <- scp_simulate(NULL,1,10,0,preset=p,seed=111)
+    expect_true(all(is.na(z$matrix)))
+})
+
+test_that('G3 DIA baseline detection and slope respond before residual noise', {
+    p <- protein_simulation_fixture()
+    p$tiers$proteins<-c(100,100)
+    p$protein_parameters$r_g<-.5
+    p$protein_parameters$sigma2_s<-p$protein_parameters$sigma2_b<-0
+    p$protein_parameters$sigma2_e<-30
+    p$curve$effective_slope<-1
+    a <- scp_simulate(NULL,1,300,2,preset=p,seed=113,changed_fraction=1)
+    A<-a$cell_metadata$condition=='A';B<-!A
+    expect_equal(mean(!is.na(a$matrix[,A])),.5,tolerance=.01)
+    expect_equal(mean(!is.na(a$matrix[,B])),plogis(2),tolerance=.01)
+    q<-p;q$protein_parameters$sigma2_e<-0
+    b<-scp_simulate(NULL,1,300,2,preset=q,seed=113,changed_fraction=1)
+    expect_identical(is.na(a$matrix),is.na(b$matrix))
+    p$protein_parameters$r_g<-c(0,1,0,1)
+    z<-scp_simulate(NULL,1,10,10,preset=p,seed=115,changed_fraction=1)
+    zero<-z$protein_metadata$r_g==0;one<-!zero
+    expect_true(all(is.na(z$matrix[zero,,drop=FALSE])))
+    expect_true(all(is.finite(z$matrix[one,,drop=FALSE])))
+    expect_null(z$truth$plex_identified)
+})
+
+test_that('invalid per-protein parameter tables cannot silently fall back', {
+    p<-protein_simulation_fixture();p$protein_parameters$r_g[1]<-1.01
+    expect_error(scp_simulate(NULL,1,5,0,preset=p),'detection probability')
+    p<-protein_simulation_fixture();p$protein_parameters$sigma2_e[1]<-NA_real_
+    expect_error(scp_simulate(NULL,1,5,0,preset=p),'per-protein component')
+    p<-protein_simulation_fixture();p$protein_parameters$protein[1]<-p$protein_parameters$protein[2]
+    expect_error(scp_simulate(NULL,1,5,0,preset=p),'identifiers')
+    p<-protein_simulation_fixture();p$protein_parameters<-NULL
+    expect_error(scp_simulate(NULL,1,5,0,preset=p),'requires protein_parameters')
+})
+
+test_that('G1 distinguishes unidentified batch variance from missing protein fits', {
+    p <- protein_simulation_fixture()
+    cal <- list(tiers=p$tiers,missingness=p$curve,
+        proteins=data.frame(protein=c('x','y','z','w'),tier=c(1,1,2,2),
+            mean_log2=c(7,9,11,13),sigma2_s=c(.01,NA,.03,.04),
+            sigma2_b=c(NA,NA,.3,.4),sigma2_e=c(.5,NA,.7,.8),
+            missing_fraction=c(.8,.6,.4,.2),
+            sigma2_b_reason=c('batch-line aliasing','Fit failed: insufficient data','estimated','estimated')),
+        manifest=list(absorb_cell_batches=FALSE),compression=list(k=1))
+    config<-scpPower:::.scp_simulation_config(cal,NULL)
+    expect_equal(config$protein_parameters$sigma2_b[1],0)
+    expect_equal(config$protein_parameters$sigma2_b[2],p$tiers$sigma2_b[1])
+    expect_equal(config$protein_parameters$sigma2_s[2],p$tiers$sigma2_s[1])
+    expect_equal(config$protein_parameters$sigma2_e[2],p$tiers$sigma2_e[1])
+    expect_equal(config$protein_parameters$sigma2_s[1],.01)
+})

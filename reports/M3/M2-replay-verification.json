@@ -1,0 +1,86 @@
+{
+  "seed": 20261013,
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "datasets": {
+    "specht2019v3": {
+      "seed": 20262014,
+      "versions": {
+        "R": "4.6.1",
+        "scp": "1.22.0",
+        "limma": "3.68.5",
+        "edgeR": "4.10.5",
+        "scplainer": "workflow in scp 1.22.0; no separate package"
+      },
+      "matrix_sha256": "6533bb3cfca527213544d596c249aeca8d2c702acd706ff8abb52ce1b1617d01",
+      "preset_sha256": "71cf8a4719537fe2d08e6f89eea4097b4bcc3d2020c07bb245c39e861d6b3bfd",
+      "byte_identical": true,
+      "wall_seconds": 5.155
+    },
+    "leduc2022_pSCoPE": {
+      "seed": 20263014,
+      "versions": {
+        "R": "4.6.1",
+        "scp": "1.22.0",
+        "limma": "3.68.5",
+        "edgeR": "4.10.5",
+        "scplainer": "workflow in scp 1.22.0; no separate package"
+      },
+      "matrix_sha256": "f5c6560b2c8e52540d877e1dc5d2fa2418b9d02061b43f10bbe18aaf48c6e4c9",
+      "preset_sha256": "20579dbd3e27376cfe694c0dae22e6f06da24fce0dccf5688d189917f431e56b",
+      "byte_identical": true,
+      "wall_seconds": 5.327
+    },
+    "derks2022_timsTOF": {
+      "seed": 20264014,
+      "versions": {
+        "R": "4.6.1",
+        "scp": "1.22.0",
+        "limma": "3.68.5",
+        "edgeR": "4.10.5",
+        "scplainer": "workflow in scp 1.22.0; no separate package"
+      },
+      "matrix_sha256": "bb2e35da7ff864c735040135f6d7e2fb44f1838f24c905032da66f84c8243679",
+      "preset_sha256": "339cdbee6020dcf5f149f68b8b6beb4fa8dc7869a53bdbd49d68c4544228105d",
+      "byte_identical": true,
+      "wall_seconds": 1.164
+    },
+    "derks2022_QExactive": {
+      "seed": 20265014,
+      "versions": {
+        "R": "4.6.1",
+        "scp": "1.22.0",
+        "limma": "3.68.5",
+        "edgeR": "4.10.5",
+        "scplainer": "workflow in scp 1.22.0; no separate package"
+      },
+      "matrix_sha256": "0b0a96ec93a3826ca483f220025fc4fde43081f92870e58458e6c34eec188b69",
+      "preset_sha256": "88e599c213009bbe64d9cd90e818758b66fafc2cb86bc057415cf7b6b42f766c",
+      "byte_identical": true,
+      "wall_seconds": 0.928000000000001
+    },
+    "brunner2022": {
+      "seed": 20266014,
+      "versions": {
+        "R": "4.6.1",
+        "scp": "1.22.0",
+        "limma": "3.68.5",
+        "edgeR": "4.10.5",
+        "scplainer": "workflow in scp 1.22.0; no separate package"
+      },
+      "matrix_sha256": "ac69bb6363254fbde09118d8f5b203ad93eb249aaef60099ee2360a5744f3465",
+      "preset_sha256": "f85599315e096340a3f88395222b2a65968ba41dc1ae47fcd17c8773d357ac34",
+      "byte_identical": true,
+      "wall_seconds": 2.493
+    }
+  },
+  "input_hashes": {
+    "gate_manifest": "5ca17cc40dc1b174e2d761623bf62171b1ad5e6c6e26d81ccd1a5892c049dfaa"
+  },
+  "wall_seconds": 16.143
+}

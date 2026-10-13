@@ -169,3 +169,49 @@ A dataset passes when all four hold. Report every dataset, pass or fail, with th
 5. Run manifest with seeds, hashes, versions and wall times.
 
 No work on scp_power() or M4. Stop rules remain per dataset.
+
+## Frozen addendum v1.1.3 — M2 revision and conditional M3, approved 13 October 2026
+
+**Status: FROZEN.** Amendment G changes simulator structure only. The registered M2 tolerances, replicate count and metric definitions and the M4 criterion remain unchanged. M3 and the v0.2.0 tag require all five series to pass. The approved directive is reproduced verbatim below.
+
+# Directive: M2 revision and M3
+
+13 October 2026
+
+The v0.1.0 release, the final M1 calibration and the M2 fidelity report are accepted as delivered. Four datasets failed the registered gate and the report says why without tuning; that is what M2 is for. The failure pattern points to two structural errors in the simulator, not to the calibration or the tolerances. Amendment G below fixes them. It is a decision, approved now; add it to the mandate as addendum v1.1.3 and record it in NEWS.md. The M2 tolerances, replicate count and metric definitions do not change. The M4 criterion does not change.
+
+## Why the gate failed
+
+1. **Cell and batch SD too high everywhere.** The simulator gives every protein in a tier the tier's mean variance. The gate compares the median per-protein SD. The mean of a right-skewed variance distribution is well above the median, so every simulated SD is inflated. Brunner passed only because its variances are less skewed.
+2. **TMT missingness flat across tiers.** In Specht the fitted intensity slope is about zero, so one curve predicts the global missing fraction for every tier while the observed tiers range from 47% to 85%. The per-protein missingness plot is bimodal: a protein is quantified in most cells or in almost none. That is the signature of plex-level identification driven by the carrier, with protein-specific detectability, not of cell-level intensity. One global curve cannot represent it.
+
+## Amendment G: simulator structure
+
+**G1. Per-protein parameters by resampling.** A simulated protein is a resampled real protein. Draw, jointly and with replacement, one calibrated protein from the preset's tier and take its mean log2 intensity, its sigma2_e, its sigma2_b (0 where unidentified, with the tier value substituted only when the protein's own estimate is NA), its mapped sigma2_s (tier value when unmapped), and its detection parameters below. Tier summaries remain in the table for reporting; they are no longer the generating parameters. The preset YAML therefore carries the per-protein parameter table (one row per calibrated protein), not only tier rows.
+
+**G2. Two-level missingness for TMT presets.** For each protein g: p_g = fraction of plexes (runs) in which g has at least one PSM; q_g = fraction of single-cell channels in which g is quantified, among plexes where it is identified. Both come from the raw PSM mask already extracted for M1. In simulation, a protein is identified in a plex with probability p_g; if identified, each cell in that plex is quantified with probability q_g; otherwise the whole plex is NA for that protein. The condition effect does not change p_g or q_g, because the carrier that drives identification pools both conditions. Record this as a registered modelling consequence: in carrier-TMT designs, testability depends on the number of plexes and barely on the effect size.
+
+**G3. Per-protein detection for DIA and label-free presets.** Each protein keeps its own observed quantification rate r_g as the baseline. The registered intensity curve supplies only the slope: the logit of detection for a cell is logit(r_g) + slope times (expected log2 intensity minus the protein's calibrated mean). The condition effect therefore shifts detection in the changed condition, which is the correct behaviour for DIA.
+
+**G4. Everything else unchanged.** Sample, batch and residual draws, the layout argument, k, seeds, hashes and manifests stay as implemented.
+
+## Gate rerun
+
+Rerun the registered M2 gate exactly as before: native designs, beta = 0, 20 replicates, the same four tolerances and metric definitions. Add one reported quantity, not a gate: the fraction of proteins quantified in at least half of the cells, observed versus simulated. Report every dataset pass or fail. If any dataset fails, stop after the report with the suspected cause.
+
+## M3, only if all five pass
+
+Implement `scp_power(preset, n_per_condition, m_cells_per_sample, beta, layout, k, replicates = 200, seed)` over the registered grid: m in {1, 2, 4, 8, 16, 32, 64}, n in {3, 4, 6, 8, 12}, beta in {log2 1.25, log2 1.5, log2 2}, for every preset. For each grid point it simulates, applies the primary endpoint (per-sample means over cells with at least 3 quantified cells, limma-trend, BH 0.05, sign agreement), and returns power, testability, realised FDR, and the simulation standard error.
+
+Instrument time: each preset YAML gains `cells_per_run` (TMT: single-cell channels per plex; plexDIA: 3; label-free: 1) and `minutes_per_run` taken from the source paper's gradient, with the citation in the YAML. `scp_power()` reports runs and instrument hours per design and the cheapest design in hours reaching a target power (default 0.8) for each beta.
+
+Run the grid on the cluster. Deliver power curves (power against m for each n, one panel per beta and preset), the testability curves, the realised FDR table, run time per grid point, and the manifest. Report power at k = 1 and at k = 0.75 and 0.5 for TMT presets.
+
+## Deliverables
+
+1. Repository link, CI green, tagged v0.2.0 after the gate passes.
+2. Revised M2 fidelity report with the rerun table and the two plots.
+3. If authorised: `scp_power()` documented and tested, the M3 power and testability curves, the FDR table, and instrument-hour tables.
+4. Run manifest.
+
+No M4 work. Stop rules remain per dataset.

@@ -1,0 +1,32 @@
+{
+  "mandate_addendum": "1.1.3",
+  "seed": 20261013,
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "replicates_per_point": 200,
+  "grid_points": 945,
+  "grid_seed_formula": "20261013 + 1000*one-based task; replicate seed = grid seed + replicate index",
+  "input_hashes": {
+    "gate": "a225c313872bc8f95c732c9b9529dd4c2cd4e19059d7335847bd74140fcbcf22",
+    "grid": "005543c22cd36a7fbbf0a79f6a66cb4e93a075a4c5d014f1d4aabddc4a38b41e",
+    "simulator": "9d2800a8f9d985a0dfbdf92beeb16ae0769191f465df190304024d28d7d83235",
+    "power": "fc9b7c3f2c02c83bf164fbd56a9d04156295a75d4832a09648a0676ae8e7eafc",
+    "renv_lock": "9847523045fd7c40703e5b45ac5a867479b5181ffbc917a35346e389635f889f"
+  },
+  "preset_hashes": {
+    "specht2019v3": "71cf8a4719537fe2d08e6f89eea4097b4bcc3d2020c07bb245c39e861d6b3bfd",
+    "leduc2022_pSCoPE": "20579dbd3e27376cfe694c0dae22e6f06da24fce0dccf5688d189917f431e56b",
+    "derks2022_timsTOF": "339cdbee6020dcf5f149f68b8b6beb4fa8dc7869a53bdbd49d68c4544228105d",
+    "derks2022_QExactive": "88e599c213009bbe64d9cd90e818758b66fafc2cb86bc057415cf7b6b42f766c",
+    "brunner2022": "f85599315e096340a3f88395222b2a65968ba41dc1ae47fcd17c8773d357ac34"
+  },
+  "layout": "balanced; actual occupied batches counted",
+  "target_power": 0.8,
+  "wall_seconds": 0.154,
+  "M4_registration_unchanged": true
+}

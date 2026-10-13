@@ -1,0 +1,6 @@
+"dataset","status","checks_passed","checks_applicable","maximum_missingness_error","coverage_relative_error","maximum_cell_sd_error","maximum_batch_sd_error","proteins","cells","samples","batches","replicates","software_versions"
+"specht2019v3","PASS",16,16,0.00749986224529159,0.00974045061502504,0.0282195023432639,0.0425001552814226,3042,1490,2,172,20,"R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"
+"leduc2022_pSCoPE","PASS",16,16,0.00597784600532092,0.00805360100402241,0.0249326060722337,0.0923236479440473,3438,1556,2,133,20,"R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"
+"derks2022_timsTOF","PASS",16,16,0.0124074074074074,0.00152664237171285,0.0481039198028189,0.0758955970782236,1516,30,3,10,20,"R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"
+"derks2022_QExactive","PASS",16,16,0.00592844036697249,0.00468726272630637,0.0400150893924403,0.0632380615418799,1174,125,3,48,20,"R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"
+"brunner2022","PASS",11,11,0.0104144213616768,0.004688814846314,0.00341403413295305,NA,2476,434,1,434,20,"R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"

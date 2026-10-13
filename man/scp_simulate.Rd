@@ -31,7 +31,8 @@ of positive integers in sample order (A samples followed by B samples).}
 Named vectors must match the returned protein identifiers.}
 
 \item{preset}{Dataset preset name, YAML path, or a complete preset list with
-tiers, curve and optional intensity_pool, label_free, plex_size and k.
+tiers, curve and optional protein_parameters, detection_mode,
+intensity_pool, label_free, plex_size and k.
 A preset overrides calibration parameters. YAML expressions are disabled.}
 
 \item{layout}{balanced, confounded, or an integer sample-by-batch count
@@ -51,27 +52,40 @@ default 0.1. The selected count is round(fraction * number of proteins).}
 \value{
 List with matrix (protein by cell log2 values, NA when missing),
   cell_metadata (sample, condition, batch), protein_metadata (tier, mu,
-  changed, beta_true, beta_observed), expected_log2, truth effects and manifest.
+  source_protein, resampled components and detection parameters, changed,
+  beta_true, beta_observed), expected_log2, truth effects and manifest.
   The manifest records seed, RNG kind, software versions, hashes and wall time.
 }
 \description{
-Generates log2 measurements under frozen mandate addendum 1.1.2. Independent
+Generates log2 measurements under frozen mandate addendum 1.1.3. Independent
 biological-sample effects use the mapped bulk donor variance. Missingness is
-evaluated at expected intensity, before cell residual noise is added.
+drawn before observing cell residual noise. Registered presets jointly
+resample calibrated protein parameters under amendment G.
 }
 \details{
-Protein baseline means are sampled with replacement from calibrated
-  observed protein means within each retained tier. A tier with only its mean
-  supplied uses a point mass at that mean. TMT presets use raw reporter means
-  for baseline and missingness and retain ratio-based log2 variance; the two
-  scales are recorded in preset provenance rather than interchanged.
+Under amendment G, a simulated protein jointly resamples one row
+  of protein_parameters within its calibrated tier: mean_log2, sigma2_s,
+  sigma2_b, sigma2_e and detection parameters. Returned source_protein
+  identifies the draw. Missing protein variance estimates use the tier
+  component; separately unidentified batch variance is zero. Unmapped donor
+  variance uses the tier proxy. A never-quantified protein has no empirical
+  intensity; its tier mean is recorded as a fallback and its detection rate
+  remains zero. No proteins are removed for these fallbacks.
 
-  For each protein, sample and batch effects are independent normal draws
-  with the tier variances. The selected condition effect is k times beta.
-  Independent cell residuals have the tier cell variance. Quantification
-  probability is plogis(intercept + effective_slope * (expected - center));
-  the missingness draw is independent of the realized residual conditional
-  on expected intensity. The registered MCAR slope rule is retained.
+  TMT detection_mode="tmt_two_level" draws plex identification with p_g,
+  then channel detection with q_g conditional on identification. Neither
+  responds to the condition effect: pooled carrier identification makes
+  testability depend on plex count and barely on effect size. DIA and
+  label-free detection_mode="protein_rate" use logit(r_g) plus the registered
+  curve slope times (expected intensity minus the resampled protein mean).
+  Baseline rates zero and one remain exact; no clipping is applied.
+
+  Sample, batch and cell effects are independent normal draws with the
+  resampled variances. The selected condition effect is k times beta.
+  TMT baseline and detection use raw PSM intensities, while variance retains
+  the accepted ratio scale. Custom tier-only presets remain supported for
+  compatibility and use the earlier tier-normal and global-curve model;
+  all registered presets use per-protein parameters.
 
   Label-free presets use one acquisition batch per cell and a zero separate
   batch component under amendment F. Their cell variance already includes

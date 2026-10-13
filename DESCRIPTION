@@ -1,6 +1,6 @@
 Package: scpPower
-Title: Calibration and Simulation for Single-Cell Proteomics Design
-Version: 0.1.1
+Title: Calibration, Simulation and Power for Single-Cell Proteomics
+Version: 0.2.0
 Authors@R: person("Youshan", "Heng", email = "poggar@hotmail.com",
     role = c("aut", "cre"), comment = c(ORCID = "0000-0002-2758-171X"))
 Description: Estimates protein-level cell and acquisition-batch variance,
@@ -10,11 +10,13 @@ Description: Estimates protein-level cell and acquisition-batch variance,
     hashes, seeds, and run time. Implements the calibration stage of a
     registered single-cell proteomics design workflow. Simulates hierarchical
     log2 measurements with dataset-specific missingness and acquisition layouts.
+    Estimates power, testability and realised false discovery rates for a
+    registered sample-level endpoint and reports nominal instrument hours.
 License: GPL-3
 Encoding: UTF-8
 Depends: R (>= 4.3.0)
-Imports: digest, lme4, stats, utils, yaml
-Suggests: BiocManager, edgeR, ExperimentHub, jsonlite, limma, QFeatures,
+Imports: digest, limma, lme4, stats, utils, yaml
+Suggests: BiocManager, edgeR, ExperimentHub, jsonlite, QFeatures,
     readxl, renv, roxygen2, scp, scpdata, SummarizedExperiment, testthat (>= 3.0.0)
 Config/testthat/edition: 3
 URL: https://github.com/yhengaa/scpPower

@@ -1,0 +1,472 @@
+{
+  "mandate_addendum": "1.1.3",
+  "seed": 20261013,
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "package_version": "0.2.0",
+  "grid_points": 945,
+  "replicates_per_point": 200,
+  "total_replicates": 189000,
+  "grid_registration": {
+    "mandate_addendum": "1.1.3",
+    "seed": 20261013,
+    "versions": {
+      "R": "4.6.1",
+      "scp": "1.22.0",
+      "limma": "3.68.5",
+      "edgeR": "4.10.5",
+      "scplainer": "workflow in scp 1.22.0; no separate package"
+    },
+    "replicates_per_point": 200,
+    "grid_points": 945,
+    "grid_seed_formula": "20261013 + 1000*one-based task; replicate seed = grid seed + replicate index",
+    "input_hashes": {
+      "gate": "a225c313872bc8f95c732c9b9529dd4c2cd4e19059d7335847bd74140fcbcf22",
+      "grid": "005543c22cd36a7fbbf0a79f6a66cb4e93a075a4c5d014f1d4aabddc4a38b41e",
+      "simulator": "9d2800a8f9d985a0dfbdf92beeb16ae0769191f465df190304024d28d7d83235",
+      "power": "fc9b7c3f2c02c83bf164fbd56a9d04156295a75d4832a09648a0676ae8e7eafc",
+      "renv_lock": "9847523045fd7c40703e5b45ac5a867479b5181ffbc917a35346e389635f889f"
+    },
+    "preset_hashes": {
+      "specht2019v3": "71cf8a4719537fe2d08e6f89eea4097b4bcc3d2020c07bb245c39e861d6b3bfd",
+      "leduc2022_pSCoPE": "20579dbd3e27376cfe694c0dae22e6f06da24fce0dccf5688d189917f431e56b",
+      "derks2022_timsTOF": "339cdbee6020dcf5f149f68b8b6beb4fa8dc7869a53bdbd49d68c4544228105d",
+      "derks2022_QExactive": "88e599c213009bbe64d9cd90e818758b66fafc2cb86bc057415cf7b6b42f766c",
+      "brunner2022": "f85599315e096340a3f88395222b2a65968ba41dc1ae47fcd17c8773d357ac34"
+    },
+    "layout": "balanced; actual occupied batches counted",
+    "target_power": 0.8,
+    "wall_seconds": 0.154,
+    "M4_registration_unchanged": true
+  },
+  "input_hashes": {
+    "grid": "005543c22cd36a7fbbf0a79f6a66cb4e93a075a4c5d014f1d4aabddc4a38b41e",
+    "instrument_metadata": "207f9c7a0bf99d7b01e66c6d895b894f6ffc335d2661703da6f6565e85a423c5",
+    "registered_power_code": "fc9b7c3f2c02c83bf164fbd56a9d04156295a75d4832a09648a0676ae8e7eafc",
+    "registered_simulator_code": "9d2800a8f9d985a0dfbdf92beeb16ae0769191f465df190304024d28d7d83235"
+  },
+  "per_point_manifests": "grid-point-manifests.json.gz",
+  "per_replicate_metrics": "replicate-metrics.csv.gz",
+  "worker_wall_seconds": 27697.101,
+  "report_wall_seconds": 15.689,
+  "endpoint": {
+    "minimum_quantified_cells_per_sample": 3,
+    "testability": "minimum satisfied in every sample",
+    "design": "~ condition",
+    "inference": "limma-trend, eBayes(trend=TRUE)",
+    "BH_threshold": 0.05,
+    "power": "all truly changed proteins; BH rejection plus sign agreement",
+    "realised_FDR": "mean FDP among BH rejections, null proteins/rejections; zero for no rejections",
+    "simulation_se": "SD of replicate estimate / sqrt(replicates)"
+  },
+  "instrument_time": "Actual occupied batches times cited method/gradient duration; excludes any unreported overhead",
+  "decision": {
+    "M2_all_five_passed": true,
+    "M3_registered_grid_complete": true,
+    "M4_not_executed": true,
+    "M4_criterion_unchanged": true,
+    "no_tuning": true
+  },
+  "wall_seconds": 27712.79,
+  "cluster_execution": {
+    "initial_array_job": "5491088",
+    "initial_array_retained_points": "Complete point manifests retained; cancelled pending points were executed with the same seeds in the live allocation",
+    "grouped_array_job": "5491758",
+    "grouped_array_status": "Cancelled while pending to use a live allocation",
+    "live_job": "5492391",
+    "live_node": "nc10107",
+    "live_cores": 16,
+    "live_memory_gib": 32,
+    "live_allocation_elapsed_seconds": 2067,
+    "accounting_file": "cluster-accounting.txt",
+    "accounting_sha256": "7088530c8d118356c0822382d325af18e8b8b5ce8d1908dff8b1b7210876e4fd",
+    "scheduling_only_changes": true
+  },
+  "native_fidelity_replay_verification": {
+    "seed": 20261013,
+    "versions": {
+      "R": "4.6.1",
+      "scp": "1.22.0",
+      "limma": "3.68.5",
+      "edgeR": "4.10.5",
+      "scplainer": "workflow in scp 1.22.0; no separate package"
+    },
+    "datasets": {
+      "specht2019v3": {
+        "seed": 20262014,
+        "versions": {
+          "R": "4.6.1",
+          "scp": "1.22.0",
+          "limma": "3.68.5",
+          "edgeR": "4.10.5",
+          "scplainer": "workflow in scp 1.22.0; no separate package"
+        },
+        "matrix_sha256": "6533bb3cfca527213544d596c249aeca8d2c702acd706ff8abb52ce1b1617d01",
+        "preset_sha256": "71cf8a4719537fe2d08e6f89eea4097b4bcc3d2020c07bb245c39e861d6b3bfd",
+        "byte_identical": true,
+        "wall_seconds": 5.155
+      },
+      "leduc2022_pSCoPE": {
+        "seed": 20263014,
+        "versions": {
+          "R": "4.6.1",
+          "scp": "1.22.0",
+          "limma": "3.68.5",
+          "edgeR": "4.10.5",
+          "scplainer": "workflow in scp 1.22.0; no separate package"
+        },
+        "matrix_sha256": "f5c6560b2c8e52540d877e1dc5d2fa2418b9d02061b43f10bbe18aaf48c6e4c9",
+        "preset_sha256": "20579dbd3e27376cfe694c0dae22e6f06da24fce0dccf5688d189917f431e56b",
+        "byte_identical": true,
+        "wall_seconds": 5.327
+      },
+      "derks2022_timsTOF": {
+        "seed": 20264014,
+        "versions": {
+          "R": "4.6.1",
+          "scp": "1.22.0",
+          "limma": "3.68.5",
+          "edgeR": "4.10.5",
+          "scplainer": "workflow in scp 1.22.0; no separate package"
+        },
+        "matrix_sha256": "bb2e35da7ff864c735040135f6d7e2fb44f1838f24c905032da66f84c8243679",
+        "preset_sha256": "339cdbee6020dcf5f149f68b8b6beb4fa8dc7869a53bdbd49d68c4544228105d",
+        "byte_identical": true,
+        "wall_seconds": 1.164
+      },
+      "derks2022_QExactive": {
+        "seed": 20265014,
+        "versions": {
+          "R": "4.6.1",
+          "scp": "1.22.0",
+          "limma": "3.68.5",
+          "edgeR": "4.10.5",
+          "scplainer": "workflow in scp 1.22.0; no separate package"
+        },
+        "matrix_sha256": "0b0a96ec93a3826ca483f220025fc4fde43081f92870e58458e6c34eec188b69",
+        "preset_sha256": "88e599c213009bbe64d9cd90e818758b66fafc2cb86bc057415cf7b6b42f766c",
+        "byte_identical": true,
+        "wall_seconds": 0.928000000000001
+      },
+      "brunner2022": {
+        "seed": 20266014,
+        "versions": {
+          "R": "4.6.1",
+          "scp": "1.22.0",
+          "limma": "3.68.5",
+          "edgeR": "4.10.5",
+          "scplainer": "workflow in scp 1.22.0; no separate package"
+        },
+        "matrix_sha256": "ac69bb6363254fbde09118d8f5b203ad93eb249aaef60099ee2360a5744f3465",
+        "preset_sha256": "f85599315e096340a3f88395222b2a65968ba41dc1ae47fcd17c8773d357ac34",
+        "byte_identical": true,
+        "wall_seconds": 2.493
+      }
+    },
+    "input_hashes": {
+      "gate_manifest": "5ca17cc40dc1b174e2d761623bf62171b1ad5e6c6e26d81ccd1a5892c049dfaa"
+    },
+    "wall_seconds": 16.143
+  },
+  "instrument_time_provenance": {
+    "seed": 20261013,
+    "versions": {
+      "R": "4.6.1",
+      "scp": "1.22.0",
+      "limma": "3.68.5",
+      "edgeR": "4.10.5",
+      "scplainer": "workflow in scp 1.22.0; no separate package"
+    },
+    "input_hashes": {
+      "times": "31c40bd6abb5172d7f552a36db71042d5ad49f706a192339a821e20f09788c97",
+      "passed_gate": "a225c313872bc8f95c732c9b9529dd4c2cd4e19059d7335847bd74140fcbcf22"
+    },
+    "presets": {
+      "specht2019v3": {
+        "seed": 20261013,
+        "versions": {
+          "R": "4.6.1",
+          "scp": "1.22.0",
+          "limma": "3.68.5",
+          "edgeR": "4.10.5",
+          "scplainer": "workflow in scp 1.22.0; no separate package"
+        },
+        "before_sha256": "a9f445d406930ac4e669fcdf2ff349f4266ddeaa696443506d0160bc93449a78",
+        "after_sha256": "71cf8a4719537fe2d08e6f89eea4097b4bcc3d2020c07bb245c39e861d6b3bfd",
+        "capacity_metadata_sha256": "dd764468135ea7972e847007412f7d0746b0deef53d38c411d85611f3c696a2b",
+        "cells_per_run": 12,
+        "minutes_per_run": 95,
+        "source": {
+          "minutes_per_run": 95,
+          "source": "https://doi.org/10.1186/s13059-021-02267-5",
+          "definition": "Reported total loading and separation method, not active gradient alone",
+          "paper_sha256": "f720059197adc97ca23640275601b47a078a3798fe0dd7e59bf4952bfc28fa77",
+          "section_anchor": "SCoPE2 samples were separated",
+          "section_sha256": "ab3d2c5841de59ffd2301811876bcf0c2c8776e678e9ec2df9331b5476cc9474"
+        }
+      },
+      "leduc2022_pSCoPE": {
+        "seed": 20261013,
+        "versions": {
+          "R": "4.6.1",
+          "scp": "1.22.0",
+          "limma": "3.68.5",
+          "edgeR": "4.10.5",
+          "scplainer": "workflow in scp 1.22.0; no separate package"
+        },
+        "before_sha256": "3346a40f524fe25afeaf85e789f8d6253d363562db8fd167d3bd01f6d04d124a",
+        "after_sha256": "20579dbd3e27376cfe694c0dae22e6f06da24fce0dccf5688d189917f431e56b",
+        "capacity_metadata_sha256": "0c7cd974d4622bd30ca91b33f15df130966678e98ed355e7eafd891845e37fee",
+        "cells_per_run": 14,
+        "minutes_per_run": 95,
+        "source": {
+          "minutes_per_run": 95,
+          "source": "https://doi.org/10.1186/s13059-022-02817-5",
+          "definition": "Reported total TMT method, not the plexDIA method in the same paper",
+          "paper_sha256": "a0709a5b88595b09680edf54572fe4244c56a082a2bc9c2ec6be8efe839fea14",
+          "section_anchor": "All samples except for plexDIA single cells",
+          "section_sha256": "77d71e036d1890fcbf6eb7840174a0851746b25ff0ec9e499d1d2da2fcd543ee"
+        }
+      },
+      "derks2022_timsTOF": {
+        "seed": 20261013,
+        "versions": {
+          "R": "4.6.1",
+          "scp": "1.22.0",
+          "limma": "3.68.5",
+          "edgeR": "4.10.5",
+          "scplainer": "workflow in scp 1.22.0; no separate package"
+        },
+        "before_sha256": "ec81f2490175dbbf7076a9f58e46dbc58ff3822a739d7074f39f84fc46c01bef",
+        "after_sha256": "339cdbee6020dcf5f149f68b8b6beb4fa8dc7869a53bdbd49d68c4544228105d",
+        "capacity_metadata_sha256": null,
+        "cells_per_run": 3,
+        "minutes_per_run": 30,
+        "source": {
+          "minutes_per_run": 30,
+          "source": "https://doi.org/10.1038/s41587-022-01389-w",
+          "definition": "timsTOF single-cell reported full gradient",
+          "paper_sha256": "a690bddea9231ac9a4712ba81918ad6588c9299e30d518f2bdf1639c46a27bb0",
+          "section_anchor": "The single-cell plexDIA sets were separated",
+          "section_sha256": "45f21d9f32d886cd8dfca7332edc4fdbbb04081247a59d500b3408f14197c81d"
+        }
+      },
+      "derks2022_QExactive": {
+        "seed": 20261013,
+        "versions": {
+          "R": "4.6.1",
+          "scp": "1.22.0",
+          "limma": "3.68.5",
+          "edgeR": "4.10.5",
+          "scplainer": "workflow in scp 1.22.0; no separate package"
+        },
+        "before_sha256": "230b979a39ab975ad9b687188d68f35a23560aff84bb570fe3cf8547ea87a32c",
+        "after_sha256": "88e599c213009bbe64d9cd90e818758b66fafc2cb86bc057415cf7b6b42f766c",
+        "capacity_metadata_sha256": null,
+        "cells_per_run": 3,
+        "minutes_per_run": 53,
+        "source": {
+          "minutes_per_run": 53,
+          "source": "https://doi.org/10.1038/s41587-022-01389-w",
+          "definition": "Q Exactive single-cell full reported gradient, including re-equilibration",
+          "paper_sha256": "a690bddea9231ac9a4712ba81918ad6588c9299e30d518f2bdf1639c46a27bb0",
+          "section_anchor": "plexDIA single-cell sets and 100-cell standards were injected",
+          "section_sha256": "ebcd11c04d7fcfc5223636c0535a9373ed9501fefec97a8842456e5065cc20b3"
+        }
+      },
+      "brunner2022": {
+        "seed": 20261013,
+        "versions": {
+          "R": "4.6.1",
+          "scp": "1.22.0",
+          "limma": "3.68.5",
+          "edgeR": "4.10.5",
+          "scplainer": "workflow in scp 1.22.0; no separate package"
+        },
+        "before_sha256": "8568d88909f3c49e0558f3be6c0491952237fb2ff1e05ceed634086c3f847227",
+        "after_sha256": "f85599315e096340a3f88395222b2a65968ba41dc1ae47fcd17c8773d357ac34",
+        "capacity_metadata_sha256": null,
+        "cells_per_run": 1,
+        "minutes_per_run": 35,
+        "source": {
+          "minutes_per_run": 35,
+          "source": "https://doi.org/10.15252/msb.202110798",
+          "definition": "Reported single-cell EvoSep gradient; unreported loading/turnover overhead excluded",
+          "paper_sha256": "effbc61abddf2f72850726963204baa96cb68bcf1cb49af93aad1794f3440f0d",
+          "section_anchor": "For all other proteome analyses",
+          "section_sha256": "1116078cf42751c5ca8edf668fa021f8fc49a857bcc5e0d1239b4eeb2b2e8ecf"
+        }
+      }
+    },
+    "generation_parameters_unchanged": true,
+    "wall_seconds": 5.395
+  },
+  "replicate_file_sha256": "c185fd58208f5a59ec2712bccf0e3696098be7372ca4ab86d3f93f4ca45d6667",
+  "grid_point_manifest_sha256": "dc127d5915614755b67f7d37086cea79dcb0fe4875dc64255e76fdfa7861ad7a",
+  "report_finalization": {
+    "seed": 20261013,
+    "versions": {
+      "R": "4.6.1",
+      "scp": "1.22.0",
+      "limma": "3.68.5",
+      "edgeR": "4.10.5",
+      "scplainer": "workflow in scp 1.22.0; no separate package"
+    },
+    "input_hashes": {
+      "scheduler": "7088530c8d118356c0822382d325af18e8b8b5ce8d1908dff8b1b7210876e4fd",
+      "report": "526294ec146a4f2157a27a0fd6e1693e0c297a31d4f4325ca387643b720bdc48"
+    },
+    "wall_seconds": 0.05018808995373547
+  },
+  "engineering_checks": {
+    "local_R_CMD_check": "Status: OK",
+    "assertions_passed": 250,
+    "tests_wall_seconds": 12.6,
+    "seed": 20261013,
+    "versions": {
+      "R": "4.6.1",
+      "scp": "1.22.0",
+      "limma": "3.68.5",
+      "edgeR": "4.10.5",
+      "scplainer": "workflow in scp 1.22.0; no separate package"
+    },
+    "input_hashes": {
+      "package_code": "2ac1e20d38d1af2ca339ef929450c8715c62718d8ddf312123f017eeca6de033",
+      "test_code": "9a1fc9a4356ce2b915785bb86bd234916779e7a6e64c86e1bde89ecc7a3dcd08",
+      "renv_lock": "9847523045fd7c40703e5b45ac5a867479b5181ffbc917a35346e389635f889f",
+      "R/scp_simulate.R": "9d2800a8f9d985a0dfbdf92beeb16ae0769191f465df190304024d28d7d83235",
+      "R/scp_power.R": "fc9b7c3f2c02c83bf164fbd56a9d04156295a75d4832a09648a0676ae8e7eafc",
+      "R/scp_calibrate.R": "2ac1e20d38d1af2ca339ef929450c8715c62718d8ddf312123f017eeca6de033",
+      "tests/testthat/test-scp_power.R": "4efa53a9c2808988cb6830a8bacc0aaa01819745d252fa41e65c55a0a04b7aa1",
+      "tests/testthat/test-scp_simulate.R": "40289445c6351a0d31b25fa16615d439d50b18a31d2da9c40a8955ae437e5dd7",
+      "tests/testthat/test-scp_calibrate.R": "9a1fc9a4356ce2b915785bb86bd234916779e7a6e64c86e1bde89ecc7a3dcd08"
+    },
+    "test_seeds": [
+      91,
+      93,
+      94,
+      97,
+      99,
+      101,
+      107,
+      109,
+      111,
+      113,
+      115,
+      119,
+      121,
+      123,
+      127,
+      129,
+      131,
+      133,
+      219,
+      304,
+      508,
+      721,
+      882
+    ],
+    "local_check_wall_seconds": 63.0,
+    "remote_CRAN_lookup": "Disabled for the local check after a public CRAN archive timeout; hosted CI performs the full check."
+  },
+  "output_sha256": {
+    "M2-replay-verification.json": "19b80792cc44ac9fffd80fc106ef6f873ddd7ca7ff62cfa3129401f30b9e7684",
+    "README.md": "41c31946e5bd958dc0f1b0d3e280308c96a5364c4b40887af1053bae0d7e2704",
+    "cheapest-designs.csv": "a80891406238d9882318a6f273dec064018a875d477cb3699c0704ba71a84ad9",
+    "cluster-submission.json": "956925d877611eb08e3fc6773751da9b6c76e527fb773abbc27e760691976277",
+    "grid-registration.json": "149622bf0110eab1afe94faa7d72f3ef3470464b96ba98061d631836295c664c",
+    "instrument-hours.csv": "4547ab724bb44465c469c0e77b7da4cef311eb5d2d9846cfc43bcc393157b8be",
+    "instrument-preset-manifest.json": "207f9c7a0bf99d7b01e66c6d895b894f6ffc335d2661703da6f6565e85a423c5",
+    "instrument-times.json": "31c40bd6abb5172d7f552a36db71042d5ad49f706a192339a821e20f09788c97",
+    "power-curves.png": "fe2945f63e6a92dbd4ada0dec00ca24383e53b7d7c0170cf4c90ae747d6772ca",
+    "power-grid.csv": "6e931dda71e58e33ea2e5b386c625975a91ddcd4036399b25ebd32066a19847b",
+    "power-report.md": "526294ec146a4f2157a27a0fd6e1693e0c297a31d4f4325ca387643b720bdc48",
+    "power-tmt-sensitivity.png": "e69ed26c8afb8e65078c9221847babdc41ff0f518436a99d43fd90158d81589d",
+    "realised-fdr.csv": "7d5792cbc6b6782118924f7c4440b4ecc4e5c0d950646bdc9ab425c10394852d",
+    "registered-grid.csv": "005543c22cd36a7fbbf0a79f6a66cb4e93a075a4c5d014f1d4aabddc4a38b41e",
+    "testability-curves.png": "f4c4a7c802a2bbc66797b137311d357800689c816794a4644642a6d53ee19f6c",
+    "testability-tmt-sensitivity.png": "35a716dbbbeb712588251ed6dadb8e7208fe6bce3cce4f49710a4db84ae7f858",
+    "grid-point-manifests.json.gz": "dc127d5915614755b67f7d37086cea79dcb0fe4875dc64255e76fdfa7861ad7a",
+    "replicate-metrics.csv.gz": "c185fd58208f5a59ec2712bccf0e3696098be7372ca4ab86d3f93f4ca45d6667"
+  },
+  "reproduction_code_sha256": {
+    "R/scp_simulate.R": "9d2800a8f9d985a0dfbdf92beeb16ae0769191f465df190304024d28d7d83235",
+    "R/scp_power.R": "fc9b7c3f2c02c83bf164fbd56a9d04156295a75d4832a09648a0676ae8e7eafc",
+    "R/scp_calibrate.R": "2ac1e20d38d1af2ca339ef929450c8715c62718d8ddf312123f017eeca6de033",
+    "inst/scripts/render_note_pdf.R": "b3c75f2426477c49bc075c1cdb6f4b3612fc0787900be11a9ce4772c9830b23d",
+    "inst/scripts/fetch_bulk_metadata.py": "8fbbe669d8253d9e1fa96fd4d0f0f4ad124ada55b152a6fa9652e8600e46edd5",
+    "inst/scripts/package_m2_m3_evidence.py": "a5d59be7c8f63d7c81bd89ef1a24466d95d22250a7b59a5852d3f9acefd8c977",
+    "inst/scripts/bootstrap.R": "b8ea40be486e64dd4be511a16e5869da5050052f1155bfda1c7ed0a087182de8",
+    "inst/scripts/hash_hub_inputs.py": "fb7fed8d4c44f80a5611994044013c5cb90b943b6f01c78beaf0d7fc621a49a5",
+    "inst/scripts/run_m3_parallel.R": "47bb7b277ca1260c314ca2d98b12dba9106899b218652c0e720687e802f861a7",
+    "inst/scripts/finalize_m3_manifest.py": "2127ecfdc0c0ec28b1bf7c778c6894003f2dd7ffe3efcda578f1dfbc436b5fa9",
+    "inst/scripts/extract_tmt_psms.R": "83743652b8cfc6532209e1d07c8af44f5acf180281f43fb27a93ef3a2af1e20c",
+    "inst/scripts/finalize_stage_manifest.py": "49f9615850c2bfd96002ba2de4631dffe7ede6b12ecefbc9a9182dfe0d1c8666",
+    "inst/scripts/add_instrument_times.R": "c08c032880a67a566a730940ff1887150622e87bcea2298b113de4de8929efab",
+    "inst/scripts/report_resumed.R": "4a075eaf8d55e8cfd2527fffd7939f0e34ead53f96667354b904b077165ffdce",
+    "inst/scripts/calibrate_resumed.R": "85f214da9b1bd3d64283a39be6e9e60049d33c4f85253b995d9fd51edf0828b7",
+    "inst/scripts/package_m1_evidence.py": "00a41adb2c383a06b79973835f8e9830922f65b9131d97251d9616f18f09adf0",
+    "inst/scripts/extract_paper_benchmarks.py": "728c26f5c7237563d5811b99e4179ba2565028af49afc906d956938a2dba0828",
+    "inst/scripts/fetch_resumed_sources.py": "89446b9d6b0ded51928c42ef586ef7a08f48b91a9101b94a390ab2d1d2f71b36",
+    "inst/scripts/verify_revised_replay.R": "1461807300159887e13b3a31d9cce383c52b73c8fecfd01ae6b314f02f865290",
+    "inst/scripts/run_m3_grid.R": "447022a05678dfcb5fbe799a40f7d2426a3e6d219f5f93cb0bea53a7bb7f7b19",
+    "inst/scripts/finalize_revised_manifest.py": "91e31647224a9a4135716d42e5597f96b493fdc12c2027e10987bd8064739fca",
+    "inst/scripts/register_m3_grid.R": "11ffbf844507988c617a45d05de6b726738eb61f1e2bb8dc3ea08d4f38a2b59e",
+    "inst/scripts/fetch_sources.py": "778791cd97438ff89ece7932ee5b0c59be3a29052463b0bcf81256f86a4e7142",
+    "inst/scripts/generate_presets.R": "6673a84d0d7250e84a065bc5f2a3c76d237d1fb6268ef32d02b2c1452912f6ef",
+    "inst/scripts/run_m3_chunk.sbatch": "a2f690b908e421729d2f8ef7141cd4f945d8951145012b75c9a16ce53706872c",
+    "inst/scripts/close_m1.R": "cd029ef2490cd14508f3cc42c572e117a64eaa3c754b24ed3b644b6c68cf3808",
+    "inst/scripts/calibrate_m1.R": "d7c0ab2fff5896ab6bb24658e0c8f01ec782d1b49193ff35ef2077daef09a65e",
+    "inst/scripts/report_m2_revised.R": "7d6567dade6b09872e277a942a0d42e0a10c4317e99918eadb01972cd325af6b",
+    "inst/scripts/extract_instrument_times.py": "e8c763bc96181a691839457c0e76f58baa0852ea21a801e0107f13013275cdce",
+    "inst/scripts/report_m1.R": "6c17f1b4fcf5d63187628c91ee6592348ca09c07d2f220b94757c96433b86e74",
+    "inst/scripts/report_m3.R": "5d7b8e9ce7d1ae4fb93b6feb0e7cee1d7b51eed7b10312698a11719559202e51",
+    "inst/scripts/fidelity_m2_revised.R": "676c9691c13864795954115f24c4e3fe023d548b43781195044018888b78e5a1",
+    "inst/scripts/verify_m2_replay.R": "51e6160d7b2ecaf26908eedaf80ec875f0214554c3da970abd066a1c61e94948",
+    "inst/scripts/inspect_scp.R": "4b5976f302eea81c1baad998c13e39ae8e5c9b9748ebd0b144a0692f0731ee9d",
+    "inst/scripts/finalize_resumed_manifest.py": "fb3da030f02ee8cd987e5e5e8938dbffa245cd89317db3025e99fa35fd298fdc",
+    "inst/scripts/fidelity_m2.R": "14260edcc2fa09aedb7caef2adb6c1819d79218c3951980fcca8b0cc9f6b2e34",
+    "inst/scripts/run_m3_grid.sbatch": "8833e9d921545c9d1a573c5b2528f0611fd5eb68e8e9e0f6b7072f2e9328ab0a",
+    "inst/scripts/inspect_resumed.R": "c190582c8fe7e080a69badb4bdfee311db940fab070f89ad6eda92d6ca6191bf",
+    "inst/scripts/run_m3_chunk.R": "c8d9ad06230b8f60193d289d67eee604a137b622bd6ab491d470ee3715ac05f4",
+    "inst/scripts/generate_presets_revised.R": "84db52e004eb2cd99ff328bdc0f903c5fcbbab2aa680552c0aee058131d3f9e4",
+    "inst/scripts/report_final_m1.R": "0e7ca418f033506ffb6d2aa474469610f31199276786b9671643fca48b77f112",
+    "inst/scripts/report_m2.R": "0aef110c60b1570ce032b36053699c288eaf235370729e37721d00bc9a2d8e23",
+    "scpPower_mandate_v1.1.md": "238c3b7b6522c9904f68e9162bebd80ff3dd338daf94701f43198952af4ee768",
+    "renv.lock": "9847523045fd7c40703e5b45ac5a867479b5181ffbc917a35346e389635f889f"
+  },
+  "final_manifest_generation": {
+    "seed": 20261013,
+    "versions": {
+      "R": "4.6.1",
+      "scp": "1.22.0",
+      "limma": "3.68.5",
+      "edgeR": "4.10.5",
+      "scplainer": "workflow in scp 1.22.0; no separate package"
+    },
+    "wall_seconds": 0.045176582993008196,
+    "input_hashes": {
+      "M2-replay-verification.json": "19b80792cc44ac9fffd80fc106ef6f873ddd7ca7ff62cfa3129401f30b9e7684",
+      "README.md": "41c31946e5bd958dc0f1b0d3e280308c96a5364c4b40887af1053bae0d7e2704",
+      "cheapest-designs.csv": "a80891406238d9882318a6f273dec064018a875d477cb3699c0704ba71a84ad9",
+      "cluster-submission.json": "956925d877611eb08e3fc6773751da9b6c76e527fb773abbc27e760691976277",
+      "grid-registration.json": "149622bf0110eab1afe94faa7d72f3ef3470464b96ba98061d631836295c664c",
+      "instrument-hours.csv": "4547ab724bb44465c469c0e77b7da4cef311eb5d2d9846cfc43bcc393157b8be",
+      "instrument-preset-manifest.json": "207f9c7a0bf99d7b01e66c6d895b894f6ffc335d2661703da6f6565e85a423c5",
+      "instrument-times.json": "31c40bd6abb5172d7f552a36db71042d5ad49f706a192339a821e20f09788c97",
+      "power-curves.png": "fe2945f63e6a92dbd4ada0dec00ca24383e53b7d7c0170cf4c90ae747d6772ca",
+      "power-grid.csv": "6e931dda71e58e33ea2e5b386c625975a91ddcd4036399b25ebd32066a19847b",
+      "power-report.md": "526294ec146a4f2157a27a0fd6e1693e0c297a31d4f4325ca387643b720bdc48",
+      "power-tmt-sensitivity.png": "e69ed26c8afb8e65078c9221847babdc41ff0f518436a99d43fd90158d81589d",
+      "realised-fdr.csv": "7d5792cbc6b6782118924f7c4440b4ecc4e5c0d950646bdc9ab425c10394852d",
+      "registered-grid.csv": "005543c22cd36a7fbbf0a79f6a66cb4e93a075a4c5d014f1d4aabddc4a38b41e",
+      "testability-curves.png": "f4c4a7c802a2bbc66797b137311d357800689c816794a4644642a6d53ee19f6c",
+      "testability-tmt-sensitivity.png": "35a716dbbbeb712588251ed6dadb8e7208fe6bce3cce4f49710a4db84ae7f858"
+    }
+  }
+}
