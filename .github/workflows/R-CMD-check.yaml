@@ -1,0 +1,32 @@
+name: R-CMD-check
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    container:
+      image: bioconductor/bioconductor_docker:RELEASE_3_23
+    env:
+      RENV_CONFIG_AUTOLOADER_ENABLED: 'FALSE'
+      RENV_CONFIG_REPOS_OVERRIDE: https://cloud.r-project.org
+      _R_CHECK_FORCE_SUGGESTS_: 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore registered dependencies
+        run: |
+          Rscript -e 'options(repos=c(CRAN="https://cloud.r-project.org")); if (!requireNamespace("renv",quietly=TRUE)) install.packages("renv"); renv::restore(prompt=FALSE)'
+      - name: Build and check
+        run: |
+          R CMD build . --no-build-vignettes --no-manual
+          R CMD check scpPower_*.tar.gz --no-manual --as-cran
+          Rscript -e 'x <- readLines("scpPower.Rcheck/00check.log"); if (any(grepl("[1-9][0-9]* (ERROR|WARNING)", x))) quit(status=1L)'
+      - name: Preserve check evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: R-CMD-check
+          path: scpPower.Rcheck

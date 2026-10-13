@@ -1,0 +1,21 @@
+Package: scpPower
+Title: Calibration for Single-Cell Proteomics Experimental Design
+Version: 0.0.1
+Authors@R: person("Youshan", "Heng", email = "poggar@hotmail.com",
+    role = c("aut", "cre"), comment = c(ORCID = "0000-0002-2758-171X"))
+Description: Estimates protein-level cell and acquisition-batch variance,
+    intensity-dependent quantification probabilities, and identifier-mapped
+    between-donor variance from independent bulk proteomics. Returns explicit
+    reasons for unavailable components and records software versions, input
+    hashes, seeds, and run time. Implements the calibration stage of a
+    registered single-cell proteomics design workflow.
+License: GPL-3
+Encoding: UTF-8
+Depends: R (>= 4.3.0)
+Imports: digest, lme4, stats, utils
+Suggests: BiocManager, edgeR, ExperimentHub, jsonlite, limma, QFeatures,
+    readxl, renv, roxygen2, scp, scpdata, SummarizedExperiment, testthat (>= 3.0.0)
+Config/testthat/edition: 3
+URL: https://github.com/yhengaa/scpPower
+BugReports: https://github.com/yhengaa/scpPower/issues
+Config/roxygen2/version: 8.1.1

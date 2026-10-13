@@ -1,0 +1,10 @@
+^\.local$
+^\.git$
+^\.github$
+^\.gitignore$
+^reports$
+^scpPower_mandate_v1\.1\.md$
+^renv$
+^renv\.lock$
+^\.Rprofile$
+^README\.md$
