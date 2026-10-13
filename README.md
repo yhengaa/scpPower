@@ -77,6 +77,36 @@ The manifest records the default and sensitivity assumptions and the ratio-stand
 pilot requirement. Walzik supplies whole-PBMC donor variance, including donor
 composition differences; sorted-subset proteomics is unavailable.
 
+`scp_simulate()` generates log2 measurements with missing values, cell metadata
+(sample, condition, batch), injected truth and a run manifest. The YAML presets
+in [inst/presets](inst/presets) hold the frozen calibration; a user can supply a
+YAML file or complete preset list. For example:
+
+```r
+simulated <- scp_simulate(
+    NULL, n_per_condition = 4, m_cells_per_sample = 16,
+    beta = log2(1.5), preset = "derks2022_timsTOF",
+    layout = "balanced", k = 1, seed = 20261013
+)
+simulated$matrix
+simulated$cell_metadata
+```
+
+The registered [M2 fidelity report](reports/M2/fidelity-report.md) records every
+PASS and FAIL, the observed/simulated numbers, and suspected causes. Failed
+datasets stop at that report; the next directive decides any change. Calibration
+and simulation were not tuned to obtain a pass. Brunner's separate run variance
+is absorbed into its cell term. TMT baseline and missingness use raw intensities
+while variance retains the accepted ratio scale.
+
+After final M1 is regenerated, reproduce M2 with:
+
+```sh
+Rscript inst/scripts/generate_presets.R
+Rscript inst/scripts/fidelity_m2.R
+Rscript inst/scripts/report_m2.R
+```
+
 Author and maintainer: Youshan Heng,
 [ORCID 0000-0002-2758-171X](https://orcid.org/0000-0002-2758-171X),
 poggar@hotmail.com (verified through the connected GitHub profile).

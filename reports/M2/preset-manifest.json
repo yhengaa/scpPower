@@ -1,0 +1,77 @@
+{
+  "seed": 20261013,
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "input_hashes": {
+    "final_calibration": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+    "paper_benchmarks": "5772b3cf3d2f8f4bd71c3f889a4499f48f6f19693d0d07930bac8e72a200a7c8"
+  },
+  "presets": {
+    "specht2019v3": {
+      "path": "inst/presets/specht2019v3.yaml",
+      "sha256": "52cf9cbb61a2dcc2ad7746a1d0f9d2c5326bbc980b030b62e0d545da4b90f8fd",
+      "seed": 20261013,
+      "versions": {
+        "R": "4.6.1",
+        "scp": "1.22.0",
+        "limma": "3.68.5",
+        "edgeR": "4.10.5",
+        "scplainer": "workflow in scp 1.22.0; no separate package"
+      }
+    },
+    "leduc2022_pSCoPE": {
+      "path": "inst/presets/leduc2022_pSCoPE.yaml",
+      "sha256": "a941b8adf89e88706f8603a20c61da39c3fa3ec356b6e529d0ca4f084e9bff84",
+      "seed": 20261013,
+      "versions": {
+        "R": "4.6.1",
+        "scp": "1.22.0",
+        "limma": "3.68.5",
+        "edgeR": "4.10.5",
+        "scplainer": "workflow in scp 1.22.0; no separate package"
+      }
+    },
+    "derks2022_timsTOF": {
+      "path": "inst/presets/derks2022_timsTOF.yaml",
+      "sha256": "bc701ede84ebf0c6787b26872d8c908155947a087d28ef910be1e857c58620d5",
+      "seed": 20261013,
+      "versions": {
+        "R": "4.6.1",
+        "scp": "1.22.0",
+        "limma": "3.68.5",
+        "edgeR": "4.10.5",
+        "scplainer": "workflow in scp 1.22.0; no separate package"
+      }
+    },
+    "derks2022_QExactive": {
+      "path": "inst/presets/derks2022_QExactive.yaml",
+      "sha256": "14e8cea6c079469812ec3412441ada87df89528c6957299374eed851767b746f",
+      "seed": 20261013,
+      "versions": {
+        "R": "4.6.1",
+        "scp": "1.22.0",
+        "limma": "3.68.5",
+        "edgeR": "4.10.5",
+        "scplainer": "workflow in scp 1.22.0; no separate package"
+      }
+    },
+    "brunner2022": {
+      "path": "inst/presets/brunner2022.yaml",
+      "sha256": "86a387d81217622c14a11a6a027b927144aebe8e8afb52d514b6f962e19bec62",
+      "seed": 20261013,
+      "versions": {
+        "R": "4.6.1",
+        "scp": "1.22.0",
+        "limma": "3.68.5",
+        "edgeR": "4.10.5",
+        "scplainer": "workflow in scp 1.22.0; no separate package"
+      }
+    }
+  },
+  "wall_seconds": 0.867
+}

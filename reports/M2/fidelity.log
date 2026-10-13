@@ -1,0 +1,111 @@
+M2 native design specht2019v3
+specht2019v3 replicate 1 missing 0.702497
+specht2019v3 replicate 2 missing 0.7028174
+specht2019v3 replicate 3 missing 0.7032928
+specht2019v3 replicate 4 missing 0.7030665
+specht2019v3 replicate 5 missing 0.7026347
+specht2019v3 replicate 6 missing 0.7024681
+specht2019v3 replicate 7 missing 0.702702
+specht2019v3 replicate 8 missing 0.7023258
+specht2019v3 replicate 9 missing 0.7024509
+specht2019v3 replicate 10 missing 0.702208
+specht2019v3 replicate 11 missing 0.7025888
+specht2019v3 replicate 12 missing 0.7029425
+specht2019v3 replicate 13 missing 0.702533
+specht2019v3 replicate 14 missing 0.7025359
+specht2019v3 replicate 15 missing 0.7027673
+specht2019v3 replicate 16 missing 0.7027004
+specht2019v3 replicate 17 missing 0.7026524
+specht2019v3 replicate 18 missing 0.7031154
+specht2019v3 replicate 19 missing 0.7030009
+specht2019v3 replicate 20 missing 0.7025855
+specht2019v3 FAIL
+M2 native design leduc2022_pSCoPE
+leduc2022_pSCoPE replicate 1 missing 0.6274521
+leduc2022_pSCoPE replicate 2 missing 0.6262809
+leduc2022_pSCoPE replicate 3 missing 0.6276374
+leduc2022_pSCoPE replicate 4 missing 0.6244207
+leduc2022_pSCoPE replicate 5 missing 0.6266462
+leduc2022_pSCoPE replicate 6 missing 0.6248318
+leduc2022_pSCoPE replicate 7 missing 0.6267087
+leduc2022_pSCoPE replicate 8 missing 0.626394
+leduc2022_pSCoPE replicate 9 missing 0.6246903
+leduc2022_pSCoPE replicate 10 missing 0.6267546
+leduc2022_pSCoPE replicate 11 missing 0.6263813
+leduc2022_pSCoPE replicate 12 missing 0.6270374
+leduc2022_pSCoPE replicate 13 missing 0.6268289
+leduc2022_pSCoPE replicate 14 missing 0.6265805
+leduc2022_pSCoPE replicate 15 missing 0.627509
+leduc2022_pSCoPE replicate 16 missing 0.6294445
+leduc2022_pSCoPE replicate 17 missing 0.6285628
+leduc2022_pSCoPE replicate 18 missing 0.6277441
+leduc2022_pSCoPE replicate 19 missing 0.6257798
+leduc2022_pSCoPE replicate 20 missing 0.627524
+leduc2022_pSCoPE FAIL
+M2 native design derks2022_timsTOF
+derks2022_timsTOF replicate 1 missing 0.2574789
+derks2022_timsTOF replicate 2 missing 0.2585191
+derks2022_timsTOF replicate 3 missing 0.2570827
+derks2022_timsTOF replicate 4 missing 0.2513868
+derks2022_timsTOF replicate 5 missing 0.2552997
+derks2022_timsTOF replicate 6 missing 0.2567112
+derks2022_timsTOF replicate 7 missing 0.2517088
+derks2022_timsTOF replicate 8 missing 0.2541109
+derks2022_timsTOF replicate 9 missing 0.250421
+derks2022_timsTOF replicate 10 missing 0.2554235
+derks2022_timsTOF replicate 11 missing 0.2558197
+derks2022_timsTOF replicate 12 missing 0.2585686
+derks2022_timsTOF replicate 13 missing 0.2539871
+derks2022_timsTOF replicate 14 missing 0.2558445
+derks2022_timsTOF replicate 15 missing 0.25421
+derks2022_timsTOF replicate 16 missing 0.2578009
+derks2022_timsTOF replicate 17 missing 0.2594601
+derks2022_timsTOF replicate 18 missing 0.2593363
+derks2022_timsTOF replicate 19 missing 0.2559931
+derks2022_timsTOF replicate 20 missing 0.2528479
+derks2022_timsTOF FAIL
+M2 native design derks2022_QExactive
+derks2022_QExactive replicate 1 missing 0.5618737
+derks2022_QExactive replicate 2 missing 0.5614053
+derks2022_QExactive replicate 3 missing 0.5647795
+derks2022_QExactive replicate 4 missing 0.5607246
+derks2022_QExactive replicate 5 missing 0.5645892
+derks2022_QExactive replicate 6 missing 0.5647283
+derks2022_QExactive replicate 7 missing 0.560527
+derks2022_QExactive replicate 8 missing 0.5596194
+derks2022_QExactive replicate 9 missing 0.5616029
+derks2022_QExactive replicate 10 missing 0.5595755
+derks2022_QExactive replicate 11 missing 0.565021
+derks2022_QExactive replicate 12 missing 0.5664117
+derks2022_QExactive replicate 13 missing 0.5621226
+derks2022_QExactive replicate 14 missing 0.5629058
+derks2022_QExactive replicate 15 missing 0.5625252
+derks2022_QExactive replicate 16 missing 0.5658481
+derks2022_QExactive replicate 17 missing 0.5640915
+derks2022_QExactive replicate 18 missing 0.564699
+derks2022_QExactive replicate 19 missing 0.5640915
+derks2022_QExactive replicate 20 missing 0.5632498
+derks2022_QExactive FAIL
+M2 native design brunner2022
+brunner2022 replicate 1 missing 0.4779468
+brunner2022 replicate 2 missing 0.4826779
+brunner2022 replicate 3 missing 0.4872118
+brunner2022 replicate 4 missing 0.4781078
+brunner2022 replicate 5 missing 0.4813007
+brunner2022 replicate 6 missing 0.4861974
+brunner2022 replicate 7 missing 0.479164
+brunner2022 replicate 8 missing 0.481135
+brunner2022 replicate 9 missing 0.480532
+brunner2022 replicate 10 missing 0.4784121
+brunner2022 replicate 11 missing 0.4802556
+brunner2022 replicate 12 missing 0.4817771
+brunner2022 replicate 13 missing 0.4814449
+brunner2022 replicate 14 missing 0.4844768
+brunner2022 replicate 15 missing 0.4780966
+brunner2022 replicate 16 missing 0.4795707
+brunner2022 replicate 17 missing 0.4806139
+brunner2022 replicate 18 missing 0.4784382
+brunner2022 replicate 19 missing 0.4855023
+brunner2022 replicate 20 missing 0.4769306
+brunner2022 PASS
+Registered fidelity gate completed for every dataset; failures preserved.

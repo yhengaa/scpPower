@@ -1,3 +1,11 @@
+# scpPower 0.1.1
+
+* Introduces documented and tested `scp_simulate()` with biological-sample,
+  batch and cell effects, expected-intensity missingness, seeded truth, and
+  balanced, confounded or custom sample-by-batch layouts.
+* Provides a YAML preset for every final M1 dataset/instrument series and
+  the registered M2 fidelity report, preserving all failures without tuning.
+
 # scpPower 0.1.0
 
 * Frozen addendum v1.1.2: TMT missingness is fitted from raw reporter-ion
