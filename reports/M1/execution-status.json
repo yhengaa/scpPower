@@ -1,0 +1,17 @@
+{
+  "stopped_for_implausibility": true,
+  "completed_datasets": ["specht2019v3", "leduc2022_pSCoPE"],
+  "remaining_datasets": ["derks2022", "brunner2022"],
+  "required_components_unavailable": true,
+  "M1_complete": false,
+  "reason": "Significantly negative Leduc quantification slope: stop rule triggered. Other components remain unavailable.",
+  "seed": 20261013,
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "wall_seconds": 24.609
+}

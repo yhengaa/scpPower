@@ -1,0 +1,74 @@
+[
+  {
+    "dataset": "specht2019v3",
+    "hub_resource": "EH3900",
+    "fetch_resource": "3943",
+    "public_url": "https://experimenthub.bioconductor.org/fetch/3943",
+    "sha256": "db6179e83fb4afca4f00241c2511b5c217b369bcaf23cc97a12de8b335d0e87f",
+    "bytes": 187376388,
+    "etag": "2f2b3cf5995e127047837f4a22f16f5b",
+    "last_modified": "2025-05-29 19:24:56",
+    "seed": 20261013,
+    "versions": {
+      "R": "4.6.1",
+      "scp": "1.22.0",
+      "limma": "3.68.5",
+      "edgeR": "4.10.5",
+      "scplainer": "workflow in scp 1.22.0; no separate package"
+    }
+  },
+  {
+    "dataset": "brunner2022",
+    "hub_resource": "EH8301",
+    "fetch_resource": "8360",
+    "public_url": "https://experimenthub.bioconductor.org/fetch/8360",
+    "sha256": "805e1248e8a1ccdf9f3aa0be32a05bc837178a18826f56c36de32369cc4be932",
+    "bytes": 268763036,
+    "etag": "6399ded2266cb4b2bdb7ad9f5068c7b5-52",
+    "last_modified": "2025-05-29 19:24:52",
+    "seed": 20261013,
+    "versions": {
+      "R": "4.6.1",
+      "scp": "1.22.0",
+      "limma": "3.68.5",
+      "edgeR": "4.10.5",
+      "scplainer": "workflow in scp 1.22.0; no separate package"
+    }
+  },
+  {
+    "dataset": "leduc2022_pSCoPE",
+    "hub_resource": "EH7712",
+    "fetch_resource": "7762",
+    "public_url": "https://experimenthub.bioconductor.org/fetch/7762",
+    "sha256": "92f157cbe77978507896ab0504c1c3e0afeda5cbf1072cc28ffd77ab9aef9a8c",
+    "bytes": 13139172,
+    "etag": "230eae0397c76831551cd8ab7c9a104d",
+    "last_modified": "2026-04-28 11:21:12",
+    "seed": 20261013,
+    "versions": {
+      "R": "4.6.1",
+      "scp": "1.22.0",
+      "limma": "3.68.5",
+      "edgeR": "4.10.5",
+      "scplainer": "workflow in scp 1.22.0; no separate package"
+    }
+  },
+  {
+    "dataset": "derks2022",
+    "hub_resource": "EH7713",
+    "fetch_resource": "7763",
+    "public_url": "https://experimenthub.bioconductor.org/fetch/7763",
+    "sha256": "000599c1a8e652d26a4461614106560fc3d32b21ea2dfd6d54e654ca2df445f6",
+    "bytes": 247209096,
+    "etag": "5940a93a1e2c9b439c34970cbb7628a7-48",
+    "last_modified": "2025-05-29 19:24:35",
+    "seed": 20261013,
+    "versions": {
+      "R": "4.6.1",
+      "scp": "1.22.0",
+      "limma": "3.68.5",
+      "edgeR": "4.10.5",
+      "scplainer": "workflow in scp 1.22.0; no separate package"
+    }
+  }
+]
