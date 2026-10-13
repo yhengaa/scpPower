@@ -1,0 +1,9 @@
+                          dataset psm_finite_fraction
+specht2019v3         specht2019v3           0.3019311
+leduc2022_pSCoPE leduc2022_pSCoPE           0.3484411
+                 aggregated_finite_fraction aggregated_sparser_gap
+specht2019v3                      0.2041180             0.09781310
+leduc2022_pSCoPE                  0.2776368             0.07080424
+                 amendment_I_applies
+specht2019v3                    TRUE
+leduc2022_pSCoPE                TRUE

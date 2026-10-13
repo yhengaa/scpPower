@@ -1,0 +1,3001 @@
+{
+  "mandate_addendum": "1.1.5",
+  "seed": 20261013,
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "package_version": "0.3.0.9000",
+  "registered_replicates": 20,
+  "tolerances": {
+    "missingness_absolute": 0.05,
+    "coverage_relative": 0.1,
+    "cell_sd_relative": 0.2,
+    "batch_sd_relative": 0.25
+  },
+  "metric_definitions": {
+    "cell_sd": "Median of measured per-protein/per-line SDs after cell median shifts, within each retained tier",
+    "batch_sd": "Median across proteins of SD of mixed-batch means after subtracting observed within-line protein means; same statistic applied to simulations",
+    "missingness": "Endpoint aggregated quantitative mask for TMT under I, fixed accepted cell/protein population",
+    "aggregation": "Compare means over twenty independent simulations; every applicable tier must meet its tolerance",
+    "native_design": "Cell lines are samples. Two condition sample counts can be unequal or include a zero count at beta=0. Exact source sample-by-batch occupancy retained."
+  },
+  "datasets": {
+    "specht2019v3": {
+      "seed": 20261013,
+      "versions": {
+        "R": "4.6.1",
+        "scp": "1.22.0",
+        "limma": "3.68.5",
+        "edgeR": "4.10.5",
+        "scplainer": "workflow in scp 1.22.0; no separate package"
+      },
+      "native_n_per_condition": [
+        1,
+        1
+      ],
+      "native_cells_per_sample": [
+        1096,
+        394
+      ],
+      "input_hashes": {
+        "observed_missingness": "7b2aa857812fc2ecff5f3f9b03145a1ef094250063d25f613e2a0c840ba2c47f",
+        "observed_variance": "7b2aa857812fc2ecff5f3f9b03145a1ef094250063d25f613e2a0c840ba2c47f",
+        "metadata": "25194ffec430a676d8a2523c8e04c0d4258837855db89db73a0d2046a8bd8f28",
+        "layout": "467b733f94e6216e64f8bbe08d826f11f839a167787aedb096614084192acff2",
+        "preset": "cd752cb27c09b28c7a87270e30c90884b23dffcb1892cc252113e2a3e7c52cb6"
+      },
+      "replicates": [
+        {
+          "seed": 20262014,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "720ca833dd0fd99c2303c64e8ac54480c611a31af1f0234fb908cca6329e35ff",
+            "preset": "3ac62bac8bf5f3768767150f807128a11bd72a40c005c08a8109d54e3e24041b",
+            "layout": "467b733f94e6216e64f8bbe08d826f11f839a167787aedb096614084192acff2",
+            "matrix": "22970bac22895816112c1a3576b64b4b0462a99c4fa98793229ee8a8df54af15",
+            "cell_metadata": "42ab09f0ff47fb881458afdb7125f8fd01368a3898be66d8f556d7cba4615f37"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            1096,
+            394
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 304,
+          "changed_proteins": 0,
+          "proteins": 3042,
+          "cells": 1490,
+          "samples": 2,
+          "batches": 172,
+          "dataset": "specht2019v3",
+          "carrier_ratio": 200,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": "FLAG: fitted raw-intensity quantification slope is negative; retain the unconstrained registered fit under E and assess M2 fidelity without retuning",
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "a9f445d406930ac4e669fcdf2ff349f4266ddeaa696443506d0160bc93449a78",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "71cf8a4719537fe2d08e6f89eea4097b4bcc3d2020c07bb245c39e861d6b3bfd"
+          },
+          "wall_seconds": 4.272
+        },
+        {
+          "seed": 20262015,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "720ca833dd0fd99c2303c64e8ac54480c611a31af1f0234fb908cca6329e35ff",
+            "preset": "3ac62bac8bf5f3768767150f807128a11bd72a40c005c08a8109d54e3e24041b",
+            "layout": "467b733f94e6216e64f8bbe08d826f11f839a167787aedb096614084192acff2",
+            "matrix": "f9534bcc5077ffa2cfb77a01d4f1307437db67f2898f8ecb8dafc8f0da179f9d",
+            "cell_metadata": "42ab09f0ff47fb881458afdb7125f8fd01368a3898be66d8f556d7cba4615f37"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            1096,
+            394
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 304,
+          "changed_proteins": 0,
+          "proteins": 3042,
+          "cells": 1490,
+          "samples": 2,
+          "batches": 172,
+          "dataset": "specht2019v3",
+          "carrier_ratio": 200,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": "FLAG: fitted raw-intensity quantification slope is negative; retain the unconstrained registered fit under E and assess M2 fidelity without retuning",
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "a9f445d406930ac4e669fcdf2ff349f4266ddeaa696443506d0160bc93449a78",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "71cf8a4719537fe2d08e6f89eea4097b4bcc3d2020c07bb245c39e861d6b3bfd"
+          },
+          "wall_seconds": 4.108
+        },
+        {
+          "seed": 20262016,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "720ca833dd0fd99c2303c64e8ac54480c611a31af1f0234fb908cca6329e35ff",
+            "preset": "3ac62bac8bf5f3768767150f807128a11bd72a40c005c08a8109d54e3e24041b",
+            "layout": "467b733f94e6216e64f8bbe08d826f11f839a167787aedb096614084192acff2",
+            "matrix": "6cea72c7fadcafc875bcb6369e473bc5e0a9f6fa507e2bf48ce71a5258437254",
+            "cell_metadata": "42ab09f0ff47fb881458afdb7125f8fd01368a3898be66d8f556d7cba4615f37"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            1096,
+            394
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 304,
+          "changed_proteins": 0,
+          "proteins": 3042,
+          "cells": 1490,
+          "samples": 2,
+          "batches": 172,
+          "dataset": "specht2019v3",
+          "carrier_ratio": 200,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": "FLAG: fitted raw-intensity quantification slope is negative; retain the unconstrained registered fit under E and assess M2 fidelity without retuning",
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "a9f445d406930ac4e669fcdf2ff349f4266ddeaa696443506d0160bc93449a78",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "71cf8a4719537fe2d08e6f89eea4097b4bcc3d2020c07bb245c39e861d6b3bfd"
+          },
+          "wall_seconds": 4.151
+        },
+        {
+          "seed": 20262017,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "720ca833dd0fd99c2303c64e8ac54480c611a31af1f0234fb908cca6329e35ff",
+            "preset": "3ac62bac8bf5f3768767150f807128a11bd72a40c005c08a8109d54e3e24041b",
+            "layout": "467b733f94e6216e64f8bbe08d826f11f839a167787aedb096614084192acff2",
+            "matrix": "7bbeacc0e15e5257d8db0750c3f4374b92b6c5e0479940b7c7a433e474c967cb",
+            "cell_metadata": "42ab09f0ff47fb881458afdb7125f8fd01368a3898be66d8f556d7cba4615f37"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            1096,
+            394
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 304,
+          "changed_proteins": 0,
+          "proteins": 3042,
+          "cells": 1490,
+          "samples": 2,
+          "batches": 172,
+          "dataset": "specht2019v3",
+          "carrier_ratio": 200,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": "FLAG: fitted raw-intensity quantification slope is negative; retain the unconstrained registered fit under E and assess M2 fidelity without retuning",
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "a9f445d406930ac4e669fcdf2ff349f4266ddeaa696443506d0160bc93449a78",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "71cf8a4719537fe2d08e6f89eea4097b4bcc3d2020c07bb245c39e861d6b3bfd"
+          },
+          "wall_seconds": 4.205
+        },
+        {
+          "seed": 20262018,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "720ca833dd0fd99c2303c64e8ac54480c611a31af1f0234fb908cca6329e35ff",
+            "preset": "3ac62bac8bf5f3768767150f807128a11bd72a40c005c08a8109d54e3e24041b",
+            "layout": "467b733f94e6216e64f8bbe08d826f11f839a167787aedb096614084192acff2",
+            "matrix": "54af7100a703418d19a2466f7f356bf737398b728e8993739a299c6744bc161b",
+            "cell_metadata": "42ab09f0ff47fb881458afdb7125f8fd01368a3898be66d8f556d7cba4615f37"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            1096,
+            394
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 304,
+          "changed_proteins": 0,
+          "proteins": 3042,
+          "cells": 1490,
+          "samples": 2,
+          "batches": 172,
+          "dataset": "specht2019v3",
+          "carrier_ratio": 200,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": "FLAG: fitted raw-intensity quantification slope is negative; retain the unconstrained registered fit under E and assess M2 fidelity without retuning",
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "a9f445d406930ac4e669fcdf2ff349f4266ddeaa696443506d0160bc93449a78",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "71cf8a4719537fe2d08e6f89eea4097b4bcc3d2020c07bb245c39e861d6b3bfd"
+          },
+          "wall_seconds": 4.191
+        },
+        {
+          "seed": 20262019,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "720ca833dd0fd99c2303c64e8ac54480c611a31af1f0234fb908cca6329e35ff",
+            "preset": "3ac62bac8bf5f3768767150f807128a11bd72a40c005c08a8109d54e3e24041b",
+            "layout": "467b733f94e6216e64f8bbe08d826f11f839a167787aedb096614084192acff2",
+            "matrix": "a0a2cc165da533d4190dd3da22cf113ed7a66952677ef743c8809c665387b6eb",
+            "cell_metadata": "42ab09f0ff47fb881458afdb7125f8fd01368a3898be66d8f556d7cba4615f37"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            1096,
+            394
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 304,
+          "changed_proteins": 0,
+          "proteins": 3042,
+          "cells": 1490,
+          "samples": 2,
+          "batches": 172,
+          "dataset": "specht2019v3",
+          "carrier_ratio": 200,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": "FLAG: fitted raw-intensity quantification slope is negative; retain the unconstrained registered fit under E and assess M2 fidelity without retuning",
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "a9f445d406930ac4e669fcdf2ff349f4266ddeaa696443506d0160bc93449a78",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "71cf8a4719537fe2d08e6f89eea4097b4bcc3d2020c07bb245c39e861d6b3bfd"
+          },
+          "wall_seconds": 4.202
+        },
+        {
+          "seed": 20262020,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "720ca833dd0fd99c2303c64e8ac54480c611a31af1f0234fb908cca6329e35ff",
+            "preset": "3ac62bac8bf5f3768767150f807128a11bd72a40c005c08a8109d54e3e24041b",
+            "layout": "467b733f94e6216e64f8bbe08d826f11f839a167787aedb096614084192acff2",
+            "matrix": "b66f769cdadbde4410c38bc8179b65ab56b1e8dea9062dbfc054a4e5f56f70df",
+            "cell_metadata": "42ab09f0ff47fb881458afdb7125f8fd01368a3898be66d8f556d7cba4615f37"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            1096,
+            394
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 304,
+          "changed_proteins": 0,
+          "proteins": 3042,
+          "cells": 1490,
+          "samples": 2,
+          "batches": 172,
+          "dataset": "specht2019v3",
+          "carrier_ratio": 200,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": "FLAG: fitted raw-intensity quantification slope is negative; retain the unconstrained registered fit under E and assess M2 fidelity without retuning",
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "a9f445d406930ac4e669fcdf2ff349f4266ddeaa696443506d0160bc93449a78",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "71cf8a4719537fe2d08e6f89eea4097b4bcc3d2020c07bb245c39e861d6b3bfd"
+          },
+          "wall_seconds": 4.225
+        },
+        {
+          "seed": 20262021,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "720ca833dd0fd99c2303c64e8ac54480c611a31af1f0234fb908cca6329e35ff",
+            "preset": "3ac62bac8bf5f3768767150f807128a11bd72a40c005c08a8109d54e3e24041b",
+            "layout": "467b733f94e6216e64f8bbe08d826f11f839a167787aedb096614084192acff2",
+            "matrix": "fc4dccf3b5906b5af711a7eda3e714546652f6121d60974457f2da94ad4cd181",
+            "cell_metadata": "42ab09f0ff47fb881458afdb7125f8fd01368a3898be66d8f556d7cba4615f37"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            1096,
+            394
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 304,
+          "changed_proteins": 0,
+          "proteins": 3042,
+          "cells": 1490,
+          "samples": 2,
+          "batches": 172,
+          "dataset": "specht2019v3",
+          "carrier_ratio": 200,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": "FLAG: fitted raw-intensity quantification slope is negative; retain the unconstrained registered fit under E and assess M2 fidelity without retuning",
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "a9f445d406930ac4e669fcdf2ff349f4266ddeaa696443506d0160bc93449a78",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "71cf8a4719537fe2d08e6f89eea4097b4bcc3d2020c07bb245c39e861d6b3bfd"
+          },
+          "wall_seconds": 4.24
+        },
+        {
+          "seed": 20262022,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "720ca833dd0fd99c2303c64e8ac54480c611a31af1f0234fb908cca6329e35ff",
+            "preset": "3ac62bac8bf5f3768767150f807128a11bd72a40c005c08a8109d54e3e24041b",
+            "layout": "467b733f94e6216e64f8bbe08d826f11f839a167787aedb096614084192acff2",
+            "matrix": "059261af7df3f846d0a74e4f9e930dbfed30deed12b5cd90c8f869eac6c903db",
+            "cell_metadata": "42ab09f0ff47fb881458afdb7125f8fd01368a3898be66d8f556d7cba4615f37"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            1096,
+            394
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 304,
+          "changed_proteins": 0,
+          "proteins": 3042,
+          "cells": 1490,
+          "samples": 2,
+          "batches": 172,
+          "dataset": "specht2019v3",
+          "carrier_ratio": 200,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": "FLAG: fitted raw-intensity quantification slope is negative; retain the unconstrained registered fit under E and assess M2 fidelity without retuning",
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "a9f445d406930ac4e669fcdf2ff349f4266ddeaa696443506d0160bc93449a78",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "71cf8a4719537fe2d08e6f89eea4097b4bcc3d2020c07bb245c39e861d6b3bfd"
+          },
+          "wall_seconds": 4.212
+        },
+        {
+          "seed": 20262023,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "720ca833dd0fd99c2303c64e8ac54480c611a31af1f0234fb908cca6329e35ff",
+            "preset": "3ac62bac8bf5f3768767150f807128a11bd72a40c005c08a8109d54e3e24041b",
+            "layout": "467b733f94e6216e64f8bbe08d826f11f839a167787aedb096614084192acff2",
+            "matrix": "1d5a747004f81a3a532168440375fa902c077b1fc6c4e1bce597e759c91470a4",
+            "cell_metadata": "42ab09f0ff47fb881458afdb7125f8fd01368a3898be66d8f556d7cba4615f37"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            1096,
+            394
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 304,
+          "changed_proteins": 0,
+          "proteins": 3042,
+          "cells": 1490,
+          "samples": 2,
+          "batches": 172,
+          "dataset": "specht2019v3",
+          "carrier_ratio": 200,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": "FLAG: fitted raw-intensity quantification slope is negative; retain the unconstrained registered fit under E and assess M2 fidelity without retuning",
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "a9f445d406930ac4e669fcdf2ff349f4266ddeaa696443506d0160bc93449a78",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "71cf8a4719537fe2d08e6f89eea4097b4bcc3d2020c07bb245c39e861d6b3bfd"
+          },
+          "wall_seconds": 4.188
+        },
+        {
+          "seed": 20262024,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "720ca833dd0fd99c2303c64e8ac54480c611a31af1f0234fb908cca6329e35ff",
+            "preset": "3ac62bac8bf5f3768767150f807128a11bd72a40c005c08a8109d54e3e24041b",
+            "layout": "467b733f94e6216e64f8bbe08d826f11f839a167787aedb096614084192acff2",
+            "matrix": "010f4d5f5c318c03205f2e91e6be9a5ccb28f8e61fa822e4362a59e6cba54ed1",
+            "cell_metadata": "42ab09f0ff47fb881458afdb7125f8fd01368a3898be66d8f556d7cba4615f37"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            1096,
+            394
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 304,
+          "changed_proteins": 0,
+          "proteins": 3042,
+          "cells": 1490,
+          "samples": 2,
+          "batches": 172,
+          "dataset": "specht2019v3",
+          "carrier_ratio": 200,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": "FLAG: fitted raw-intensity quantification slope is negative; retain the unconstrained registered fit under E and assess M2 fidelity without retuning",
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "a9f445d406930ac4e669fcdf2ff349f4266ddeaa696443506d0160bc93449a78",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "71cf8a4719537fe2d08e6f89eea4097b4bcc3d2020c07bb245c39e861d6b3bfd"
+          },
+          "wall_seconds": 4.198
+        },
+        {
+          "seed": 20262025,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "720ca833dd0fd99c2303c64e8ac54480c611a31af1f0234fb908cca6329e35ff",
+            "preset": "3ac62bac8bf5f3768767150f807128a11bd72a40c005c08a8109d54e3e24041b",
+            "layout": "467b733f94e6216e64f8bbe08d826f11f839a167787aedb096614084192acff2",
+            "matrix": "da07ac5994571838c6016947c89c94918683764827f833cb95e0567ebe264d04",
+            "cell_metadata": "42ab09f0ff47fb881458afdb7125f8fd01368a3898be66d8f556d7cba4615f37"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            1096,
+            394
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 304,
+          "changed_proteins": 0,
+          "proteins": 3042,
+          "cells": 1490,
+          "samples": 2,
+          "batches": 172,
+          "dataset": "specht2019v3",
+          "carrier_ratio": 200,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": "FLAG: fitted raw-intensity quantification slope is negative; retain the unconstrained registered fit under E and assess M2 fidelity without retuning",
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "a9f445d406930ac4e669fcdf2ff349f4266ddeaa696443506d0160bc93449a78",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "71cf8a4719537fe2d08e6f89eea4097b4bcc3d2020c07bb245c39e861d6b3bfd"
+          },
+          "wall_seconds": 4.095
+        },
+        {
+          "seed": 20262026,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "720ca833dd0fd99c2303c64e8ac54480c611a31af1f0234fb908cca6329e35ff",
+            "preset": "3ac62bac8bf5f3768767150f807128a11bd72a40c005c08a8109d54e3e24041b",
+            "layout": "467b733f94e6216e64f8bbe08d826f11f839a167787aedb096614084192acff2",
+            "matrix": "e1448f8430f2d1fd7549aa31ab46d00e8bab50d61eda28d42d44781a876756a4",
+            "cell_metadata": "42ab09f0ff47fb881458afdb7125f8fd01368a3898be66d8f556d7cba4615f37"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            1096,
+            394
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 304,
+          "changed_proteins": 0,
+          "proteins": 3042,
+          "cells": 1490,
+          "samples": 2,
+          "batches": 172,
+          "dataset": "specht2019v3",
+          "carrier_ratio": 200,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": "FLAG: fitted raw-intensity quantification slope is negative; retain the unconstrained registered fit under E and assess M2 fidelity without retuning",
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "a9f445d406930ac4e669fcdf2ff349f4266ddeaa696443506d0160bc93449a78",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "71cf8a4719537fe2d08e6f89eea4097b4bcc3d2020c07bb245c39e861d6b3bfd"
+          },
+          "wall_seconds": 4.166
+        },
+        {
+          "seed": 20262027,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "720ca833dd0fd99c2303c64e8ac54480c611a31af1f0234fb908cca6329e35ff",
+            "preset": "3ac62bac8bf5f3768767150f807128a11bd72a40c005c08a8109d54e3e24041b",
+            "layout": "467b733f94e6216e64f8bbe08d826f11f839a167787aedb096614084192acff2",
+            "matrix": "424696aa4dbe07334f9aae431425f0d6f44209a326ce7d1818cf40bcc8ddb4bd",
+            "cell_metadata": "42ab09f0ff47fb881458afdb7125f8fd01368a3898be66d8f556d7cba4615f37"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            1096,
+            394
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 304,
+          "changed_proteins": 0,
+          "proteins": 3042,
+          "cells": 1490,
+          "samples": 2,
+          "batches": 172,
+          "dataset": "specht2019v3",
+          "carrier_ratio": 200,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": "FLAG: fitted raw-intensity quantification slope is negative; retain the unconstrained registered fit under E and assess M2 fidelity without retuning",
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "a9f445d406930ac4e669fcdf2ff349f4266ddeaa696443506d0160bc93449a78",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "71cf8a4719537fe2d08e6f89eea4097b4bcc3d2020c07bb245c39e861d6b3bfd"
+          },
+          "wall_seconds": 4.15599999999999
+        },
+        {
+          "seed": 20262028,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "720ca833dd0fd99c2303c64e8ac54480c611a31af1f0234fb908cca6329e35ff",
+            "preset": "3ac62bac8bf5f3768767150f807128a11bd72a40c005c08a8109d54e3e24041b",
+            "layout": "467b733f94e6216e64f8bbe08d826f11f839a167787aedb096614084192acff2",
+            "matrix": "e9c8c04f439803cf10aefa2f204d406e5f26fed2b459ca1a704c16c59692d3ab",
+            "cell_metadata": "42ab09f0ff47fb881458afdb7125f8fd01368a3898be66d8f556d7cba4615f37"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            1096,
+            394
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 304,
+          "changed_proteins": 0,
+          "proteins": 3042,
+          "cells": 1490,
+          "samples": 2,
+          "batches": 172,
+          "dataset": "specht2019v3",
+          "carrier_ratio": 200,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": "FLAG: fitted raw-intensity quantification slope is negative; retain the unconstrained registered fit under E and assess M2 fidelity without retuning",
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "a9f445d406930ac4e669fcdf2ff349f4266ddeaa696443506d0160bc93449a78",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "71cf8a4719537fe2d08e6f89eea4097b4bcc3d2020c07bb245c39e861d6b3bfd"
+          },
+          "wall_seconds": 4.236
+        },
+        {
+          "seed": 20262029,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "720ca833dd0fd99c2303c64e8ac54480c611a31af1f0234fb908cca6329e35ff",
+            "preset": "3ac62bac8bf5f3768767150f807128a11bd72a40c005c08a8109d54e3e24041b",
+            "layout": "467b733f94e6216e64f8bbe08d826f11f839a167787aedb096614084192acff2",
+            "matrix": "e48cd3912ef9b5ed094f50507d6dbb679958cf0e1a85334dfffade247ec8077f",
+            "cell_metadata": "42ab09f0ff47fb881458afdb7125f8fd01368a3898be66d8f556d7cba4615f37"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            1096,
+            394
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 304,
+          "changed_proteins": 0,
+          "proteins": 3042,
+          "cells": 1490,
+          "samples": 2,
+          "batches": 172,
+          "dataset": "specht2019v3",
+          "carrier_ratio": 200,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": "FLAG: fitted raw-intensity quantification slope is negative; retain the unconstrained registered fit under E and assess M2 fidelity without retuning",
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "a9f445d406930ac4e669fcdf2ff349f4266ddeaa696443506d0160bc93449a78",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "71cf8a4719537fe2d08e6f89eea4097b4bcc3d2020c07bb245c39e861d6b3bfd"
+          },
+          "wall_seconds": 4.25099999999999
+        },
+        {
+          "seed": 20262030,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "720ca833dd0fd99c2303c64e8ac54480c611a31af1f0234fb908cca6329e35ff",
+            "preset": "3ac62bac8bf5f3768767150f807128a11bd72a40c005c08a8109d54e3e24041b",
+            "layout": "467b733f94e6216e64f8bbe08d826f11f839a167787aedb096614084192acff2",
+            "matrix": "d182ddbcc7d3ad3d359fea0e395ed1ca6193ea1e10863cb664c007b0e03f72e7",
+            "cell_metadata": "42ab09f0ff47fb881458afdb7125f8fd01368a3898be66d8f556d7cba4615f37"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            1096,
+            394
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 304,
+          "changed_proteins": 0,
+          "proteins": 3042,
+          "cells": 1490,
+          "samples": 2,
+          "batches": 172,
+          "dataset": "specht2019v3",
+          "carrier_ratio": 200,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": "FLAG: fitted raw-intensity quantification slope is negative; retain the unconstrained registered fit under E and assess M2 fidelity without retuning",
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "a9f445d406930ac4e669fcdf2ff349f4266ddeaa696443506d0160bc93449a78",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "71cf8a4719537fe2d08e6f89eea4097b4bcc3d2020c07bb245c39e861d6b3bfd"
+          },
+          "wall_seconds": 4.205
+        },
+        {
+          "seed": 20262031,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "720ca833dd0fd99c2303c64e8ac54480c611a31af1f0234fb908cca6329e35ff",
+            "preset": "3ac62bac8bf5f3768767150f807128a11bd72a40c005c08a8109d54e3e24041b",
+            "layout": "467b733f94e6216e64f8bbe08d826f11f839a167787aedb096614084192acff2",
+            "matrix": "44e328c6c9806b904b8727981dba02c4d439032734f6830ba70532ba07496003",
+            "cell_metadata": "42ab09f0ff47fb881458afdb7125f8fd01368a3898be66d8f556d7cba4615f37"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            1096,
+            394
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 304,
+          "changed_proteins": 0,
+          "proteins": 3042,
+          "cells": 1490,
+          "samples": 2,
+          "batches": 172,
+          "dataset": "specht2019v3",
+          "carrier_ratio": 200,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": "FLAG: fitted raw-intensity quantification slope is negative; retain the unconstrained registered fit under E and assess M2 fidelity without retuning",
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "a9f445d406930ac4e669fcdf2ff349f4266ddeaa696443506d0160bc93449a78",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "71cf8a4719537fe2d08e6f89eea4097b4bcc3d2020c07bb245c39e861d6b3bfd"
+          },
+          "wall_seconds": 4.08200000000001
+        },
+        {
+          "seed": 20262032,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "720ca833dd0fd99c2303c64e8ac54480c611a31af1f0234fb908cca6329e35ff",
+            "preset": "3ac62bac8bf5f3768767150f807128a11bd72a40c005c08a8109d54e3e24041b",
+            "layout": "467b733f94e6216e64f8bbe08d826f11f839a167787aedb096614084192acff2",
+            "matrix": "195d5e3d1db46a2d5b0f6d1bcae5ff27d5652895512f757017dc0ea3232d2981",
+            "cell_metadata": "42ab09f0ff47fb881458afdb7125f8fd01368a3898be66d8f556d7cba4615f37"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            1096,
+            394
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 304,
+          "changed_proteins": 0,
+          "proteins": 3042,
+          "cells": 1490,
+          "samples": 2,
+          "batches": 172,
+          "dataset": "specht2019v3",
+          "carrier_ratio": 200,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": "FLAG: fitted raw-intensity quantification slope is negative; retain the unconstrained registered fit under E and assess M2 fidelity without retuning",
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "a9f445d406930ac4e669fcdf2ff349f4266ddeaa696443506d0160bc93449a78",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "71cf8a4719537fe2d08e6f89eea4097b4bcc3d2020c07bb245c39e861d6b3bfd"
+          },
+          "wall_seconds": 4.125
+        },
+        {
+          "seed": 20262033,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "720ca833dd0fd99c2303c64e8ac54480c611a31af1f0234fb908cca6329e35ff",
+            "preset": "3ac62bac8bf5f3768767150f807128a11bd72a40c005c08a8109d54e3e24041b",
+            "layout": "467b733f94e6216e64f8bbe08d826f11f839a167787aedb096614084192acff2",
+            "matrix": "fec604c24d145d01a5cd6112d11921e77f978e54ecde877054da8a1c2ca9a6e7",
+            "cell_metadata": "42ab09f0ff47fb881458afdb7125f8fd01368a3898be66d8f556d7cba4615f37"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            1096,
+            394
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 304,
+          "changed_proteins": 0,
+          "proteins": 3042,
+          "cells": 1490,
+          "samples": 2,
+          "batches": 172,
+          "dataset": "specht2019v3",
+          "carrier_ratio": 200,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": "FLAG: fitted raw-intensity quantification slope is negative; retain the unconstrained registered fit under E and assess M2 fidelity without retuning",
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "a9f445d406930ac4e669fcdf2ff349f4266ddeaa696443506d0160bc93449a78",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "71cf8a4719537fe2d08e6f89eea4097b4bcc3d2020c07bb245c39e861d6b3bfd"
+          },
+          "wall_seconds": 4.15299999999999
+        }
+      ],
+      "status": "PASS",
+      "wall_seconds": 100.387
+    },
+    "leduc2022_pSCoPE": {
+      "seed": 20261013,
+      "versions": {
+        "R": "4.6.1",
+        "scp": "1.22.0",
+        "limma": "3.68.5",
+        "edgeR": "4.10.5",
+        "scplainer": "workflow in scp 1.22.0; no separate package"
+      },
+      "native_n_per_condition": [
+        1,
+        1
+      ],
+      "native_cells_per_sample": [
+        783,
+        773
+      ],
+      "input_hashes": {
+        "observed_missingness": "bab6af23f03b90e7f9f5acb5cfd354fdfda167a0c3c13ebe3ef4bd9f9c26195b",
+        "observed_variance": "bab6af23f03b90e7f9f5acb5cfd354fdfda167a0c3c13ebe3ef4bd9f9c26195b",
+        "metadata": "2f227959830e796bcf6ee6915485e2031e3bbc3e8001fa6f0770b2b3dbdd63a4",
+        "layout": "658601d5912e08ccae4bc824ecbdd51a74ab90259dec0037abf7838817ba1b28",
+        "preset": "43aa88ecf2dec5c10c0559ebcd7f69464908cbeca19e15ec0ba04dc2ca7616bb"
+      },
+      "replicates": [
+        {
+          "seed": 20263014,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "590cc61277ca3997adf885797cc22a296db82541822163abb2edbc31cf76799b",
+            "preset": "a21b8ab47ea186f193ca1c312bd85591890fed0620027b8949d1d7d38128f988",
+            "layout": "658601d5912e08ccae4bc824ecbdd51a74ab90259dec0037abf7838817ba1b28",
+            "matrix": "be5e2cd5de124939610607e3d0a8f3a7b7da76d0515381a8f10e56a33a512413",
+            "cell_metadata": "7c6b41590ac59ddbf5166b09296494ed814a70099406c82993c73637d4637f0e"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            783,
+            773
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 343,
+          "changed_proteins": 0,
+          "proteins": 3433,
+          "cells": 1556,
+          "samples": 2,
+          "batches": 133,
+          "dataset": "leduc2022_pSCoPE",
+          "carrier_ratio": 100,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": [],
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "3346a40f524fe25afeaf85e789f8d6253d363562db8fd167d3bd01f6d04d124a",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "20579dbd3e27376cfe694c0dae22e6f06da24fce0dccf5688d189917f431e56b"
+          },
+          "wall_seconds": 4.828
+        },
+        {
+          "seed": 20263015,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "590cc61277ca3997adf885797cc22a296db82541822163abb2edbc31cf76799b",
+            "preset": "a21b8ab47ea186f193ca1c312bd85591890fed0620027b8949d1d7d38128f988",
+            "layout": "658601d5912e08ccae4bc824ecbdd51a74ab90259dec0037abf7838817ba1b28",
+            "matrix": "9bb47dc377e5ff4ef62ee5bc116611c21860fea57905445bb3eaa0a87b2db9c9",
+            "cell_metadata": "7c6b41590ac59ddbf5166b09296494ed814a70099406c82993c73637d4637f0e"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            783,
+            773
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 343,
+          "changed_proteins": 0,
+          "proteins": 3433,
+          "cells": 1556,
+          "samples": 2,
+          "batches": 133,
+          "dataset": "leduc2022_pSCoPE",
+          "carrier_ratio": 100,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": [],
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "3346a40f524fe25afeaf85e789f8d6253d363562db8fd167d3bd01f6d04d124a",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "20579dbd3e27376cfe694c0dae22e6f06da24fce0dccf5688d189917f431e56b"
+          },
+          "wall_seconds": 4.76000000000001
+        },
+        {
+          "seed": 20263016,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "590cc61277ca3997adf885797cc22a296db82541822163abb2edbc31cf76799b",
+            "preset": "a21b8ab47ea186f193ca1c312bd85591890fed0620027b8949d1d7d38128f988",
+            "layout": "658601d5912e08ccae4bc824ecbdd51a74ab90259dec0037abf7838817ba1b28",
+            "matrix": "5c4b7bcfe8132ee5b7b45289653d2058c46a9420fa854181f18a275c2f53865d",
+            "cell_metadata": "7c6b41590ac59ddbf5166b09296494ed814a70099406c82993c73637d4637f0e"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            783,
+            773
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 343,
+          "changed_proteins": 0,
+          "proteins": 3433,
+          "cells": 1556,
+          "samples": 2,
+          "batches": 133,
+          "dataset": "leduc2022_pSCoPE",
+          "carrier_ratio": 100,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": [],
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "3346a40f524fe25afeaf85e789f8d6253d363562db8fd167d3bd01f6d04d124a",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "20579dbd3e27376cfe694c0dae22e6f06da24fce0dccf5688d189917f431e56b"
+          },
+          "wall_seconds": 4.80499999999999
+        },
+        {
+          "seed": 20263017,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "590cc61277ca3997adf885797cc22a296db82541822163abb2edbc31cf76799b",
+            "preset": "a21b8ab47ea186f193ca1c312bd85591890fed0620027b8949d1d7d38128f988",
+            "layout": "658601d5912e08ccae4bc824ecbdd51a74ab90259dec0037abf7838817ba1b28",
+            "matrix": "c18e565793cb72fc267e05abf8150dc0a77267eb1197520e8c47ac9365320572",
+            "cell_metadata": "7c6b41590ac59ddbf5166b09296494ed814a70099406c82993c73637d4637f0e"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            783,
+            773
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 343,
+          "changed_proteins": 0,
+          "proteins": 3433,
+          "cells": 1556,
+          "samples": 2,
+          "batches": 133,
+          "dataset": "leduc2022_pSCoPE",
+          "carrier_ratio": 100,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": [],
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "3346a40f524fe25afeaf85e789f8d6253d363562db8fd167d3bd01f6d04d124a",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "20579dbd3e27376cfe694c0dae22e6f06da24fce0dccf5688d189917f431e56b"
+          },
+          "wall_seconds": 4.762
+        },
+        {
+          "seed": 20263018,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "590cc61277ca3997adf885797cc22a296db82541822163abb2edbc31cf76799b",
+            "preset": "a21b8ab47ea186f193ca1c312bd85591890fed0620027b8949d1d7d38128f988",
+            "layout": "658601d5912e08ccae4bc824ecbdd51a74ab90259dec0037abf7838817ba1b28",
+            "matrix": "b8825bba3163f87c091c2e8563dda1fd11c06c4bf0f004393c8f6570c2a575fc",
+            "cell_metadata": "7c6b41590ac59ddbf5166b09296494ed814a70099406c82993c73637d4637f0e"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            783,
+            773
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 343,
+          "changed_proteins": 0,
+          "proteins": 3433,
+          "cells": 1556,
+          "samples": 2,
+          "batches": 133,
+          "dataset": "leduc2022_pSCoPE",
+          "carrier_ratio": 100,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": [],
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "3346a40f524fe25afeaf85e789f8d6253d363562db8fd167d3bd01f6d04d124a",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "20579dbd3e27376cfe694c0dae22e6f06da24fce0dccf5688d189917f431e56b"
+          },
+          "wall_seconds": 4.81700000000001
+        },
+        {
+          "seed": 20263019,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "590cc61277ca3997adf885797cc22a296db82541822163abb2edbc31cf76799b",
+            "preset": "a21b8ab47ea186f193ca1c312bd85591890fed0620027b8949d1d7d38128f988",
+            "layout": "658601d5912e08ccae4bc824ecbdd51a74ab90259dec0037abf7838817ba1b28",
+            "matrix": "d5b0a8bfc255f7b2c55b78327a9671cba5609c5c73bc883c5bc3a4fa0ed5a66a",
+            "cell_metadata": "7c6b41590ac59ddbf5166b09296494ed814a70099406c82993c73637d4637f0e"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            783,
+            773
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 343,
+          "changed_proteins": 0,
+          "proteins": 3433,
+          "cells": 1556,
+          "samples": 2,
+          "batches": 133,
+          "dataset": "leduc2022_pSCoPE",
+          "carrier_ratio": 100,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": [],
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "3346a40f524fe25afeaf85e789f8d6253d363562db8fd167d3bd01f6d04d124a",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "20579dbd3e27376cfe694c0dae22e6f06da24fce0dccf5688d189917f431e56b"
+          },
+          "wall_seconds": 4.732
+        },
+        {
+          "seed": 20263020,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "590cc61277ca3997adf885797cc22a296db82541822163abb2edbc31cf76799b",
+            "preset": "a21b8ab47ea186f193ca1c312bd85591890fed0620027b8949d1d7d38128f988",
+            "layout": "658601d5912e08ccae4bc824ecbdd51a74ab90259dec0037abf7838817ba1b28",
+            "matrix": "68dc76a83a0543e1089b3a97aca0ae0db15538593a8c8926fce49ead25138198",
+            "cell_metadata": "7c6b41590ac59ddbf5166b09296494ed814a70099406c82993c73637d4637f0e"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            783,
+            773
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 343,
+          "changed_proteins": 0,
+          "proteins": 3433,
+          "cells": 1556,
+          "samples": 2,
+          "batches": 133,
+          "dataset": "leduc2022_pSCoPE",
+          "carrier_ratio": 100,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": [],
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "3346a40f524fe25afeaf85e789f8d6253d363562db8fd167d3bd01f6d04d124a",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "20579dbd3e27376cfe694c0dae22e6f06da24fce0dccf5688d189917f431e56b"
+          },
+          "wall_seconds": 4.81200000000001
+        },
+        {
+          "seed": 20263021,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "590cc61277ca3997adf885797cc22a296db82541822163abb2edbc31cf76799b",
+            "preset": "a21b8ab47ea186f193ca1c312bd85591890fed0620027b8949d1d7d38128f988",
+            "layout": "658601d5912e08ccae4bc824ecbdd51a74ab90259dec0037abf7838817ba1b28",
+            "matrix": "2147b224d809fe842f8550c95b46704d0a3dc82498837f77df8e70c20f68389d",
+            "cell_metadata": "7c6b41590ac59ddbf5166b09296494ed814a70099406c82993c73637d4637f0e"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            783,
+            773
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 343,
+          "changed_proteins": 0,
+          "proteins": 3433,
+          "cells": 1556,
+          "samples": 2,
+          "batches": 133,
+          "dataset": "leduc2022_pSCoPE",
+          "carrier_ratio": 100,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": [],
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "3346a40f524fe25afeaf85e789f8d6253d363562db8fd167d3bd01f6d04d124a",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "20579dbd3e27376cfe694c0dae22e6f06da24fce0dccf5688d189917f431e56b"
+          },
+          "wall_seconds": 4.72900000000001
+        },
+        {
+          "seed": 20263022,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "590cc61277ca3997adf885797cc22a296db82541822163abb2edbc31cf76799b",
+            "preset": "a21b8ab47ea186f193ca1c312bd85591890fed0620027b8949d1d7d38128f988",
+            "layout": "658601d5912e08ccae4bc824ecbdd51a74ab90259dec0037abf7838817ba1b28",
+            "matrix": "9f8305408a7037290f98c8114ff569a0cd4abf73323a9def733deba3e2bbf648",
+            "cell_metadata": "7c6b41590ac59ddbf5166b09296494ed814a70099406c82993c73637d4637f0e"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            783,
+            773
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 343,
+          "changed_proteins": 0,
+          "proteins": 3433,
+          "cells": 1556,
+          "samples": 2,
+          "batches": 133,
+          "dataset": "leduc2022_pSCoPE",
+          "carrier_ratio": 100,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": [],
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "3346a40f524fe25afeaf85e789f8d6253d363562db8fd167d3bd01f6d04d124a",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "20579dbd3e27376cfe694c0dae22e6f06da24fce0dccf5688d189917f431e56b"
+          },
+          "wall_seconds": 4.798
+        },
+        {
+          "seed": 20263023,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "590cc61277ca3997adf885797cc22a296db82541822163abb2edbc31cf76799b",
+            "preset": "a21b8ab47ea186f193ca1c312bd85591890fed0620027b8949d1d7d38128f988",
+            "layout": "658601d5912e08ccae4bc824ecbdd51a74ab90259dec0037abf7838817ba1b28",
+            "matrix": "011f90dd4b4389d5c31e2a5516d29e4609e9757c9cecc79dbd8895d3e1891ed9",
+            "cell_metadata": "7c6b41590ac59ddbf5166b09296494ed814a70099406c82993c73637d4637f0e"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            783,
+            773
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 343,
+          "changed_proteins": 0,
+          "proteins": 3433,
+          "cells": 1556,
+          "samples": 2,
+          "batches": 133,
+          "dataset": "leduc2022_pSCoPE",
+          "carrier_ratio": 100,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": [],
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "3346a40f524fe25afeaf85e789f8d6253d363562db8fd167d3bd01f6d04d124a",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "20579dbd3e27376cfe694c0dae22e6f06da24fce0dccf5688d189917f431e56b"
+          },
+          "wall_seconds": 4.73200000000003
+        },
+        {
+          "seed": 20263024,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "590cc61277ca3997adf885797cc22a296db82541822163abb2edbc31cf76799b",
+            "preset": "a21b8ab47ea186f193ca1c312bd85591890fed0620027b8949d1d7d38128f988",
+            "layout": "658601d5912e08ccae4bc824ecbdd51a74ab90259dec0037abf7838817ba1b28",
+            "matrix": "5bc2233746846f8769dffec6903863249126d6c49254c89e1bad473b471cadc9",
+            "cell_metadata": "7c6b41590ac59ddbf5166b09296494ed814a70099406c82993c73637d4637f0e"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            783,
+            773
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 343,
+          "changed_proteins": 0,
+          "proteins": 3433,
+          "cells": 1556,
+          "samples": 2,
+          "batches": 133,
+          "dataset": "leduc2022_pSCoPE",
+          "carrier_ratio": 100,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": [],
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "3346a40f524fe25afeaf85e789f8d6253d363562db8fd167d3bd01f6d04d124a",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "20579dbd3e27376cfe694c0dae22e6f06da24fce0dccf5688d189917f431e56b"
+          },
+          "wall_seconds": 4.79500000000002
+        },
+        {
+          "seed": 20263025,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "590cc61277ca3997adf885797cc22a296db82541822163abb2edbc31cf76799b",
+            "preset": "a21b8ab47ea186f193ca1c312bd85591890fed0620027b8949d1d7d38128f988",
+            "layout": "658601d5912e08ccae4bc824ecbdd51a74ab90259dec0037abf7838817ba1b28",
+            "matrix": "f56aeb1a0b5a660caf3b20f6ec7f99304391f42a1f03dac018f77d7c870a5420",
+            "cell_metadata": "7c6b41590ac59ddbf5166b09296494ed814a70099406c82993c73637d4637f0e"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            783,
+            773
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 343,
+          "changed_proteins": 0,
+          "proteins": 3433,
+          "cells": 1556,
+          "samples": 2,
+          "batches": 133,
+          "dataset": "leduc2022_pSCoPE",
+          "carrier_ratio": 100,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": [],
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "3346a40f524fe25afeaf85e789f8d6253d363562db8fd167d3bd01f6d04d124a",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "20579dbd3e27376cfe694c0dae22e6f06da24fce0dccf5688d189917f431e56b"
+          },
+          "wall_seconds": 4.73600000000002
+        },
+        {
+          "seed": 20263026,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "590cc61277ca3997adf885797cc22a296db82541822163abb2edbc31cf76799b",
+            "preset": "a21b8ab47ea186f193ca1c312bd85591890fed0620027b8949d1d7d38128f988",
+            "layout": "658601d5912e08ccae4bc824ecbdd51a74ab90259dec0037abf7838817ba1b28",
+            "matrix": "f32bd26b8064605817ad375886e278d43907d3185fac674f739eb46006cdb3ec",
+            "cell_metadata": "7c6b41590ac59ddbf5166b09296494ed814a70099406c82993c73637d4637f0e"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            783,
+            773
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 343,
+          "changed_proteins": 0,
+          "proteins": 3433,
+          "cells": 1556,
+          "samples": 2,
+          "batches": 133,
+          "dataset": "leduc2022_pSCoPE",
+          "carrier_ratio": 100,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": [],
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "3346a40f524fe25afeaf85e789f8d6253d363562db8fd167d3bd01f6d04d124a",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "20579dbd3e27376cfe694c0dae22e6f06da24fce0dccf5688d189917f431e56b"
+          },
+          "wall_seconds": 4.80100000000002
+        },
+        {
+          "seed": 20263027,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "590cc61277ca3997adf885797cc22a296db82541822163abb2edbc31cf76799b",
+            "preset": "a21b8ab47ea186f193ca1c312bd85591890fed0620027b8949d1d7d38128f988",
+            "layout": "658601d5912e08ccae4bc824ecbdd51a74ab90259dec0037abf7838817ba1b28",
+            "matrix": "70894522c07bb522f36a4f6ac9016b3e89387e8a1e38d71dd51d9e599a6c1d93",
+            "cell_metadata": "7c6b41590ac59ddbf5166b09296494ed814a70099406c82993c73637d4637f0e"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            783,
+            773
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 343,
+          "changed_proteins": 0,
+          "proteins": 3433,
+          "cells": 1556,
+          "samples": 2,
+          "batches": 133,
+          "dataset": "leduc2022_pSCoPE",
+          "carrier_ratio": 100,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": [],
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "3346a40f524fe25afeaf85e789f8d6253d363562db8fd167d3bd01f6d04d124a",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "20579dbd3e27376cfe694c0dae22e6f06da24fce0dccf5688d189917f431e56b"
+          },
+          "wall_seconds": 4.74100000000001
+        },
+        {
+          "seed": 20263028,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "590cc61277ca3997adf885797cc22a296db82541822163abb2edbc31cf76799b",
+            "preset": "a21b8ab47ea186f193ca1c312bd85591890fed0620027b8949d1d7d38128f988",
+            "layout": "658601d5912e08ccae4bc824ecbdd51a74ab90259dec0037abf7838817ba1b28",
+            "matrix": "0fefac59ead51a13146bae97918ae6fe963f26c2209dcc26c1b528af032b2f26",
+            "cell_metadata": "7c6b41590ac59ddbf5166b09296494ed814a70099406c82993c73637d4637f0e"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            783,
+            773
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 343,
+          "changed_proteins": 0,
+          "proteins": 3433,
+          "cells": 1556,
+          "samples": 2,
+          "batches": 133,
+          "dataset": "leduc2022_pSCoPE",
+          "carrier_ratio": 100,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": [],
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "3346a40f524fe25afeaf85e789f8d6253d363562db8fd167d3bd01f6d04d124a",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "20579dbd3e27376cfe694c0dae22e6f06da24fce0dccf5688d189917f431e56b"
+          },
+          "wall_seconds": 4.80099999999999
+        },
+        {
+          "seed": 20263029,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "590cc61277ca3997adf885797cc22a296db82541822163abb2edbc31cf76799b",
+            "preset": "a21b8ab47ea186f193ca1c312bd85591890fed0620027b8949d1d7d38128f988",
+            "layout": "658601d5912e08ccae4bc824ecbdd51a74ab90259dec0037abf7838817ba1b28",
+            "matrix": "63e8b0810728c25be89c530830332c6848df857bbf5e6d3fd1b0196b7f5087c7",
+            "cell_metadata": "7c6b41590ac59ddbf5166b09296494ed814a70099406c82993c73637d4637f0e"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            783,
+            773
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 343,
+          "changed_proteins": 0,
+          "proteins": 3433,
+          "cells": 1556,
+          "samples": 2,
+          "batches": 133,
+          "dataset": "leduc2022_pSCoPE",
+          "carrier_ratio": 100,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": [],
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "3346a40f524fe25afeaf85e789f8d6253d363562db8fd167d3bd01f6d04d124a",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "20579dbd3e27376cfe694c0dae22e6f06da24fce0dccf5688d189917f431e56b"
+          },
+          "wall_seconds": 4.73499999999999
+        },
+        {
+          "seed": 20263030,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "590cc61277ca3997adf885797cc22a296db82541822163abb2edbc31cf76799b",
+            "preset": "a21b8ab47ea186f193ca1c312bd85591890fed0620027b8949d1d7d38128f988",
+            "layout": "658601d5912e08ccae4bc824ecbdd51a74ab90259dec0037abf7838817ba1b28",
+            "matrix": "0a8d54ac36affed2f0ea6074dd69f32c95da5fa270f2d896b45fe739c1df1c04",
+            "cell_metadata": "7c6b41590ac59ddbf5166b09296494ed814a70099406c82993c73637d4637f0e"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            783,
+            773
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 343,
+          "changed_proteins": 0,
+          "proteins": 3433,
+          "cells": 1556,
+          "samples": 2,
+          "batches": 133,
+          "dataset": "leduc2022_pSCoPE",
+          "carrier_ratio": 100,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": [],
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "3346a40f524fe25afeaf85e789f8d6253d363562db8fd167d3bd01f6d04d124a",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "20579dbd3e27376cfe694c0dae22e6f06da24fce0dccf5688d189917f431e56b"
+          },
+          "wall_seconds": 4.80000000000001
+        },
+        {
+          "seed": 20263031,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "590cc61277ca3997adf885797cc22a296db82541822163abb2edbc31cf76799b",
+            "preset": "a21b8ab47ea186f193ca1c312bd85591890fed0620027b8949d1d7d38128f988",
+            "layout": "658601d5912e08ccae4bc824ecbdd51a74ab90259dec0037abf7838817ba1b28",
+            "matrix": "f884cfbf03278e9dfcaf86bea7674d5ed9f8c56e454842c439c49267395ff4da",
+            "cell_metadata": "7c6b41590ac59ddbf5166b09296494ed814a70099406c82993c73637d4637f0e"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            783,
+            773
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 343,
+          "changed_proteins": 0,
+          "proteins": 3433,
+          "cells": 1556,
+          "samples": 2,
+          "batches": 133,
+          "dataset": "leduc2022_pSCoPE",
+          "carrier_ratio": 100,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": [],
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "3346a40f524fe25afeaf85e789f8d6253d363562db8fd167d3bd01f6d04d124a",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "20579dbd3e27376cfe694c0dae22e6f06da24fce0dccf5688d189917f431e56b"
+          },
+          "wall_seconds": 4.73100000000002
+        },
+        {
+          "seed": 20263032,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "590cc61277ca3997adf885797cc22a296db82541822163abb2edbc31cf76799b",
+            "preset": "a21b8ab47ea186f193ca1c312bd85591890fed0620027b8949d1d7d38128f988",
+            "layout": "658601d5912e08ccae4bc824ecbdd51a74ab90259dec0037abf7838817ba1b28",
+            "matrix": "af2a3a9de4a90a20f9ccf434ab1f776f30eae65c00b76571a869bcb2015b727e",
+            "cell_metadata": "7c6b41590ac59ddbf5166b09296494ed814a70099406c82993c73637d4637f0e"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            783,
+            773
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 343,
+          "changed_proteins": 0,
+          "proteins": 3433,
+          "cells": 1556,
+          "samples": 2,
+          "batches": 133,
+          "dataset": "leduc2022_pSCoPE",
+          "carrier_ratio": 100,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": [],
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "3346a40f524fe25afeaf85e789f8d6253d363562db8fd167d3bd01f6d04d124a",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "20579dbd3e27376cfe694c0dae22e6f06da24fce0dccf5688d189917f431e56b"
+          },
+          "wall_seconds": 4.785
+        },
+        {
+          "seed": 20263033,
+          "RNGkind": [
+            "Mersenne-Twister",
+            "Inversion",
+            "Rejection"
+          ],
+          "versions": {
+            "R": "4.6.1",
+            "scp": "1.22.0",
+            "limma": "3.68.5",
+            "edgeR": "4.10.5",
+            "scplainer": "workflow in scp 1.22.0; no separate package"
+          },
+          "input_hashes": {
+            "calibration": "590cc61277ca3997adf885797cc22a296db82541822163abb2edbc31cf76799b",
+            "preset": "a21b8ab47ea186f193ca1c312bd85591890fed0620027b8949d1d7d38128f988",
+            "layout": "658601d5912e08ccae4bc824ecbdd51a74ab90259dec0037abf7838817ba1b28",
+            "matrix": "2627e987092441209b415b5be6f587630304008bcfdd60e091a2d7dea69297fe",
+            "cell_metadata": "7c6b41590ac59ddbf5166b09296494ed814a70099406c82993c73637d4637f0e"
+          },
+          "n_per_condition": [
+            1,
+            1
+          ],
+          "m_cells_per_sample": [
+            783,
+            773
+          ],
+          "k": 1,
+          "changed_fraction": 0.1,
+          "targeted_proteins": 343,
+          "changed_proteins": 0,
+          "proteins": 3433,
+          "cells": 1556,
+          "samples": 2,
+          "batches": 133,
+          "dataset": "leduc2022_pSCoPE",
+          "carrier_ratio": 100,
+          "layout": "custom sample-by-batch counts",
+          "label_free": false,
+          "baseline": "Joint calibrated-protein row resampling within tier",
+          "missingness": "tmt_two_level",
+          "modelling_consequence": "Carrier pools both conditions: p_g and q_g do not respond to effect size; testability depends on plex count",
+          "mandate_addendum": "1.1.3",
+          "provenance": {
+            "mandate": "1.1.5",
+            "calibration_version": "0.1.0",
+            "calibration_source_sha256": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+            "variance_scale": "Accepted ratio-based peptide-to-protein scale retained; not refitted",
+            "missingness_scale": "Mean observed log2 raw reporter intensity; no normalisation",
+            "bulk_proxy": "PXD058573 whole PBMC; donor-transfer assumption not validated",
+            "flags": [],
+            "seed": 20261013,
+            "versions": {
+              "R": "4.6.1",
+              "scp": "1.22.0",
+              "limma": "3.68.5",
+              "edgeR": "4.10.5",
+              "scplainer": "workflow in scp 1.22.0; no separate package"
+            },
+            "detection_population": "Unchanged accepted M1 cells and proteins, grouped by native batch; finite raw quantities indicate detection",
+            "mean_fallback": "Never-quantified proteins retain zero detection and use their tier mean only as an undefined-intensity fallback",
+            "G2_consequence": "For carrier TMT, p_g and q_g are effect-independent because carrier pools both conditions; testability depends on plex count and barely on effect size",
+            "M2_gate_preset_sha256": "3346a40f524fe25afeaf85e789f8d6253d363562db8fd167d3bd01f6d04d124a",
+            "detection_mask_source": "Finite ratio-based aggregated assay used by the primary endpoint; amendment I",
+            "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+            "pre_I_preset_sha256": "20579dbd3e27376cfe694c0dae22e6f06da24fce0dccf5688d189917f431e56b"
+          },
+          "wall_seconds": 4.72799999999998
+        }
+      ],
+      "status": "PASS",
+      "wall_seconds": 116.275
+    }
+  },
+  "input_hashes": {
+    "final_calibration": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+    "simulator": "9d2800a8f9d985a0dfbdf92beeb16ae0769191f465df190304024d28d7d83235",
+    "gate_script": "986d319bf10ea18da45f83a476fb4d1509f084abcd048c2aab55b964a090ff84",
+    "renv_lock": "9847523045fd7c40703e5b45ac5a867479b5181ffbc917a35346e389635f889f"
+  },
+  "wall_seconds": 216.993,
+  "no_retuning": true,
+  "between_donor_transfer_not_validated": true,
+  "M4_registration_unchanged": true,
+  "report_generation": {
+    "seed": 20261013,
+    "versions": {
+      "R": "4.6.1",
+      "scp": "1.22.0",
+      "limma": "3.68.5",
+      "edgeR": "4.10.5",
+      "scplainer": "workflow in scp 1.22.0; no separate package"
+    },
+    "input_hashes": {
+      "gate_table": "f4f34375000faac2fd6e7540d9bc9583682e3ed11a7c0bf74b50e6b86a0ded78",
+      "replicate_metrics": "ba2f3e952fabe38ef0e64efc3085e5bdb098bc4cbd6a4fce955ef97d83a9ed0a"
+    },
+    "wall_seconds": 0.516
+  },
+  "decision": {
+    "status": "Completed registered M2b gate; all failures reported without tuning",
+    "passed_datasets": [
+      "specht2019v3",
+      "leduc2022_pSCoPE"
+    ],
+    "failed_datasets": [],
+    "M4b_authorised": true,
+    "v0_3_1_requires_M4b": true,
+    "non_TMT_results_not_rerun": true
+  },
+  "output_sha256": {
+    "README.md": "70650d2ee0e5bea8e2e844c220e903af19a1d81b656e22e5d50851f3af4bbb70",
+    "cell-sd-observed-simulated.png": "14d153924b24aec7f06f963fbdde62a434d634ae09d1df6a0d09355cdf7ed71f",
+    "cluster-accounting.txt": "0ff639da28f85f130c16f7e66c73fed66475209b4a11b0d0a2bb4a3dea24d8eb",
+    "fidelity-report.md": "a6db7d2a106076cf11b25bf5258a386ae021011bb18abfa2c74d8d0be73fbb08",
+    "fidelity-summary.csv": "50e2d340e61affdbebfa6ed1c4751609c25d0d15f9837235c24d37757293edcd",
+    "fidelity-table.csv": "f4f34375000faac2fd6e7540d9bc9583682e3ed11a7c0bf74b50e6b86a0ded78",
+    "half-cells-detection.csv": "8156b35000edfe1ea79396bdf670a35b0457a81f6d04f9655feda8cdb1009f79",
+    "interactive-allocation.log": "a597d5aeb1b3b2561097884cdf811e34e64facfb0325a31a95fc921b3b907a85",
+    "leduc2022_pSCoPE-native-layout.csv": "93c21b2ebf43fe2cd0688ba5ad835e26999cf76ff5d8960bb27ba7801d9626f6",
+    "leduc2022_pSCoPE-preset-v0.3.0.yaml": "20579dbd3e27376cfe694c0dae22e6f06da24fce0dccf5688d189917f431e56b",
+    "leduc2022_pSCoPE-protein-parameters.csv": "6bcc309ddea1a048ec1b6b4a826507669dddf7e5131e02dc3c66f45da55eb7e0",
+    "missingness-intensity-bins.csv": "a67327ad92a04af77c63152eb51a5cfd3afdb54f155ebea4d968515655eb7a22",
+    "missingness-observed-simulated.png": "567d2fcfb1f945556a081778b3ce96bca320bec1f033e03ee0cb01f81aec13ba",
+    "observed-metrics.csv": "919f11beb9253dff715b54675dbdfc77b20c31a7fe28a58eee7877cceba6b5be",
+    "preset-manifest.json": "4815a9745d07d9d48ed2956a11301a23c30d2a54e4885104be8350c78261103a",
+    "replicate-metrics.csv": "ba2f3e952fabe38ef0e64efc3085e5bdb098bc4cbd6a4fce955ef97d83a9ed0a",
+    "report.log": "dadadf1f52eeb61b943156d417629e396f1e8334b759323f8e4f64a5a870a296",
+    "specht2019v3-native-layout.csv": "525163908eaa3e6d868af03c05fa898e93994ea5ebb84c73b44c0e9f5b0410a4",
+    "specht2019v3-preset-v0.3.0.yaml": "71cf8a4719537fe2d08e6f89eea4097b4bcc3d2020c07bb245c39e861d6b3bfd",
+    "specht2019v3-protein-parameters.csv": "d4b99c6e6369526b5db216c26fa61d21cf08f23b677c575cc52f9e3e777c173e"
+  },
+  "both_M2b_pass": true,
+  "cluster_accounting_sha256": "0ff639da28f85f130c16f7e66c73fed66475209b4a11b0d0a2bb4a3dea24d8eb",
+  "diagnostic_J_report_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+  "audit": {
+    "seed": 20261013,
+    "versions": {
+      "R": "4.6.1",
+      "scp": "1.22.0",
+      "limma": "3.68.5",
+      "edgeR": "4.10.5",
+      "scplainer": "workflow in scp 1.22.0; no separate package"
+    },
+    "input_hashes": {
+      "script": "5b692dd2061c7da6c6e1ce6901c79b27e92c48ef5df8318d67d29bbb90781495"
+    },
+    "wall_seconds": 0.02818425092846155
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "seed": 20261013,
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "datasets": {
+    "specht2019v3": {
+      "seed": 20261013,
+      "versions": {
+        "R": "4.6.1",
+        "scp": "1.22.0",
+        "limma": "3.68.5",
+        "edgeR": "4.10.5",
+        "scplainer": "workflow in scp 1.22.0; no separate package"
+      },
+      "input_hashes": {
+        "raw_assay": "78d990a29f35bbd2b00522e1cc8231b4c9b50ac9993596bc75e6c9d14edec898",
+        "quantitative_assay": "06b36dad95119843ae07fa31bef897c5b92d106b48600034c75c253dd171d149",
+        "psm_assay": "a15a39aa5c073ce73188fad22d45b8d8c36b5713fab0881987c8ee7b9390a2af"
+      },
+      "wall_seconds": 43.861
+    },
+    "leduc2022_pSCoPE": {
+      "seed": 20261013,
+      "versions": {
+        "R": "4.6.1",
+        "scp": "1.22.0",
+        "limma": "3.68.5",
+        "edgeR": "4.10.5",
+        "scplainer": "workflow in scp 1.22.0; no separate package"
+      },
+      "input_hashes": {
+        "raw_assay": "f3b3577e861b25a836cc3a7ffd32e88f7441613a69cfc8b12ba980bfbd6dbe6c",
+        "quantitative_assay": "ed3a9b44a78ddee2a0cc731770d70c7a661213b851b23e2c28f5ff4d3451d4c2",
+        "psm_assay": "e0a2d9a2a419275bd12d5c26d40a30ce9ca83feba3d15983399588b081245f8c"
+      },
+      "wall_seconds": 72.167
+    }
+  },
+  "input_hashes": {
+    "script": "d41c89a920c4053e9190f288d65afeb3719b5e277a73e7cf1604262e89648da5"
+  },
+  "wall_seconds": 116.117
+}

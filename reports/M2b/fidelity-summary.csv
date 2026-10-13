@@ -1,0 +1,3 @@
+"dataset","status","checks_passed","checks_applicable","maximum_missingness_error","coverage_relative_error","maximum_cell_sd_error","maximum_batch_sd_error","proteins","cells","samples","batches","replicates","software_versions"
+"specht2019v3","PASS",16,16,0.00903059256565386,0.0168703793860568,0.0373976309710023,0.0723414888363088,3042,1490,2,172,20,"R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"
+"leduc2022_pSCoPE","PASS",16,16,0.00526917449661912,0.00819432472436654,0.00692774354345027,0.113100794498019,3438,1556,2,133,20,"R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"

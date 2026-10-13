@@ -1,0 +1,4 @@
+JobID|JobName|State|Elapsed|AllocCPUS|ReqMem|NodeList
+5498955|scpPower-M2b|COMPLETED|00:03:44|2|8G|nc20215
+5498955.extern|extern|COMPLETED|00:03:44|2||nc20215
+5498955.0|bash|COMPLETED|00:03:38|2||nc20215

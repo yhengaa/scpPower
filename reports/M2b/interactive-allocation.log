@@ -1,0 +1,53 @@
+salloc: NOTE: Your memory request of 8192.0M was likely submitted as 8.0G. Please note that Slurm interprets memory requests denominated in G as multiples of 1024M, not 1000M.
+salloc: Pending job allocation 5498955
+salloc: job 5498955 queued and waiting for resources
+salloc: job 5498955 has been allocated resources
+salloc: Granted job allocation 5498955
+salloc: Waiting for resource configuration
+salloc: Nodes nc20215 are ready for job
+M2 native design specht2019v3 
+specht2019v3 replicate 1 missing 0.7962661 
+specht2019v3 replicate 2 missing 0.7988916 
+specht2019v3 replicate 3 missing 0.7985218 
+specht2019v3 replicate 4 missing 0.7855175 
+specht2019v3 replicate 5 missing 0.7939209 
+specht2019v3 replicate 6 missing 0.7992885 
+specht2019v3 replicate 7 missing 0.8009449 
+specht2019v3 replicate 8 missing 0.8015907 
+specht2019v3 replicate 9 missing 0.7996755 
+specht2019v3 replicate 10 missing 0.8041316 
+specht2019v3 replicate 11 missing 0.788837 
+specht2019v3 replicate 12 missing 0.8024653 
+specht2019v3 replicate 13 missing 0.8000735 
+specht2019v3 replicate 14 missing 0.7901815 
+specht2019v3 replicate 15 missing 0.804559 
+specht2019v3 replicate 16 missing 0.7972234 
+specht2019v3 replicate 17 missing 0.7934852 
+specht2019v3 replicate 18 missing 0.8018649 
+specht2019v3 replicate 19 missing 0.8055829 
+specht2019v3 replicate 20 missing 0.8005154 
+specht2019v3 PASS 
+M2 native design leduc2022_pSCoPE 
+leduc2022_pSCoPE replicate 1 missing 0.7103467 
+leduc2022_pSCoPE replicate 2 missing 0.7059861 
+leduc2022_pSCoPE replicate 3 missing 0.7074828 
+leduc2022_pSCoPE replicate 4 missing 0.7130434 
+leduc2022_pSCoPE replicate 5 missing 0.7066726 
+leduc2022_pSCoPE replicate 6 missing 0.7148587 
+leduc2022_pSCoPE replicate 7 missing 0.7099964 
+leduc2022_pSCoPE replicate 8 missing 0.7077425 
+leduc2022_pSCoPE replicate 9 missing 0.7096048 
+leduc2022_pSCoPE replicate 10 missing 0.7141005 
+leduc2022_pSCoPE replicate 11 missing 0.7140258 
+leduc2022_pSCoPE replicate 12 missing 0.7052364 
+leduc2022_pSCoPE replicate 13 missing 0.7199731 
+leduc2022_pSCoPE replicate 14 missing 0.7186026 
+leduc2022_pSCoPE replicate 15 missing 0.7084409 
+leduc2022_pSCoPE replicate 16 missing 0.7016714 
+leduc2022_pSCoPE replicate 17 missing 0.7086641 
+leduc2022_pSCoPE replicate 18 missing 0.7120759 
+leduc2022_pSCoPE replicate 19 missing 0.7071706 
+leduc2022_pSCoPE replicate 20 missing 0.7014552 
+leduc2022_pSCoPE PASS 
+Registered fidelity gate completed for every dataset; failures preserved.
+salloc: Relinquishing job allocation 5498955

@@ -63,3 +63,12 @@ The overall registered criterion passes. The release is authorised after enginee
 No M5 work was performed. [Full eligible-point table](validation-table.csv), [dataset verdicts](dataset-verdicts.csv), [replicate metrics](replicate-metrics.csv.gz), [manifest](run-manifest.json).
 
 Software: R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package
+
+
+## M4 closure and limitation K — addendum v1.1.5
+
+In carrier-TMT presets, unconditional power is validated only up to observed power of about 0.3. At twofold, v0.3.0 predictions ran above observation by up to 20 percentage points, associated with over-predicted testability. Q Exactive and timsTOF could not be validated at useful power for lack of cells. No TMT design numbers or new design examples are presented in the README or a vignette during this round.
+
+The 1-pp conditional-power description holds for mean signed TMT gaps: -0.82 pp for Specht and +0.94 pp for Leduc across counted points. Brunner averages +1.30 pp and Q Exactive -0.46 pp. It is not a bound on every point: among points with maximum power at least 0.2, maximum conditional gaps are 1.53 pp for Specht, 4.56 pp for Leduc and 6.05 pp for Brunner. Across all counted points the maxima are 7.77, 11.13, 7.57 and 2.32 pp respectively. The high-power agreement counts do reproduce: 3/8 Specht, 11/14 Leduc and 12/12 Brunner; Q Exactive has none. Testability is the main TMT discrepancy, while the statement that the entire gap is testability with universal agreement within 1 pp is stronger than the recorded columns support. This clarification does not change any data, criterion or accepted verdict.
+
+[Reproducible power-window and conditional-gap table](../J/v0.3.0-power-window-diagnostics.csv). The original v0.3.0 report is preserved in validation-report-v0.3.0.md; its original manifest remains the receipt for that snapshot. No M4 numerical result or verdict is changed.

@@ -1,0 +1,58 @@
+{
+  "mandate_addendum": "1.1.5",
+  "registered_UTC": "2026-10-13 23:21:17 UTC",
+  "seed": 20261013,
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "criterion": {
+    "replicates": 200,
+    "absolute_power_gap": 0.1,
+    "dataset_pass_fraction": 0.8,
+    "overall_minimum_passing_datasets": 2,
+    "count_only_m_ge_3": true
+  },
+  "prediction_order": "All counted-point prediction receipts frozen and hashed before the first observed endpoint is evaluated",
+  "calibration_population": "Calibration protein half across native accepted SCP calibration cells; H1 source restriction applied to validation cells",
+  "truth": "Validation protein half; native quantitative mask and batches retained; cell shifts from calibration proteins; log2 condition effect in 10% of validation proteins; external Walzik per-protein donor injection with half-tier fallback",
+  "k": 1,
+  "amendment_I": true,
+  "diagnostic_J_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+  "M2b_sha256": "50e2d340e61affdbebfa6ed1c4751609c25d0d15f9837235c24d37757293edcd",
+  "non_TMT_results_not_rerun": true,
+  "validation_tiers": "Frozen M1 labels for selecting training-half donor fallback only",
+  "input_hashes": {
+    "datasets": {
+      "specht2019v3": {
+        "released_preset": "cd752cb27c09b28c7a87270e30c90884b23dffcb1892cc252113e2a3e7c52cb6",
+        "quantitative_input": "06b36dad95119843ae07fa31bef897c5b92d106b48600034c75c253dd171d149",
+        "split": "df1b5f4e63110f9b57cec64cbc7e2e8604c66734a354c1afa6fdedfe6904d24f",
+        "source_cells": "1113f10aa54db6865b215e644bf135bca659a38cf662f11609a64547d842b046"
+      },
+      "leduc2022_pSCoPE": {
+        "released_preset": "43aa88ecf2dec5c10c0559ebcd7f69464908cbeca19e15ec0ba04dc2ca7616bb",
+        "quantitative_input": "ed3a9b44a78ddee2a0cc731770d70c7a661213b851b23e2c28f5ff4d3451d4c2",
+        "split": "6528ef67271f026ed5ae14513e9341a160b986b7605b36e911d949916635f3aa",
+        "source_cells": "7816c6f174629ef26eeb2ce11ade5f8fba98cec1c62ea7801fb3f52037f3295b"
+      }
+    },
+    "bulk_calibration": "814273beaffaae684b34f6ee1976f576c699a21b5211ef5777f6633c83de0b99",
+    "grid": "3daab357776f81a4c0f32ef93b56d2ede3c95854284f9a9aa51e57396e6bd86b",
+    "mandate": "ac82ee30556ac018b68e5615c6c20a67d853c91407f75a80e1ed7f3f81dfa774",
+    "renv_lock": "9847523045fd7c40703e5b45ac5a867479b5181ffbc917a35346e389635f889f",
+    "code": {
+      "R/scp_calibrate.R": "2ac1e20d38d1af2ca339ef929450c8715c62718d8ddf312123f017eeca6de033",
+      "R/scp_simulate.R": "9d2800a8f9d985a0dfbdf92beeb16ae0769191f465df190304024d28d7d83235",
+      "R/scp_power.R": "9851d28b88a99a04b9f18a025acae4ed2609d927d8630909462a0af9bc34df52",
+      "inst/scripts/m4b_helpers.R": "6e9a841ceb794f09558e65ee6f8992a539aadd140744f5b74ff471b6c5e11b36",
+      "inst/scripts/prepare_m4b.R": "92e90d02700983750cd363105eaf5da5b51a117c409719c450dbee1181f82564",
+      "inst/scripts/run_m4b_point.R": "cab0c6a98a0d59aa8d2d7d61accfcaee5117a75d35e28b6eff701191c810b074",
+      "inst/scripts/run_m4b_cluster.R": "d786ec51e964ecad7828320f8849bad5ec8371483d0b356e2ed0d3190b33870d"
+    }
+  },
+  "wall_seconds": 10.455
+}

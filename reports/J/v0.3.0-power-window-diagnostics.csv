@@ -1,0 +1,6 @@
+dataset,counted_points,high_power_points,high_power_within_10_pp,mean_signed_high_gap,mean_signed_conditional_gap,max_conditional_gap_all,max_conditional_gap_high,max_unconditional_gap,software_versions
+brunner2022,57,12,12,-0.012375672043010835,0.012976431771864656,0.07569668615341496,0.06048501837422099,0.053991935483871,R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package
+derks2022_QExactive,6,0,0,,-0.004615070798797575,0.023159040520882607,,0.00390909090909091,R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package
+derks2022_timsTOF,0,0,0,,,,,,R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package
+leduc2022_pSCoPE,69,14,11,0.08124377076411957,0.009364598558678449,0.111336900784411,0.04563421280706603,0.128110465116279,R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package
+specht2019v3,72,8,3,0.121032072368421,-0.008182324297726508,0.07767315282756498,0.015328058003420075,0.195065789473684,R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package

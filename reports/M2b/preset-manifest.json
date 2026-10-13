@@ -1,0 +1,52 @@
+{
+  "seed": 20261013,
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "amendment_I": true,
+  "datasets": {
+    "specht2019v3": {
+      "seed": 20261013,
+      "versions": {
+        "R": "4.6.1",
+        "scp": "1.22.0",
+        "limma": "3.68.5",
+        "edgeR": "4.10.5",
+        "scplainer": "workflow in scp 1.22.0; no separate package"
+      },
+      "input_hashes": {
+        "endpoint_file": "06b36dad95119843ae07fa31bef897c5b92d106b48600034c75c253dd171d149",
+        "pre_I_preset": "71cf8a4719537fe2d08e6f89eea4097b4bcc3d2020c07bb245c39e861d6b3bfd",
+        "diagnostic_J": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500"
+      },
+      "output_preset_sha256": "cd752cb27c09b28c7a87270e30c90884b23dffcb1892cc252113e2a3e7c52cb6",
+      "unchanged_fields": ["protein", "tier", "mean_log2", "sigma2_s", "sigma2_b", "sigma2_e"],
+      "unchanged_curve": true,
+      "wall_seconds": 5.136
+    },
+    "leduc2022_pSCoPE": {
+      "seed": 20261013,
+      "versions": {
+        "R": "4.6.1",
+        "scp": "1.22.0",
+        "limma": "3.68.5",
+        "edgeR": "4.10.5",
+        "scplainer": "workflow in scp 1.22.0; no separate package"
+      },
+      "input_hashes": {
+        "endpoint_file": "ed3a9b44a78ddee2a0cc731770d70c7a661213b851b23e2c28f5ff4d3451d4c2",
+        "pre_I_preset": "20579dbd3e27376cfe694c0dae22e6f06da24fce0dccf5688d189917f431e56b",
+        "diagnostic_J": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500"
+      },
+      "output_preset_sha256": "43aa88ecf2dec5c10c0559ebcd7f69464908cbeca19e15ec0ba04dc2ca7616bb",
+      "unchanged_fields": ["protein", "tier", "mean_log2", "sigma2_s", "sigma2_b", "sigma2_e"],
+      "unchanged_curve": true,
+      "wall_seconds": 6.656
+    }
+  },
+  "wall_seconds": 11.892
+}

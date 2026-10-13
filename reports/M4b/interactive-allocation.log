@@ -1,0 +1,1145 @@
+salloc: NOTE: Your memory request of 32768.0M was likely submitted as 32.0G. Please note that Slurm interprets memory requests denominated in G as multiples of 1024M, not 1000M.
+salloc: Pending job allocation 5499150
+salloc: job 5499150 queued and waiting for resources
+salloc: job 5499150 has been allocated resources
+salloc: Granted job allocation 5499150
+salloc: Nodes nc20215 are ready for job
+Calibration half fixed: specht2019v3 1521 proteins
+Calibration half fixed: leduc2022_pSCoPE 1716 proteins
+[[1]]
+[1] "specht2019v3"
+
+[[2]]
+[1] "leduc2022_pSCoPE"
+
+prediction completed 11 specht2019v3 n 3 m 4 beta 0.3219281 
+prediction completed 12 specht2019v3 n 4 m 4 beta 0.3219281 
+prediction completed 16 specht2019v3 n 3 m 8 beta 0.3219281 
+prediction completed 13 specht2019v3 n 6 m 4 beta 0.3219281 
+prediction completed 14 specht2019v3 n 8 m 4 beta 0.3219281 
+prediction completed 17 specht2019v3 n 4 m 8 beta 0.3219281 
+prediction completed 18 specht2019v3 n 6 m 8 beta 0.3219281 
+prediction completed 15 specht2019v3 n 12 m 4 beta 0.3219281 
+prediction completed 21 specht2019v3 n 3 m 16 beta 0.3219281 
+prediction completed 19 specht2019v3 n 8 m 8 beta 0.3219281 
+prediction completed 22 specht2019v3 n 4 m 16 beta 0.3219281 
+prediction completed 26 specht2019v3 n 3 m 32 beta 0.3219281 
+prediction completed 20 specht2019v3 n 12 m 8 beta 0.3219281 
+prediction completed 23 specht2019v3 n 6 m 16 beta 0.3219281 
+prediction completed 47 specht2019v3 n 4 m 4 beta 0.5849625 
+prediction completed 46 specht2019v3 n 3 m 4 beta 0.5849625 
+prediction completed 24 specht2019v3 n 8 m 16 beta 0.3219281 
+prediction completed 48 specht2019v3 n 6 m 4 beta 0.5849625 
+prediction completed 51 specht2019v3 n 3 m 8 beta 0.5849625 
+prediction completed 49 specht2019v3 n 8 m 4 beta 0.5849625 
+prediction completed 25 specht2019v3 n 12 m 16 beta 0.3219281 
+prediction completed 50 specht2019v3 n 12 m 4 beta 0.5849625 
+prediction completed 27 specht2019v3 n 4 m 32 beta 0.3219281 
+prediction completed 52 specht2019v3 n 4 m 8 beta 0.5849625 
+prediction completed 28 specht2019v3 n 6 m 32 beta 0.3219281 
+prediction completed 56 specht2019v3 n 3 m 16 beta 0.5849625 
+prediction completed 31 specht2019v3 n 3 m 64 beta 0.3219281 
+prediction completed 53 specht2019v3 n 6 m 8 beta 0.5849625 
+prediction completed 54 specht2019v3 n 8 m 8 beta 0.5849625 
+prediction completed 57 specht2019v3 n 4 m 16 beta 0.5849625 
+prediction completed 29 specht2019v3 n 8 m 32 beta 0.3219281 
+prediction completed 58 specht2019v3 n 6 m 16 beta 0.5849625 
+prediction completed 32 specht2019v3 n 4 m 64 beta 0.3219281 
+prediction completed 55 specht2019v3 n 12 m 8 beta 0.5849625 
+prediction completed 59 specht2019v3 n 8 m 16 beta 0.5849625 
+prediction completed 30 specht2019v3 n 12 m 32 beta 0.3219281 
+prediction completed 81 specht2019v3 n 3 m 4 beta 1 
+prediction completed 61 specht2019v3 n 3 m 32 beta 0.5849625 
+prediction completed 60 specht2019v3 n 12 m 16 beta 0.5849625 
+prediction completed 62 specht2019v3 n 4 m 32 beta 0.5849625 
+prediction completed 83 specht2019v3 n 6 m 4 beta 1 
+prediction completed 82 specht2019v3 n 4 m 4 beta 1 
+prediction completed 84 specht2019v3 n 8 m 4 beta 1 
+prediction completed 33 specht2019v3 n 6 m 64 beta 0.3219281 
+prediction completed 86 specht2019v3 n 3 m 8 beta 1 
+prediction completed 63 specht2019v3 n 6 m 32 beta 0.5849625 
+prediction completed 85 specht2019v3 n 12 m 4 beta 1 
+prediction completed 87 specht2019v3 n 4 m 8 beta 1 
+prediction completed 64 specht2019v3 n 8 m 32 beta 0.5849625 
+prediction completed 88 specht2019v3 n 6 m 8 beta 1 
+prediction completed 34 specht2019v3 n 8 m 64 beta 0.3219281 
+prediction completed 89 specht2019v3 n 8 m 8 beta 1 
+prediction completed 66 specht2019v3 n 3 m 64 beta 0.5849625 
+prediction completed 92 specht2019v3 n 4 m 16 beta 1 
+prediction completed 90 specht2019v3 n 12 m 8 beta 1 
+prediction completed 67 specht2019v3 n 4 m 64 beta 0.5849625 
+prediction completed 65 specht2019v3 n 12 m 32 beta 0.5849625 
+prediction completed 93 specht2019v3 n 6 m 16 beta 1 
+prediction completed 91 specht2019v3 n 3 m 16 beta 1 
+prediction completed 96 specht2019v3 n 3 m 32 beta 1 
+prediction completed 68 specht2019v3 n 6 m 64 beta 0.5849625 
+prediction completed 116 leduc2022_pSCoPE n 3 m 4 beta 0.3219281 
+prediction completed 117 leduc2022_pSCoPE n 4 m 4 beta 0.3219281 
+prediction completed 97 specht2019v3 n 4 m 32 beta 1 
+prediction completed 94 specht2019v3 n 8 m 16 beta 1 
+prediction completed 118 leduc2022_pSCoPE n 6 m 4 beta 0.3219281 
+prediction completed 119 leduc2022_pSCoPE n 8 m 4 beta 0.3219281 
+prediction completed 69 specht2019v3 n 8 m 64 beta 0.5849625 
+prediction completed 95 specht2019v3 n 12 m 16 beta 1 
+prediction completed 121 leduc2022_pSCoPE n 3 m 8 beta 0.3219281 
+prediction completed 98 specht2019v3 n 6 m 32 beta 1 
+prediction completed 122 leduc2022_pSCoPE n 4 m 8 beta 0.3219281 
+prediction completed 120 leduc2022_pSCoPE n 12 m 4 beta 0.3219281 
+prediction completed 123 leduc2022_pSCoPE n 6 m 8 beta 0.3219281 
+prediction completed 101 specht2019v3 n 3 m 64 beta 1 
+prediction completed 124 leduc2022_pSCoPE n 8 m 8 beta 0.3219281 
+prediction completed 99 specht2019v3 n 8 m 32 beta 1 
+prediction completed 102 specht2019v3 n 4 m 64 beta 1 
+prediction completed 126 leduc2022_pSCoPE n 3 m 16 beta 0.3219281 
+prediction completed 127 leduc2022_pSCoPE n 4 m 16 beta 0.3219281 
+prediction completed 125 leduc2022_pSCoPE n 12 m 8 beta 0.3219281 
+prediction completed 100 specht2019v3 n 12 m 32 beta 1 
+prediction completed 128 leduc2022_pSCoPE n 6 m 16 beta 0.3219281 
+prediction completed 151 leduc2022_pSCoPE n 3 m 4 beta 0.5849625 
+prediction completed 131 leduc2022_pSCoPE n 3 m 32 beta 0.3219281 
+prediction completed 129 leduc2022_pSCoPE n 8 m 16 beta 0.3219281 
+prediction completed 152 leduc2022_pSCoPE n 4 m 4 beta 0.5849625 
+prediction completed 153 leduc2022_pSCoPE n 6 m 4 beta 0.5849625 
+prediction completed 132 leduc2022_pSCoPE n 4 m 32 beta 0.3219281 
+prediction completed 154 leduc2022_pSCoPE n 8 m 4 beta 0.5849625 
+prediction completed 156 leduc2022_pSCoPE n 3 m 8 beta 0.5849625 
+prediction completed 130 leduc2022_pSCoPE n 12 m 16 beta 0.3219281 
+prediction completed 157 leduc2022_pSCoPE n 4 m 8 beta 0.5849625 
+prediction completed 103 specht2019v3 n 6 m 64 beta 1 
+prediction completed 155 leduc2022_pSCoPE n 12 m 4 beta 0.5849625 
+prediction completed 133 leduc2022_pSCoPE n 6 m 32 beta 0.3219281 
+prediction completed 158 leduc2022_pSCoPE n 6 m 8 beta 0.5849625 
+prediction completed 136 leduc2022_pSCoPE n 3 m 64 beta 0.3219281 
+prediction completed 161 leduc2022_pSCoPE n 3 m 16 beta 0.5849625 
+prediction completed 159 leduc2022_pSCoPE n 8 m 8 beta 0.5849625 
+prediction completed 134 leduc2022_pSCoPE n 8 m 32 beta 0.3219281 
+prediction completed 104 specht2019v3 n 8 m 64 beta 1 
+prediction completed 137 leduc2022_pSCoPE n 4 m 64 beta 0.3219281 
+prediction completed 162 leduc2022_pSCoPE n 4 m 16 beta 0.5849625 
+prediction completed 163 leduc2022_pSCoPE n 6 m 16 beta 0.5849625 
+prediction completed 186 leduc2022_pSCoPE n 3 m 4 beta 1 
+prediction completed 166 leduc2022_pSCoPE n 3 m 32 beta 0.5849625 
+prediction completed 187 leduc2022_pSCoPE n 4 m 4 beta 1 
+prediction completed 164 leduc2022_pSCoPE n 8 m 16 beta 0.5849625 
+prediction completed 167 leduc2022_pSCoPE n 4 m 32 beta 0.5849625 
+prediction completed 135 leduc2022_pSCoPE n 12 m 32 beta 0.3219281 
+prediction completed 188 leduc2022_pSCoPE n 6 m 4 beta 1 
+prediction completed 165 leduc2022_pSCoPE n 12 m 16 beta 0.5849625 
+prediction completed 160 leduc2022_pSCoPE n 12 m 8 beta 0.5849625 
+prediction completed 191 leduc2022_pSCoPE n 3 m 8 beta 1 
+prediction completed 190 leduc2022_pSCoPE n 12 m 4 beta 1 
+prediction completed 189 leduc2022_pSCoPE n 8 m 4 beta 1 
+prediction completed 192 leduc2022_pSCoPE n 4 m 8 beta 1 
+prediction completed 168 leduc2022_pSCoPE n 6 m 32 beta 0.5849625 
+prediction completed 193 leduc2022_pSCoPE n 6 m 8 beta 1 
+prediction completed 171 leduc2022_pSCoPE n 3 m 64 beta 0.5849625 
+prediction completed 138 leduc2022_pSCoPE n 6 m 64 beta 0.3219281 
+prediction completed 194 leduc2022_pSCoPE n 8 m 8 beta 1 
+prediction completed 196 leduc2022_pSCoPE n 3 m 16 beta 1 
+prediction completed 169 leduc2022_pSCoPE n 8 m 32 beta 0.5849625 
+prediction completed 197 leduc2022_pSCoPE n 4 m 16 beta 1 
+prediction completed 172 leduc2022_pSCoPE n 4 m 64 beta 0.5849625 
+prediction completed 195 leduc2022_pSCoPE n 12 m 8 beta 1 
+prediction completed 198 leduc2022_pSCoPE n 6 m 16 beta 1 
+prediction completed 201 leduc2022_pSCoPE n 3 m 32 beta 1 
+prediction completed 173 leduc2022_pSCoPE n 6 m 64 beta 0.5849625 
+prediction completed 170 leduc2022_pSCoPE n 12 m 32 beta 0.5849625 
+prediction completed 199 leduc2022_pSCoPE n 8 m 16 beta 1 
+prediction completed 202 leduc2022_pSCoPE n 4 m 32 beta 1 
+prediction completed 200 leduc2022_pSCoPE n 12 m 16 beta 1 
+prediction completed 203 leduc2022_pSCoPE n 6 m 32 beta 1 
+prediction completed 206 leduc2022_pSCoPE n 3 m 64 beta 1 
+prediction completed 204 leduc2022_pSCoPE n 8 m 32 beta 1 
+prediction completed 207 leduc2022_pSCoPE n 4 m 64 beta 1 
+prediction completed 205 leduc2022_pSCoPE n 12 m 32 beta 1 
+prediction completed 208 leduc2022_pSCoPE n 6 m 64 beta 1 
+[[1]]
+[1] 11
+
+[[2]]
+[1] 12
+
+[[3]]
+[1] 13
+
+[[4]]
+[1] 14
+
+[[5]]
+[1] 15
+
+[[6]]
+[1] 16
+
+[[7]]
+[1] 17
+
+[[8]]
+[1] 18
+
+[[9]]
+[1] 19
+
+[[10]]
+[1] 20
+
+[[11]]
+[1] 21
+
+[[12]]
+[1] 22
+
+[[13]]
+[1] 23
+
+[[14]]
+[1] 24
+
+[[15]]
+[1] 25
+
+[[16]]
+[1] 26
+
+[[17]]
+[1] 27
+
+[[18]]
+[1] 28
+
+[[19]]
+[1] 29
+
+[[20]]
+[1] 30
+
+[[21]]
+[1] 31
+
+[[22]]
+[1] 32
+
+[[23]]
+[1] 33
+
+[[24]]
+[1] 34
+
+[[25]]
+[1] 46
+
+[[26]]
+[1] 47
+
+[[27]]
+[1] 48
+
+[[28]]
+[1] 49
+
+[[29]]
+[1] 50
+
+[[30]]
+[1] 51
+
+[[31]]
+[1] 52
+
+[[32]]
+[1] 53
+
+[[33]]
+[1] 54
+
+[[34]]
+[1] 55
+
+[[35]]
+[1] 56
+
+[[36]]
+[1] 57
+
+[[37]]
+[1] 58
+
+[[38]]
+[1] 59
+
+[[39]]
+[1] 60
+
+[[40]]
+[1] 61
+
+[[41]]
+[1] 62
+
+[[42]]
+[1] 63
+
+[[43]]
+[1] 64
+
+[[44]]
+[1] 65
+
+[[45]]
+[1] 66
+
+[[46]]
+[1] 67
+
+[[47]]
+[1] 68
+
+[[48]]
+[1] 69
+
+[[49]]
+[1] 81
+
+[[50]]
+[1] 82
+
+[[51]]
+[1] 83
+
+[[52]]
+[1] 84
+
+[[53]]
+[1] 85
+
+[[54]]
+[1] 86
+
+[[55]]
+[1] 87
+
+[[56]]
+[1] 88
+
+[[57]]
+[1] 89
+
+[[58]]
+[1] 90
+
+[[59]]
+[1] 91
+
+[[60]]
+[1] 92
+
+[[61]]
+[1] 93
+
+[[62]]
+[1] 94
+
+[[63]]
+[1] 95
+
+[[64]]
+[1] 96
+
+[[65]]
+[1] 97
+
+[[66]]
+[1] 98
+
+[[67]]
+[1] 99
+
+[[68]]
+[1] 100
+
+[[69]]
+[1] 101
+
+[[70]]
+[1] 102
+
+[[71]]
+[1] 103
+
+[[72]]
+[1] 104
+
+[[73]]
+[1] 116
+
+[[74]]
+[1] 117
+
+[[75]]
+[1] 118
+
+[[76]]
+[1] 119
+
+[[77]]
+[1] 120
+
+[[78]]
+[1] 121
+
+[[79]]
+[1] 122
+
+[[80]]
+[1] 123
+
+[[81]]
+[1] 124
+
+[[82]]
+[1] 125
+
+[[83]]
+[1] 126
+
+[[84]]
+[1] 127
+
+[[85]]
+[1] 128
+
+[[86]]
+[1] 129
+
+[[87]]
+[1] 130
+
+[[88]]
+[1] 131
+
+[[89]]
+[1] 132
+
+[[90]]
+[1] 133
+
+[[91]]
+[1] 134
+
+[[92]]
+[1] 135
+
+[[93]]
+[1] 136
+
+[[94]]
+[1] 137
+
+[[95]]
+[1] 138
+
+[[96]]
+[1] 151
+
+[[97]]
+[1] 152
+
+[[98]]
+[1] 153
+
+[[99]]
+[1] 154
+
+[[100]]
+[1] 155
+
+[[101]]
+[1] 156
+
+[[102]]
+[1] 157
+
+[[103]]
+[1] 158
+
+[[104]]
+[1] 159
+
+[[105]]
+[1] 160
+
+[[106]]
+[1] 161
+
+[[107]]
+[1] 162
+
+[[108]]
+[1] 163
+
+[[109]]
+[1] 164
+
+[[110]]
+[1] 165
+
+[[111]]
+[1] 166
+
+[[112]]
+[1] 167
+
+[[113]]
+[1] 168
+
+[[114]]
+[1] 169
+
+[[115]]
+[1] 170
+
+[[116]]
+[1] 171
+
+[[117]]
+[1] 172
+
+[[118]]
+[1] 173
+
+[[119]]
+[1] 186
+
+[[120]]
+[1] 187
+
+[[121]]
+[1] 188
+
+[[122]]
+[1] 189
+
+[[123]]
+[1] 190
+
+[[124]]
+[1] 191
+
+[[125]]
+[1] 192
+
+[[126]]
+[1] 193
+
+[[127]]
+[1] 194
+
+[[128]]
+[1] 195
+
+[[129]]
+[1] 196
+
+[[130]]
+[1] 197
+
+[[131]]
+[1] 198
+
+[[132]]
+[1] 199
+
+[[133]]
+[1] 200
+
+[[134]]
+[1] 201
+
+[[135]]
+[1] 202
+
+[[136]]
+[1] 203
+
+[[137]]
+[1] 204
+
+[[138]]
+[1] 205
+
+[[139]]
+[1] 206
+
+[[140]]
+[1] 207
+
+[[141]]
+[1] 208
+
+All predictions finished and frozen before first observed endpoint: 141 
+observation completed 11 specht2019v3 n 3 m 4 beta 0.3219281 
+observation completed 12 specht2019v3 n 4 m 4 beta 0.3219281 
+observation completed 16 specht2019v3 n 3 m 8 beta 0.3219281 
+observation completed 13 specht2019v3 n 6 m 4 beta 0.3219281 
+observation completed 17 specht2019v3 n 4 m 8 beta 0.3219281 
+observation completed 14 specht2019v3 n 8 m 4 beta 0.3219281 
+observation completed 18 specht2019v3 n 6 m 8 beta 0.3219281 
+observation completed 21 specht2019v3 n 3 m 16 beta 0.3219281 
+observation completed 15 specht2019v3 n 12 m 4 beta 0.3219281 
+observation completed 22 specht2019v3 n 4 m 16 beta 0.3219281 
+observation completed 19 specht2019v3 n 8 m 8 beta 0.3219281 
+observation completed 26 specht2019v3 n 3 m 32 beta 0.3219281 
+observation completed 20 specht2019v3 n 12 m 8 beta 0.3219281 
+observation completed 46 specht2019v3 n 3 m 4 beta 0.5849625 
+observation completed 23 specht2019v3 n 6 m 16 beta 0.3219281 
+observation completed 47 specht2019v3 n 4 m 4 beta 0.5849625 
+observation completed 48 specht2019v3 n 6 m 4 beta 0.5849625 
+observation completed 24 specht2019v3 n 8 m 16 beta 0.3219281 
+observation completed 51 specht2019v3 n 3 m 8 beta 0.5849625 
+observation completed 49 specht2019v3 n 8 m 4 beta 0.5849625 
+observation completed 52 specht2019v3 n 4 m 8 beta 0.5849625 
+observation completed 25 specht2019v3 n 12 m 16 beta 0.3219281 
+observation completed 50 specht2019v3 n 12 m 4 beta 0.5849625 
+observation completed 27 specht2019v3 n 4 m 32 beta 0.3219281 
+observation completed 53 specht2019v3 n 6 m 8 beta 0.5849625 
+observation completed 54 specht2019v3 n 8 m 8 beta 0.5849625 
+observation completed 28 specht2019v3 n 6 m 32 beta 0.3219281 
+observation completed 31 specht2019v3 n 3 m 64 beta 0.3219281 
+observation completed 55 specht2019v3 n 12 m 8 beta 0.5849625 
+observation completed 57 specht2019v3 n 4 m 16 beta 0.5849625 
+observation completed 56 specht2019v3 n 3 m 16 beta 0.5849625 
+observation completed 29 specht2019v3 n 8 m 32 beta 0.3219281 
+observation completed 32 specht2019v3 n 4 m 64 beta 0.3219281 
+observation completed 58 specht2019v3 n 6 m 16 beta 0.5849625 
+observation completed 61 specht2019v3 n 3 m 32 beta 0.5849625 
+observation completed 59 specht2019v3 n 8 m 16 beta 0.5849625 
+observation completed 81 specht2019v3 n 3 m 4 beta 1 
+observation completed 82 specht2019v3 n 4 m 4 beta 1 
+observation completed 62 specht2019v3 n 4 m 32 beta 0.5849625 
+observation completed 83 specht2019v3 n 6 m 4 beta 1 
+observation completed 30 specht2019v3 n 12 m 32 beta 0.3219281 
+observation completed 86 specht2019v3 n 3 m 8 beta 1 
+observation completed 60 specht2019v3 n 12 m 16 beta 0.5849625 
+observation completed 33 specht2019v3 n 6 m 64 beta 0.3219281 
+observation completed 85 specht2019v3 n 12 m 4 beta 1 
+observation completed 84 specht2019v3 n 8 m 4 beta 1 
+observation completed 63 specht2019v3 n 6 m 32 beta 0.5849625 
+observation completed 87 specht2019v3 n 4 m 8 beta 1 
+observation completed 88 specht2019v3 n 6 m 8 beta 1 
+observation completed 66 specht2019v3 n 3 m 64 beta 0.5849625 
+observation completed 91 specht2019v3 n 3 m 16 beta 1 
+observation completed 64 specht2019v3 n 8 m 32 beta 0.5849625 
+observation completed 89 specht2019v3 n 8 m 8 beta 1 
+observation completed 67 specht2019v3 n 4 m 64 beta 0.5849625 
+observation completed 34 specht2019v3 n 8 m 64 beta 0.3219281 
+observation completed 92 specht2019v3 n 4 m 16 beta 1 
+observation completed 90 specht2019v3 n 12 m 8 beta 1 
+observation completed 93 specht2019v3 n 6 m 16 beta 1 
+observation completed 94 specht2019v3 n 8 m 16 beta 1 
+observation completed 96 specht2019v3 n 3 m 32 beta 1 
+observation completed 97 specht2019v3 n 4 m 32 beta 1 
+observation completed 116 leduc2022_pSCoPE n 3 m 4 beta 0.3219281 
+observation completed 65 specht2019v3 n 12 m 32 beta 0.5849625 
+observation completed 117 leduc2022_pSCoPE n 4 m 4 beta 0.3219281 
+observation completed 95 specht2019v3 n 12 m 16 beta 1 
+observation completed 121 leduc2022_pSCoPE n 3 m 8 beta 0.3219281 
+observation completed 118 leduc2022_pSCoPE n 6 m 4 beta 0.3219281 
+observation completed 119 leduc2022_pSCoPE n 8 m 4 beta 0.3219281 
+observation completed 120 leduc2022_pSCoPE n 12 m 4 beta 0.3219281 
+observation completed 122 leduc2022_pSCoPE n 4 m 8 beta 0.3219281 
+observation completed 101 specht2019v3 n 3 m 64 beta 1 
+observation completed 98 specht2019v3 n 6 m 32 beta 1 
+observation completed 123 leduc2022_pSCoPE n 6 m 8 beta 0.3219281 
+observation completed 124 leduc2022_pSCoPE n 8 m 8 beta 0.3219281 
+observation completed 99 specht2019v3 n 8 m 32 beta 1 
+observation completed 126 leduc2022_pSCoPE n 3 m 16 beta 0.3219281 
+observation completed 127 leduc2022_pSCoPE n 4 m 16 beta 0.3219281 
+observation completed 102 specht2019v3 n 4 m 64 beta 1 
+observation completed 69 specht2019v3 n 8 m 64 beta 0.5849625 
+observation completed 125 leduc2022_pSCoPE n 12 m 8 beta 0.3219281 
+observation completed 128 leduc2022_pSCoPE n 6 m 16 beta 0.3219281 
+observation completed 131 leduc2022_pSCoPE n 3 m 32 beta 0.3219281 
+observation completed 100 specht2019v3 n 12 m 32 beta 1 
+observation completed 129 leduc2022_pSCoPE n 8 m 16 beta 0.3219281 
+observation completed 152 leduc2022_pSCoPE n 4 m 4 beta 0.5849625 
+observation completed 151 leduc2022_pSCoPE n 3 m 4 beta 0.5849625 
+observation completed 132 leduc2022_pSCoPE n 4 m 32 beta 0.3219281 
+observation completed 153 leduc2022_pSCoPE n 6 m 4 beta 0.5849625 
+observation completed 154 leduc2022_pSCoPE n 8 m 4 beta 0.5849625 
+observation completed 156 leduc2022_pSCoPE n 3 m 8 beta 0.5849625 
+observation completed 130 leduc2022_pSCoPE n 12 m 16 beta 0.3219281 
+observation completed 157 leduc2022_pSCoPE n 4 m 8 beta 0.5849625 
+observation completed 155 leduc2022_pSCoPE n 12 m 4 beta 0.5849625 
+observation completed 136 leduc2022_pSCoPE n 3 m 64 beta 0.3219281 
+observation completed 158 leduc2022_pSCoPE n 6 m 8 beta 0.5849625 
+observation completed 103 specht2019v3 n 6 m 64 beta 1 
+observation completed 104 specht2019v3 n 8 m 64 beta 1 
+observation completed 134 leduc2022_pSCoPE n 8 m 32 beta 0.3219281 
+observation completed 161 leduc2022_pSCoPE n 3 m 16 beta 0.5849625 
+observation completed 159 leduc2022_pSCoPE n 8 m 8 beta 0.5849625 
+observation completed 137 leduc2022_pSCoPE n 4 m 64 beta 0.3219281 
+observation completed 162 leduc2022_pSCoPE n 4 m 16 beta 0.5849625 
+observation completed 160 leduc2022_pSCoPE n 12 m 8 beta 0.5849625 
+observation completed 163 leduc2022_pSCoPE n 6 m 16 beta 0.5849625 
+observation completed 68 specht2019v3 n 6 m 64 beta 0.5849625 
+observation completed 164 leduc2022_pSCoPE n 8 m 16 beta 0.5849625 
+observation completed 133 leduc2022_pSCoPE n 6 m 32 beta 0.3219281 
+observation completed 166 leduc2022_pSCoPE n 3 m 32 beta 0.5849625 
+observation completed 186 leduc2022_pSCoPE n 3 m 4 beta 1 
+observation completed 135 leduc2022_pSCoPE n 12 m 32 beta 0.3219281 
+observation completed 187 leduc2022_pSCoPE n 4 m 4 beta 1 
+observation completed 188 leduc2022_pSCoPE n 6 m 4 beta 1 
+observation completed 167 leduc2022_pSCoPE n 4 m 32 beta 0.5849625 
+observation completed 138 leduc2022_pSCoPE n 6 m 64 beta 0.3219281 
+observation completed 189 leduc2022_pSCoPE n 8 m 4 beta 1 
+observation completed 191 leduc2022_pSCoPE n 3 m 8 beta 1 
+observation completed 165 leduc2022_pSCoPE n 12 m 16 beta 0.5849625 
+observation completed 192 leduc2022_pSCoPE n 4 m 8 beta 1 
+observation completed 190 leduc2022_pSCoPE n 12 m 4 beta 1 
+observation completed 193 leduc2022_pSCoPE n 6 m 8 beta 1 
+observation completed 168 leduc2022_pSCoPE n 6 m 32 beta 0.5849625 
+observation completed 196 leduc2022_pSCoPE n 3 m 16 beta 1 
+observation completed 194 leduc2022_pSCoPE n 8 m 8 beta 1 
+observation completed 171 leduc2022_pSCoPE n 3 m 64 beta 0.5849625 
+observation completed 197 leduc2022_pSCoPE n 4 m 16 beta 1 
+observation completed 198 leduc2022_pSCoPE n 6 m 16 beta 1 
+observation completed 172 leduc2022_pSCoPE n 4 m 64 beta 0.5849625 
+observation completed 169 leduc2022_pSCoPE n 8 m 32 beta 0.5849625 
+observation completed 201 leduc2022_pSCoPE n 3 m 32 beta 1 
+observation completed 195 leduc2022_pSCoPE n 12 m 8 beta 1 
+observation completed 199 leduc2022_pSCoPE n 8 m 16 beta 1 
+observation completed 202 leduc2022_pSCoPE n 4 m 32 beta 1 
+observation completed 200 leduc2022_pSCoPE n 12 m 16 beta 1 
+observation completed 203 leduc2022_pSCoPE n 6 m 32 beta 1 
+observation completed 170 leduc2022_pSCoPE n 12 m 32 beta 0.5849625 
+observation completed 173 leduc2022_pSCoPE n 6 m 64 beta 0.5849625 
+observation completed 206 leduc2022_pSCoPE n 3 m 64 beta 1 
+observation completed 204 leduc2022_pSCoPE n 8 m 32 beta 1 
+observation completed 207 leduc2022_pSCoPE n 4 m 64 beta 1 
+observation completed 205 leduc2022_pSCoPE n 12 m 32 beta 1 
+observation completed 208 leduc2022_pSCoPE n 6 m 64 beta 1 
+[[1]]
+[1] 11
+
+[[2]]
+[1] 12
+
+[[3]]
+[1] 13
+
+[[4]]
+[1] 14
+
+[[5]]
+[1] 15
+
+[[6]]
+[1] 16
+
+[[7]]
+[1] 17
+
+[[8]]
+[1] 18
+
+[[9]]
+[1] 19
+
+[[10]]
+[1] 20
+
+[[11]]
+[1] 21
+
+[[12]]
+[1] 22
+
+[[13]]
+[1] 23
+
+[[14]]
+[1] 24
+
+[[15]]
+[1] 25
+
+[[16]]
+[1] 26
+
+[[17]]
+[1] 27
+
+[[18]]
+[1] 28
+
+[[19]]
+[1] 29
+
+[[20]]
+[1] 30
+
+[[21]]
+[1] 31
+
+[[22]]
+[1] 32
+
+[[23]]
+[1] 33
+
+[[24]]
+[1] 34
+
+[[25]]
+[1] 46
+
+[[26]]
+[1] 47
+
+[[27]]
+[1] 48
+
+[[28]]
+[1] 49
+
+[[29]]
+[1] 50
+
+[[30]]
+[1] 51
+
+[[31]]
+[1] 52
+
+[[32]]
+[1] 53
+
+[[33]]
+[1] 54
+
+[[34]]
+[1] 55
+
+[[35]]
+[1] 56
+
+[[36]]
+[1] 57
+
+[[37]]
+[1] 58
+
+[[38]]
+[1] 59
+
+[[39]]
+[1] 60
+
+[[40]]
+[1] 61
+
+[[41]]
+[1] 62
+
+[[42]]
+[1] 63
+
+[[43]]
+[1] 64
+
+[[44]]
+[1] 65
+
+[[45]]
+[1] 66
+
+[[46]]
+[1] 67
+
+[[47]]
+[1] 68
+
+[[48]]
+[1] 69
+
+[[49]]
+[1] 81
+
+[[50]]
+[1] 82
+
+[[51]]
+[1] 83
+
+[[52]]
+[1] 84
+
+[[53]]
+[1] 85
+
+[[54]]
+[1] 86
+
+[[55]]
+[1] 87
+
+[[56]]
+[1] 88
+
+[[57]]
+[1] 89
+
+[[58]]
+[1] 90
+
+[[59]]
+[1] 91
+
+[[60]]
+[1] 92
+
+[[61]]
+[1] 93
+
+[[62]]
+[1] 94
+
+[[63]]
+[1] 95
+
+[[64]]
+[1] 96
+
+[[65]]
+[1] 97
+
+[[66]]
+[1] 98
+
+[[67]]
+[1] 99
+
+[[68]]
+[1] 100
+
+[[69]]
+[1] 101
+
+[[70]]
+[1] 102
+
+[[71]]
+[1] 103
+
+[[72]]
+[1] 104
+
+[[73]]
+[1] 116
+
+[[74]]
+[1] 117
+
+[[75]]
+[1] 118
+
+[[76]]
+[1] 119
+
+[[77]]
+[1] 120
+
+[[78]]
+[1] 121
+
+[[79]]
+[1] 122
+
+[[80]]
+[1] 123
+
+[[81]]
+[1] 124
+
+[[82]]
+[1] 125
+
+[[83]]
+[1] 126
+
+[[84]]
+[1] 127
+
+[[85]]
+[1] 128
+
+[[86]]
+[1] 129
+
+[[87]]
+[1] 130
+
+[[88]]
+[1] 131
+
+[[89]]
+[1] 132
+
+[[90]]
+[1] 133
+
+[[91]]
+[1] 134
+
+[[92]]
+[1] 135
+
+[[93]]
+[1] 136
+
+[[94]]
+[1] 137
+
+[[95]]
+[1] 138
+
+[[96]]
+[1] 151
+
+[[97]]
+[1] 152
+
+[[98]]
+[1] 153
+
+[[99]]
+[1] 154
+
+[[100]]
+[1] 155
+
+[[101]]
+[1] 156
+
+[[102]]
+[1] 157
+
+[[103]]
+[1] 158
+
+[[104]]
+[1] 159
+
+[[105]]
+[1] 160
+
+[[106]]
+[1] 161
+
+[[107]]
+[1] 162
+
+[[108]]
+[1] 163
+
+[[109]]
+[1] 164
+
+[[110]]
+[1] 165
+
+[[111]]
+[1] 166
+
+[[112]]
+[1] 167
+
+[[113]]
+[1] 168
+
+[[114]]
+[1] 169
+
+[[115]]
+[1] 170
+
+[[116]]
+[1] 171
+
+[[117]]
+[1] 172
+
+[[118]]
+[1] 173
+
+[[119]]
+[1] 186
+
+[[120]]
+[1] 187
+
+[[121]]
+[1] 188
+
+[[122]]
+[1] 189
+
+[[123]]
+[1] 190
+
+[[124]]
+[1] 191
+
+[[125]]
+[1] 192
+
+[[126]]
+[1] 193
+
+[[127]]
+[1] 194
+
+[[128]]
+[1] 195
+
+[[129]]
+[1] 196
+
+[[130]]
+[1] 197
+
+[[131]]
+[1] 198
+
+[[132]]
+[1] 199
+
+[[133]]
+[1] 200
+
+[[134]]
+[1] 201
+
+[[135]]
+[1] 202
+
+[[136]]
+[1] 203
+
+[[137]]
+[1] 204
+
+[[138]]
+[1] 205
+
+[[139]]
+[1] 206
+
+[[140]]
+[1] 207
+
+[[141]]
+[1] 208
+
+M4 cluster stages completed. Errors, if any, are retained without tuning.
+salloc: Relinquishing job allocation 5499150

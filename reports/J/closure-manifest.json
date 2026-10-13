@@ -1,0 +1,22 @@
+{
+  "seed": 20261013,
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "input_hashes": {
+    "original_M4_table": "d26a6eca29bf6b99f9502834c416888e014e8bafa540a7f9d44810b6110ef240",
+    "original_M4_report": "00eae0f27d186a5245360a995374c6b8e2b505f2f9addb6cb1efe759b3b10eb4",
+    "script": "6372a684363bda6aeccb61a38af9edcd89207d137ea4ffa7b95026fdc83a9c78"
+  },
+  "output_hashes": {
+    "validation_report": "b992a96c0156349d471b9b4a50f1d274c9f743a10557a0cec4d899d1ec5d1ea7",
+    "README": "69d785f1c06131e4cdb54a53efb188fe74622394450159ecce7d3a3e061facaa",
+    "power_window_table": "88d1b7178d24361e0b8b8fccb96c4c2207d9aa30f1da6ba850d841510102e2bb"
+  },
+  "registered_M4_verdict_unchanged": true,
+  "wall_seconds": 0.01300581800751388
+}

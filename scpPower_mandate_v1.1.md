@@ -259,3 +259,44 @@ section to the M3 report on testability, 1.25-fold changes and k sensitivity.
 Record split and replicate seeds, hashes, versions, wall times and cluster
 accounting. On overall pass, tag v0.3.0 and create a GitHub release with M4
 evidence. No M5 vignette, README design examples or Zenodo work is authorised.
+
+## Frozen addendum v1.1.5 — M4 closure and TMT testability check, 13 October 2026
+
+**Status: FROZEN.** The accepted v0.3.0 M4 verdict is unchanged. Diagnostic J
+must be completed and reported before any preset change. On the v0.3.0
+validation proteins and H1 source cells, J compares finite fractions overall
+and per tier, p_g/q_g from each mask with paired per-protein differences,
+PSM-finite / aggregated-NA pairs with traceable pipeline attribution, and
+native per-cell depth SD observed versus independent G2 simulation.
+
+The fixed decision is endpoint sparsity at least 5 percentage points above
+the PSM mask overall. J reports 9.781 pp for Specht macrophages and 7.080 pp
+for Leduc monocytes before changes. **Amendment I applies to both.** TMT
+p_g/q_g and the M2 missing-fraction comparison now use the finite mask of the
+ratio-based aggregated assay used by the endpoint. No variance, intensity,
+endpoint, resampling, compression or tolerance changes are authorised.
+
+Rerun M2b on Specht and Leduc only with the same native designs, seeds, twenty
+replicates and tolerances. Both must pass before M4b. M4b uses a new recorded
+protein split seed and unchanged H1–H4, 200 prediction and 200 observation
+replicates, predictions frozen before observation, a 10-pp gap tolerance and
+80% dataset pass fraction excluding m < 3. The two rerun datasets must satisfy
+the registered criterion before release. Also report, without gating, agreement
+and mean signed predicted-minus-observed gap among points with maximum power
+at least 0.2. Do not rerun Brunner, Q Exactive or timsTOF. On any gate failure,
+report suspected causes and stop without a v0.3.1 tag or release.
+
+**K. Limitation.** Carrier-TMT unconditional power is validated only up to
+observed power of about 0.3. At twofold, v0.3.0 predictions exceed observation
+by up to 20 pp, associated with excess predicted testability. Q Exactive and
+timsTOF could not be validated at useful power for lack of cells. No TMT design
+numbers or new examples enter a README or vignette during this round.
+The directive's additional description that the gap is entirely testability
+and conditional power agrees within 1 pp must be checked against the recorded
+conditional-power columns and reported with actual values if it does not
+reproduce; this reporting correction cannot reopen or change a registered gate.
+
+Return Diagnostic J tables and decision, conditional M2b/M4b reports and plots,
+seeds, hashes, software versions, wall times and cluster accounting, NEWS diff
+and this addendum. Tag v0.3.1 with a release only after both gates pass.
+No M5 vignette, README design examples, Zenodo DOI or AI-use disclosure work.

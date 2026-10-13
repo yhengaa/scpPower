@@ -1,0 +1,22 @@
+{
+  "seed": 20261013,
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "cause": "A comment appended to the qz assignment swallowed the mask assignment. Both half-preset workers errored before writing a preset; zero predictions and zero observations completed.",
+  "correction": "Put the mask assignment on its own line. Register the corrected code before rerunning the same input data, split seeds, grid and injection/prediction seeds. No probability formula, noise model, endpoint or criterion changed.",
+  "input_hashes": {
+    "old_registration": "cf27738295843a444ec96dc1a0d8e73bcc9b7b8287a0c67dfd09dae96e978bc9",
+    "new_registration": "0ed3a509d10d1b48fc33505bd16bd14f0b7f5f3345d0963b40d1de1db2319975",
+    "old_helper": "ff2fec6959ce824affa0d39bc90a47a449912bab058b45c5ae8db664ae464150",
+    "corrected_helper": "6e9a841ceb794f09558e65ee6f8992a539aadd140744f5b74ff471b6c5e11b36"
+  },
+  "old_job": "5499107",
+  "wall_seconds": 35.362,
+  "predictions_before_correction": 0,
+  "observations_before_correction": 0
+}

@@ -1,0 +1,66 @@
+{
+  "seed": 20261013,
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "decision_threshold": 0.05,
+  "decision_basis": "Exact same v0.3.0 held-out proteins and H1 source cells; PSM finite fraction minus endpoint aggregated finite fraction",
+  "datasets": {
+    "specht2019v3": {
+      "seed": 20261013,
+      "split_seed": 23261113,
+      "versions": {
+        "R": "4.6.1",
+        "scp": "1.22.0",
+        "limma": "3.68.5",
+        "edgeR": "4.10.5",
+        "scplainer": "workflow in scp 1.22.0; no separate package"
+      },
+      "source_line": "Macrophage",
+      "input_hashes": {
+        "PSM_file": "a15a39aa5c073ce73188fad22d45b8d8c36b5713fab0881987c8ee7b9390a2af",
+        "aggregated_file": "06b36dad95119843ae07fa31bef897c5b92d106b48600034c75c253dd171d149",
+        "split": "1d52dc99992bf27f179467badca00212358ea76278406f56b3558416a78737d0",
+        "source_cells": "1113f10aa54db6865b215e644bf135bca659a38cf662f11609a64547d842b046",
+        "psm_mask": "7784acae846cf2c100b14beee3be85b03a1db8e38aedac500e4aa580902298f0",
+        "aggregated_mask": "969c687925513b178ee9528dfea00425600813323dc9e64752bee25403f99f17"
+      },
+      "decision": "I APPLIES: overall aggregated sparsity gap >= 5 pp",
+      "wall_seconds": 5.529
+    },
+    "leduc2022_pSCoPE": {
+      "seed": 20261013,
+      "split_seed": 23261213,
+      "versions": {
+        "R": "4.6.1",
+        "scp": "1.22.0",
+        "limma": "3.68.5",
+        "edgeR": "4.10.5",
+        "scplainer": "workflow in scp 1.22.0; no separate package"
+      },
+      "source_line": "Monocyte",
+      "input_hashes": {
+        "PSM_file": "e0a2d9a2a419275bd12d5c26d40a30ce9ca83feba3d15983399588b081245f8c",
+        "aggregated_file": "ed3a9b44a78ddee2a0cc731770d70c7a661213b851b23e2c28f5ff4d3451d4c2",
+        "split": "3e7156f29b346a70424d88b23b5593981489b8eacccfe13908e4a3785cec5cbd",
+        "source_cells": "7816c6f174629ef26eeb2ce11ade5f8fba98cec1c62ea7801fb3f52037f3295b",
+        "psm_mask": "7d3207a09d05c5d0eb2c9c161cb73d102691aa081b977769306dcee04d6b179d",
+        "aggregated_mask": "cef069212c170620ac5ba48c5a87f9a7f1f8e305c233f78f2101c1425e0bb9eb"
+      },
+      "decision": "I APPLIES: overall aggregated sparsity gap >= 5 pp",
+      "wall_seconds": 4.875
+    }
+  },
+  "amendment_I_applies": true,
+  "preset_changes_before_diagnostic": false,
+  "input_hashes": {
+    "script": "3eed712ac443fa20534510ab56f10e82c8574a2be2f1b8e28e66820f5aeb4bdf",
+    "simulator": "9d2800a8f9d985a0dfbdf92beeb16ae0769191f465df190304024d28d7d83235",
+    "renv_lock": "9847523045fd7c40703e5b45ac5a867479b5181ffbc917a35346e389635f889f"
+  },
+  "wall_seconds": 10.559
+}

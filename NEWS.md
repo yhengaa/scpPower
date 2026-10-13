@@ -1,3 +1,22 @@
+# scpPower 0.3.1
+
+* Both M2b rows pass. M4b passes on all counted points: Specht 72/72 and
+  Leduc 69/69. In the descriptive power >= 0.2 window, agreement is 4/4
+  and 10/10; mean signed predicted-minus-observed gaps are -0.80 and +1.45 pp.
+  Preserves the corrected startup error before any M4b prediction or observation.
+
+* Frozen addendum v1.1.5 records Diagnostic J before any preset change.
+  Endpoint matrices are sparser than raw PSM masks by 9.781 pp for Specht
+  macrophages and 7.080 pp for Leduc monocytes in the v0.3.0 validation halves.
+  Both exceed the fixed 5-pp threshold, authorising amendment I.
+* Amendment I uses the endpoint aggregated assay mask for TMT p_g/q_g and
+  the M2b missingness comparison. Intensity, variance, simulation draws and
+  endpoint definitions are unchanged. M2b and M4b retain registered gates.
+* Adds limitation K to the validation report and README; removes the old
+  TMT power-grid example pending the diagnostic round. Reports actual recorded
+  conditional-power gaps rather than asserting the unreproduced 1-pp bound.
+  The accepted v0.3.0 M4 verdict and all non-TMT results stand. No M5 work.
+
 # scpPower 0.3.0
 
 * Registered M4 passes overall: Specht 67/72, Leduc 66/69, Q Exactive 6/6

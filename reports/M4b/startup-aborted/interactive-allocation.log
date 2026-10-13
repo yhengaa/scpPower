@@ -1,0 +1,19 @@
+salloc: NOTE: Your memory request of 32768.0M was likely submitted as 32.0G. Please note that Slurm interprets memory requests denominated in G as multiples of 1024M, not 1000M.
+salloc: Pending job allocation 5499107
+salloc: job 5499107 queued and waiting for resources
+salloc: job 5499107 has been allocated resources
+salloc: Granted job allocation 5499107
+salloc: Nodes nc20123 are ready for job
+Reported error specht2019v3 calibration NA object 'mask' not found 
+Reported error leduc2022_pSCoPE calibration NA object 'mask' not found 
+[[1]]
+[1] NA
+
+[[2]]
+[1] NA
+
+list()
+All predictions finished and frozen before first observed endpoint: 0 
+list()
+M4 cluster stages completed. Errors, if any, are retained without tuning.
+salloc: Relinquishing job allocation 5499107

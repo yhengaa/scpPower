@@ -150,16 +150,7 @@ It reports power, testability, realised FDR, Monte Carlo standard errors,
 actual acquisition runs, nominal instrument hours and the cheapest tested
 design meeting the requested power target.
 
-```r
-power <- scp_power(
-    "specht2019v3", n_per_condition = c(3, 4, 6, 8, 12),
-    m_cells_per_sample = c(1, 2, 4, 8, 16, 32, 64),
-    beta = log2(c(1.25, 1.5, 2)), layout = "balanced",
-    k = c(1, 0.75, 0.5), replicates = 200, seed = 20261013
-)
-power$results
-power$cheapest
-```
+See the documented `scp_power()` return values in [the function documentation](man/scp_power.Rd).
 
 The [M3 report](reports/M3/power-report.md) includes power and testability
 curves, the TMT sensitivity assumptions, realised FDR, instrument-hour
@@ -171,6 +162,8 @@ transfer. The [registered M4 validation](reports/M4/validation-report.md)
 evaluates cell-level noise, missingness and the test using held-out proteins.
 It cannot validate between-donor variance transfer or compression k. The
 original M3 numeric tables and plots remain unchanged.
+
+The M3 numbers are frozen under the pre-I presets. Use tag `v0.2.0` to reproduce that run; this directive does not rerun M3.
 
 Reproduce M3 after the revised M2 gate passes:
 
@@ -189,3 +182,12 @@ For an interactive compute allocation, the same registered points can run
 with `srun Rscript inst/scripts/run_m3_parallel.R`; the launcher uses the
 allocated CPU count and retains already-completed points. This changes only
 scheduling, with the grid and replicate seeds preserved.
+
+
+Carrier-TMT validation limitation (addendum v1.1.5):
+
+In carrier-TMT presets, unconditional power is validated only up to observed power of about 0.3. At twofold, v0.3.0 predictions ran above observation by up to 20 percentage points, associated with over-predicted testability. Q Exactive and timsTOF could not be validated at useful power for lack of cells. No TMT design numbers or new design examples are presented in the README or a vignette during this round.
+
+The 1-pp conditional-power description holds for mean signed TMT gaps: -0.82 pp for Specht and +0.94 pp for Leduc across counted points. Brunner averages +1.30 pp and Q Exactive -0.46 pp. It is not a bound on every point: among points with maximum power at least 0.2, maximum conditional gaps are 1.53 pp for Specht, 4.56 pp for Leduc and 6.05 pp for Brunner. Across all counted points the maxima are 7.77, 11.13, 7.57 and 2.32 pp respectively. The high-power agreement counts do reproduce: 3/8 Specht, 11/14 Leduc and 12/12 Brunner; Q Exactive has none. Testability is the main TMT discrepancy, while the statement that the entire gap is testability with universal agreement within 1 pp is stronger than the recorded columns support. This clarification does not change any data, criterion or accepted verdict.
+
+[Diagnostic J](reports/J/diagnostic-report.md) determines the assay-consistency branch before any preset change. The registered v0.3.0 M4 verdict stands. No M5 work is included.

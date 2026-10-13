@@ -1,0 +1,3 @@
+"dataset","observed","simulated_mean","simulated_sd","gate","software_versions"
+"specht2019v3",0.161406969099277,0.155292570677186,0.00640228826872147,FALSE,"R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"
+"leduc2022_pSCoPE",0.260616637579988,0.258942615787941,0.00702504649702702,FALSE,"R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"

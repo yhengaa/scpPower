@@ -1,0 +1,18 @@
+{
+  "frozen_UTC": "2026-10-13 23:18:55 UTC",
+  "seed": 20261013,
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "input_hashes": {
+    "registration": "cf27738295843a444ec96dc1a0d8e73bcc9b7b8287a0c67dfd09dae96e978bc9"
+  },
+  "prediction_hashes": [],
+  "counted_points": 141,
+  "successful_predictions": 0,
+  "wall_seconds": 35.332
+}

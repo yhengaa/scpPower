@@ -19,7 +19,7 @@ jobs:
           python - <<'PY'
           import json,os
           from pathlib import Path
-          if 'Version: 0.3.0' in Path('DESCRIPTION').read_text():
+          if 'Version: 0.3.0' in Path('DESCRIPTION').read_text().splitlines():
               m=json.loads(Path('reports/M4/run-manifest.json').read_text())
               assert m['overall_verdict']=='PASS' and m['passing_datasets']>=2
               assert m['counted_points']==204
