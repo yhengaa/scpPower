@@ -1,0 +1,165 @@
+{
+  "input_hashes": {
+    "reports/M1-final/calibration-table.csv": "f1909f83ebc9c55242925d43408905f2651fec41a34b7acb0af1594bfb4826af",
+    "reports/M1-final/run-manifest.json": "8e7dba706e988f3979d49d64d5788460b0a3ce4c8d92734237bda170e44ca03d",
+    "reports/M1-final/specht2019v3-proteins.csv": "ae7138101461701191dd2c666e8a13e7ed478e1e88b5a563f20af3ccdb9a56b7",
+    "reports/M1-final/leduc2022_pSCoPE-proteins.csv": "36c894fa1d4269ca9c114ae58449504e5a4043046ead79212e7e59d8082ff6c4",
+    "reports/M1-final/derks2022_timsTOF-proteins.csv": "bfdc862a14656e64c55a3cd4f98ab2d4287ca9247948fba527f2d228f2872eeb",
+    "reports/M1-final/derks2022_QExactive-proteins.csv": "2e72a68433128a4f3efc278783c64a015a150f85daaaefb0fcc26c697f021648",
+    "reports/M1-final/brunner2022-proteins.csv": "7ce03ecb417731535b2fa0250b92aca28938ea60319ab5189c6ccc9ad814fce3",
+    "reports/M2b/specht2019v3-protein-parameters.csv": "d4b99c6e6369526b5db216c26fa61d21cf08f23b677c575cc52f9e3e777c173e",
+    "reports/M2b/leduc2022_pSCoPE-protein-parameters.csv": "6bcc309ddea1a048ec1b6b4a826507669dddf7e5131e02dc3c66f45da55eb7e0",
+    "reports/M2-revised/derks2022_timsTOF-protein-parameters.csv": "f466ba97c25bcb52d34bd4876e00dd4a0a017d8c074fddd74d9fb9f3c53b4de0",
+    "reports/M2-revised/derks2022_QExactive-protein-parameters.csv": "4778eebf006bb819229f6e940761c77158fabc992130fa90368277127f706bbd",
+    "reports/M2-revised/brunner2022-protein-parameters.csv": "661bd370322f69ef19d1f8eb1c247fd8a7f0ed809be1311e500ce81a04b08b62",
+    "reports/M2-revised/fidelity-table.csv": "f5175fa01d111e7ce881d94ee80c44628f50fd98746a889bd9f72df6f031523d",
+    "reports/M2b/fidelity-table.csv": "f4f34375000faac2fd6e7540d9bc9583682e3ed11a7c0bf74b50e6b86a0ded78",
+    "reports/M1-final/derks2022_timsTOF-missingness-curve.csv": "80a68f8746a11c941e167743e86ddae86b04a5299e244169d7c138b8730b31a6",
+    "reports/M1-final/derks2022_QExactive-missingness-curve.csv": "ebe574177d049902d2cefedbebb07b98fd781345ad6aa397f0b6ac2dc054c411",
+    "reports/M1-final/brunner2022-missingness-curve.csv": "5ad4e826508e04e10cfd94716733143753223f596a04c4ef30365fc07ad42887",
+    "reports/M3b/power-grid.csv": "81e796fee3b7f1f739bf76bad54c9f75bee264bfbfd7e9033dc51f4c95902975",
+    "reports/M4/validation-table.csv": "d26a6eca29bf6b99f9502834c416888e014e8bafa540a7f9d44810b6110ef240",
+    "reports/M4b/validation-table.csv": "9858ff5d92993fb5d9fb684bc13e06445e8c94e575c664dba6ed2e0bc251c94e",
+    "reports/M3b/instrument-preset-manifest.json": "207f9c7a0bf99d7b01e66c6d895b894f6ffc335d2661703da6f6565e85a423c5",
+    "reports/M3b/instrument-hours.csv": "600d1598c5425965b2b7092e5a78c862ad051f85984f360d695642da7d33fd23",
+    "reports/M3b/cheapest-designs.csv": "a80891406238d9882318a6f273dec064018a875d477cb3699c0704ba71a84ad9",
+    "reports/J/decision-table.csv": "634975fe047a75adf475268db96dbf6b3fa732164b883dac4ee977100fe6d493",
+    "reports/M4/source-summary.csv": "609789534ab240c6b3cb693ed99cea8d21778e3b95eef6fca611aee17cb2fd61"
+  },
+  "seed": {},
+  "randomness_used": false,
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "rendering_versions": {
+    "ggplot2": "4.0.3",
+    "cairo": "1.17.8"
+  },
+  "wall_seconds": 13.644,
+  "formats": [
+    {
+      "figure": "Fig1",
+      "width_inches": 7,
+      "height_inches": 4.1,
+      "dpi": 600
+    },
+    {
+      "figure": "Fig2",
+      "width_inches": 7,
+      "height_inches": 8.2,
+      "dpi": 600
+    },
+    {
+      "figure": "Fig3",
+      "width_inches": 7,
+      "height_inches": 9,
+      "dpi": 600
+    },
+    {
+      "figure": "Fig4",
+      "width_inches": 7,
+      "height_inches": 7.7,
+      "dpi": 600
+    },
+    {
+      "figure": "TOC",
+      "width_inches": 3.25,
+      "height_inches": 1.75,
+      "dpi": 600
+    }
+  ],
+  "minimum_text_points": 7,
+  "pdf_font_inspection": {
+    "Fig1": {
+      "minimum_points": 7,
+      "font_sizes": [7, 8, 10, 12, 13]
+    },
+    "Fig2": {
+      "minimum_points": 7,
+      "font_sizes": [7, 8, 10]
+    },
+    "Fig3": {
+      "minimum_points": 7,
+      "font_sizes": [7, 8, 10]
+    },
+    "Fig4": {
+      "minimum_points": 7,
+      "font_sizes": [7, 8, 10]
+    },
+    "TOC": {
+      "minimum_points": 7,
+      "font_sizes": [7, 8]
+    }
+  },
+  "preset_palette": {
+    "specht2019v3": "#E69F00",
+    "leduc2022_pSCoPE": "#0072B2",
+    "derks2022_timsTOF": "#009E73",
+    "derks2022_QExactive": "#CC79A7",
+    "brunner2022": "#D55E00"
+  },
+  "fold_change_palette": {
+    "1.25×": "#000000",
+    "1.5×": "#56B4E9",
+    "2×": "#F0E442"
+  },
+  "input_scope": ["reports/M1-final/", "reports/M2-revised/", "reports/M2b/", "reports/M3b/", "reports/M4/", "reports/M4b/", "reports/J/"],
+  "scientific_source_files_written": false,
+  "new_calibration": false,
+  "new_simulations": false,
+  "numerical_transformations": ["square roots of recorded variances", "requested medians and coverage summaries", "deterministic 2-D count bins", "selection of registered grid maxima and cheapest designs", "identity tolerance bands and recorded logistic probability complement"],
+  "output_sha256": {
+    "captions.md": "b863608d9a3b466388f138131d333784d03cd51262bc8a893b1ffa3a5f3e8a88",
+    "Fig1.pdf": "102b23e46ec638f44dfd0527cc1febb323c615dcf1eb0aebbf720afb0ca1f4f0",
+    "Fig1.png": "2ddf9fad0a43be33f513dc8878171d8886eecfe6b88e21d4da91a52cdf9caf77",
+    "Fig1a-data.csv": "a58a78b8a82f5b3cc60a7ba5377330ba447e632f3c0dbff20e0c8f4346b2fe3f",
+    "Fig1a-grid-data.csv": "f5bec5e282d1667f00f30e1d682c27e59c75db90681e7c9488948cd813aa4746",
+    "Fig1a-missingness-data.csv": "21fc1d8b7da751f56de4a56e281b6dd255f1315ca99596a2a94cb3c3f3bbbe00",
+    "Fig1b-data.csv": "f88f56b72e35cdb374fc2a9e17c7c39ca61a248dcf57375f26a5072167578a3b",
+    "Fig2.pdf": "1b5a1186bdd83024f5c89dca284e898774c1d79e8c450a11fdca1bbbc8237bef",
+    "Fig2.png": "41e57f651fcf3856e1047327cebebd33b5f3a5dd307f8d0f1ed1fa379cfafdd7",
+    "Fig2a-data.csv": "4a2b9d6a0474ea14a67afb54cbb1b16aca9518d87e7e5ce5598cef9333c9be6e",
+    "Fig2b-data.csv": "e6ca0606eb178612fd895fccddbbf8f607282076a0f648c2675d67e03d1bb044",
+    "Fig2c-data.csv": "152f81eb19a6c05cff94b9488031ede3aa4c6ee0d1ba84b7b800aa2ac1210972",
+    "Fig2c-protein-data.csv": "4809e3b8b17da8c3f20db18e1b7f810b3b55cc2f32ff63c133f488b35bff7f34",
+    "Fig2d-curve-data.csv": "b8a53eb179b60aa0bf37ff6cff7ce897c436b4b37db76a03c2fc36a2fb41c80f",
+    "Fig2d-data.csv": "d53df1f981c4f97489ac0f40eea9132cddb52e31a7fdff41f46e2f989c912742",
+    "Fig2d-parameters.csv": "1bc25ceded45c662a66938d704ffc55c87b28ac2e74deeb2a73a28a8ca2d5c66",
+    "Fig3.pdf": "a9b6b74fc9e23edfcccaab4e6d61bfde0c7da2bbaf268ccea7ba0648e2736b6b",
+    "Fig3.png": "6d9e3b23fd52d16898d5192b842334face6cd9b071d30000b830405f1275b162",
+    "Fig3a-data.csv": "5fe0916a9ad911f46434c248562befe8b77d2997f0ffc0dacc5455fdab024f95",
+    "Fig3b-data.csv": "0040ce3049762e0d0420084e384b7783c7af2792a042733251c75b0d42bc337b",
+    "Fig3c-data.csv": "3a3b503c3c6aa70ef7138d832468c83890e2e10cd2a4d0c2254391d4359af98e",
+    "Fig3d-data.csv": "a1ff2e8142ae912cb7d7f96d2ad40c04b556d76fc17898669275ad921e059720",
+    "Fig3e-cheapest-point.csv": "4fc31e909e68843a204ba39ee9e05bf1a013bf392fc4032228cf844f71238c13",
+    "Fig3e-data.csv": "3b058eb36c3ebba5a4012c5e4758cf330bd127e5fd50958c1fa64a5cc77d7a9a",
+    "Fig4.pdf": "b9f700f04dbd1be030a9e1bde51cb0e993f85bdce2c2962406ecf8c8f35d22e5",
+    "Fig4.png": "51f6b3364d09ea4b3c5363681de62430a22f912f718a93839caf9c05a66fa792",
+    "Fig4a-band-data.csv": "13851dce9bae74f67b0ae9314387cfbae5621a3f894fb0e8c35f4b1d39f12a0d",
+    "Fig4a-data.csv": "b15e32eef6bdb3c57c8480312f8fbf340fe343819eda5f33e62c36dcb8d78ce7",
+    "Fig4b-band-data.csv": "13851dce9bae74f67b0ae9314387cfbae5621a3f894fb0e8c35f4b1d39f12a0d",
+    "Fig4b-data.csv": "a4fbef43eaae999c75d3d27b0cb44d776611bb548007ec84f2008f531a4b0ce3",
+    "Fig4c-band-data.csv": "13851dce9bae74f67b0ae9314387cfbae5621a3f894fb0e8c35f4b1d39f12a0d",
+    "Fig4c-data.csv": "4dc97c68db1a8339f6e971f68b48325efb0943fb5c7b1fc7ccfe24b07ec8a32c",
+    "Fig4d-band-data.csv": "1cc16a76ac23f464d9d770bdffa266bf8212d2764b044e009f1c26f950b0b45f",
+    "Fig4d-data.csv": "3488cbb649891d6fca37357c3851dd5006231312843779690d696d7d8121a2f9",
+    "Fig4e-band-data.csv": "13851dce9bae74f67b0ae9314387cfbae5621a3f894fb0e8c35f4b1d39f12a0d",
+    "Fig4e-data.csv": "dc5cc6974c6ec9353629ba3ef4b64782ab06b1ee0865ccbc19f127df045592b7",
+    "figure-dimensions.csv": "a2f459c99ea46bbbcb5e2248dd669d9af01785c0cbe20762df545e7e7214daf2",
+    "omissions.md": "4af785ba9a7b5f3310440a600435a9d64c30fa272b6701313c0da47ef3410ecc",
+    "README.md": "c8d75406cad3e44e2c3d1ba0f8e93bb725da4ab65a5781efab684263b165294a",
+    "Table1.csv": "a658f5365477baa54fb872c10f63cbe70295a218e065df9b555b61d6b5ca1581",
+    "Table1.md": "cbbd0669c52daea4c19f6346a4ab412e320cf96313df60da6dbdcd03cfaa1133",
+    "Table2.csv": "1127c0c2a41fbadd78071616e9a8bc32e9127cd8127e28b7bc6d14132db69330",
+    "Table2.md": "f4c447e48e34d7e81ad7b89471ffe0070d2b5b0bf93aaf0988a1752381a30e25",
+    "TMT-mask-provenance.csv": "1d2bd1b9175aca17f6224c2e660dabbfa24cacc7713734aed6fbb4cf0ac1b171",
+    "TOC-data.csv": "3b058eb36c3ebba5a4012c5e4758cf330bd127e5fd50958c1fa64a5cc77d7a9a",
+    "TOC.pdf": "e39407641060ff39baefa36f392cc23afa5924ea83240dc3ef5cc6d29df39ebc",
+    "TOC.png": "b1d8d7cca686a1eced78632f4820acc9f6d6b506108787562b13a62ef062676b"
+  },
+  "availability_note": "No requested figure panel was omitted for lack of registered numerical outputs. The timsTOF real-cell comparison remains absent because the registered M4 report classifies it as not evaluable; the Figure 4 caption states the source-cell limitation. Table 1 marks the two TMT instrument model names as unrecorded because the allowed reports and copied preset metadata contain no model names; Brunner retains the recorded TIMS04 identifier without inferring a model. All plotted estimates come from existing reports, with only the requested SD conversion, tabular summaries and deterministic display binning. No calibration, simulation, model or criterion was changed."
+}

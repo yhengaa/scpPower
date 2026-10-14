@@ -18,8 +18,13 @@ jobs:
         id: version
         run: |
           python - <<'PY'
-          import csv,json,os
+          import csv,json,os,subprocess
           from pathlib import Path
+          existing_tag=subprocess.check_output(['git','ls-remote','origin','refs/tags/v1.0.0'],text=True).strip()
+          checked_sha='${{ github.event.workflow_run.head_sha }}'
+          if existing_tag and existing_tag.split()[0]!=checked_sha:
+              print('v1.0.0 is already published at its checked commit; no new release for this commit.')
+              raise SystemExit(0)
           if 'Version: 1.0.0' in Path('DESCRIPTION').read_text().splitlines():
               m=json.loads(Path('reports/M3b/run-manifest.json').read_text())
               assert m['rerun_TMT_points']==630 and m['rerun_replicates']==126000

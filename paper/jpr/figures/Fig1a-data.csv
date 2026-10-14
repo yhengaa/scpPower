@@ -1,0 +1,6 @@
+"term","meaning","distribution","render_software_versions"
+"mu_g","protein mean","fixed","R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"
+"k * beta_g * C_s","condition effect with assumed compression","fixed","R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"
+"u_gs","biological sample effect","Normal(0, sigma2_s,g)","R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"
+"b_gb","acquisition batch effect","Normal(0, sigma2_b,g)","R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"
+"epsilon_gsbc","cell residual","Normal(0, sigma2_e,g)","R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"

@@ -1,0 +1,4 @@
+"dataset","missingness_intercept","effective_slope","intensity_center","render_software_versions"
+"derks2022_timsTOF",1.49646279042193,0.837068155648735,9.92358707649799,"R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"
+"derks2022_QExactive",-0.272973241425342,0.748186082206149,13.4692605004625,"R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"
+"brunner2022",0.251487748850907,1.40102831736452,11.2382755150045,"R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"

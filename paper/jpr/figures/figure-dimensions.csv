@@ -1,0 +1,6 @@
+"figure","width_inches","height_inches","dpi","render_software_versions"
+"Fig1",7,4.1,600,"R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"
+"Fig2",7,8.2,600,"R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"
+"Fig3",7,9,600,"R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"
+"Fig4",7,7.7,600,"R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"
+"TOC",3.25,1.75,600,"R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"
