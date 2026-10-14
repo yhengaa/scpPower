@@ -49,14 +49,14 @@
     "edgeR": "4.10.5",
     "scplainer": "workflow in scp 1.22.0; no separate package"
   },
-  "wall_seconds": 4.144,
+  "wall_seconds": 4.599,
   "claims_checked": 363,
   "mismatches": 32,
   "new_scientific_runs": false,
   "rounding": "round(source_value, displayed decimal places); integer counts exact at zero decimals; quarter=0.25; halves=0.5. Unrounded target predicates checked separately.",
   "outputs": {
     "paper/audit-table.csv": "3fdba12caf8efeffcad9d51e67aea54c720469522608614f415628e1b327dd5c",
-    "paper/audit-mismatches.md": "e6fea726b70df03fcf0331c36569b2cf6c1b8875735429ec98fc25bbf6c80748",
+    "paper/audit-mismatches.md": "fab5ebec6b1102c2f7ba1fdfc924c16b634147bf15eba6d9d7dbbe15e1979160",
     "paper/audit-coverage.csv": "7d4e01cd8a5168aaca038d627d1b0c4357cebabba425bf071a07eb93be583df8"
   }
 }

@@ -6,7 +6,7 @@ Numeric comparisons use the precision displayed in the manuscript. Signed values
 
 Every populated Table 1 cell is checked. Numeric tokens in the requested prose, Table 2 and captions are checked in context; publication/citation identifiers, figure/table identifiers, log2 and layout markup are excluded. Methods donor-transfer numbers are included at the user’s request. Rhetorical counts and axis limits lacking a registered source are explicitly unverified.
 
-Claims checked: 363. FALSE matches: 32. Numerical or logical discrepancies: NA. Missing registered provenance: NA.
+Claims checked: 363. FALSE matches: 32. Numerical or logical discrepancies: 18. Missing registered provenance: 14.
 
 | Claim | Section | Manuscript | Registered source value | Reason | Source / expression |
 | --- | --- | --- | --- | --- | --- |
