@@ -1,0 +1,26 @@
+{
+  "seed": 20261013,
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "base_commit": "36f39044f6d5e128283dd4470b0ff1e82d4e38b7",
+  "registered_R_code_and_presets_unchanged": true,
+  "all_existing_tests_unchanged": true,
+  "new_tests": "tests/testthat/test-pilot-conversion.R",
+  "TMT_grid_and_seeds_identical_to_original": true,
+  "README_example_code_under_ten_lines": true,
+  "vignette_source_lines": 116,
+  "input_hashes": {
+    "README.md": "63f02ffd5555e6ee7922be5a2990f2ba88ecd9022af90a06c71807ca041771e6",
+    "DESCRIPTION": "41131fac166fa211bff9e138a474f2049b41d4beb484cd6ac64d263af52337d0",
+    "NEWS.md": "ac14787a2bda4b2049291bfa50de341f35dd30871fd59935f32ba4a448675329",
+    "CITATION.cff": "33314dc2939a03103d9fe68448877e4051137e74df03997c486dae2d04de661c",
+    "vignettes/designing-scp.Rmd": "6d0a2b3a383f8da5e8e17b87851442830b70fbef0619c19db916abd4b193bc36",
+    "inst/doc/pilot-protocol.md": "9dbb594665c3ae1cfb1a5dbcac43828a5344d70d5c49ab91ea4cde45172ef662"
+  },
+  "wall_seconds": 0.19231048598885536
+}

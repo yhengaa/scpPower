@@ -1,0 +1,20 @@
+{
+  "seed": 20261013,
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "input_hashes": {
+    "reports/M5/worked-examples.csv": "314d534c00db75c6016eabb7c297994f9827fe95af793a47d7f49de25892a3d5",
+    "reports/M3b/cheapest-designs.csv": "a80891406238d9882318a6f273dec064018a875d477cb3699c0704ba71a84ad9",
+    "reports/J/native-depth-summary.csv": "1ae56d877fc40ab2cb2701da1cf87f31f8b4cbcb78611733aee9e71c590f29c3",
+    "reports/M2-revised/fidelity-summary.csv": "a225c313872bc8f95c732c9b9529dd4c2cd4e19059d7335847bd74140fcbcf22",
+    "reports/M4/dataset-verdicts.csv": "0ab8cf8eb8b8f3756d773316c0388eacd982b3eac412c47d311c60bc5608d38e",
+    "reports/M4b/dataset-verdicts.csv": "5ceb7e91944327b06e0f77666c1b679b315adce4e74e6dee51554668f65cee97"
+  },
+  "output_sha256": "63f02ffd5555e6ee7922be5a2990f2ba88ecd9022af90a06c71807ca041771e6",
+  "wall_seconds": 0.005828834022395313
+}

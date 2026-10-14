@@ -1,3 +1,16 @@
+# scpPower 1.0.0
+
+* M1 calibrates variance, missingness and mapped whole-PBMC donor variance.
+* M2 jointly resamples protein parameters and records acquisition layouts.
+* M3 reports the registered sample-mean limma-trend power grid and hours.
+* M4 passes its unchanged semi-synthetic criterion on four datasets.
+* Diagnostic J finds the carrier-TMT endpoint mask sparser than the PSM mask.
+* Amendment I aligns TMT identification and channel rates with the endpoint.
+* M2b passes both TMT fidelity rows; M4b passes both TMT validation datasets.
+* M3b replaces only TMT grid rows with the original designs and seeds.
+* Adds worked examples, a built vignette, pilot protocol and software citation.
+* Publishes unified evidence; donor transfer, carrier k and depth remain assumptions.
+
 # scpPower 0.3.1
 
 * Both M2b rows pass. M4b passes on all counted points: Specht 72/72 and

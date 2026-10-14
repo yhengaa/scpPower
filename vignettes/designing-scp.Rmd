@@ -1,0 +1,116 @@
+---
+title: "Designing a two-condition single-cell proteomics experiment"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Designing a two-condition single-cell proteomics experiment}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+library(scpPower)
+knitr::opts_chunk$set(collapse=TRUE, comment="#>")
+started <- proc.time()[["elapsed"]]
+seed <- 20261013L
+preset <- "leduc2022_pSCoPE"
+path <- system.file("presets", paste0(preset, ".yaml"), package="scpPower")
+registered <- yaml::read_yaml(path)
+validation <- read.csv(system.file("extdata", "tmt-validation.csv", package="scpPower"))
+depth <- read.csv(system.file("extdata", "validation-depth.csv", package="scpPower"))
+depth <- depth[depth$mask=="aggregated", ]
+ratio <- depth$observed_depth_sd / depth$simulated_mean_depth_sd
+power_limit <- max(validation$observed_power, na.rm=TRUE)
+```
+
+Start with the carrier-TMT Leduc preset and ask whether increasing biological
+samples helps detect a twofold change at a fixed cell budget. These are planning
+estimates under the preset assumptions, within the limited validation range
+reported below. The example uses `r seed` as its recorded random seed.
+
+```{r simulate}
+n <- 4L
+m <- 16L
+fold_change <- 2
+simulated <- scp_simulate(NULL, n, m, beta=log2(fold_change),
+                         preset=preset, seed=seed)
+dim(simulated$matrix)
+head(simulated$cell_metadata)
+```
+
+The matrix has `r nrow(simulated$matrix)` proteins and
+`r ncol(simulated$matrix)` cells. Biological-sample, acquisition-batch and cell
+noise are simulated on the log2 scale; missing values remain missing. Joint
+resampling retains each protein's abundance, variance and detection parameters.
+
+```{r power}
+replicates <- 20L
+n_options <- c(4L, 8L)
+planning <- scp_power(preset, n_options, m, beta=log2(fold_change),
+                      replicates=replicates, seed=seed)
+columns <- c("n_per_condition", "m_cells_per_sample", "power", "testability",
+             "conditional_power", "realised_fdr", "instrument_hours")
+knitr::kable(planning$results[, columns], digits=3)
+```
+
+These demonstration runs use `r replicates` replicates; increase that argument
+for a more precise estimate and read `simulation_se` beside power. Instrument
+hours count occupied batches using the preset's
+`r registered$minutes_per_run` minutes per run and exclude unreported overhead.
+
+Unconditional power divides detected changed proteins by all changed proteins.
+Testability counts proteins with enough quantified cells in every biological
+sample for the registered endpoint. Conditional power divides detected changed
+proteins by changed proteins that are testable within a replicate; it is
+undefined in replicates with none. Missingness can therefore cap unconditional
+power even when conditional power is high. Per-sample means are tested with
+limma-trend, and sign agreement is required for a changed protein's detection.
+Read realised FDR beside rejection counts to recognise nearly empty tests:
+
+```{r rejections}
+knitr::kable(planning$results[, c("n_per_condition", "mean_rejections",
+                                "zero_rejection_fraction")], digits=3)
+```
+
+Carrier compression is supplied as an assumption. Compare the registered
+sensitivities at one design, without treating them as measured coefficients:
+
+```{r sensitivity}
+k_values <- c(1, 0.75, 0.5)
+sensitivity <- scp_power(preset, n, m, beta=log2(fold_change), k=k_values,
+                         replicates=replicates, seed=seed)
+knitr::kable(sensitivity$results[, c("k", columns[-c(1,2)])], digits=3)
+```
+
+Each output records its seed, hashes, versions and wall time. Differences from
+preset software versions generate a warning and the run continues.
+
+```{r manifest}
+planning$manifest$versions
+planning$manifest$input_hashes
+planning$manifest$wall_seconds
+vignette_manifest <- list(seed=seed, versions=planning$manifest$versions,
+  input_hashes=list(preset=digest::digest(file=path, algo="sha256"),
+    validation=digest::digest(validation, algo="sha256"),
+    depth=digest::digest(depth, algo="sha256")),
+  simulation=simulated$manifest, power=planning$manifest,
+  sensitivity=sensitivity$manifest, wall_seconds=proc.time()[["elapsed"]]-started)
+saveRDS(vignette_manifest, "vignette-run-manifest.rds")
+```
+
+Before choosing a design, retain these limitations:
+
+1. Between-donor variance is mapped from whole-PBMC bulk data. Its transfer to
+   single cells is an assumption that requires a pilot in your own cell type.
+2. Compression defaults to `r registered$k`; the sensitivity assumptions are
+   `r paste(k_values[-1], collapse=" and ")`. Neither donor transfer nor
+   compression is validated by the semi-synthetic exercise.
+3. Real-cell carrier-TMT validation reaches observed power of about
+   `r format(round(power_limit, 2), nsmall=2)`; it does not establish accuracy
+   above that range.
+4. Cell-depth dependence is omitted: observed depth SD is
+   `r paste(format(round(ratio, 2), nsmall=2), collapse=" to ")` times the
+   independent simulation's SD. This did not affect the registered validation
+   verdict; correlated missingness remains a limitation.
+5. Q Exactive and timsTOF public cells cannot validate designs at useful power.
+6. The primary endpoint uses per-sample means and limma-trend. Other tests can
+   give different power estimates.

@@ -10,3 +10,6 @@
 ^README\.md$
 ^scpPower_.*\.zip$
 ^\.renv-cache$
+^CITATION\.cff$
+^scpPower_.*-manifest\.json$
+^inst/scripts/__pycache__$

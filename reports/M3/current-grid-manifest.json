@@ -1,0 +1,14 @@
+{
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "seed": 20261013,
+  "current_numeric_results_manifest": "../M3b/run-manifest.json",
+  "original_manifest": "../M3b/archive-v0.2.0/run-manifest.json",
+  "non_TMT_results_unchanged": true,
+  "TMT_endpoint_masks_updated": true
+}

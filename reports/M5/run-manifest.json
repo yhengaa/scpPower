@@ -1,0 +1,38 @@
+{
+  "seed": 20261013,
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "M3b_rerun_points": 630,
+  "M3b_rerun_replicates": 126000,
+  "registered_non_TMT_rows_reused": 315,
+  "worked_example_replicates": 1200,
+  "cluster_jobs": [
+    "5501684",
+    "5501871"
+  ],
+  "input_hashes": {
+    "M3b": "1fe74615f62acdf01aa396adf4eb669df5b38831b62d72e99fc18970df9a6092",
+    "worked_examples": "92ebf75eadfe866d5c01e67634fac1b7ad9fa620ff939473633a57ef2d49ff8e",
+    "local_check": "cb585f1eaa2402b121a48e1047e69983a9944cfea26746d872e163619a56c36a",
+    "release_audit": "b8704db150f1e127d7659aa7e3755d57f886a690892b72f5a3183a04b3abfda1",
+    "cluster_accounting": "cddbac7121119822de6354d3752265e0e0a88a81c876b31d5426b8953f527c10"
+  },
+  "registered_numerical_code_and_presets_unchanged": true,
+  "exported_function_bug_found_in_vignette": false,
+  "cheapest_design_changes": {
+    "cheapest_rows_changed": 0,
+    "designs_newly_reaching_0_8": [],
+    "designs_no_longer_reaching_0_8": [],
+    "no_adjustment": true
+  },
+  "Zenodo_author_action_pending": true,
+  "DOI_not_available": true,
+  "wall_seconds": 20769.39615359296,
+  "finalization_wall_seconds": 0.02088064793497324,
+  "pilot_protocol_pages": 1
+}

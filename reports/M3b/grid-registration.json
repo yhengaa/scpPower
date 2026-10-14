@@ -1,0 +1,28 @@
+{
+  "seed": 20261013,
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "replicates_per_point": 200,
+  "grid_points": 630,
+  "grid_seed_formula": "Original M3: 20261013 + 1000*one-based task; replicate seed = grid seed + replicate index",
+  "input_hashes": {
+    "original_grid": "005543c22cd36a7fbbf0a79f6a66cb4e93a075a4c5d014f1d4aabddc4a38b41e",
+    "grid": "e050c127b9b84c0347603c1fa31c2f84bb660452aa8b1be29931c4f2a32031ad",
+    "simulator": "9d2800a8f9d985a0dfbdf92beeb16ae0769191f465df190304024d28d7d83235",
+    "power": "9851d28b88a99a04b9f18a025acae4ed2609d927d8630909462a0af9bc34df52",
+    "renv_lock": "9847523045fd7c40703e5b45ac5a867479b5181ffbc917a35346e389635f889f"
+  },
+  "preset_hashes": {
+    "specht2019v3": "cd752cb27c09b28c7a87270e30c90884b23dffcb1892cc252113e2a3e7c52cb6",
+    "leduc2022_pSCoPE": "43aa88ecf2dec5c10c0559ebcd7f69464908cbeca19e15ec0ba04dc2ca7616bb"
+  },
+  "layout": "balanced; actual occupied batches counted",
+  "target_power": 0.8,
+  "wall_seconds": 0.202,
+  "non_TMT_not_rerun": true
+}

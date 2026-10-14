@@ -1,6 +1,6 @@
 Package: scpPower
 Title: Calibration, Simulation and Power for Single-Cell Proteomics
-Version: 0.3.1
+Version: 1.0.0
 Authors@R: person("Youshan", "Heng", email = "poggar@hotmail.com",
     role = c("aut", "cre"), comment = c(ORCID = "0000-0002-2758-171X"))
 Description: Estimates protein-level cell and acquisition-batch variance,
@@ -17,8 +17,10 @@ Encoding: UTF-8
 Depends: R (>= 4.3.0)
 Imports: digest, limma, lme4, stats, utils, yaml
 Suggests: BiocManager, edgeR, ExperimentHub, jsonlite, QFeatures,
-    readxl, renv, roxygen2, scp, scpdata, SummarizedExperiment, testthat (>= 3.0.0)
+    readxl, renv, roxygen2, scp, scpdata, SummarizedExperiment,
+    knitr, rmarkdown, testthat (>= 3.0.0)
 Config/testthat/edition: 3
 URL: https://github.com/yhengaa/scpPower
 BugReports: https://github.com/yhengaa/scpPower/issues
 Config/roxygen2/version: 8.1.1
+VignetteBuilder: knitr

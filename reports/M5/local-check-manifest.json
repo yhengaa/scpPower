@@ -1,0 +1,26 @@
+{
+  "seed": 20261013,
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "input_hashes": {
+    "DESCRIPTION": "41131fac166fa211bff9e138a474f2049b41d4beb484cd6ac64d263af52337d0",
+    "renv.lock": "9847523045fd7c40703e5b45ac5a867479b5181ffbc917a35346e389635f889f",
+    "vignettes/designing-scp.Rmd": "6d0a2b3a383f8da5e8e17b87851442830b70fbef0619c19db916abd4b193bc36",
+    "R/scp_calibrate.R": "2ac1e20d38d1af2ca339ef929450c8715c62718d8ddf312123f017eeca6de033",
+    "R/scp_simulate.R": "9d2800a8f9d985a0dfbdf92beeb16ae0769191f465df190304024d28d7d83235",
+    "R/scp_power.R": "9851d28b88a99a04b9f18a025acae4ed2609d927d8630909462a0af9bc34df52"
+  },
+  "output_hashes": {
+    "R-build.log": "e1ad01d178f8859ddda4fa77b4438cfcc15340d58a4271a75f750c0301dbb714",
+    "R-check.log": "0f56f0ca69867b17db1ec3dd2a65798f9488ad2e9955ec25f83578f9ad16beb0",
+    "00check.log": "666eccc97fe6bd4f5174f01b6a2e55d9643c8ab24895891b84039132b519e251"
+  },
+  "vignette_built_and_checked": true,
+  "wall_seconds": 122.13615359296091,
+  "remote_CRAN_incoming_disabled_locally_only": true
+}

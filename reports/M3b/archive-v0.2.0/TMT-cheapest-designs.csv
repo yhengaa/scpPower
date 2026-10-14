@@ -1,0 +1,19 @@
+dataset,beta,k,target_power,n_per_condition,m_cells_per_sample,power,simulation_se,runs,instrument_hours,status,software_versions
+specht2019v3,0.321928094887362,1,0.8,NA,NA,NA,NA,NA,NA,No registered design reaches target,R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package
+specht2019v3,0.321928094887362,0.75,0.8,NA,NA,NA,NA,NA,NA,No registered design reaches target,R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package
+specht2019v3,0.321928094887362,0.5,0.8,NA,NA,NA,NA,NA,NA,No registered design reaches target,R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package
+specht2019v3,0.584962500721156,1,0.8,NA,NA,NA,NA,NA,NA,No registered design reaches target,R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package
+specht2019v3,0.584962500721156,0.75,0.8,NA,NA,NA,NA,NA,NA,No registered design reaches target,R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package
+specht2019v3,0.584962500721156,0.5,0.8,NA,NA,NA,NA,NA,NA,No registered design reaches target,R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package
+specht2019v3,1,1,0.8,NA,NA,NA,NA,NA,NA,No registered design reaches target,R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package
+specht2019v3,1,0.75,0.8,NA,NA,NA,NA,NA,NA,No registered design reaches target,R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package
+specht2019v3,1,0.5,0.8,NA,NA,NA,NA,NA,NA,No registered design reaches target,R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package
+leduc2022_pSCoPE,0.321928094887362,1,0.8,NA,NA,NA,NA,NA,NA,No registered design reaches target,R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package
+leduc2022_pSCoPE,0.321928094887362,0.75,0.8,NA,NA,NA,NA,NA,NA,No registered design reaches target,R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package
+leduc2022_pSCoPE,0.321928094887362,0.5,0.8,NA,NA,NA,NA,NA,NA,No registered design reaches target,R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package
+leduc2022_pSCoPE,0.584962500721156,1,0.8,NA,NA,NA,NA,NA,NA,No registered design reaches target,R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package
+leduc2022_pSCoPE,0.584962500721156,0.75,0.8,NA,NA,NA,NA,NA,NA,No registered design reaches target,R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package
+leduc2022_pSCoPE,0.584962500721156,0.5,0.8,NA,NA,NA,NA,NA,NA,No registered design reaches target,R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package
+leduc2022_pSCoPE,1,1,0.8,NA,NA,NA,NA,NA,NA,No registered design reaches target,R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package
+leduc2022_pSCoPE,1,0.75,0.8,NA,NA,NA,NA,NA,NA,No registered design reaches target,R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package
+leduc2022_pSCoPE,1,0.5,0.8,NA,NA,NA,NA,NA,NA,No registered design reaches target,R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package

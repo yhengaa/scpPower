@@ -8,15 +8,16 @@
     "scplainer": "workflow in scp 1.22.0; no separate package"
   },
   "input_hashes": {
-    "power_grid": "6e931dda71e58e33ea2e5b386c625975a91ddcd4036399b25ebd32066a19847b",
-    "original_report": "526294ec146a4f2157a27a0fd6e1693e0c297a31d4f4325ca387643b720bdc48",
+    "power_grid": "81e796fee3b7f1f739bf76bad54c9f75bee264bfbfd7e9033dc51f4c95902975",
+    "original_report": "789a2a2e290af60b9d3b1585280daa051470d5c6f5db55b88c29247275c0cc37",
     "script": "d63f869ff4a517bca8a00ef10e227484de94e262e78016eee52fb58bc0677f2b"
   },
   "output_hashes": {
-    "report": "3c4843f1aac46583569868ba49178a369cebe851630c24057c5ae98fe9e651ed",
-    "diagnostics": "0b473f0c8af29eeb2aa6336e9d1e101bb4ce46bbdc1718f2874c5a7e7714551e",
-    "small_effects": "2fa3938237a5e7e685a2aac7be6321e0ece1f6f4586dd28822a950a9ba54d859"
+    "report": "1656a86f4068085b46c958d414d7534103f94c0ad49d2e2201cce9c1a5341052",
+    "diagnostics": "a4a7847174385a560625a6ab77c17fe6d57bf340b24bdd83307d19cf02c1ac07",
+    "small_effects": "690ae0673ed632d1051b652c05673e3cf4c1bebd4669cab81ea0e5fda0281bb6"
   },
-  "M3_numeric_results_unchanged": true,
-  "wall_seconds": 0.073
+  "non_TMT_results_unchanged": true,
+  "TMT_rows_updated_under_I": true,
+  "wall_seconds": 0.084
 }

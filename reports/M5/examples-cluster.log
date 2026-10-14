@@ -1,0 +1,8 @@
+salloc: NOTE: Your memory request of 8192.0M was likely submitted as 8.0G. Please note that Slurm interprets memory requests denominated in G as multiples of 1024M, not 1000M.
+salloc: Pending job allocation 5501871
+salloc: job 5501871 queued and waiting for resources
+salloc: job 5501871 has been allocated resources
+salloc: Granted job allocation 5501871
+salloc: Nodes nc11024 are ready for job
+salloc: Relinquishing job allocation 5501871
+salloc: Job allocation 5501871 has been revoked.

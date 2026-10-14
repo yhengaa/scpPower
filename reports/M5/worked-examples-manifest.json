@@ -1,0 +1,22 @@
+{
+  "seed": 20261013,
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "registered_non_TMT_grid_not_rerun": true,
+  "demonstration_runs_only": true,
+  "input_hashes": {
+    "leduc2022_pSCoPE": "43aa88ecf2dec5c10c0559ebcd7f69464908cbeca19e15ec0ba04dc2ca7616bb",
+    "derks2022_timsTOF": "339cdbee6020dcf5f149f68b8b6beb4fa8dc7869a53bdbd49d68c4544228105d",
+    "brunner2022": "f85599315e096340a3f88395222b2a65968ba41dc1ae47fcd17c8773d357ac34"
+  },
+  "wall_seconds": 172.081,
+  "cluster": {
+    "job": "5501871",
+    "cores": "4"
+  }
+}

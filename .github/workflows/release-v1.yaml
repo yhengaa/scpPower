@@ -1,0 +1,78 @@
+name: Publish scpPower 1.0.0
+on:
+  workflow_run:
+    workflows: [R-CMD-check]
+    types: [completed]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  release:
+    if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.event == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+      - name: Verify release evidence
+        id: version
+        run: |
+          python - <<'PY'
+          import csv,json,os
+          from pathlib import Path
+          if 'Version: 1.0.0' in Path('DESCRIPTION').read_text().splitlines():
+              m=json.loads(Path('reports/M3b/run-manifest.json').read_text())
+              assert m['rerun_TMT_points']==630 and m['rerun_replicates']==126000
+              assert m['reused_non_TMT_points']==315
+              assert len(list(csv.DictReader(open('reports/M3b/power-grid.csv'))))==945
+              assert m['target_design_change']['no_adjustment']
+              assert Path('vignettes/designing-scp.Rmd').exists()
+              assert len(Path('vignettes/designing-scp.Rmd').read_text().splitlines())<150
+              with open(os.environ['GITHUB_OUTPUT'],'a') as f:f.write('publish=true\n')
+          PY
+      - name: Record green checked commit and tag
+        if: steps.version.outputs.publish == 'true'
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const fs=require('fs');
+            const {owner,repo}=context.repo;
+            const run=context.payload.workflow_run;
+            const tag='v1.0.0';
+            try {
+              const old=await github.rest.git.getRef({owner,repo,ref:`tags/${tag}`});
+              if(old.data.object.sha!==run.head_sha)throw new Error('Existing tag differs; refusing to move it.');
+            } catch(error) {
+              if(error.status!==404)throw error;
+              await github.rest.git.createRef({owner,repo,ref:`refs/tags/${tag}`,sha:run.head_sha});
+            }
+            const jobs=(await github.rest.actions.listJobsForWorkflowRun({owner,repo,run_id:run.id})).data.jobs;
+            if(!jobs.every(j=>j.conclusion==='success'))throw new Error('Check jobs not all green.');
+            const manifest=JSON.parse(fs.readFileSync('reports/M3b/run-manifest.json','utf8'));
+            fs.writeFileSync('reports/M5/CI-receipt.json',JSON.stringify({tag,commit:run.head_sha,workflow:run.name,conclusion:run.conclusion,url:run.html_url,run_id:run.id,jobs:jobs.map(j=>({id:j.id,name:j.name,conclusion:j.conclusion,url:j.html_url})),vignette_built_and_checked:true,seed:20261013,versions:manifest.versions,input_hashes:manifest.input_hashes,wall_seconds:(Date.parse(run.updated_at)-Date.parse(run.run_started_at))/1000},null,2)+'\n');
+      - name: Package unified evidence
+        if: steps.version.outputs.publish == 'true'
+        run: python inst/scripts/package_release_evidence.py
+      - name: Release and attach unified evidence
+        if: steps.version.outputs.publish == 'true'
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const fs=require('fs');
+            const {owner,repo}=context.repo;
+            const sha=context.payload.workflow_run.head_sha;
+            const tag='v1.0.0';
+            let release;
+            try {release=(await github.rest.repos.getReleaseByTag({owner,repo,tag})).data;}
+            catch(error) {
+              if(error.status!==404)throw error;
+              release=(await github.rest.repos.createRelease({owner,repo,tag_name:tag,target_commitish:sha,name:'scpPower 1.0.0',draft:false,prerelease:false,body:fs.readFileSync('reports/M5/release-notes.md','utf8')})).data;
+            }
+            const assets=(await github.rest.repos.listReleaseAssets({owner,repo,release_id:release.id})).data;
+            for(const name of ['scpPower_unified_v1.0.0_evidence.zip','scpPower_unified_v1.0.0_evidence-manifest.json']) {
+              if(!assets.some(a=>a.name===name)) {
+                const data=fs.readFileSync(name);
+                await github.rest.repos.uploadReleaseAsset({owner,repo,release_id:release.id,name,data,headers:{'content-type':name.endsWith('.zip')?'application/zip':'application/json','content-length':data.length}});
+              }
+            }
+            core.info(`Released ${release.html_url} at checked commit ${sha}`);

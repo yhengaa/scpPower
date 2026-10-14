@@ -1,193 +1,150 @@
 # scpPower
 
+scpPower estimates how many biological samples and cells per sample a two-condition single-cell proteomics experiment needs. Specify the fold change, instrument and labelling scheme, and compare power under an explicitly calibrated model. Each design also reports nominal instrument hours.
+
 [![R CMD check](https://github.com/yhengaa/scpPower/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/yhengaa/scpPower/actions/workflows/R-CMD-check.yaml)
 
-Calibration for mass-spectrometry single-cell proteomics experimental design.
-The governing [mandate is frozen](scpPower_mandate_v1.1.md). The package provides
-`scp_calibrate()` and `scp_simulate()`; calibration status and limitations
-are recorded in [the final M1 evidence](reports/M1-final).
-
-M1 closes under [frozen addendum v1.1.2](scpPower_mandate_v1.1.md).
-The [final M1 evidence](reports/M1-final) calibrates every registered dataset and
-both Derks instruments. TMT missingness uses raw reporter-ion PSMs; its accepted
-ratio-based variance is retained. Brunner combines cell and acquisition-run
-noise as the identified within-line variance. The earlier stopped and resumed
-runs remain in [reports/M1](reports/M1) and [reports/M1-resumed](reports/M1-resumed).
-
-`scp_calibrate()` accepts a protein-by-cell matrix with cell metadata or an
-explicit protein assay from a `QFeatures` object. It returns variance components,
-abundance quintiles, a fitted quantification curve, a registered carrier
-compression assumption, mapped bulk donor variance, and a run manifest. Unavailable quantities
-receive explained `NA` values. No calibration values are imputed.
+## Install
 
 ```r
-renv::restore()
-calibration <- scp_calibrate(
-    protein_log2, cell_metadata,
-    sample_col = "biological_sample",
-    condition_col = "condition",
-    batch_col = "plex",
-    bulk = bulk_log2, bulk_metadata = donor_metadata
-)
-calibration$tiers
-calibration$manifest
+install.packages("remotes")
+remotes::install_github("yhengaa/scpPower", ref = "v1.0.0")
+library(scpPower)
 ```
 
-For the registered cell-line datasets, `biological_unit="culture"` treats each
-cell line as one culture sample and fits line means with shared batch effects.
-These units do not identify donor variance. Independent donor datasets retain
-the sample random-effect mode. One
-cell per run cannot separate acquisition variance from cell noise. Bulk donor
-variance transfers only under the registered cell-type assumption, which
-requires a lab pilot and cannot be validated by the semi-synthetic M4 gate.
+For the recorded software environment, clone the repository and optionally run `renv::restore()` with the committed lockfile. Version differences warn and the package continues.
 
-Every calibration output includes R, scp, limma, edgeR and the scplainer workflow
-version. Scplainer is implemented in scp; it is not treated as a separate R
-package. Version differences warn and do not block execution.
+## Worked examples
 
-The scripts in [inst/scripts](inst/scripts) download public inputs, record
-hashes, preserve seeds and wall time, and regenerate reported results. Use
-`bootstrap.R` to prepare the R library on the cluster and `inspect_resumed.R` to
-fetch and inspect the four registered datasets. Raw data and local libraries
-are excluded from Git. The committed `renv.lock` records the environment.
+The following calls ask whether more biological samples help detect a twofold change with a fixed number of cells per sample. Outputs are Monte Carlo estimates, reproduced by [run_release_examples.R](inst/scripts/run_release_examples.R) with [seeds, hashes, versions and wall times](reports/M5/worked-examples-manifest.json). These demonstration runs are separate from the registered grid. Instrument hours exclude unreported overhead.
 
-To reproduce final M1 from public data after restoring the committed environment:
+### Carrier TMT: Leduc
 
-```sh
-python inst/scripts/fetch_resumed_sources.py
-python inst/scripts/fetch_bulk_metadata.py
-Rscript inst/scripts/inspect_resumed.R
-Rscript inst/scripts/calibrate_resumed.R
-python inst/scripts/extract_paper_benchmarks.py
-Rscript inst/scripts/extract_tmt_psms.R
-Rscript inst/scripts/close_m1.R
-python inst/scripts/extract_paper_benchmarks.py M1-final
-Rscript inst/scripts/report_final_m1.R
-python inst/scripts/package_m1_evidence.py
-```
-
-The raw TMT source and variance inputs are paired by their protein and cell
-identifiers, retaining the accepted population without new QC thresholds.
-The two measurement scales are named in the manifest. Derks metadata are
-matched by physical file and label; its accepted estimates are unchanged.
-No estimate is adjusted to match a paper.
-
-Compression is a registered user assumption, never an estimate from these datasets.
-The manifest records the default and sensitivity assumptions and the ratio-standard
-pilot requirement. Walzik supplies whole-PBMC donor variance, including donor
-composition differences; sorted-subset proteomics is unavailable.
-
-`scp_simulate()` generates log2 measurements with missing values, cell metadata
-(sample, condition, batch), injected truth and a run manifest. The YAML presets
-in [inst/presets](inst/presets) hold the frozen calibration; a user can supply a
-YAML file or complete preset list. For example:
+For a twofold change, compare eight and twelve samples per condition, each with thirty-two cells.
 
 ```r
-simulated <- scp_simulate(
-    NULL, n_per_condition = 4, m_cells_per_sample = 16,
-    beta = log2(1.5), preset = "derks2022_timsTOF",
-    layout = "balanced", k = 1, seed = 20261013
-)
-simulated$matrix
-simulated$cell_metadata
+x <- scp_power("leduc2022_pSCoPE", n_per_condition = c(8, 12),
+  m_cells_per_sample = 32, beta = log2(2), replicates = 200, seed = 20261013)
+x$results[, c("n_per_condition", "m_cells_per_sample", "power", "testability",
+  "conditional_power", "realised_fdr", "instrument_hours")]
 ```
 
-The registered [M2 fidelity report](reports/M2/fidelity-report.md) records every
-PASS and FAIL, the observed/simulated numbers, and suspected causes. Failed
-datasets stop at that report; the next directive decides any change. Calibration
-and simulation were not tuned to obtain a pass. Brunner's separate run variance
-is absorbed into its cell term. TMT baseline and missingness use raw intensities
-while variance retains the accepted ratio scale.
+| Samples/condition | Cells/sample | Power | Testability | Conditional power | Realised FDR | Hours |
+| --- | --- | --- | --- | --- | --- | --- |
+| 8 | 32 | 0.348 | 0.398 | 0.864 | 0.0385 | 58.58 |
+| 12 | 32 | 0.364 | 0.386 | 0.949 | 0.0372 | 87.08 |
 
-To reproduce the original M2 evidence, use source at
-[b34d9d4](https://github.com/yhengaa/scpPower/commit/b34d9d4bd89a4cfb17f8fb1af5e8c37bba6c5f6a)
-after regenerating final M1. The revised commands below use the current source.
-Original M2 commands:
+### plexDIA: timsTOF
 
-```sh
-Rscript inst/scripts/generate_presets.R
-Rscript inst/scripts/fidelity_m2.R
-Rscript inst/scripts/report_m2.R
+For a twofold change, compare eight and twelve samples per condition, each with thirty-two cells.
+
+```r
+x <- scp_power("derks2022_timsTOF", n_per_condition = c(8, 12),
+  m_cells_per_sample = 32, beta = log2(2), replicates = 200, seed = 20261013)
+x$results[, c("n_per_condition", "m_cells_per_sample", "power", "testability",
+  "conditional_power", "realised_fdr", "instrument_hours")]
 ```
 
-Author and maintainer: Youshan Heng,
-[ORCID 0000-0002-2758-171X](https://orcid.org/0000-0002-2758-171X),
-poggar@hotmail.com (verified through the connected GitHub profile).
+| Samples/condition | Cells/sample | Power | Testability | Conditional power | Realised FDR | Hours |
+| --- | --- | --- | --- | --- | --- | --- |
+| 8 | 32 | 0.777 | 0.898 | 0.854 | 0.0365 | 128.00 |
+| 12 | 32 | 0.868 | 0.891 | 0.960 | 0.0391 | 192.00 |
 
-The carrier reference identified by PMID 33288958 is Cheung et al.,
-[*Nature Methods*](https://doi.org/10.1038/s41592-020-01002-5).
-The frozen mandate retains the PI's text verbatim; the bibliographic correction
-is recorded here and in calibration documentation.
+### Label-free: Brunner
 
-The approved [addendum v1.1.3](scpPower_mandate_v1.1.md) revises the simulator
-under amendment G. Registered presets jointly resample calibrated protein rows
-within tiers, retaining each protein's mean, variance components and detection
-parameters. Tier summaries remain for reporting. TMT uses a protein's plex
-identification probability followed by conditional channel detection; both
-probabilities are independent of the effect because the carrier pools both
-conditions. DIA and label-free presets keep protein-specific baseline
-detection and use the fitted intensity slope for expected-intensity shifts.
+For a twofold change, compare eight and twelve samples per condition, each with thirty-two cells.
 
-The [revised M2 evidence](reports/M2-revised/fidelity-report.md) preserves the
-registered tolerances, native designs, replicate count and metric definitions.
-It also reports the fraction quantified in at least half the cells, outside
-the gate. The [original M2 evidence](reports/M2/fidelity-report.md) remains
-available. M3 and the v0.2.0 tag require all series to pass the revised gate.
-The M4 registration is unchanged.
-
-After reproducing final M1, regenerate amendment G and its evidence with:
-
-```sh
-Rscript inst/scripts/generate_presets_revised.R
-Rscript inst/scripts/fidelity_m2_revised.R
-Rscript inst/scripts/report_m2_revised.R
+```r
+x <- scp_power("brunner2022", n_per_condition = c(8, 12),
+  m_cells_per_sample = 32, beta = log2(2), replicates = 200, seed = 20261013)
+x$results[, c("n_per_condition", "m_cells_per_sample", "power", "testability",
+  "conditional_power", "realised_fdr", "instrument_hours")]
 ```
 
-All registered series pass the revised M2 gate. `scp_power()` now evaluates
-the approved M3 endpoint: per-sample log2 means with a minimum of three
-quantified cells in every sample, limma-trend, BH and injected-sign agreement.
-It reports power, testability, realised FDR, Monte Carlo standard errors,
-actual acquisition runs, nominal instrument hours and the cheapest tested
-design meeting the requested power target.
+| Samples/condition | Cells/sample | Power | Testability | Conditional power | Realised FDR | Hours |
+| --- | --- | --- | --- | --- | --- | --- |
+| 8 | 32 | 0.647 | 0.673 | 0.905 | 0.0478 | 298.67 |
+| 12 | 32 | 0.670 | 0.647 | 0.972 | 0.0481 | 448.00 |
 
-See the documented `scp_power()` return values in [the function documentation](man/scp_power.Rd).
+## Cheapest registered design reaching 0.8 power
 
-The [M3 report](reports/M3/power-report.md) includes power and testability
-curves, the TMT sensitivity assumptions, realised FDR, instrument-hour
-estimates, point runtimes and seeds/hashes. A target that no registered
-design reaches is reported as unavailable. Instrument hours use cited
-method/gradient durations and actual occupied batches; unreported overhead
-is excluded. Passing M2 does not establish power validity or bulk-donor
-transfer. The [registered M4 validation](reports/M4/validation-report.md)
-evaluates cell-level noise, missingness and the test using held-out proteins.
-It cannot validate between-donor variance transfer or compression k. The
-original M3 numeric tables and plots remain unchanged.
+The combined [M3b grid](reports/M3b/power-grid.csv) contains updated TMT rows and unchanged non-TMT rows. The table below selects the least instrument time among designs whose mean simulated power reaches the target; it does not extrapolate beyond the registered grid. See the [report](reports/M3b/power-report.md) and [cheapest-design difference](reports/M3b/cheapest-design-diff.csv).
 
-The M3 numbers are frozen under the pre-I presets. Use tag `v0.2.0` to reproduce that run; this directive does not rerun M3.
+| Preset | Fold change | k | Samples/condition | Cells/sample | Power | Hours | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| specht2019v3 | 1.25 | 1.00 | — | — | — | — | no registered design reaches 0.8 |
+| specht2019v3 | 1.25 | 0.75 | — | — | — | — | no registered design reaches 0.8 |
+| specht2019v3 | 1.25 | 0.50 | — | — | — | — | no registered design reaches 0.8 |
+| specht2019v3 | 1.50 | 1.00 | — | — | — | — | no registered design reaches 0.8 |
+| specht2019v3 | 1.50 | 0.75 | — | — | — | — | no registered design reaches 0.8 |
+| specht2019v3 | 1.50 | 0.50 | — | — | — | — | no registered design reaches 0.8 |
+| specht2019v3 | 2.00 | 1.00 | — | — | — | — | no registered design reaches 0.8 |
+| specht2019v3 | 2.00 | 0.75 | — | — | — | — | no registered design reaches 0.8 |
+| specht2019v3 | 2.00 | 0.50 | — | — | — | — | no registered design reaches 0.8 |
+| leduc2022_pSCoPE | 1.25 | 1.00 | — | — | — | — | no registered design reaches 0.8 |
+| leduc2022_pSCoPE | 1.25 | 0.75 | — | — | — | — | no registered design reaches 0.8 |
+| leduc2022_pSCoPE | 1.25 | 0.50 | — | — | — | — | no registered design reaches 0.8 |
+| leduc2022_pSCoPE | 1.50 | 1.00 | — | — | — | — | no registered design reaches 0.8 |
+| leduc2022_pSCoPE | 1.50 | 0.75 | — | — | — | — | no registered design reaches 0.8 |
+| leduc2022_pSCoPE | 1.50 | 0.50 | — | — | — | — | no registered design reaches 0.8 |
+| leduc2022_pSCoPE | 2.00 | 1.00 | — | — | — | — | no registered design reaches 0.8 |
+| leduc2022_pSCoPE | 2.00 | 0.75 | — | — | — | — | no registered design reaches 0.8 |
+| leduc2022_pSCoPE | 2.00 | 0.50 | — | — | — | — | no registered design reaches 0.8 |
+| derks2022_timsTOF | 1.25 | 1.00 | — | — | — | — | no registered design reaches 0.8 |
+| derks2022_timsTOF | 1.50 | 1.00 | — | — | — | — | no registered design reaches 0.8 |
+| derks2022_timsTOF | 2.00 | 1.00 | 12 | 32 | 0.865 | 192.00 | Target reached in registered grid |
+| derks2022_QExactive | 1.25 | 1.00 | — | — | — | — | no registered design reaches 0.8 |
+| derks2022_QExactive | 1.50 | 1.00 | — | — | — | — | no registered design reaches 0.8 |
+| derks2022_QExactive | 2.00 | 1.00 | — | — | — | — | no registered design reaches 0.8 |
+| brunner2022 | 1.25 | 1.00 | — | — | — | — | no registered design reaches 0.8 |
+| brunner2022 | 1.50 | 1.00 | — | — | — | — | no registered design reaches 0.8 |
+| brunner2022 | 2.00 | 1.00 | — | — | — | — | no registered design reaches 0.8 |
 
-Reproduce M3 after the revised M2 gate passes:
+## Calibrate your own data
 
-```sh
-python inst/scripts/extract_instrument_times.py
-Rscript inst/scripts/add_instrument_times.R
-Rscript inst/scripts/verify_revised_replay.R
-Rscript inst/scripts/register_m3_grid.R
-# Choose your cluster account in the submitted file.
-sbatch --array=1-27%27 inst/scripts/run_m3_chunk.sbatch
-# Once all registered points complete:
-Rscript inst/scripts/report_m3.R
+Use an unimputed QFeatures protein assay and explicit biological-sample, condition and batch metadata. Here `pilot` has an already-log2 `proteins` assay; `donor_means` is a matching protein-by-donor matrix from the reference condition and `donor_info$donor` identifies its columns. Run duration, usable single-cell slots and carrier ratio are measured pilot inputs. In carrier TMT, `raw_proteins` supplies aligned uncentred abundance values for the intensity curve while the preset's detection mask comes from the endpoint assay.
+
+```r
+cal <- scp_calibrate(pilot, assay = "proteins", log2_input = TRUE,
+  sample_col = "sample", condition_col = "condition", batch_col = "plex",
+  bulk = donor_means, bulk_metadata = donor_info,
+  normalize_cells = TRUE, missingness_input = raw_proteins,
+  carrier_ratio = pilot_carrier_ratio, compression_k = pilot_k, seed = 20261013)
+source(system.file("scripts", "pilot_to_preset.R", package = "scpPower"))
+preset <- pilot_to_preset(cal,
+  SummarizedExperiment::assay(pilot[["proteins"]]),
+  as.data.frame(SummarizedExperiment::colData(pilot[["proteins"]])), "plex",
+  cells_per_run = pilot_single_cell_slots, minutes_per_run = pilot_run_minutes,
+  carrier = TRUE)
+sim <- scp_simulate(NULL, 4, 20, beta = log2(2), preset = preset, seed = 20261013)
+power <- scp_power(preset, 4, 20, beta = log2(2), seed = 20261013)
 ```
 
-For an interactive compute allocation, the same registered points can run
-with `srun Rscript inst/scripts/run_m3_parallel.R`; the launcher uses the
-allocated CPU count and retains already-completed points. This changes only
-scheduling, with the grid and replicate seeds preserved.
+Inspect component reason columns and overlap before using a preset; unavailable donor or cell variances are reported rather than invented. The [pilot protocol](inst/doc/pilot-protocol.md) explains controls and label-free inputs. The conversion script uses the existing parameter fallbacks and endpoint-mask rule; it fits no additional model.
 
+## Limitations
 
-Carrier-TMT validation limitation (addendum v1.1.5):
+1. Between-donor variance is mapped from a whole-PBMC bulk cohort. Transfer to single cells, including composition differences, is an assumption tested only by a pilot in the intended cell type.
+2. Carrier compression k is an assumption: default 1, with sensitivities 0.75 and 0.5. A known-ratio standard is needed to estimate it for a lab.
+3. TMT predictions are validated on real cells only up to observed power of about 0.35. In v0.3.0, twofold predictions exceeded observation by up to 20 percentage points through testability; amendment I corrected endpoint-mask consistency. The accepted correction to the conditional-power statement is recorded in the [TMT closure report](reports/J/diagnostic-report.md).
+4. Cell-depth dependence is not modelled. Real depth SD is roughly 5 to 7 times simulated SD (recorded endpoint ratios: 5.17 and 7.50); this did not affect the registered validation verdict. See [Diagnostic J](reports/J/native-depth-summary.csv).
+5. Q Exactive and timsTOF could not be validated at useful power for lack of public cells. Q Exactive passed only at low power; timsTOF was not evaluable.
+6. The primary endpoint tests per-sample means with limma-trend. Other tests will give other numbers.
 
-In carrier-TMT presets, unconditional power is validated only up to observed power of about 0.3. At twofold, v0.3.0 predictions ran above observation by up to 20 percentage points, associated with over-predicted testability. Q Exactive and timsTOF could not be validated at useful power for lack of cells. No TMT design numbers or new design examples are presented in the README or a vignette during this round.
+## Validation
 
-The 1-pp conditional-power description holds for mean signed TMT gaps: -0.82 pp for Specht and +0.94 pp for Leduc across counted points. Brunner averages +1.30 pp and Q Exactive -0.46 pp. It is not a bound on every point: among points with maximum power at least 0.2, maximum conditional gaps are 1.53 pp for Specht, 4.56 pp for Leduc and 6.05 pp for Brunner. Across all counted points the maxima are 7.77, 11.13, 7.57 and 2.32 pp respectively. The high-power agreement counts do reproduce: 3/8 Specht, 11/14 Leduc and 12/12 Brunner; Q Exactive has none. Testability is the main TMT discrepancy, while the statement that the entire gap is testability with universal agreement within 1 pp is stronger than the recorded columns support. This clarification does not change any data, criterion or accepted verdict.
+| Stage | Evaluated datasets | Result | Evidence |
+| --- | --- | --- | --- |
+| M2 (amendment G) | 5 | 5/5 PASS | [Fidelity report](reports/M2-revised/README.md) |
+| M4, v0.3.0 | 4 | specht2019v3: 67/72; leduc2022_pSCoPE: 66/69; derks2022_QExactive: 6/6; brunner2022: 57/57; overall PASS | [Validation report](reports/M4/validation-report.md) |
+| M4b, v0.3.1 | 2 | specht2019v3: 72/72; leduc2022_pSCoPE: 69/69; both PASS | [Validation report](reports/M4b/validation-report.md); [M2b](reports/M2b/README.md) |
 
-[Diagnostic J](reports/J/diagnostic-report.md) determines the assay-consistency branch before any preset change. The registered v0.3.0 M4 verdict stands. No M5 work is included.
+M4 validates cell-level noise, missingness and the registered test. It cannot validate donor-variance transfer or k. The [vignette](vignettes/designing-scp.Rmd) explains testability, conditional power and compression sensitivity. Every reported data estimate has a public-input reproduction script in [inst/scripts](inst/scripts), including [release reproduction](inst/scripts/reproduce_release.sh); raw input hashes are retained in the stage manifests.
+
+## Development
+
+Code was written with the assistance of GPT (OpenAI) and independently reviewed with Claude (Anthropic), both under the author's direction. All scientific decisions, registered criteria, data choices and verifications are the author's.
+
+## Citation and licence
+
+Cite Youshan Heng, *scpPower*, version 1.0.0, using [CITATION.cff](CITATION.cff). scpPower is released under [GNU GPL version 3](https://www.gnu.org/licenses/gpl-3.0.html).

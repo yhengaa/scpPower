@@ -1,3 +1,3 @@
-# M3 evidence
+# Current registered grid
 
-[Power report](power-report.md), [power curves](power-curves.png), [testability curves](testability-curves.png), [TMT power sensitivity](power-tmt-sensitivity.png), [TMT testability sensitivity](testability-tmt-sensitivity.png), [FDR](realised-fdr.csv), [instrument hours](instrument-hours.csv), [cheapest designs](cheapest-designs.csv), [manifest](run-manifest.json).
+TMT rows use amendment I; non-TMT rows are unchanged. See [M3b report](../M3b/power-report.md), [combined grid](power-grid.csv), [M3b manifest](../M3b/run-manifest.json), and [original archive](../M3b/archive-v0.2.0/).

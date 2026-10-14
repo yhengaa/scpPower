@@ -26,7 +26,7 @@ jobs:
           Rscript -e 'options(repos=c(CRAN="https://cloud.r-project.org")); if (!requireNamespace("renv",quietly=TRUE)) install.packages("renv"); renv::restore(prompt=FALSE)'
       - name: Build and check
         run: |
-          R CMD build . --no-build-vignettes --no-manual
+          R CMD build . --no-manual
           R CMD check scpPower_*.tar.gz --no-manual --as-cran
           Rscript -e 'x <- readLines("scpPower.Rcheck/00check.log"); if (any(grepl("[1-9][0-9]* (ERROR|WARNING)", x))) quit(status=1L)'
       - name: Preserve check evidence
