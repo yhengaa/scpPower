@@ -14,3 +14,6 @@
 ^scpPower_.*-manifest\.json$
 ^inst/scripts/__pycache__$
 ^paper$
+^\.zenodo\.json$
+^CONTRIBUTING\.md$
+^CODE_OF_CONDUCT\.md$

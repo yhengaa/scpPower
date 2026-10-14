@@ -1,0 +1,31 @@
+{
+  "title": "scpPower: calibration, simulation and power for single-cell proteomics",
+  "upload_type": "software",
+  "creators": [
+    {
+      "name": "Heng, Youshan",
+      "orcid": "0000-0002-2758-171X"
+    }
+  ],
+  "license": "GPL-3.0",
+  "keywords": [
+    "single-cell proteomics",
+    "power analysis",
+    "experimental design",
+    "sample size",
+    "missingness",
+    "carrier TMT",
+    "plexDIA",
+    "label-free DIA",
+    "R package"
+  ],
+  "description": "scpPower calibrates cell-level noise, acquisition-batch effects and detection parameters from public single-cell proteomics datasets and maps between-donor variance from an independent bulk cohort. It simulates hierarchical protein measurements and estimates power, testability, conditional power, realised false discovery rates and nominal instrument hours for the registered sample-level endpoint. The archive includes the frozen mandate and addenda, registered fidelity and semi-synthetic validation evidence, the complete power grid, worked examples, pilot protocol, manuscript number audit and Supporting Information. Between-donor variance transfer and carrier compression remain declared assumptions. This maintenance version changes no scientific model, preset, endpoint or registered result.",
+  "related_identifiers": [
+    {
+      "scheme": "url",
+      "identifier": "https://github.com/yhengaa/scpPower",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    }
+  ]
+}

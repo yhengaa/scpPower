@@ -2,8 +2,7 @@ cff-version: 1.2.0
 message: "If you use scpPower, please cite this software."
 type: software
 title: "scpPower: calibration, simulation and power for single-cell proteomics"
-version: 1.0.0
-date-released: '2026-10-13'
+version: 1.0.1
 authors:
   - family-names: Heng
     given-names: Youshan

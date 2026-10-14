@@ -1,0 +1,367 @@
+{
+  "files": [
+    {
+      "file": "S1-fidelity/M2-fidelity-table.csv",
+      "sha256": "0c8d3a70a6dfbc289f82c90a63543347298cdab8d0ebe1c1003871b44b92edd0",
+      "source_file": "reports/M2/fidelity-table.csv",
+      "source_sha256": "0c8d3a70a6dfbc289f82c90a63543347298cdab8d0ebe1c1003871b44b92edd0",
+      "copy_identical": true
+    },
+    {
+      "file": "S1-fidelity/M2-fidelity-summary.csv",
+      "sha256": "04a6ad3a8862be4b2be75cd482bf61269aa9f15015915bd8ee9b78753300c392",
+      "source_file": "reports/M2/fidelity-summary.csv",
+      "source_sha256": "04a6ad3a8862be4b2be75cd482bf61269aa9f15015915bd8ee9b78753300c392",
+      "copy_identical": true
+    },
+    {
+      "file": "S1-fidelity/M2-revised-fidelity-table.csv",
+      "sha256": "f5175fa01d111e7ce881d94ee80c44628f50fd98746a889bd9f72df6f031523d",
+      "source_file": "reports/M2-revised/fidelity-table.csv",
+      "source_sha256": "f5175fa01d111e7ce881d94ee80c44628f50fd98746a889bd9f72df6f031523d",
+      "copy_identical": true
+    },
+    {
+      "file": "S1-fidelity/M2-revised-fidelity-summary.csv",
+      "sha256": "a225c313872bc8f95c732c9b9529dd4c2cd4e19059d7335847bd74140fcbcf22",
+      "source_file": "reports/M2-revised/fidelity-summary.csv",
+      "source_sha256": "a225c313872bc8f95c732c9b9529dd4c2cd4e19059d7335847bd74140fcbcf22",
+      "copy_identical": true
+    },
+    {
+      "file": "S1-fidelity/M2b-fidelity-table.csv",
+      "sha256": "f4f34375000faac2fd6e7540d9bc9583682e3ed11a7c0bf74b50e6b86a0ded78",
+      "source_file": "reports/M2b/fidelity-table.csv",
+      "source_sha256": "f4f34375000faac2fd6e7540d9bc9583682e3ed11a7c0bf74b50e6b86a0ded78",
+      "copy_identical": true
+    },
+    {
+      "file": "S1-fidelity/M2b-fidelity-summary.csv",
+      "sha256": "50e2d340e61affdbebfa6ed1c4751609c25d0d15f9837235c24d37757293edcd",
+      "source_file": "reports/M2b/fidelity-summary.csv",
+      "source_sha256": "50e2d340e61affdbebfa6ed1c4751609c25d0d15f9837235c24d37757293edcd",
+      "copy_identical": true
+    },
+    {
+      "file": "S2-validation/M4-validation-table.csv",
+      "sha256": "d26a6eca29bf6b99f9502834c416888e014e8bafa540a7f9d44810b6110ef240",
+      "source_file": "reports/M4/validation-table.csv",
+      "source_sha256": "d26a6eca29bf6b99f9502834c416888e014e8bafa540a7f9d44810b6110ef240",
+      "copy_identical": true
+    },
+    {
+      "file": "S2-validation/M4-dataset-verdicts.csv",
+      "sha256": "0ab8cf8eb8b8f3756d773316c0388eacd982b3eac412c47d311c60bc5608d38e",
+      "source_file": "reports/M4/dataset-verdicts.csv",
+      "source_sha256": "0ab8cf8eb8b8f3756d773316c0388eacd982b3eac412c47d311c60bc5608d38e",
+      "copy_identical": true
+    },
+    {
+      "file": "S2-validation/M4-run-manifest.json",
+      "sha256": "e355111bfba09598e72e47af8b29009e2e8c15e014531aff75111ad21f9073f1",
+      "source_file": "reports/M4/run-manifest.json",
+      "source_sha256": "e355111bfba09598e72e47af8b29009e2e8c15e014531aff75111ad21f9073f1",
+      "copy_identical": true
+    },
+    {
+      "file": "S2-validation/M4-predictions-frozen.json",
+      "sha256": "316d638aa27184441455235515c334046d1a0147cc6f930c48106bace00549dd",
+      "source_file": "reports/M4/predictions-frozen.json",
+      "source_sha256": "316d638aa27184441455235515c334046d1a0147cc6f930c48106bace00549dd",
+      "copy_identical": true
+    },
+    {
+      "file": "S2-validation/M4-brunner2022-predicted-observed.png",
+      "sha256": "f8ff2c1a1551cc6b64eccb2b85d56951dc38ce2046c8b6535a1aa3b1513b8889",
+      "source_file": "reports/M4/brunner2022-predicted-observed.png",
+      "source_sha256": "f8ff2c1a1551cc6b64eccb2b85d56951dc38ce2046c8b6535a1aa3b1513b8889",
+      "copy_identical": true
+    },
+    {
+      "file": "S2-validation/M4-derks2022_QExactive-predicted-observed.png",
+      "sha256": "82e95fcc79c396749b8f4a6b24bd805d765e2d9918304f7c9cfdf30678bc912a",
+      "source_file": "reports/M4/derks2022_QExactive-predicted-observed.png",
+      "source_sha256": "82e95fcc79c396749b8f4a6b24bd805d765e2d9918304f7c9cfdf30678bc912a",
+      "copy_identical": true
+    },
+    {
+      "file": "S2-validation/M4-derks2022_timsTOF-predicted-observed.png",
+      "sha256": "32b95ae4ce00cf8a7d8ce71a33cc02020f608ec93eb826cccdf350753b36c8b6",
+      "source_file": "reports/M4/derks2022_timsTOF-predicted-observed.png",
+      "source_sha256": "32b95ae4ce00cf8a7d8ce71a33cc02020f608ec93eb826cccdf350753b36c8b6",
+      "copy_identical": true
+    },
+    {
+      "file": "S2-validation/M4-leduc2022_pSCoPE-predicted-observed.png",
+      "sha256": "8673a6b28a85f76b84511cb49e98336023043535de003a557419ae431568afd2",
+      "source_file": "reports/M4/leduc2022_pSCoPE-predicted-observed.png",
+      "source_sha256": "8673a6b28a85f76b84511cb49e98336023043535de003a557419ae431568afd2",
+      "copy_identical": true
+    },
+    {
+      "file": "S2-validation/M4-specht2019v3-predicted-observed.png",
+      "sha256": "d3e9f53cb05481e048f0505083a38ddb2fdc8140a645f85f97d962bbef1e2b04",
+      "source_file": "reports/M4/specht2019v3-predicted-observed.png",
+      "source_sha256": "d3e9f53cb05481e048f0505083a38ddb2fdc8140a645f85f97d962bbef1e2b04",
+      "copy_identical": true
+    },
+    {
+      "file": "S2-validation/M4b-validation-table.csv",
+      "sha256": "9858ff5d92993fb5d9fb684bc13e06445e8c94e575c664dba6ed2e0bc251c94e",
+      "source_file": "reports/M4b/validation-table.csv",
+      "source_sha256": "9858ff5d92993fb5d9fb684bc13e06445e8c94e575c664dba6ed2e0bc251c94e",
+      "copy_identical": true
+    },
+    {
+      "file": "S2-validation/M4b-dataset-verdicts.csv",
+      "sha256": "5ceb7e91944327b06e0f77666c1b679b315adce4e74e6dee51554668f65cee97",
+      "source_file": "reports/M4b/dataset-verdicts.csv",
+      "source_sha256": "5ceb7e91944327b06e0f77666c1b679b315adce4e74e6dee51554668f65cee97",
+      "copy_identical": true
+    },
+    {
+      "file": "S2-validation/M4b-run-manifest.json",
+      "sha256": "de1bd150faff823dda804d7233a7dfae530f3d76b8ab283ab20767c7d91ad0e2",
+      "source_file": "reports/M4b/run-manifest.json",
+      "source_sha256": "de1bd150faff823dda804d7233a7dfae530f3d76b8ab283ab20767c7d91ad0e2",
+      "copy_identical": true
+    },
+    {
+      "file": "S2-validation/M4b-predictions-frozen.json",
+      "sha256": "266bb65ca1d452c8ec6b14fbb02aff826dd6b2ade50965761521514bc43432a3",
+      "source_file": "reports/M4b/predictions-frozen.json",
+      "source_sha256": "266bb65ca1d452c8ec6b14fbb02aff826dd6b2ade50965761521514bc43432a3",
+      "copy_identical": true
+    },
+    {
+      "file": "S2-validation/M4b-leduc2022_pSCoPE-predicted-observed.png",
+      "sha256": "5b56147893f090013a08de0d730409944e2c91e2967c6edfad6efdec86fdc7de",
+      "source_file": "reports/M4b/leduc2022_pSCoPE-predicted-observed.png",
+      "source_sha256": "5b56147893f090013a08de0d730409944e2c91e2967c6edfad6efdec86fdc7de",
+      "copy_identical": true
+    },
+    {
+      "file": "S2-validation/M4b-specht2019v3-predicted-observed.png",
+      "sha256": "59d1233cd6e00c79c9cef2ea9ea9b7ba09e85b776f4cc4914643df01f6906730",
+      "source_file": "reports/M4b/specht2019v3-predicted-observed.png",
+      "source_sha256": "59d1233cd6e00c79c9cef2ea9ea9b7ba09e85b776f4cc4914643df01f6906730",
+      "copy_identical": true
+    },
+    {
+      "file": "S3-diagnostic-J/decision-table.csv",
+      "sha256": "634975fe047a75adf475268db96dbf6b3fa732164b883dac4ee977100fe6d493",
+      "source_file": "reports/J/decision-table.csv",
+      "source_sha256": "634975fe047a75adf475268db96dbf6b3fa732164b883dac4ee977100fe6d493",
+      "copy_identical": true
+    },
+    {
+      "file": "S3-diagnostic-J/mask-summary-by-tier.csv",
+      "sha256": "829a2b7dbd3d20e65024e8a987536b7175db21bc48bb69d7684550e0a7bd9e7a",
+      "source_file": "reports/J/mask-summary-by-tier.csv",
+      "source_sha256": "829a2b7dbd3d20e65024e8a987536b7175db21bc48bb69d7684550e0a7bd9e7a",
+      "copy_identical": true
+    },
+    {
+      "file": "S3-diagnostic-J/native-depth-summary.csv",
+      "sha256": "1ae56d877fc40ab2cb2701da1cf87f31f8b4cbcb78611733aee9e71c590f29c3",
+      "source_file": "reports/J/native-depth-summary.csv",
+      "source_sha256": "1ae56d877fc40ab2cb2701da1cf87f31f8b4cbcb78611733aee9e71c590f29c3",
+      "copy_identical": true
+    },
+    {
+      "file": "S3-diagnostic-J/pipeline-audit.csv",
+      "sha256": "11d8214a3e93c5f103606ffbee99fd3516a93fd64c3857fbe7c58786ca046dde",
+      "source_file": "reports/J/pipeline-audit.csv",
+      "source_sha256": "11d8214a3e93c5f103606ffbee99fd3516a93fd64c3857fbe7c58786ca046dde",
+      "copy_identical": true
+    },
+    {
+      "file": "S3-diagnostic-J/diagnostic-report.md",
+      "sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+      "source_file": "reports/J/diagnostic-report.md",
+      "source_sha256": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+      "copy_identical": true
+    },
+    {
+      "file": "S4-power-grid/power-grid.csv",
+      "sha256": "81e796fee3b7f1f739bf76bad54c9f75bee264bfbfd7e9033dc51f4c95902975",
+      "source_file": "reports/M3b/power-grid.csv",
+      "source_sha256": "81e796fee3b7f1f739bf76bad54c9f75bee264bfbfd7e9033dc51f4c95902975",
+      "copy_identical": true
+    },
+    {
+      "file": "S4-power-grid/realised-fdr.csv",
+      "sha256": "5b425f0bbbf6288a49cd64adb8d793231fee1a10e1f1dbd4ff773052bcf4699f",
+      "source_file": "reports/M3b/realised-fdr.csv",
+      "source_sha256": "5b425f0bbbf6288a49cd64adb8d793231fee1a10e1f1dbd4ff773052bcf4699f",
+      "copy_identical": true
+    },
+    {
+      "file": "S4-power-grid/instrument-hours.csv",
+      "sha256": "600d1598c5425965b2b7092e5a78c862ad051f85984f360d695642da7d33fd23",
+      "source_file": "reports/M3b/instrument-hours.csv",
+      "source_sha256": "600d1598c5425965b2b7092e5a78c862ad051f85984f360d695642da7d33fd23",
+      "copy_identical": true
+    },
+    {
+      "file": "S4-power-grid/cheapest-designs.csv",
+      "sha256": "a80891406238d9882318a6f273dec064018a875d477cb3699c0704ba71a84ad9",
+      "source_file": "reports/M3b/cheapest-designs.csv",
+      "source_sha256": "a80891406238d9882318a6f273dec064018a875d477cb3699c0704ba71a84ad9",
+      "copy_identical": true
+    },
+    {
+      "file": "S4-power-grid/replicate-metrics.csv.gz",
+      "sha256": "3d93bdaf56ae130cf08189fe619b411a66462315583f5bf2c7261118fd83423d",
+      "source_file": "reports/M3b/replicate-metrics.csv.gz",
+      "source_sha256": "3d93bdaf56ae130cf08189fe619b411a66462315583f5bf2c7261118fd83423d",
+      "copy_identical": true
+    },
+    {
+      "file": "S4-power-grid/run-manifest.json",
+      "sha256": "1fe74615f62acdf01aa396adf4eb669df5b38831b62d72e99fc18970df9a6092",
+      "source_file": "reports/M3b/run-manifest.json",
+      "source_sha256": "1fe74615f62acdf01aa396adf4eb669df5b38831b62d72e99fc18970df9a6092",
+      "copy_identical": true
+    },
+    {
+      "file": "S5-worked-examples/leduc2022_pSCoPE-worked-example-manifest.json",
+      "sha256": "7e6fb3845a254dfbc62bb808cf60544f886193f488afaa7b7d1f11c34117609f",
+      "source_file": "reports/M5/leduc2022_pSCoPE-worked-example-manifest.json",
+      "source_sha256": "7e6fb3845a254dfbc62bb808cf60544f886193f488afaa7b7d1f11c34117609f",
+      "copy_identical": true
+    },
+    {
+      "file": "S5-worked-examples/leduc2022_pSCoPE-worked-example.csv",
+      "sha256": "c0a2731e045fdc7e2131912ccad3f3cee5f5d278642a314a011d7075333f4b63",
+      "source_file": "reports/M5/leduc2022_pSCoPE-worked-example.csv",
+      "source_sha256": "c0a2731e045fdc7e2131912ccad3f3cee5f5d278642a314a011d7075333f4b63",
+      "copy_identical": true
+    },
+    {
+      "file": "S5-worked-examples/derks2022_timsTOF-worked-example-manifest.json",
+      "sha256": "c7df0e2ea80bf6b094e86d0f51367cfb8778c1962dfa3e26c20bc9d6990cfd2b",
+      "source_file": "reports/M5/derks2022_timsTOF-worked-example-manifest.json",
+      "source_sha256": "c7df0e2ea80bf6b094e86d0f51367cfb8778c1962dfa3e26c20bc9d6990cfd2b",
+      "copy_identical": true
+    },
+    {
+      "file": "S5-worked-examples/derks2022_timsTOF-worked-example.csv",
+      "sha256": "1cfe11d77aee205a731c2a9a6fb6ceab058495a08fcc5ef3167366d8dcb07ab4",
+      "source_file": "reports/M5/derks2022_timsTOF-worked-example.csv",
+      "source_sha256": "1cfe11d77aee205a731c2a9a6fb6ceab058495a08fcc5ef3167366d8dcb07ab4",
+      "copy_identical": true
+    },
+    {
+      "file": "S5-worked-examples/brunner2022-worked-example-manifest.json",
+      "sha256": "bd4f268f5f3f8139db29fb2e0d160b206685f1dac8736dfa692ab190242f5168",
+      "source_file": "reports/M5/brunner2022-worked-example-manifest.json",
+      "source_sha256": "bd4f268f5f3f8139db29fb2e0d160b206685f1dac8736dfa692ab190242f5168",
+      "copy_identical": true
+    },
+    {
+      "file": "S5-worked-examples/brunner2022-worked-example.csv",
+      "sha256": "209281f790a7688455ef66fd4e1f3909c36ee56e50eeb96ee6dcc6dfa739f489",
+      "source_file": "reports/M5/brunner2022-worked-example.csv",
+      "source_sha256": "209281f790a7688455ef66fd4e1f3909c36ee56e50eeb96ee6dcc6dfa739f489",
+      "copy_identical": true
+    },
+    {
+      "file": "S6-pilot-protocol/pilot-protocol.md",
+      "sha256": "9dbb594665c3ae1cfb1a5dbcac43828a5344d70d5c49ab91ea4cde45172ef662",
+      "source_file": "inst/doc/pilot-protocol.md",
+      "source_sha256": "9dbb594665c3ae1cfb1a5dbcac43828a5344d70d5c49ab91ea4cde45172ef662",
+      "copy_identical": true
+    },
+    {
+      "file": "S7-registered-record/scpPower_mandate_v1.1.md",
+      "sha256": "ac82ee30556ac018b68e5615c6c20a67d853c91407f75a80e1ed7f3f81dfa774",
+      "source_file": "scpPower_mandate_v1.1.md",
+      "source_sha256": "ac82ee30556ac018b68e5615c6c20a67d853c91407f75a80e1ed7f3f81dfa774",
+      "copy_identical": true
+    },
+    {
+      "file": "S4-power-grid/power-grid-complete.csv",
+      "sha256": "92bdac9ade767d9e488b52d435194f06c6a5d51f0000265ebf9abad19c59cf24",
+      "copy_identical": false,
+      "sources": [
+        {
+          "source_file": "reports/M3b/power-grid.csv",
+          "source_sha256": "81e796fee3b7f1f739bf76bad54c9f75bee264bfbfd7e9033dc51f4c95902975"
+        },
+        {
+          "source_file": "reports/M3b/replicate-metrics.csv.gz",
+          "source_sha256": "3d93bdaf56ae130cf08189fe619b411a66462315583f5bf2c7261118fd83423d"
+        }
+      ],
+      "expression": "Fill unavailable mean_rejections with mean(rejected) by task; fill zero_rejection_fraction with mean(rejected == 0) by task. All existing values, FDR and hours unchanged."
+    }
+  ],
+  "input_hashes": {
+    "reports/M2/fidelity-table.csv": "0c8d3a70a6dfbc289f82c90a63543347298cdab8d0ebe1c1003871b44b92edd0",
+    "reports/M2/fidelity-summary.csv": "04a6ad3a8862be4b2be75cd482bf61269aa9f15015915bd8ee9b78753300c392",
+    "reports/M2-revised/fidelity-table.csv": "f5175fa01d111e7ce881d94ee80c44628f50fd98746a889bd9f72df6f031523d",
+    "reports/M2-revised/fidelity-summary.csv": "a225c313872bc8f95c732c9b9529dd4c2cd4e19059d7335847bd74140fcbcf22",
+    "reports/M2b/fidelity-table.csv": "f4f34375000faac2fd6e7540d9bc9583682e3ed11a7c0bf74b50e6b86a0ded78",
+    "reports/M2b/fidelity-summary.csv": "50e2d340e61affdbebfa6ed1c4751609c25d0d15f9837235c24d37757293edcd",
+    "reports/M4/validation-table.csv": "d26a6eca29bf6b99f9502834c416888e014e8bafa540a7f9d44810b6110ef240",
+    "reports/M4/dataset-verdicts.csv": "0ab8cf8eb8b8f3756d773316c0388eacd982b3eac412c47d311c60bc5608d38e",
+    "reports/M4/run-manifest.json": "e355111bfba09598e72e47af8b29009e2e8c15e014531aff75111ad21f9073f1",
+    "reports/M4/predictions-frozen.json": "316d638aa27184441455235515c334046d1a0147cc6f930c48106bace00549dd",
+    "reports/M4/brunner2022-predicted-observed.png": "f8ff2c1a1551cc6b64eccb2b85d56951dc38ce2046c8b6535a1aa3b1513b8889",
+    "reports/M4/derks2022_QExactive-predicted-observed.png": "82e95fcc79c396749b8f4a6b24bd805d765e2d9918304f7c9cfdf30678bc912a",
+    "reports/M4/derks2022_timsTOF-predicted-observed.png": "32b95ae4ce00cf8a7d8ce71a33cc02020f608ec93eb826cccdf350753b36c8b6",
+    "reports/M4/leduc2022_pSCoPE-predicted-observed.png": "8673a6b28a85f76b84511cb49e98336023043535de003a557419ae431568afd2",
+    "reports/M4/specht2019v3-predicted-observed.png": "d3e9f53cb05481e048f0505083a38ddb2fdc8140a645f85f97d962bbef1e2b04",
+    "reports/M4b/validation-table.csv": "9858ff5d92993fb5d9fb684bc13e06445e8c94e575c664dba6ed2e0bc251c94e",
+    "reports/M4b/dataset-verdicts.csv": "5ceb7e91944327b06e0f77666c1b679b315adce4e74e6dee51554668f65cee97",
+    "reports/M4b/run-manifest.json": "de1bd150faff823dda804d7233a7dfae530f3d76b8ab283ab20767c7d91ad0e2",
+    "reports/M4b/predictions-frozen.json": "266bb65ca1d452c8ec6b14fbb02aff826dd6b2ade50965761521514bc43432a3",
+    "reports/M4b/leduc2022_pSCoPE-predicted-observed.png": "5b56147893f090013a08de0d730409944e2c91e2967c6edfad6efdec86fdc7de",
+    "reports/M4b/specht2019v3-predicted-observed.png": "59d1233cd6e00c79c9cef2ea9ea9b7ba09e85b776f4cc4914643df01f6906730",
+    "reports/J/decision-table.csv": "634975fe047a75adf475268db96dbf6b3fa732164b883dac4ee977100fe6d493",
+    "reports/J/mask-summary-by-tier.csv": "829a2b7dbd3d20e65024e8a987536b7175db21bc48bb69d7684550e0a7bd9e7a",
+    "reports/J/native-depth-summary.csv": "1ae56d877fc40ab2cb2701da1cf87f31f8b4cbcb78611733aee9e71c590f29c3",
+    "reports/J/pipeline-audit.csv": "11d8214a3e93c5f103606ffbee99fd3516a93fd64c3857fbe7c58786ca046dde",
+    "reports/J/diagnostic-report.md": "7fc0d61c0276af1c8397101acb5771679db45c1235cd81e52b2a2945d2d15500",
+    "reports/M3b/power-grid.csv": "81e796fee3b7f1f739bf76bad54c9f75bee264bfbfd7e9033dc51f4c95902975",
+    "reports/M3b/realised-fdr.csv": "5b425f0bbbf6288a49cd64adb8d793231fee1a10e1f1dbd4ff773052bcf4699f",
+    "reports/M3b/instrument-hours.csv": "600d1598c5425965b2b7092e5a78c862ad051f85984f360d695642da7d33fd23",
+    "reports/M3b/cheapest-designs.csv": "a80891406238d9882318a6f273dec064018a875d477cb3699c0704ba71a84ad9",
+    "reports/M3b/replicate-metrics.csv.gz": "3d93bdaf56ae130cf08189fe619b411a66462315583f5bf2c7261118fd83423d",
+    "reports/M3b/run-manifest.json": "1fe74615f62acdf01aa396adf4eb669df5b38831b62d72e99fc18970df9a6092",
+    "reports/M5/leduc2022_pSCoPE-worked-example-manifest.json": "7e6fb3845a254dfbc62bb808cf60544f886193f488afaa7b7d1f11c34117609f",
+    "reports/M5/leduc2022_pSCoPE-worked-example.csv": "c0a2731e045fdc7e2131912ccad3f3cee5f5d278642a314a011d7075333f4b63",
+    "reports/M5/derks2022_timsTOF-worked-example-manifest.json": "c7df0e2ea80bf6b094e86d0f51367cfb8778c1962dfa3e26c20bc9d6990cfd2b",
+    "reports/M5/derks2022_timsTOF-worked-example.csv": "1cfe11d77aee205a731c2a9a6fb6ceab058495a08fcc5ef3167366d8dcb07ab4",
+    "reports/M5/brunner2022-worked-example-manifest.json": "bd4f268f5f3f8139db29fb2e0d160b206685f1dac8736dfa692ab190242f5168",
+    "reports/M5/brunner2022-worked-example.csv": "209281f790a7688455ef66fd4e1f3909c36ee56e50eeb96ee6dcc6dfa739f489",
+    "inst/doc/pilot-protocol.md": "9dbb594665c3ae1cfb1a5dbcac43828a5344d70d5c49ab91ea4cde45172ef662",
+    "scpPower_mandate_v1.1.md": "ac82ee30556ac018b68e5615c6c20a67d853c91407f75a80e1ed7f3f81dfa774"
+  },
+  "manuscript_sha256": "253f9b4eab98f4668d53e1950d84f041f24a9410045c91d391a19fea04365470",
+  "seed": {},
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "registered_versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "wall_seconds": 6.018,
+  "new_scientific_runs": false,
+  "checksum_scope": "Every SI payload file; manifest.json excludes its own recursive checksum.",
+  "exceptions": "S6 source is inst/doc/pilot-protocol.md; S7 source is the deposited frozen mandate. Both are byte-identical copies. The explicitly labelled complete grid is a derivative of registered replicate counts.",
+  "combined_pdf": {
+    "file": "paper/SI.pdf",
+    "sha256": "6f1860cb68062e4db077ed3852c234fd7e2004018ba579291a2d65d94aac395b",
+    "supporting_captions": ["S1, fidelity tables for the five series under the final simulator and the earlier failed version.", "S2, semi-synthetic validation tables and plots, first attempt and rerun.", "S3, the TMT mask diagnostic.", "S4, the full registered power grid with false discovery rate, rejection counts and instrument hours.", "S5, worked-example manifests.", "S6, the pilot protocol.", "S7, the frozen mandate and addenda (the registered record)."]
+  }
+}

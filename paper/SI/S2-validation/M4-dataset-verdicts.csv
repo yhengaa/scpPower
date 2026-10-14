@@ -1,0 +1,6 @@
+"dataset","source_line","source_cells","eligible_points","excluded_m_lt_3","counted_points","completed_points","within_10_pp_points","pass_fraction","status","maximum_absolute_gap","maximum_observed_se","software_versions"
+"specht2019v3","Macrophage",1096,102,30,72,72,67,0.930555555555556,"PASS",0.195065789473684,0.00476906704432644,"R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"
+"leduc2022_pSCoPE","Monocyte",783,99,30,69,69,66,0.956521739130435,"PASS",0.128110465116279,0.00349401045534729,"R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"
+"derks2022_timsTOF","Melanoma_t",10,6,6,0,0,0,NA,"NOT EVALUABLE",NA,NA,"R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"
+"derks2022_QExactive","PDAC",45,33,27,6,6,6,1,"PASS",0.00390909090909091,0.00184717630493343,"R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"
+"brunner2022","HeLa",434,87,30,57,57,57,1,"PASS",0.053991935483871,0.00691629502861958,"R=4.6.1; scp=1.22.0; limma=3.68.5; edgeR=4.10.5; scplainer=workflow in scp 1.22.0; no separate package"

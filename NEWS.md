@@ -1,3 +1,10 @@
+# scpPower 1.0.1
+
+* No scientific changes. Models, presets, endpoints and registered results are unchanged.
+* Adds a reproducible manuscript number audit with explicit mismatches and source expressions.
+* Packages Supporting Information with byte-identical evidence copies, source hashes and a combined PDF. Rejection summaries absent from older grid columns are read from registered replicate counts.
+* Adds Zenodo archive metadata, citation instructions and contribution, conduct and issue-reporting guidance. DOI assignment and tagging await the maintainer’s instruction.
+
 # scpPower 1.0.0
 
 * M1 calibrates variance, missingness and mapped whole-PBMC donor variance.

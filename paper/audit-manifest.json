@@ -1,0 +1,62 @@
+{
+  "manuscript_file": "paper/manuscript.md",
+  "manuscript_sha256": "253f9b4eab98f4668d53e1950d84f041f24a9410045c91d391a19fea04365470",
+  "input_hashes": {
+    "reports/M1-final/calibration-table.csv": "f1909f83ebc9c55242925d43408905f2651fec41a34b7acb0af1594bfb4826af",
+    "reports/M1-final/run-manifest.json": "8e7dba706e988f3979d49d64d5788460b0a3ce4c8d92734237bda170e44ca03d",
+    "reports/M1-final/specht2019v3-proteins.csv": "ae7138101461701191dd2c666e8a13e7ed478e1e88b5a563f20af3ccdb9a56b7",
+    "reports/M1-final/leduc2022_pSCoPE-proteins.csv": "36c894fa1d4269ca9c114ae58449504e5a4043046ead79212e7e59d8082ff6c4",
+    "reports/M1-final/derks2022_timsTOF-proteins.csv": "bfdc862a14656e64c55a3cd4f98ab2d4287ca9247948fba527f2d228f2872eeb",
+    "reports/M1-final/derks2022_QExactive-proteins.csv": "2e72a68433128a4f3efc278783c64a015a150f85daaaefb0fcc26c697f021648",
+    "reports/M1-final/brunner2022-proteins.csv": "7ce03ecb417731535b2fa0250b92aca28938ea60319ab5189c6ccc9ad814fce3",
+    "reports/M1-final/dataset-summary.csv": "7b8281e1d08efe81bfacb516e3cf2ca26e0033c3feef56a4707867e7451d0b1c",
+    "reports/M3b/power-grid.csv": "81e796fee3b7f1f739bf76bad54c9f75bee264bfbfd7e9033dc51f4c95902975",
+    "reports/M3b/cheapest-designs.csv": "a80891406238d9882318a6f273dec064018a875d477cb3699c0704ba71a84ad9",
+    "reports/M3b/instrument-preset-manifest.json": "207f9c7a0bf99d7b01e66c6d895b894f6ffc335d2661703da6f6565e85a423c5",
+    "reports/M3b/replicate-metrics.csv.gz": "3d93bdaf56ae130cf08189fe619b411a66462315583f5bf2c7261118fd83423d",
+    "reports/M2-revised/fidelity-summary.csv": "a225c313872bc8f95c732c9b9529dd4c2cd4e19059d7335847bd74140fcbcf22",
+    "reports/M2b/fidelity-summary.csv": "50e2d340e61affdbebfa6ed1c4751609c25d0d15f9837235c24d37757293edcd",
+    "reports/M2/fidelity-summary.csv": "04a6ad3a8862be4b2be75cd482bf61269aa9f15015915bd8ee9b78753300c392",
+    "reports/M2-revised/fidelity-table.csv": "f5175fa01d111e7ce881d94ee80c44628f50fd98746a889bd9f72df6f031523d",
+    "reports/M2b/fidelity-table.csv": "f4f34375000faac2fd6e7540d9bc9583682e3ed11a7c0bf74b50e6b86a0ded78",
+    "reports/M4/dataset-verdicts.csv": "0ab8cf8eb8b8f3756d773316c0388eacd982b3eac412c47d311c60bc5608d38e",
+    "reports/M4b/dataset-verdicts.csv": "5ceb7e91944327b06e0f77666c1b679b315adce4e74e6dee51554668f65cee97",
+    "reports/M4/validation-table.csv": "d26a6eca29bf6b99f9502834c416888e014e8bafa540a7f9d44810b6110ef240",
+    "reports/M4b/validation-table.csv": "9858ff5d92993fb5d9fb684bc13e06445e8c94e575c664dba6ed2e0bc251c94e",
+    "reports/M4b/high-power-window.csv": "12231cca86a73b3cd4884b81dc556cffd6aadd4018eef71a2e3769245802d9fe",
+    "reports/J/decision-table.csv": "634975fe047a75adf475268db96dbf6b3fa732164b883dac4ee977100fe6d493",
+    "reports/J/native-depth-summary.csv": "1ae56d877fc40ab2cb2701da1cf87f31f8b4cbcb78611733aee9e71c590f29c3",
+    "reports/M5/worked-examples.csv": "314d534c00db75c6016eabb7c297994f9827fe95af793a47d7f49de25892a3d5",
+    "reports/M3b/run-manifest.json": "1fe74615f62acdf01aa396adf4eb669df5b38831b62d72e99fc18970df9a6092",
+    "reports/M4/source-summary.csv": "609789534ab240c6b3cb693ed99cea8d21778e3b95eef6fca611aee17cb2fd61",
+    "reports/M4/registration.json": "4c27d36a4859f643319a42ff370cf9e23965bc43d1132307f9063131b92be06e",
+    "reports/M5/pilot-protocol.pdf": "6bc1d6838ab952b157261f53fe9e8f63714c68a614646241c8dc0cb0e27c9257",
+    "reports/M3b/power-report.md": "aa7059a99569b25d8e61ebb3d55bb58abdba33411d109ef450f78bf501d49367"
+  },
+  "seed": {},
+  "seed_reason": "Deterministic audit of existing reports; no random draws",
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "registered_versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "wall_seconds": 4.144,
+  "claims_checked": 363,
+  "mismatches": 32,
+  "new_scientific_runs": false,
+  "rounding": "round(source_value, displayed decimal places); integer counts exact at zero decimals; quarter=0.25; halves=0.5. Unrounded target predicates checked separately.",
+  "outputs": {
+    "paper/audit-table.csv": "3fdba12caf8efeffcad9d51e67aea54c720469522608614f415628e1b327dd5c",
+    "paper/audit-mismatches.md": "e6fea726b70df03fcf0331c36569b2cf6c1b8875735429ec98fc25bbf6c80748",
+    "paper/audit-coverage.csv": "7d4e01cd8a5168aaca038d627d1b0c4357cebabba425bf071a07eb93be583df8"
+  }
+}

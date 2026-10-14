@@ -1,0 +1,7 @@
+S1, fidelity tables for the five series under the final simulator and the earlier failed version.
+S2, semi-synthetic validation tables and plots, first attempt and rerun.
+S3, the TMT mask diagnostic.
+S4, the full registered power grid with false discovery rate, rejection counts and instrument hours.
+S5, worked-example manifests.
+S6, the pilot protocol.
+S7, the frozen mandate and addenda (the registered record).

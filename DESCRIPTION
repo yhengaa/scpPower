@@ -1,6 +1,6 @@
 Package: scpPower
 Title: Calibration, Simulation and Power for Single-Cell Proteomics
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: person("Youshan", "Heng", email = "poggar@hotmail.com",
     role = c("aut", "cre"), comment = c(ORCID = "0000-0002-2758-171X"))
 Description: Estimates protein-level cell and acquisition-batch variance,

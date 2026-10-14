@@ -1,0 +1,50 @@
+{
+  "seed": 20261013,
+  "RNGkind": ["Mersenne-Twister", "Inversion", "Rejection"],
+  "versions": {
+    "R": "4.6.1",
+    "scp": "1.22.0",
+    "limma": "3.68.5",
+    "edgeR": "4.10.5",
+    "scplainer": "workflow in scp 1.22.0; no separate package"
+  },
+  "mandate_addendum": "1.1.3",
+  "dataset": "leduc2022_pSCoPE",
+  "input_hashes": {
+    "preset": "a21b8ab47ea186f193ca1c312bd85591890fed0620027b8949d1d7d38128f988",
+    "layout": "870cfa248f5ea3f5aa86ee649e84146b8bfc6cf9beb0e86a5ba6eced4a040ca2",
+    "grid": "902d79642addd8901136636f4f86e417ad01b5d69f261c9181adbdc8815d9bea"
+  },
+  "output_hashes": {
+    "results": "306b8ffe3233d21eb4788e7cb40a64df196b5c337cb5bf24e3d38893197dc451",
+    "replicate_metrics": "7a78b91dac4e5c3fd56c20db8cb82f13746090233b101c5cd5c4de92996319bc"
+  },
+  "seed_formula": "seed + 100000 * zero-based grid index + one-based replicate",
+  "replicates": 200,
+  "endpoint": {
+    "minimum_quantified_cells_per_sample": 3,
+    "testability": "minimum satisfied in every sample",
+    "design": "~ condition",
+    "inference": "limma-trend, eBayes(trend=TRUE)",
+    "BH_threshold": 0.05,
+    "power": "all truly changed proteins; BH rejection plus sign agreement",
+    "conditional_power": "detected changed / testable changed; NA when none are testable; mean of defined replicates",
+    "rejection_reporting": "mean BH rejections and fraction of replicates with zero BH rejections",
+    "realised_FDR": "mean FDP among BH rejections, null proteins/rejections; zero for no rejections",
+    "simulation_se": "SD of replicate estimate / sqrt(replicates)"
+  },
+  "instrument_time_source": {
+    "minutes_per_run": 95,
+    "source": "https://doi.org/10.1186/s13059-022-02817-5",
+    "definition": "Reported total TMT method, not the plexDIA method in the same paper",
+    "paper_sha256": "a0709a5b88595b09680edf54572fe4244c56a082a2bc9c2ec6be8efe839fea14",
+    "section_anchor": "All samples except for plexDIA single cells",
+    "section_sha256": "77d71e036d1890fcbf6eb7840174a0851746b25ff0ec9e499d1d2da2fcd543ee"
+  },
+  "instrument_time_definition": "Actual occupied batches times cited method/gradient duration; excludes any unreported overhead",
+  "target_power": 0.8,
+  "k_status": "Registered assumptions, not calibrated compression",
+  "between_donor_transfer_not_validated": true,
+  "M4_registration_unchanged": true,
+  "wall_seconds": 171.946
+}

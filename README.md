@@ -145,6 +145,8 @@ M4 validates cell-level noise, missingness and the registered test. It cannot va
 
 Code was written with the assistance of GPT (OpenAI) and independently reviewed with Claude (Anthropic), both under the author's direction. All scientific decisions, registered criteria, data choices and verifications are the author's.
 
-## Citation and licence
+## Citation
 
-Cite Youshan Heng, *scpPower*, version 1.0.0, using [CITATION.cff](CITATION.cff). scpPower is released under [GNU GPL version 3](https://www.gnu.org/licenses/gpl-3.0.html).
+Cite Youshan Heng, *scpPower*, using [CITATION.cff](CITATION.cff). scpPower is released under [GNU GPL version 3](https://www.gnu.org/licenses/gpl-3.0.html).
+
+Zenodo DOI: added at v1.0.1
